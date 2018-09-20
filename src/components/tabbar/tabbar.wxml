@@ -1,0 +1,12 @@
+<view class="tabbar-component" animation="{{animationData}}">
+    <block wx:for="{{style.items}}" wx:key="{{index}}">
+        <navigator class="tabbar-component-item"
+                   url="{{item.targetUrl}}"
+                   style="width:calc(100% / {{style.items.length}});">
+            <view class="item-navigator">
+                <image src="{{item.imageUrl}}" class="item-icon"></image>
+                <text class="item-text">{{item.text}}</text>
+            </view>
+        </navigator>
+    </block>
+</view>

@@ -1,0 +1,11 @@
+{
+  "component": true,
+  "usingComponents": {
+    "focus-people": "/template/focusPeople/focusPeople",
+    "focus-rank": "/template/focusRank/focusRank",
+    "index-focus": "/template/indexFocus/indexFocus",
+    "index-discover": "/template/indexDiscover/indexDiscover",
+    "index-ranking": "/template/indexRanking/indexRanking",
+    "tab": "/components/tab/tab"
+  }
+}

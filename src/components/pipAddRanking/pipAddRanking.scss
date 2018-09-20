@@ -1,0 +1,6 @@
+@import "../../static/css/mixin.scss";
+
+.pip-add-ranking-icon {
+  @include position(fixed, right, rpx(40), bottom, rpx(192));
+  @include imageStyle(rpx(96), rpx(96), 0)
+}

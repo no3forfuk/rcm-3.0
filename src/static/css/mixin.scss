@@ -1,0 +1,60 @@
+//Created By Dx on 2018/9/13
+@import "color";
+
+@function rpx($value) {
+  @return $value * 1rpx;
+}
+
+.grad {
+  background: linear-gradient(to top, $white 0%, $white 12%, $colorDefault 12%, $colorDefault 30%, $white 30%, $white 100%);
+}
+
+//限制行数
+@mixin limitTextLine($num:2) {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $num;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  overflow: hidden;
+}
+
+//文本样式
+@mixin textStyle($size:14px,$lh:20px,$fw:400) {
+  font-size: $size;
+  line-height: $lh;
+  font-weight: $fw;
+}
+
+//图片样式
+@mixin imageStyle($width,$height,$bdr:4px) {
+  width: $width;
+  height: $height;
+  border-radius: $bdr;
+}
+
+//页面布局
+@mixin layout($row:row,$align:center,$justify:flex-start,$wrap:nowarp) {
+  display: flex;
+  flex-wrap: $wrap;
+  align-items: $align;
+  flex-direction: $row;
+  justify-content: $justify;
+}
+
+//border
+@mixin border($width:1px,$type:solid,$color:#f0f0f0) {
+  border: $width $type $color;
+}
+
+//盒子样式
+@mixin box($w:100%,$h:auto) {
+  width: $w;
+  height: $h;
+}
+
+//定位
+@mixin position($p:absolute,$r:left,$rv:0,$c:top,$cv:0) {
+  position: $p;
+  #{$r}: $rv;
+  #{$c}: $cv;
+}

@@ -1,0 +1,30 @@
+@import "../../static/css/mixin.scss";
+
+.tabbar-component {
+  width: 100%;
+  height: rpx(100);
+  background-color: $colorAssist;
+  @include position(fixed, left, 0, bottom, 0);
+  @include layout(row, center, space-between);
+  &-item {
+    height: 100%;
+    @include layout(row, center, space-around);
+  }
+}
+
+.item-navigator {
+  height: 100%;
+  @include layout(row, center);
+}
+
+.item-icon {
+  width: rpx(56);
+  height: rpx(56);
+}
+
+.item-text {
+  font-size: 12px;
+  line-height: 17px;
+  color: #fff;
+  margin-left: rpx(10);
+}

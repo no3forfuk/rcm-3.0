@@ -1,0 +1,45 @@
+/* src/components/panel/panel.wxss */
+@import "../../static/css/mixin";
+
+.panel-component {
+  width: 100%;
+}
+
+.panel-component-body {
+  height: 44px;
+  @include layout(row, center);
+  &-text {
+    width: 100%;
+    height: rpx(64);
+    @include layout(row, center, space-around);
+    @include textStyle(18px, 25px);
+    position: relative;
+    color: $white;
+    .back-icon-box {
+      width: 50px;
+      height: rpx(38);
+      @include position(absolute, top, rpx(14), left, rpx(28));
+      .back-icon-img {
+        width: rpx(22);
+        height: rpx(38);
+      }
+    }
+  }
+  .body-search {
+    width: rpx(502);
+    height: 32px;
+    margin-left: rpx(30);
+    @include layout(row, center);
+    background-color: #D95F6E;
+    border-radius: rpx(3);
+    &-img {
+      @include imageStyle(rpx(31.2), rpx(31.2), 0);
+      margin-left: rpx(41.2);
+    }
+    &-text {
+      @include textStyle(12px, 17px);
+      margin-left: rpx(39.6);
+      color: #fff;
+    }
+  }
+}

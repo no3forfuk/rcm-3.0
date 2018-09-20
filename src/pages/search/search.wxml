@@ -1,0 +1,20 @@
+<view class="search-page">
+    <top-panel value="热搜" mode="text"></top-panel>
+    <view class="search-box">
+        <view class="search-box-input">
+            <image class="search-box-input-icon" src="/static/images/search@3x.png"></image>
+            <input type="text" class="search-box-input-input" focus="true" confirm-type="search"></input>
+        </view>
+        <view class="search-box-text">搜索</view>
+    </view>
+    <view class="before-search">
+        <view class="before-search-hot-words">
+            <text class="before-search-hot-words-label">热词</text>
+            <view class="before-search-hot-words-content">
+                <block wx:for="{{hotWordsList}}" wx:key="{{index}}">
+                    <text class="before-search-hot-words-content-text">{{item.search_key}}</text>
+                </block>
+            </view>
+        </view>
+    </view>
+</view>

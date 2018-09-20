@@ -1,0 +1,10 @@
+@import "color", "mixin";
+
+@function rpx($value) {
+  @return $value * 1rpx;
+}
+
+//背景下划线
+.grad {
+  background: linear-gradient(to top, $white 0%, $white 10%, $colorDefault 10%, $colorDefault 25%, $white 25%, $white 100%);
+}
