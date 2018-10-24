@@ -35,4 +35,27 @@ module.exports = {
             }
         })
     },
+    //获取热门榜单 getHotRank
+    getHotRank({params = {}, success}) {
+        return request({
+            uri: '/home/index/hotRanking',
+            params: params,
+            method: 'GET',
+            success(res) {
+                success(res)
+            }
+        })
+    },
+    //关键字搜索
+    searchByKeyWords({params = {}, success}) {
+        return request({
+            uri: '/home/search/search',
+            params: params,
+            method: 'POST',
+            success(res) {
+                success(res)
+            }
+        })
+    },
+
 }

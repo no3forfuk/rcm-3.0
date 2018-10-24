@@ -7,10 +7,9 @@ Component({
     properties: {
         bgc: {
             type: String,
-            value: '#E96676',
+            value: '#fff',
             observer(n, o, c) {
                 if (n === '#fff' || n === '#ffffff' || n === 'white') {
-                    console.log('a');
                     wx.setNavigationBarColor({
                         frontColor: '#000000',
                         backgroundColor: '#ffffff'

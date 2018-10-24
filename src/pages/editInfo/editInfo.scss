@@ -1,0 +1,21 @@
+@import "../../static/css/mixin.scss";
+
+.edit-item {
+  width: 100%;
+  margin-top: 12px;
+  height: rpx(92);
+  background-color: $white;
+  @include layout(row, center, space-between);
+  padding-left: rpx(28);
+  &-label {
+    color: $gray33;
+    @include textStyle(16px, 22px);
+  }
+  &-aside{
+
+  }
+}
+
+.edit-item-label {
+
+}

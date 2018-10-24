@@ -3,6 +3,7 @@
 .search-box {
   padding: rpx(28);
   padding-right: rpx(34);
+  width: 100%;
   background-color: $colorDefault;
   @include layout(row, center, space-between);
   &-input {
@@ -24,8 +25,11 @@
     }
   }
   &-text {
+    width: calc(100% - #{rpx(596)});
+    height: 100%;
     @include textStyle(15px, 21px);
     color: $white;
+    text-align: right;
   }
 }
 

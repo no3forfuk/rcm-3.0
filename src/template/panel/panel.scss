@@ -30,7 +30,7 @@
     height: 32px;
     margin-left: rpx(30);
     @include layout(row, center);
-    background-color: #D95F6E;
+    background-color: #f8f8f8;
     border-radius: rpx(3);
     &-img {
       @include imageStyle(rpx(31.2), rpx(31.2), 0);
@@ -39,7 +39,7 @@
     &-text {
       @include textStyle(12px, 17px);
       margin-left: rpx(39.6);
-      color: #fff;
+      color: $gray9b;
     }
   }
 }

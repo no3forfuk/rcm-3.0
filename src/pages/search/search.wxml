@@ -3,16 +3,22 @@
     <view class="search-box">
         <view class="search-box-input">
             <image class="search-box-input-icon" src="/static/images/search@3x.png"></image>
-            <input type="text" class="search-box-input-input" focus="true" confirm-type="search"></input>
+            <input type="text" class="search-box-input-input" focus="true" confirm-type="search"
+                   bindinput="setSearchKey"></input>
         </view>
-        <view class="search-box-text">搜索</view>
+        <view class="search-box-text" bindtap="search">
+            <text>搜索</text>
+        </view>
     </view>
     <view class="before-search">
         <view class="before-search-hot-words">
             <text class="before-search-hot-words-label">热词</text>
             <view class="before-search-hot-words-content">
                 <block wx:for="{{hotWordsList}}" wx:key="{{index}}">
-                    <text class="before-search-hot-words-content-text">{{item.search_key}}</text>
+                    <text class="before-search-hot-words-content-text"
+                          bindtap="search"
+                          data-key="{{item.search_key}}">{{item.search_key}}
+                    </text>
                 </block>
             </view>
         </view>

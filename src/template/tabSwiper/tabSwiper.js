@@ -11,6 +11,10 @@ Component({
         swiperData: {
             type: Array,
             value: []
+        },
+        currentPage: {
+            type: Number,
+            value: 1
         }
     },
     data: {

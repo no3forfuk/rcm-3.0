@@ -9,7 +9,7 @@
         <text class="user-card-info-name">{{userInfo.name}}</text>
         <text class="user-card-info-sign">{{userInfo.signature}}</text>
     </view>
-    <view class="user-card-setting">
+    <view class="user-card-setting" bindtap="goEditInfo">
         <image src="/static/images/set@3x.png" class="user-card-setting-icon"></image>
     </view>
 </view>

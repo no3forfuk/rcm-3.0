@@ -6,16 +6,46 @@ Page({
      * 页面的初始数据
      */
     data: {
-        hotWordsList: []
+        hotWordsList: [],
+        searchKey: ''
     },
+    setSearchKey(e) {
+        this.setData({
+            searchKey: e.detail.value
+        })
+    },
+    search(e) {
+        const key = e.currentTarget.dataset.key
+        if (key) {
+            this.setData({
+                searchKey: key
+            })
+        }
+        const len = this.data.searchKey.length
+        if (len == 0) {
+            wx.showToast({
+                title: '搜索内容不能为空',
+                mask: true,
+                duration: 1000
+            })
+        } else {
+            ajax.searchByKeyWords({
+                params: {
+                    type: 'all',
+                    search_key: this.data.searchKey
+                },
+                success: res => {
 
+                }
+            })
+        }
+    },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
         ajax.getHotKeyWords({
             success: res => {
-                console.log(res);
                 this.setData({
                     hotWordsList: res.data.hot
                 })

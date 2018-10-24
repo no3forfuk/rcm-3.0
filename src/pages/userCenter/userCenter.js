@@ -21,7 +21,7 @@ Page({
         optionData: [
             {
                 text: '榜单',
-                key: ''
+                key: 'rank'
             },
             {
                 text: '关注',
@@ -38,6 +38,11 @@ Page({
             //     link: '/pages/attention/attention'
             // }
         ]
+    },
+    goEditInfo() {
+        wx.navigateTo({
+            url: '/pages/editInfo/editInfo'
+        })
     },
     onGotUserInfo(res) {
         const infoData = {

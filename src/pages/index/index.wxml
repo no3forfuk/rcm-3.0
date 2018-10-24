@@ -2,9 +2,8 @@
     <top-panel mode="search"></top-panel>
     <view style="height:{{scrollHeight}}px;" id="tab-swiper">
         <tab-swiper tab-data="{{tabData}}"
+                    current-page="{{tabData.current}}"
                     swiper-data="{{swiperData}}"></tab-swiper>
     </view>
-    <tab-bar tabbar-data="{{tabbarData}}"></tab-bar>
-    <go-add-ranking></go-add-ranking>
 </view>
 

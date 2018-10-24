@@ -1,0 +1,10 @@
+<top-panel value="设置" mode="text"></top-panel>
+<block wx:for="{{editItem}}" wx:key="{{index}}">
+    <view class="edit-item" bindtap="edit" data-item="{{item}}">
+        <text class="edit-item-label">{{item.label}}</text>
+        <view class="edit-item-aside">
+
+        </view>
+    </view>
+</block>
+<tab-bar tabbar-data="{{tabbarData}}"></tab-bar>

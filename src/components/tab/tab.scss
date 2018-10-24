@@ -6,9 +6,8 @@
   @include layout(row, center, space-around);
   position: relative;
   padding: 10px 0 rpx(6) 0;
-  background-color: $colorDefault;
   &-item {
-    color: $white;
+    color: $black;
     height: 100%;
     @include layout(row, center, space-around);
     &-text {
@@ -18,13 +17,17 @@
   }
 }
 
+.active-class {
+  color: $colorDefault;
+}
+
 .tab-mark {
   width: 12px;
   height: 2px;
   border-radius: 2px;
-  background-color: #fff;
+  background-color: $colorDefault;
   position: absolute;
-  bottom: 1px;
+  bottom: 0px;
   left: rpx(0);
   transition: all 0.3s;
 }

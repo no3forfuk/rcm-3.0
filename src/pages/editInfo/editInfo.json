@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "top-panel": "/template/panel/panel",
+    "tab-bar": "/components/tabbar/tabbar"
+  }
+}
