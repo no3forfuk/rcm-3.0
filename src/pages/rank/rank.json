@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "rank-header": "/components/commonHeader/commonHeader",
+    "element-card": "./elementCard/elementCard"
+  }
+}

@@ -1,0 +1,26 @@
+<view class="ranking-header">
+    <view class="ranking-header-left">
+        <block wx:for="{{firstRankTags}}" wx:key="{{index}}">
+            <rank-tag value="{{item.ranking_name}}"
+                      bindclickTag="toggleFirstRank"
+                      data-index="{{index}}"
+                      data-item="{{item}}"
+                      color="{{index == currentFirstRankIndex?true:false}}"
+                      class="ranking-tag-item"></rank-tag>
+        </block>
+    </view>
+    <view>
+        <rank-switch items="{{sortMap}}"
+                     bindswitchChange="toggleSortType"
+                     current="{{sortMapIndex}}"></rank-switch>
+    </view>
+</view>
+<scroll-view scroll-y="true"
+             style="height:{{scrollHeight}}px;"
+             class="scroll-view-class">
+    <view class="ranking-body">
+        <block wx:for="{{rankList}}" wx:key="{{index}}">
+            <rank-item rank-info="{{item}}"></rank-item>
+        </block>
+    </view>
+</scroll-view>

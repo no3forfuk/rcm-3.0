@@ -1,0 +1,6 @@
+@import "../../static/css/mixin.scss";
+
+.right-fix {
+  @include layout(row, center, space-between);
+  width: 100%;
+}

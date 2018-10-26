@@ -1,15 +1,16 @@
 <view class="tab-component">
-    <block wx:for="{{style.items}}" wx:key="{{item.key}}">
-        <view class="tab-component-item {{index === style.current?'active-class':''}}"
-              style="width:calc(100% / {{style.items.length}});"
+    <block wx:for="{{tabItem}}" wx:key="{{index}}">
+        <view class="tab-component-item {{index === current?'active-class':''}}"
+              style="width:calc(100% / {{tabItem.length}});"
               bindtap="ontapitem"
               data-index="{{index}}"
               data-item="{{item}}">
             <text class="tab-component-item-text"
-                  animation="{{index === style.current? scale:unscale}}">{{item.label}}
+                  style="color: {{index === current?activeColor:fontColor}};background-color: {{bgColor}};font-size: {{fontSize}}"
+                  animation="{{index === current? scale:unscale}}">{{item.label}}
             </text>
         </view>
     </block>
     <view class="tab-mark"
-          style="width:{{markStyle.width * 1.2}}px;transform: translateX({{markStyle.left - (markStyle.width * 0.1)}}px)"></view>
+          style="width:{{markStyle.width * 1.2}}px;transform: translateX({{markStyle.left - (markStyle.width * 0.1)}}px);background-color:{{activeColor}};"></view>
 </view>

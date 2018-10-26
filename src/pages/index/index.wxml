@@ -1,9 +1,24 @@
 <view class="index-page">
-    <top-panel mode="search"></top-panel>
-    <view style="height:{{scrollHeight}}px;" id="tab-swiper">
-        <tab-swiper tab-data="{{tabData}}"
-                    current-page="{{tabData.current}}"
-                    swiper-data="{{swiperData}}"></tab-swiper>
+    <index-header></index-header>
+    <view class="index-page-tab">
+        <tab tab-item="{{tabData.items}}"
+             font-color="#161616"
+             font-size="16px"
+             bindchange="tabChange"
+             active-color="#499DFF"
+             current="{{tabData.current}}"></tab>
+        <swiper current="{{tabData.current}}"
+                style="height:{{scrollHeight}}px;"
+                bindchange="handleSwiperChange"
+                class="index-page-swiper">
+            <block wx:for="{{swiperData}}" wx:key="{{index}}">
+                <swiper-item>
+                    <index-focus wx:if="{{item.key === 'indexFocus'}}"></index-focus>
+                    <index-discover wx:if="{{item.key === 'indexDiscover'}}"></index-discover>
+                    <index-ranking wx:if="{{item.key === 'indexRanking'}}"></index-ranking>
+                </swiper-item>
+            </block>
+        </swiper>
     </view>
 </view>
 

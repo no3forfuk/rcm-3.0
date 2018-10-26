@@ -1,12 +1,12 @@
 //Created By Dx on 2018/9/13
-@import "color";
+@import "color","font";
 
 @function rpx($value) {
   @return $value * 1rpx;
 }
 
 .grad {
-  background: linear-gradient(to top, $white 0%, $white 12%, $colorDefault 12%, $colorDefault 30%, $white 30%, $white 100%);
+  background: linear-gradient(to top, $white 0%, $white 2%, $colorAssist 2%, $colorAssist 30%, $white 30%, $white 100%);
 }
 
 //限制行数

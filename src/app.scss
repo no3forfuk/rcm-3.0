@@ -7,7 +7,7 @@ page {
   background-color: #fff;
   position: relative;
   font-family: "PingFang SC", '萍方-简', '微软雅黑';
-  over-flow: hidden;
+  overflow: hidden;
 }
 
 view, scroll-view, swiper, movable-view, cover-view, text, icon, rich-text,
@@ -15,6 +15,6 @@ progress, button, checkbox-group, checkbox, form, input, label, picker,
 picker-view, radio-group, radio, slider, switch, textarea, navigator, audio,
 image, video, camera, live-player, live-pusher, map {
   box-sizing: border-box;
-  over-flow: hidden;
+  overflow: hidden;
 }
 

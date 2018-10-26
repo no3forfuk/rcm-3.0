@@ -1,7 +1,0 @@
-<top-panel value="我的关注" mode="text"></top-panel>
-<view style="height:{{scrollHeight}}px;" id="tab-swiper">
-    <tab-swiper tab-data="{{tabSwiperData.tabData}}"
-                current-page="{{tabSwiperData.tabData.current}}"
-                swiper-data="{{tabSwiperData.swiperData}}"></tab-swiper>
-</view>
-<tab-bar tabbar-data="{{tabbarData}}"></tab-bar>

@@ -1,8 +1,0 @@
-{
-  "usingComponents": {
-    "tab-swiper": "/template/tabSwiper/tabSwiper",
-    "top-panel": "/template/panel/panel",
-    "tab-bar": "/components/tabbar/tabbar",
-    "go-add-ranking": "/components/pipAddRanking/pipAddRanking"
-  }
-}

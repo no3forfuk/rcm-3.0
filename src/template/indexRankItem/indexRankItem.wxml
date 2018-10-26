@@ -1,0 +1,21 @@
+<view class="hot-rank-card">
+    <view class="hot-rank-card-content">
+        <card-title info="{{titleData}}" mode="large"></card-title>
+        <view class="card-desc" wx:if="{{!rankInfo.img}}">{{rankInfo.ranking_desc ||
+            '这里没有榜单描述世上歌手千千万万，每年演唱会多到根本没法下手！周末闲会多到根本没会多到根本没会多到根本没会多到根本没下来超想去看一场演唱会发个朋友圈但又没有特别喜欢的明星怎么办？！有选择困难症'}}
+        </view>
+        <fix-right fix-width="80"
+                   class="card-desc-type-img"
+                   space-width="8"
+                   wx:if="{{rankInfo.img}}"
+                   align-item="center">
+            <text slot="left" class="card-desc-type-img-text">{{rankInfo.ranking_desc}}</text>
+            <image slot="right"
+                   mode="aspectFit"
+                   catchtap="viewImage"
+                   data-url="{{rankInfo.img}}"
+                   class="card-desc-type-img-img"
+                   src="{{rankInfo.img}}"></image>
+        </fix-right>
+    </view>
+</view>

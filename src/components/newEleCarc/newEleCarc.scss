@@ -1,0 +1,32 @@
+@import "../../static/css/mixin.scss";
+
+.new-ele-card {
+  width: 100%;
+  height: rpx(129);
+  background-color: #f8f8f8;
+  padding: rpx(16);
+  padding-left: rpx(12);
+  @include layout(row, center, space-between);
+}
+
+.new-ele-card-left-img {
+  width: rpx(100);
+  height: rpx(98);
+}
+
+.new-ele-card-right {
+  width: calc(100% - #{rpx(112)});
+  height: 100%;
+  @include layout(row, center, space-between);
+  &-info {
+    padding: rpx(8) 0;
+    height: 100%;
+  }
+}
+
+.element-card-component-noimg {
+  width: rpx(100);
+  height: rpx(105);
+  @include layout(row, center, space-around);
+  border-radius: rpx(4);
+}

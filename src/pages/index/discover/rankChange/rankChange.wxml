@@ -1,0 +1,14 @@
+<view class="rank-change-item">
+    <view class="rank-change-label">
+        <text>排名变化</text>
+    </view>
+    <block wx:for="{{changeItem.changeData}}" wx:key="{{index}}">
+        <change-item change="{{item.flag == 1?'up':'down'}}"
+                     num="{{item.placing}}"
+                     text="{{item.name}}">
+        </change-item>
+    </block>
+    <view class="rank-change-target">
+        <rank-detail mode="normal" info="{{info}}"></rank-detail>
+    </view>
+</view>

@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "card-title": "/components/userCard/userCard",
+    "target-rank": "/components/rankCard/rankCard",
+    "new-ele": "/components/newEleCarc/newEleCarc"
+  }
+}

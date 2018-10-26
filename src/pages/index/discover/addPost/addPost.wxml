@@ -1,0 +1,23 @@
+<view class="add-post-find-item">
+    <card-title avatar-width="40"
+                avatar-height="40"
+                align-items="center"
+                user-info="{{userInfo}}">
+        <view class="card-title-right">
+            <text class="card-title-username">{{userInfo.name}}</text>
+            <title-rate mode="tiny" rate="{{postInfo.rate}}" wx:if="{{postInfo.rate}}"></title-rate>
+            <text class="cm-tips-text" wx:if="{{!postInfo.rate}}">评论了</text>
+        </view>
+    </card-title>
+    <view class="add-post-content">
+        <text class="limit-3-line cm-text" wx:if="{{!postInfo.img}}">{{postInfo.content}}</text>
+        <view class="add-post-content-imgtext" wx:if="{{postInfo.img}}">
+            <text class="add-post-content-imgtext-text limit-3-line cm-text">{{postInfo.content}}</text>
+            <image class="add-post-content-imgtext-img" src="{{postInfo.img}}"></image>
+        </view>
+    </view>
+    <view class="find-element-card">
+        <target-ele info="{{targetEle}}"></target-ele>
+    </view>
+    <target-rank mode="normal" info="{{targetRank}}"></target-rank>
+</view>

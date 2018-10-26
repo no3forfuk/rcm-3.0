@@ -1,0 +1,16 @@
+<view class="element-card-component">
+    <view class="element-card-component-left">
+        <view class="element-card-component-title">
+            <text class="element-card-component-title-rate cm2-num-rate">{{info.rate}}</text>
+            <text class="element-card-component-title-name cm2-h1">{{info.name}}</text>
+            <text class="element-card-component-title-score">{{info.score}}评分</text>
+        </view>
+        <text class="element-card-component-left-attr">{{info.attr}}</text>
+    </view>
+    <view class="element-card-component-right" wx:if="{{info.img}}">
+        <image src="{{info.img}}" class="element-card-component-right-img"></image>
+    </view>
+    <view class="element-card-component-noimg" wx:if="{{!info.img}}" style="background-color: {{color}};">
+        <text class="word-img">{{info.name[0]}}</text>
+    </view>
+</view>

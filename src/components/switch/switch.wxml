@@ -1,0 +1,5 @@
+<view class="switch-outer" bindtap="toggleSwitch">
+    <text class="switch-outer-item">{{items[0].text}}</text>
+    <text class="switch-outer-item">{{items[1].text}}</text>
+    <text class="active-item" animation="{{animationData}}">{{items[current].text}}</text>
+</view>

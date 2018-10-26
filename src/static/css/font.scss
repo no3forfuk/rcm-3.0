@@ -1,10 +1,72 @@
-@import "color", "mixin";
+@import "color";
 
 @function rpx($value) {
   @return $value * 1rpx;
 }
 
-//背景下划线
-.grad {
-  background: linear-gradient(to top, $white 0%, $white 10%, $colorDefault 10%, $colorDefault 25%, $white 25%, $white 100%);
+//一级标题
+.cm2-h1 {
+  color: #161616;
+  font-size: 17px;
+  line-height: 24px;
+  font-weight: 600;
 }
+
+//正文
+.cm-text {
+  color: #484848;
+  font-size: 15px;
+  line-height: 21px;
+}
+
+//提示性文字
+.cm-tips-text {
+  color: #9B9B9B;
+  font-size: 12px;
+  line-height: 27px;
+}
+
+//数字评分-大
+.cm2-num-rate {
+  color: $colorDefault;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+//单字替换图片
+.word-img {
+  color: #fff;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 24;
+}
+
+//限制3行
+.limit-3-line {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  overflow: hidden;
+}
+
+//新元素提示 新
+.cm-new-ele-tip {
+  padding: 0 rpx(24);
+  border-radius: 4px;
+  color: rgba(255, 48, 45, 1);
+  border: 1px solid rgba(255, 48, 45, 1);
+  font-size: 12px;
+  line-height: 17px;
+}
+
+.cm-ml-16 {
+  margin-left: rpx(16);
+}
+
+.cm-mr-16 {
+  margin-right: rpx(16);
+}
+
+

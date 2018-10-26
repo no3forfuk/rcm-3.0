@@ -1,7 +1,7 @@
 //Created By Dx on 2018/9/13
 //主要颜色变量
-$colorDefault: #E96676;
-$colorAssist: #F7A5AF;
+$colorDefault: #499DFF;
+$colorAssist: #9CCAFF;
 $black: #000;
 $gray16: #161616;
 $gray33: #333333;
@@ -15,47 +15,48 @@ $grayf8: #f8f8f8;
 $grayf0: #f0f0f0;
 $white: #fff;
 
-.black {
-
+$pipColor: #499DFF;
+.txt-black {
+  color: $black;
 }
 
-.gray16 {
+.txt-gray16 {
   color: $gray16;
 }
 
-.gray33 {
+.txt-gray33 {
   color: $gray33;
 }
 
-.gray48 {
+.txt-gray48 {
   color: $gray48;
 }
 
-.gray73 {
+.txt-gray73 {
   color: $gray73;
 }
 
-.gray98 {
+.txt-gray98 {
   color: $gray98;
 }
 
-.gray9b {
+.txt-gray9b {
   color: $gray9b;
 }
 
-.grayd1 {
+.txt-grayd1 {
   color: $grayd1;
 }
 
-.grayd8 {
+.txt-grayd8 {
   color: $grayd8;
 }
 
-.grayf8 {
+.txt-grayf8 {
   color: $grayf8;
 }
 
-.white {
+.txt-white {
   color: $white;
 }
 

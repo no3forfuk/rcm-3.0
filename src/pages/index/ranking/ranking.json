@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "rank-tag": "/components/tag/tag",
+    "rank-switch": "/components/switch/switch",
+    "rank-item": "/template/indexRankItem/indexRankItem"
+  }
+}

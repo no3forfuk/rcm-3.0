@@ -1,0 +1,15 @@
+<view class="new-ele-card">
+    <view class="new-ele-card-left-img" wx:if="{{info.img}}">
+        <image src="{{info.img}}" class="new-ele-card-left-img"></image>
+    </view>
+    <view class="element-card-component-noimg" wx:if="{{!info.img}}" style="background-color: {{color}};">
+        <text class="word-img">{{info.name[0]}}</text>
+    </view>
+    <view class="new-ele-card-right">
+        <view class="new-ele-card-right-info">
+            <text class="cm2-h1">{{info.name}}</text>
+            <rate rate="{{info.rate}}" mode="large" hasNum="true"></rate>
+        </view>
+        <text class="cm-new-ele-tip">新</text>
+    </view>
+</view>

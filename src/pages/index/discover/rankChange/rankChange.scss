@@ -1,0 +1,17 @@
+@import "../../../../static/css/mixin.scss";
+
+.rank-change-item {
+  margin-top: rpx(24);
+  background-color: #fff;
+}
+
+.rank-change-label {
+  @include textStyle(12px, 17px);
+  color: #9b9b9b;
+  padding: rpx(19) rpx(28);
+  border-bottom: 1px solid #F0F0F0;
+}
+
+.rank-change-target {
+  padding: rpx(17) rpx(28);
+}

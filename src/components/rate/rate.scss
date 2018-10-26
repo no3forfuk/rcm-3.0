@@ -1,0 +1,23 @@
+@import "../../static/css/mixin.scss";
+
+.rate-components {
+  @include layout(row, center);
+  &-icon-large {
+    width: rpx(34);
+    height: rpx(33);
+  }
+  &-num-large {
+    @include textStyle(15px, 15px);
+    color: $colorDefault;
+    margin-left: 5px;
+  }
+  &-icon-tiny {
+    width: rpx(27);
+    height: rpx(25);
+  }
+  &-num-tiny {
+    @include textStyle(15px, 15px);
+    color: $colorDefault;
+    margin-left: 5px;
+  }
+}

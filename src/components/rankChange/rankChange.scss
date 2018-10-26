@@ -1,0 +1,35 @@
+@import "../../static/css/mixin.scss";
+
+.rank-change-components {
+  width: rpx(750);
+  height: rpx(54);
+  background-color: #f8f8f8;
+  margin-top: rpx(15);
+  padding: rpx(6) rpx(28);
+  @include layout(row, center, space-between);
+  &-left {
+    @include layout(row, center);
+    &-num {
+      font-size: 18px;
+      font-weight: 600;
+    }
+    &-name {
+      font-size: 15px;
+      margin-left: rpx(28);
+    }
+  }
+  &-right {
+    @include layout(row, center);
+    &-sort {
+      font-size: 15px;
+    }
+  }
+}
+
+.up-style {
+  color: #FF302D;
+}
+
+.down-style {
+  color: #666;
+}

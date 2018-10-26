@@ -39,16 +39,24 @@ Page({
         scrollHeight: 0,
         currentPage: 1
     },
-    pageScroll(e) {
-        const [index, detail, tabbarData] = [e.currentTarget.dataset.index, e.detail, this.data.tabbarData]
-        const Y = e.detail.scrollHeight - e.detail.scrollTop - this.data.scrollHeight
-        if (detail.deltaY > 0) {
-            tabbarData.show = true
-        } else {
-            tabbarData.show = Y > 50 ? false : true
-        }
+    //切换tab页
+    tabChange(e) {
+        const detail = e.detail
         this.setData({
-            tabbarData
+            tabData: {
+                ...this.data.tabData,
+                current: detail.index
+            }
+        })
+    },
+    //切换swiper
+    handleSwiperChange(e) {
+        const detail = e.detail
+        this.setData({
+            tabData: {
+                ...this.data.tabData,
+                current: detail.current
+            }
         })
     },
     /**
@@ -62,12 +70,15 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-        app.tools.setScrollHeight('#tab-swiper', height => {
-            this.setData({
-                scrollHeight: height
-            })
-        });
-
+        app.tools.setScrollHeight({
+            target: '.index-page-swiper',
+            isComponent: false,
+            success: height => {
+                this.setData({
+                    scrollHeight: height
+                })
+            }
+        })
     },
 
     /**

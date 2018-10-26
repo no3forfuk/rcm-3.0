@@ -1,0 +1,6 @@
+<view class="search-header-components">
+    <view style="width: 100%;height:{{statusBarHeight}}px;"></view>
+    <view class="search-box">
+        <text>体验世界的导航</text>
+    </view>
+</view>

@@ -1,0 +1,6 @@
+<view class="right-fix" style="align-items:{{alignItem}}">
+    <view style="width: calc(100% - {{fixWidth + spaceWidth}}px);">
+        <slot name="left"></slot>
+    </view>
+    <slot name="right"></slot>
+</view>

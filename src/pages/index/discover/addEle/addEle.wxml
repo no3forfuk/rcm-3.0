@@ -1,0 +1,15 @@
+<view class="find-add-ele">
+    <card-title avatar-width="40"
+                avatar-height="40"
+                align-items="center"
+                user-info="{{userInfo}}">
+        <view class="card-title-right">
+            <text class="cm-tips-text cm-ml-16 cm-mr-16">{{userInfo.name}}</text>
+            <text class="cm-tips-text">添加了排名</text>
+        </view>
+    </card-title>
+    <view class="target-ele">
+        <new-ele info="{{targetEle}}"></new-ele>
+    </view>
+    <target-rank mode="normal" info="{{targetRank}}"></target-rank>
+</view>

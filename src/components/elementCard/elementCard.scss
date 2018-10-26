@@ -1,0 +1,48 @@
+@import "../../static/css/mixin.scss";
+
+.element-card-component {
+  width: 100%;
+  height: rpx(135);
+  background-color: #f8f8f8;
+  padding: rpx(16) rpx(24);
+  @include layout(row, center, space-between);
+  &-left {
+    width: calc(100% - #{rpx(116)});
+    height: 100%;
+    &-attr {
+      @include limitTextLine(1);
+      color: #484848;
+      @include textStyle(12px, 17px);
+      margin-top: rpx(12);
+    }
+  }
+  &-right {
+    width: rpx(100);
+    height: rpx(105);
+    &-img {
+      width: rpx(100);
+      height: rpx(105);
+    }
+  }
+}
+
+.element-card-component-noimg {
+  width: rpx(100);
+  height: rpx(105);
+  @include layout(row, center, space-around);
+  border-radius: rpx(4);
+}
+
+.element-card-component-title {
+  width: 100%;
+  @include layout(row, flex-end);
+  &-score {
+    margin-left: rpx(12);
+    width: rpx(106);
+    @include textStyle(12px, 17px);
+    color: #9b9b9b;
+  }
+  &-name {
+    margin-left: rpx(12);
+  }
+}

@@ -1,0 +1,147 @@
+@import "../../static/css/mixin.scss";
+
+.rank-page {
+  width: 100%;
+  height: 100%;
+  background-color: #f8f8f8;
+}
+
+.rank-pandect {
+  width: 100%;
+  height: rpx(162);
+  background-color: #fff;
+  margin-top: rpx(24);
+  padding: rpx(28) rpx(28) rpx(20) rpx(28);
+  &-top {
+    width: 100%;
+    @include layout(row, center, space-between);
+    &-backicon {
+      width: rpx(14);
+      height: rpx(24);
+    }
+    &-before {
+      @include layout(row, center);
+      &-icon {
+        width: rpx(26);
+        height: rpx(28);
+      }
+      &-name {
+        @include textStyle(17px, 24px, 600);
+        width: rpx(442);
+        @include limitTextLine(1);
+        margin-left: rpx(12);
+      }
+      &-weidu {
+        @include textStyle(12px, 14px);
+        color: #9b9b9b;
+        background-color: #f8f8f8;
+        border-radius: rpx(6);
+        padding: rpx(6) rpx(12);
+        margin-left: rpx(44);
+      }
+    }
+  }
+  &-bottom {
+    width: 100%;
+    @include layout(row, center, space-between);
+    margin-top: rpx(26);
+    &-left {
+      @include layout(row, center);
+      &-focus {
+        padding: 0 rpx(16);
+        border: 1px solid $colorDefault;
+        color: $colorDefault;
+        @include layout(row, center);
+        border-radius: rpx(4);
+        @include textStyle(14px, 20px);
+        margin-left: rpx(38);
+        &-icon {
+          width: rpx(26);
+          height: rpx(26);
+          margin-right: rpx(6);
+        }
+      }
+    }
+    &-more-icon {
+      width: rpx(42);
+      height: rpx(42);
+    }
+  }
+}
+
+.rank-scroll-view {
+  width: 100%;
+  background-color: #fff;
+}
+
+.scroll-title {
+  padding: rpx(28);
+  @include layout(row, center, space-between);
+  &-label {
+    @include textStyle(16px, 22px, 600);
+    color: #161616;
+  }
+  &-add-btn {
+    width: rpx(244);
+    height: rpx(52);
+    background: rgba(248, 248, 248, 1);
+    border-radius: rpx(8);
+    @include layout(row, center, space-between);
+    padding: rpx(6) rpx(16);
+    @include textStyle(14px, 20px);
+    color: $colorDefault;
+    &-icon {
+      width: rpx(26);
+      height: rpx(26);
+    }
+  }
+}
+
+.element-card {
+  width: 100%;
+  height: rpx(240);
+  background-color: #fff;
+  padding: rpx(24) 0;
+  @include layout(row, center, space-between);
+  &-number {
+    @include textStyle(24px, 33px, 600);
+    color: #161616;
+    flex: rpx(106);
+    @include layout(row, center, space-around);
+    height: 100%;
+    padding-bottom: rpx(29);
+  }
+  &-right {
+    flex: rpx(644);
+    height: 100%;
+    @include layout(column, flex-end, space-between);
+    &-body {
+      width: 100%;
+      height: rpx(153);
+    }
+  }
+}
+
+.level1 {
+  color: #FF302D;
+}
+
+.level2 {
+  color: #FBAE2B;
+}
+
+.level3 {
+  color: #DBC422;
+}
+
+.qing-tips-1 {
+  color: $gray9b;
+  @include textStyle(12px, 17px);
+  margin-left: rpx(88);
+}
+
+.qing-tips-2 {
+  color: $gray9b;
+  @include textStyle(12px, 17px);
+  margin-left: rpx(22);
+}

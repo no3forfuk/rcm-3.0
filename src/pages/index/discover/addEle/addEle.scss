@@ -1,0 +1,17 @@
+@import "../../../../static/css/mixin.scss";
+
+.find-add-ele {
+  width: 100%;
+  padding: rpx(28);
+  background-color: #fff;
+  margin-top: rpx(24);
+}
+
+.target-ele {
+  width: 100%;
+  padding: rpx(23) rpx(0) rpx(17) rpx(0);
+}
+
+.card-title-right {
+  @include layout(row, center);
+}

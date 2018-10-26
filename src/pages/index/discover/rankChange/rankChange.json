@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "change-item": "/components/rankChange/rankChange",
+    "rank-detail": "/components/rankCard/rankCard"
+  }
+}

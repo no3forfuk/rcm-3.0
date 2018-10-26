@@ -1,34 +1,48 @@
-const wxs = getApp().globalwxs
+const app = getApp()
 Component({
     /**
      * 组件的属性列表
      */
     properties: {
-        tabData: {
-            type: Object,
-            value: null,
+        tabItem: {
+            value: [],
+            type: Array
+        },
+        current: {
+            value: 0,
+            type: Number,
             observer(n, o, c) {
-                if (n) {
-                    this.setData({
-                        style: n
-                    })
-                    this.unscale()
-                    this.setCurrentStyle(n.current)
-                } else {
-                    return
-                }
+                this.setData({
+                    current: n
+                })
+                this.unscale()
+                this.setCurrentStyle(n)
             }
+        },
+        fontColor: {
+            value: '#000',
+            type: String,
+        },
+        bgColor: {
+            value: '#fff',
+            type: String,
+        },
+        fontSize: {
+            value: '16px',
+            type: String,
+        },
+        activeColor: {
+            value: '#499DFF',
+            type: String,
         }
     },
     data: {
-        style: {},
+        current: 0,
+        tabHeaderArray: [],
         markStyle: {
             width: 0,
             left: 0
-        },
-        tabHeaderArray: [],
-        scale: {},
-        unscale: {}
+        }
     },
     attached() {
 
@@ -45,7 +59,7 @@ Component({
                     this.setData({
                         tabHeaderArray: res[0]
                     })
-                    this.setCurrentStyle(this.data.style.current)
+                    this.setCurrentStyle(this.data.current)
                 }
             })
         })();
@@ -54,14 +68,13 @@ Component({
         ontapitem(e) {
             this.unscale()
             const dataset = e.currentTarget.dataset
-            const style = this.data.style
-            if (dataset.index === style.current) {
+            const index = this.data.current
+            if (dataset.index === index) {
                 return
             } else {
                 this.setCurrentStyle(dataset.index)
-                style.current = dataset.index
                 this.setData({
-                    style
+                    current: dataset.index
                 })
                 this.triggerEvent('change', dataset)
             }

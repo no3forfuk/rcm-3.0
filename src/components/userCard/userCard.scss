@@ -1,0 +1,6 @@
+@import "../../static/css/mixin.scss";
+
+.user-card-component {
+  width: 100%;
+  @include layout(row);
+}

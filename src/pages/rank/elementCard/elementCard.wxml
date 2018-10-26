@@ -1,0 +1,21 @@
+<view class="element-card">
+    <view class="element-card-img">
+        <image src="{{info.img}}"
+               wx:if="{{info.img}}"
+               class="element-card-img-img"
+               mode="aspectFit"></image>
+        <view class="element-card-noimg" wx:if="{{!info.img}}">
+            <text>{{info.element_name[0]}}</text>
+        </view>
+    </view>
+    <view class="element-card-right">
+        <view class="element-card-right-name">
+            <text class="element-card-right-name-text">{{info.element_name}}</text>
+            <text class="{{info.rateStatus == 1? 'rated':'no-rate'}}">{{info.rateStatus == 1? '已评分':'评分'}}</text>
+        </view>
+        <ele-rate rate="{{rateIndex}}" mode="large" hasNum="true"></ele-rate>
+        <view class="element-card-right-attr">
+            <text class="element-card-right-attr-text">乐队/台湾/组合乐队/台湾/组合乐队/属性/属性/属性/属性/属性/属性乐队/台湾/组合乐队/台湾/组合乐队/属性/属性/属性/属性/属性/属性…乐队/台湾/组合乐队/台湾/组合乐队/属性/属性/属性/属性/属性/属</text>
+        </view>
+    </view>
+</view>

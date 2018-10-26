@@ -13,6 +13,40 @@ module.exports = {
             }
         })
     },
+    //获取一级榜单列表
+    getFirstRankList({params = {}, success}) {
+        return request({
+            uri: '/home/index/firstList',
+            params: params,
+            method: 'GET',
+            success(res) {
+                success(res)
+            }
+        })
+    },
+    //获取首页热门榜单
+    getIndexHotRank({params = {}, success}) {
+        return request({
+            uri: '/home/index/hotRanking',
+            params: params,
+            method: 'GET',
+            success(res) {
+                success(res)
+            }
+        })
+    },
+    //获取榜单详情
+    getRankDetails({params = {}, success}) {
+        return request({
+            uri: '/home/ranking/getRanking',
+            params: params,
+            method: 'GET',
+            success(res) {
+                success(res)
+            }
+        })
+    },
+    //-------------------------------------------------------
     //获取个人信息
     getSelfInfo({params = {}, success}) {
         return request({

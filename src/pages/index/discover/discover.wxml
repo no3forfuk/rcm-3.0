@@ -1,0 +1,9 @@
+<scroll-view class="discover-page"
+             style="height:{{scrollHeight}}px;"
+             scroll-y="true">
+    <block wx:for="{{finderList}}" wx:key="{{index}}">
+        <rank-change wx:if="{{item.type==1}}" change-item="{{item}}"></rank-change>
+        <add-post wx:if="{{item.type==2}}" add-info="{{item}}"></add-post>
+        <add-ele wx:if="{{item.type==3}}" add-info="{{item}}"></add-ele>
+    </block>
+</scroll-view>

@@ -1,0 +1,12 @@
+@import "../../static/css/mixin.scss";
+
+.tag-component {
+  padding: rpx(6) rpx(12);
+  font-size: 15px;
+  border-radius: rpx(6);
+  background-color: $grayf8;
+}
+
+.active-color {
+  color: $pipColor;
+}

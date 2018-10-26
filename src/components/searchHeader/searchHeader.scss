@@ -1,0 +1,14 @@
+@import "../../static/css/mixin.scss";
+
+.search-header-components {
+  background-color: #fff;
+}
+
+.search-box {
+  width: rpx(502);
+  height: rpx(64);
+  background-color: #F8F8F8;
+  border-radius: rpx(3);
+  margin-top: rpx(8);
+  margin-left: rpx(28);
+}

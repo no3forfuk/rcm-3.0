@@ -1,0 +1,19 @@
+<view class="rate-components">
+    <block wx:for="{{total}}" wx:key="{{index}}" wx:if="{{mode == 'large'}}">
+        <image wx:if="{{int !== index}}"
+               class="rate-components-icon-large"
+               src="../../static/images/{{int > index?'StarFullTangible@3x.png':'StarNullTangible@3x.png'}}"></image>
+        <image wx:if="{{int == index}}"
+               class="rate-components-icon-large"
+               src="../../static/images/{{float > 0?'StarHalfTangible@3x.png':'StarNullTangible@3x.png'}}"></image>
+    </block>
+    <block wx:for="{{total}}" wx:key="{{index}}" wx:if="{{mode == 'tiny'}}">
+        <image wx:if="{{int !== index}}"
+               class="rate-components-icon-tiny"
+               src="../../static/images/{{int > index?'StarLittleFull@3x.png':'StarLittleNull@3x.png'}}"></image>
+        <image wx:if="{{int == index}}"
+               class="rate-components-icon-tiny"
+               src="../../static/images/{{float > 0?'StarLittleHalf@3x.png':'StarLittleNull@3x.png'}}"></image>
+    </block>
+    <text class="rate-components-num-large" wx:if="{{hasNum}}">{{rate}}</text>
+</view>

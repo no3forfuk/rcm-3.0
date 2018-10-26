@@ -1,0 +1,58 @@
+@import "../../static/css/mixin.scss";
+
+.common-header-component {
+  background-color: #fff;
+}
+
+.common-header-title {
+  height: rpx(88);
+  width: 100%;
+  background-color: #fff;
+  padding: rpx(8) rpx(14);
+  //padding-top: rpx(10);
+  @include layout(row);
+  &-menu {
+    width: rpx(174);
+    height: rpx(60);
+    border-radius: rpx(30);
+    border: rpx(1) solid rgba(0, 0, 0, 0.1);
+    @include layout(row, center, space-between);
+    &-back {
+      width: calc(50% - 1px);
+      height: 100%;
+      @include layout(row, center, space-around);
+      &-icon {
+        width: rpx(20);
+        height: rpx(32);
+      }
+    }
+    &-home {
+      width: calc(50% - 1px);
+      height: 100%;
+      @include layout(row, center, space-around);
+      &-icon {
+        width: rpx(32);
+        height: rpx(32);
+      }
+    }
+  }
+  &-text {
+    width: calc(100% - #{rpx(174 * 2)});
+    height: rpx(60);
+    color: #161616;
+    @include layout(row, center, space-around);
+    @include textStyle(16px 25px);
+    &-text {
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}
+
+.spliter {
+  width: 1px;
+  height: rpx(32);
+  background-color: rgba(0, 0, 0, .2);
+}

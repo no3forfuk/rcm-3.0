@@ -1,9 +1,9 @@
 {
   "usingComponents": {
-    "top-panel": "/template/panel/panel",
-    "tab-swiper": "/template/tabSwiper/tabSwiper",
     "tab": "/components/tab/tab",
-    "tab-bar": "/components/tabbar/tabbar",
-    "go-add-ranking": "/components/pipAddRanking/pipAddRanking"
+    "index-header": "/components/searchHeader/searchHeader",
+    "index-focus": "./focus/focus",
+    "index-discover": "./discover/discover",
+    "index-ranking": "./ranking/ranking"
   }
 }

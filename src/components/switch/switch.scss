@@ -1,0 +1,27 @@
+@import "../../static/css/mixin.scss";
+
+.switch-outer {
+  color: #d1d1d1;
+  background-color: #f3f3f3;
+  height: rpx(48);
+  border-radius: rpx(48);
+  @include layout(row, center, space-between);
+  position: relative;
+  &-item {
+    @include textStyle(14px, 20px);
+    border: rpx(2) solid #f3f3f3;
+    padding: rpx(4) rpx(18);
+    height: 100%;
+  }
+}
+
+.active-item {
+  padding: rpx(4) rpx(18);
+  height: 100%;
+  background-color: #fff;
+  color: #161616;
+  border-radius: rpx(48);
+  border: rpx(2) solid rgba(227, 227, 227, 1);
+  @include textStyle(14px, 20px);
+  @include position(absolute, left, 0, top, 0)
+}

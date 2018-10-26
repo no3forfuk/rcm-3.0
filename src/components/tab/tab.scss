@@ -5,7 +5,7 @@
   height: 34px;
   @include layout(row, center, space-around);
   position: relative;
-  padding: 10px 0 rpx(6) 0;
+  padding: 8px 0 rpx(6) 0;
   &-item {
     color: $black;
     height: 100%;

@@ -1,0 +1,70 @@
+@import "../../../static/css/mixin.scss";
+
+.element-card {
+  width: 100%;
+  height: 100%;
+  padding-right: rpx(28);
+  @include layout(row, center, space-between);
+  &-right {
+    width: rpx(418);
+    height: 100%;
+    padding: rpx(2) 0;
+    &-name {
+      @include textStyle(17px, 24px, 600);
+      @include layout(row, center, space-between);
+      color: #161616;
+      &-text {
+        width: rpx(300);
+        @include limitTextLine(1);
+      }
+    }
+    &-attr {
+      width: 100%;
+      @include textStyle(12px, 17px);
+      color: #9b9b9b;
+      margin-top: rpx(8);
+      &-text {
+        width: 100%;
+        @include limitTextLine(2);
+      }
+    }
+  }
+}
+
+.element-card-img {
+  width: rpx(168);
+  height: rpx(153);
+  border-radius: rpx(20);
+  overflow: hidden;
+  &-img {
+    width: rpx(168);
+    height: rpx(153);
+  }
+}
+
+.element-card-noimg {
+  width: rpx(168);
+  height: rpx(153);
+  @include layout(row, center, space-around);
+  background-color: $colorDefault;
+  color: #fff;
+  @include textStyle(17px);
+}
+
+.no-rate {
+  padding: rpx(1) rpx(24);
+  color: $colorDefault;
+  background-color: #fff;
+  border-radius: rpx(8);
+  border: rpx(2) solid $colorDefault;
+  @include textStyle(15px, 21px)
+}
+
+.rated {
+  padding: rpx(2) rpx(12);
+  color: #D1D1D1;
+  background-color: #fff;
+  border-radius: rpx(8);
+  border: rpx(2) solid #D1D1D1;
+  @include textStyle(15px, 21px)
+}
