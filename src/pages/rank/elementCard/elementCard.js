@@ -14,6 +14,7 @@ Component({
         rateIndex: 0,
         floatIndex: 0,
         intIndex: 0,
+        color: ''
     },
     attached() {
 
@@ -25,6 +26,10 @@ Component({
             rateIndex: round + num / 10,
             floatIndex: num,
             intIndex: parseInt(round / 2)
+        })
+        const colorIndex = parseInt(Math.random() * 5);
+        this.setData({
+            color: app.randomColor[colorIndex]
         })
     },
     methods: {}

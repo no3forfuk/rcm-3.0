@@ -1,0 +1,25 @@
+@import "../../static/css/mixin.scss";
+
+.post-card-component {
+  padding: rpx(20) 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.post-header-right {
+  width: 100%;
+  @include layout(row, center, space-between);
+  padding-left: rpx(12);
+  padding-right: rpx(28);
+}
+
+.post-header-right-before-top {
+  @include layout(row, center);
+}
+
+.post-card-component-content {
+  padding: 0 rpx(28);
+  margin-top: rpx(6);
+  &-text {
+    @include limitTextLine(4);
+  }
+}

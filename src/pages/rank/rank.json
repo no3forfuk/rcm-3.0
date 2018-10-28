@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "rank-header": "/components/commonHeader/commonHeader",
-    "element-card": "./elementCard/elementCard"
+    "element-card": "./elementCard/elementCard",
+    "popup-tab":"./popupTab/popupTab"
   }
 }

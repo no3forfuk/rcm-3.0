@@ -47,6 +47,17 @@ module.exports = {
         })
     },
     //-------------------------------------------------------
+    //获取热帖
+    getHotPost({params = {}, success}) {
+        return request({
+            uri: '/home/index/hotPost',
+            params: params,
+            method: 'GET',
+            success(res) {
+                success(res)
+            }
+        })
+    },
     //获取个人信息
     getSelfInfo({params = {}, success}) {
         return request({

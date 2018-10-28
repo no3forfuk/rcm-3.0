@@ -10,7 +10,17 @@ Page({
         elementList: [],
         pageElementList: [],
         popupElementList: [],
-        scrollHeight: 0
+        scrollHeight: 0,
+        bottomTab: [{
+            label: '排名',
+            key: 'rank'
+        }, {
+            label: '帖子',
+            key: 'post'
+        }, {
+            label: '活动',
+            key: 'active'
+        }]
     },
 
     /**
@@ -19,7 +29,9 @@ Page({
     onLoad(options) {
 
     },
-
+    openBottmTab() {
+        this.selectComponent("#bottomTab").slideUp();
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
@@ -50,7 +62,7 @@ Page({
                 const arr = res.data.data.data
                 this.setData({
                     rankData: res.data,
-                    elementList: arr.splice(0, 5),
+                    elementList: arr.splice(0, 8),
                     popupElementList: arr
                 })
             }

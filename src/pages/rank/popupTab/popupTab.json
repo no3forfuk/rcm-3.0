@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "pop-rank": "../popupRank/popupRank",
+    "pop-post": "../popupPost/popupPost",
+    "pop-active": "../popupActive/popupActive"
+  }
+}

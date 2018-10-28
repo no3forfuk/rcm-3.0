@@ -1,0 +1,19 @@
+<view class="post-card-component">
+    <post-header avatar-width="60"
+                 avatar-height="60"
+                 user-info="{{userInfo}}">
+        <view class="post-header-right">
+            <view class="post-header-right-before">
+                <view class="post-header-right-before-top">
+                    <text class="cm-tips-text cm-mr-16">{{postInfo.create_user}}</text>
+                    <text class="cm-tips-text ">{{postInfo.created_at}}</text>
+                </view>
+                <post-rate mode="tiny" rate="{{rate}}"></post-rate>
+            </view>
+            <text class="cm-tag">{{postInfo.element_name}}</text>
+        </view>
+    </post-header>
+    <view class="post-card-component-content">
+        <text class="cm-text post-card-component-content-text">{{postInfo.post_content}}</text>
+    </view>
+</view>

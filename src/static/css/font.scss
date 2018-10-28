@@ -12,6 +12,13 @@
   font-weight: 600;
 }
 
+//小标题
+.cm2-sm-title {
+  color: #333;
+  font-size: 14px;
+  line-height: 20px;
+}
+
 //正文
 .cm-text {
   color: #484848;
@@ -19,11 +26,20 @@
   line-height: 21px;
 }
 
+//标签
+.cm-tag {
+  font-size: 12px;
+  line-height: 17px;
+  color: #666;
+  border-radius: 3px;
+  border: 1px solid #f0f0f0;
+}
+
 //提示性文字
 .cm-tips-text {
   color: #9B9B9B;
   font-size: 12px;
-  line-height: 27px;
+  line-height: 17px;
 }
 
 //数字评分-大

@@ -21,10 +21,12 @@
             <image src="../../static/images/More@3x.png" class="rank-pandect-bottom-more-icon"></image>
         </view>
     </view>
-    <view style="height: 24rpx;width: 100%;background-color: #f8f8f8;"></view>
     <scroll-view style="height:{{scrollHeight}}px;"
                  scroll-y="true"
+                 bindscrolltolower="openBottmTab"
+                 lower-threshold="30"
                  class="rank-scroll-view">
+        <view style="height: 24rpx;width: 100%;background-color: #f8f8f8;"></view>
         <view class="scroll-title">
             <text class="scroll-title-label grad">排名</text>
             <view class="scroll-title-add-btn">
@@ -45,5 +47,11 @@
                 </view>
             </view>
         </block>
+        <view style="width: 100%;height: 41px;"></view>
     </scroll-view>
+    <popup-tab height="{{scrollHeight}}"
+               id="bottomTab"
+               catchtouchmove="true"
+               rank-list="{{popupElementList}}"
+               tab-list="{{bottomTab}}"></popup-tab>
 </view>

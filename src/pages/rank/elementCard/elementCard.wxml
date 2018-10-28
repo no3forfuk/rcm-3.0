@@ -4,7 +4,7 @@
                wx:if="{{info.img}}"
                class="element-card-img-img"
                mode="aspectFit"></image>
-        <view class="element-card-noimg" wx:if="{{!info.img}}">
+        <view class="element-card-noimg" wx:if="{{!info.img}}" style="background-color: {{color}};">
             <text>{{info.element_name[0]}}</text>
         </view>
     </view>

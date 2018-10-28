@@ -1,0 +1,31 @@
+<view class="popup-tab-component"
+      animation="{{animationData}}"
+      style="height: {{height}}px;bottom:{{41 -height}}px;">
+    <view class="top-tab"
+          bindtap="slideUp"
+          bindtouchstart="touchStart"
+          bindtouchend="touchEnd">
+        <view class="top-tab-handle"></view>
+        <view class="top-tab-item-box" animation="{{marginAnimation}}" style="transform: translateX({{marginLeft}}px);">
+            <block wx:for="{{tabList}}" wx:key="{{index}}">
+                <view class="top-tab-item"
+                      data-index="{{index}}"
+                      bindtap="toggleTab">
+                    <text class="top-tab-item-text">{{item.label}}</text>
+                </view>
+            </block>
+        </view>
+        <view class="top-tab-mark" style="transform: translateX({{markerLeft}}px);"></view>
+    </view>
+    <view class="popup-tab-body" style="height: {{height-41}}px;">
+        <swiper current="{{tabCurrentIndex}}"
+                bindchange="handleSwiperChange"
+                class="popup-tab-body-swiper">
+            <swiper-item wx:for="{{tabList}}" wx:key="{{index}}">
+                <pop-rank wx:if="{{item.key == 'rank'}}" element-list="{{rankList}}" height="{{height-41}}"></pop-rank>
+                <pop-post wx:if="{{item.key == 'post'}}" height="{{height-41}}"></pop-post>
+                <pop-active wx:if="{{item.key == 'active'}}"></pop-active>
+            </swiper-item>
+        </swiper>
+    </view>
+</view>
