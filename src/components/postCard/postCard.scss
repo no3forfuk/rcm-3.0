@@ -6,7 +6,6 @@
 }
 
 .post-header-right {
-  width: 100%;
   @include layout(row, center, space-between);
   padding-left: rpx(12);
   padding-right: rpx(28);
@@ -17,9 +16,14 @@
 }
 
 .post-card-component-content {
-  padding: 0 rpx(28);
   margin-top: rpx(6);
   &-text {
     @include limitTextLine(4);
   }
+}
+
+.post-card-component-opts {
+  @include layout(row, center, flex-end);
+  margin-top: rpx(22);
+
 }

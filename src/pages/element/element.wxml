@@ -1,0 +1,101 @@
+<view class="element-page">
+    <ele-header title="{{elementDetails.element_name}}" id="eleHeader"></ele-header>
+    <view class="element-header-detail">
+        <image src="{{elementDetails.img}}" wx:if="{{elementDetails.img}}" class="element-header-detail-img"></image>
+        <view class="element-header-detail-img-name" wx:if="{{!elementDetails.img}}"
+              style="background-color: {{color}};">
+            <text class="word-img">{{elementDetails.element_name[0]}}</text>
+        </view>
+        <view class="element-header-detail-desc">
+            <text class="cm2-h1 limit-1-line">{{elementDetails.element_name}}</text>
+            <tetx class="cm-tips-text">组合/台湾/属性3/属性4/属性5/属性6/属性7/属性8/属性9/属性10</tetx>
+            <view class="element-header-detail-desc-opts">
+                <view class="element-header-detail-desc-opts-left">
+                    <view class="element-header-detail-desc-opts-left-focus">
+                        <image src="../../static/images/add@3x.png"
+                               class="element-header-detail-desc-opts-left-focus-icon"></image>
+                        <text>关注</text>
+                    </view>
+                    <text class="tag-tips-text" style="text-align: right;">7个讨论</text>
+                    <text class="tag-tips-text" style="text-align: right;">4012人评分</text>
+                </view>
+                <image src="../../static/images/More@3x.png" class="element-header-detail-desc-opts-more-icon"></image>
+            </view>
+        </view>
+    </view>
+    <scroll-view scroll-y="true" style="height:{{scrollHeight}}px;" class="element-page-scroll">
+        <view class="element-body-detail">
+            <view class="element-body-detail-rate">
+                <text class="element-body-detail-rate-weidu cm2-num-rate-l">最值得看</text>
+                <view class="element-body-detail-rate-star">
+                    <view class="element-body-detail-rate-star-left">
+                        <text class="cm2-num-rate-l">8.4</text>
+                        <rate mode="tiny" rate="8.4"></rate>
+                    </view>
+                    <view class="element-body-detail-rate-star-right">
+                        <view class="star-right-label">
+                            <block wx:for-item="x" wx:for-index="ix" wx:for="{{starModal}}" wx:key="{{ix}}">
+                                <view class="star-right-label-item">
+                                    <block wx:for-item="y" wx:for-index="iy" wx:for="{{x}}" wx:key="{{iy}}">
+                                        <image class="star-right-label-icon"
+                                               src="../../static/images/Stargray@2x.png"></image>
+                                    </block>
+                                </view>
+                            </block>
+                        </view>
+                        <view class="star-right-value">
+                            <block wx:for-item="x" wx:for-index="ix" wx:for="{{starModal}}" wx:key="{{ix}}">
+                                <progress percent="{{100 - (ix + 1) * 20}}"
+                                          border-radius="2"
+                                          backgroundColor="#d8d8d8"
+                                          activeColor="#7d7d7d"
+                                          class="star-right-value-progress"></progress>
+                            </block>
+                        </view>
+                    </view>
+                </view>
+                <view class="element-body-detail-rate-fs">
+                    <view class="rate-fs-item cm-tips-text">43k评分</view>
+                    <view class="rate-fs-item cm-tips-text">43k人关注</view>
+                </view>
+            </view>
+            <view class="element-body-detail-rate-post">
+                <view class="element-body-detail-label">最值得看</view>
+                <view class="rate-user">
+                    <rate-header avatar-width="60"
+                                 avatar-height="60"
+                                 user-info="{{userInfo}}">
+                        <view class="rate-user-right">
+                            <view>
+                                <view class="flex-row">
+                                    <text class="text-s12-l17-c333 mr-12">我已评价</text>
+                                    <rate mode="tiny" rate="8.4"></rate>
+                                </view>
+                                <view class="time-text-style">09-28 14:00</view>
+                            </view>
+                            <image src="../../static/images/edit@2x.png" class="rate-user-right-icon"></image>
+                        </view>
+                    </rate-header>
+                </view>
+            </view>
+            <view class="element-body-detail-detail mt-24 pd-12 bgc-f">
+                <view class="element-body-detail-label ">详情</view>
+                <view class="text-s15-l21-c333 limit-3-line">{{elementDetails.element_desc}}</view>
+            </view>
+        </view>
+        <view class="sub-post">
+            <subpost-title label="帖子"
+                           btn-text="参与讨论"
+                           handle="addPostStart"
+                           bindtap="addPostStart"></subpost-title>
+            <block wx:for="{{subPostList}}" wx:key="{{index}}">
+                <post-item post-info="{{item}}"></post-item>
+            </block>
+        </view>
+    </scroll-view>
+    <view class="add-post-popup" animation="{{togglePopup}}">
+        <add-post-pop catchtouchmove="true" height="{{addPostPopupHeight}}">
+            <add-post-component bindcancelAdd="cancelAddPost" element="{{elementDetails}}" height="{{addPostPopupHeight}}"></add-post-component>
+        </add-post-pop>
+    </view>
+</view>

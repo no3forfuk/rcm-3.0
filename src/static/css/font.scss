@@ -26,6 +26,20 @@
   line-height: 21px;
 }
 
+//66文字
+.text-12s-17l-666c {
+  color: #666;
+  font-size: 12px;
+  line-height: 17px;
+}
+
+//
+.text-12s-17l-333c {
+  color: #333;
+  font-size: 12px;
+  line-height: 12px;
+}
+
 //标签
 .cm-tag {
   font-size: 12px;
@@ -42,12 +56,40 @@
   line-height: 17px;
 }
 
-//数字评分-大
-.cm2-num-rate {
+.time-text-style {
+  font-size: 12px;
+  line-height: 17px;
+  color: #9b9b9b;
+}
+
+.tag-tips-text {
+  color: #9B9B9B;
+  font-size: 12px;
+  line-height: 17px;
+  width: rpx(140);
+  height: rpx(34);
+}
+
+//数字评分-正常
+.cm2-num-rate-n {
   color: $colorDefault;
   font-size: 20px;
   font-weight: 600;
   line-height: 24px;
+}
+
+.cm2-num-rate-s {
+  color: $colorDefault;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 21px;
+}
+
+.cm2-num-rate-l {
+  color: $colorDefault;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 33px;
 }
 
 //单字替换图片
@@ -56,15 +98,6 @@
   font-size: 17px;
   font-weight: 600;
   line-height: 24;
-}
-
-//限制3行
-.limit-3-line {
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  overflow: hidden;
 }
 
 //新元素提示 新
@@ -84,5 +117,80 @@
 .cm-mr-16 {
   margin-right: rpx(16);
 }
+
+//====文本样式===========================================
+.text-s12-l17-c333 {
+  font-size: 12px;
+  line-height: 17px;
+  color: #333;
+}
+
+.text-s15-l21-c333 {
+  font-size: 15px;
+  line-height: 21px;
+  color: #333;
+}
+
+.text-s15-l21-c48 {
+  font-size: 15px;
+  line-height: 21px;
+  color: #484848;
+}
+
+//维度标签
+.weidu-tag {
+  padding: 0 rpx(14);
+  font-size: 12px;
+  line-height: 17px;
+  border-radius: rpx(8);
+  border: 1px solid #f8f8f8;
+  color: #9b9b9b;
+}
+
+//====布局样式
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+//限制3行
+.limit-3-line {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  overflow: hidden;
+}
+
+.limit-1-line {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  overflow: hidden;
+}
+
+.ml-12 {
+  margin-left: rpx(12);
+}
+
+.mr-12 {
+  margin-right: rpx(12);
+}
+
+.mt-24 {
+  margin-top: rpx(24);
+}
+
+.pd-12 {
+  padding: rpx(12);
+}
+
+//背景色
+.bgc-f {
+  background-color: #fff;
+}
+
 
 

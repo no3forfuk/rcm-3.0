@@ -1,0 +1,156 @@
+@import "../../static/css/mixin.scss";
+
+.element-page {
+  width: 100%;
+  height: 100%;
+  background-color: #f8f8f8;
+  overflow: hidden;
+}
+
+.element-header-detail {
+  width: rpx(750);
+  background-color: #fff;
+  padding: rpx(28);
+  margin-top: rpx(24);
+  @include layout(row, center, space-between);
+  &-img {
+    width: rpx(176);
+    height: rpx(176);
+  }
+  &-img-name {
+    width: rpx(176);
+    height: rpx(176);
+    border-radius: rpx(4);
+    @include layout(row, center, space-around);
+  }
+  &-desc {
+    width: rpx(506);
+    @include layout(column, flex-start);
+    &-opts {
+      margin-top: rpx(18);
+      width: 100%;
+      @include layout(row, center, space-between);
+      &-left {
+        @include layout(row, center);
+        &-focus {
+          padding: 0 rpx(16);
+          border: 1px solid $colorDefault;
+          color: $colorDefault;
+          @include layout(row, center);
+          border-radius: rpx(4);
+          @include textStyle(14px, 20px);
+          &-icon {
+            width: rpx(26);
+            height: rpx(26);
+            margin-right: rpx(6);
+          }
+        }
+      }
+      &-more-icon {
+        width: rpx(42);
+        height: rpx(42);
+      }
+    }
+  }
+}
+
+.element-body-detail {
+  width: 100%;
+  padding: rpx(24) rpx(28);
+  &-rate {
+    width: 100%;
+    padding: rpx(12);
+    background-color: #fff;
+    &-weidu {
+      @include limitTextLine(1);
+      @include textStyle(12px, 17px, 600);
+      color: #333;
+    }
+    &-star {
+      height: 100%;
+      padding: rpx(5) rpx(64) rpx(30) rpx(64);
+      border-bottom: 1px solid #f0f0f0;
+      @include layout(row, center, space-between);
+      &-left {
+        @include layout(column, center);
+      }
+      &-right {
+        height: 100%;
+        @include layout(row, center, space-between, nowarp);
+      }
+    }
+    &-fs {
+      @include layout(row, center, flex-end);
+    }
+  }
+}
+
+.element-body-detail-rate-post {
+  width: 100%;
+  padding: rpx(12);
+  margin-top: rpx(24);
+  background-color: #fff;
+}
+
+.rate-user {
+  margin-top: rpx(16);
+  width: 100%;
+}
+
+.rate-user-right {
+  width: calc(100% - #{rpx(60)});
+  @include layout(row, center, space-between);
+  padding-left: rpx(16);
+}
+
+.rate-user-right-icon {
+  width: rpx(40);
+  height: rpx(40);
+}
+
+.element-body-detail-label {
+  line-height: 17px;
+  font-size: 12px;
+  color: #333;
+}
+
+.rate-fs-item {
+  width: rpx(140);
+  height: rpx(34);
+  text-align: right;
+}
+
+.star-right-label {
+  @include layout(column, flex-end, space-between);
+  height: rpx(90);
+}
+
+.star-right-label-item {
+  width: rpx(80);
+  @include layout(row, center, flex-end);
+}
+
+.star-right-label-icon {
+  width: rpx(16);
+  height: rpx(16);
+}
+
+.star-right-value {
+  width: rpx(320);
+  height: rpx(90);
+  @include layout(column, center, space-between);
+  &-progress {
+    width: 100%;
+  }
+}
+
+.sub-post {
+  width: 100%;
+  background-color: #fff;
+  padding: rpx(28);
+}
+
+.add-post-popup {
+  width: 100%;
+  transform: translateY(0);
+}

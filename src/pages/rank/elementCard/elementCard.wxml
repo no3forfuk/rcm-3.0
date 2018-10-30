@@ -8,7 +8,7 @@
             <text>{{info.element_name[0]}}</text>
         </view>
     </view>
-    <view class="element-card-right">
+    <view class="element-card-right" bindtap="link2Element" data-id="{{info.id}}">
         <view class="element-card-right-name">
             <text class="element-card-right-name-text">{{info.element_name}}</text>
             <text class="{{info.rateStatus == 1? 'rated':'no-rate'}}">{{info.rateStatus == 1? '已评分':'评分'}}</text>

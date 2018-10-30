@@ -32,5 +32,11 @@ Component({
             color: app.randomColor[colorIndex]
         })
     },
-    methods: {}
+    methods: {
+        link2Element(e) {
+            wx.navigateTo({
+                url: `/pages/element/element?id=${e.currentTarget.dataset.id}`
+            })
+        }
+    }
 })

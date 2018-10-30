@@ -1,0 +1,113 @@
+@import "../../../static/css/mixin.scss";
+
+.add-post-page {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.add-post-header {
+  width: 100%;
+  height: rpx(74);
+  border-bottom: 1px solid #f0f0f0;
+  @include layout(row, center, space-between);
+  padding: rpx(16) rpx(48);
+}
+
+.comfirm-btn {
+  @include textStyle(15px, 21px);
+}
+
+.cancel-btn {
+  @include textStyle(15px, 21px);
+  color: #333;
+}
+
+.fa-ele-info {
+  width: 100%;
+  height: rpx(116);
+  padding: rpx(16) rpx(48);
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.fa-ele-info-all-rate {
+  @include layout(row, center);
+  margin-top: rpx(8);
+}
+
+.add-rate {
+  width: 100%;
+  height: rpx(118);
+  border-bottom: 1px solid #f0f0f0;
+  @include layout(row, center);
+}
+
+.add-rate-label {
+  @include textStyle(12px, 17px);
+  margin-left: rpx(48);
+  color: #d1d1d1;
+}
+
+.add-rate-star {
+  margin-left: rpx(127);
+  &-icon {
+    width: rpx(49);
+    height: rpx(49);
+    margin-right: rpx(12);
+  }
+}
+
+.add-post-content {
+  width: 100%;
+  padding: rpx(10) rpx(48);
+  padding-bottom: 0;
+  &-textarea {
+    width: 100%;
+    background-color: #f8f8f8;
+  }
+}
+
+.add-post-ctrl {
+  width: 100%;
+  height: rpx(72);
+  background-color: rgba(237, 237, 237, 1);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  padding: rpx(10) rpx(40);
+  @include layout(row, center, flex-end);
+}
+
+.add-post-carl-item {
+  width: rpx(50);
+  height: rpx(52);
+  margin-left: rpx(48);
+}
+
+.emoji-viewbox {
+  width: 100%;
+  background-color: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  transform: translateY(100%);
+}
+
+.placeholder-class {
+  @include textStyle(15px, 21px);
+  color: #d1d1d1;
+
+}
+
+.emoji-item {
+  padding: rpx(2) rpx(6);
+  font-size: 30px;
+}
+
+.emoji-scroll-view {
+  width: 100%;
+  height: 100%;
+  padding: rpx(0) rpx(8);
+}

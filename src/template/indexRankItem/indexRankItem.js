@@ -12,14 +12,16 @@ Component({
                     titleData: {
                         title: n.ranking_name,
                         dimension: '',
-                        id: n.id
-                    }
+                        id: n.id,
+                    },
+                    subElement: n.data.splice(0, 3)
                 })
             }
         }
     },
     data: {
-        titleData: {}
+        titleData: {},
+        subElement: []
     },
     attached() {
 
@@ -33,5 +35,10 @@ Component({
                 urls: [url]
             })
         },
+        link2Rank(e) {
+            wx.navigateTo({
+                url: `/pages/rank/rank?id=${e.currentTarget.dataset.id}`
+            })
+        }
     }
 })

@@ -6,7 +6,7 @@
               data-index="{{index}}"
               data-item="{{item}}">
             <text class="tab-component-item-text"
-                  style="color: {{index === current?activeColor:fontColor}};background-color: {{bgColor}};font-size: {{fontSize}}"
+                  style="color: {{index === current?activeColor:fontColor}};background-color: {{bgColor}};font-size: {{fontSize}};font-weight:{{index === current?'600':'400'}};"
                   animation="{{index === current? scale:unscale}}">{{item.label}}
             </text>
         </view>

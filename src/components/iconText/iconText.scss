@@ -1,0 +1,18 @@
+@import "../../static/css/mixin.scss";
+
+.icon-text {
+  @include layout(row, center, flex-end);
+  width: rpx(140);
+  text-align: right;
+}
+
+.icon-text-icon {
+  width: rpx(32);
+  height: rpx(32);
+}
+
+.icon-text-text {
+  @include textStyle(12px, 12px);
+  color: #9b9b9b;
+  margin-left: 3px;
+}

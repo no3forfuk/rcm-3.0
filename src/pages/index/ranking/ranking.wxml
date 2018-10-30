@@ -19,6 +19,7 @@
              style="height:{{scrollHeight}}px;"
              class="scroll-view-class">
     <view class="ranking-body">
+        <view style="width: 100%;height: 24rpx;background-color: #f8f8f8;"></view>
         <block wx:for="{{rankList}}" wx:key="{{index}}">
             <rank-item rank-info="{{item}}"></rank-item>
         </block>

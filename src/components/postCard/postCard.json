@@ -2,6 +2,7 @@
   "component": true,
   "usingComponents": {
     "post-header": "/components/userCard/userCard",
-    "post-rate": "/components/rate/rate"
+    "post-rate": "/components/rate/rate",
+    "icon-text": "/components/iconText/iconText"
   }
 }

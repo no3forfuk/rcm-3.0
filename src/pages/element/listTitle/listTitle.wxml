@@ -1,0 +1,7 @@
+<view class="list-title">
+    <text class="grad list-title-label">{{label}}</text>
+    <view class="list-title-right" bindtap="emitClickRight">
+        <image class="list-title-right-icon" src="../../../static/images/add@3x.png"></image>
+        <text class="list-title-right-text">{{btnText}}</text>
+    </view>
+</view>

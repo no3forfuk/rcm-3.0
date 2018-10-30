@@ -1,0 +1,3 @@
+<view class="popup-component" style="height:{{height}}px;background-color: {{bgc}};">
+    <slot></slot>
+</view>

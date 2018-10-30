@@ -1,7 +1,7 @@
-<view class="element-card-component">
+<view class="element-card-component" bindtap="link2Element" data-id="{{info.id}}">
     <view class="element-card-component-left">
         <view class="element-card-component-title">
-            <text class="element-card-component-title-rate cm2-num-rate">{{info.rate}}</text>
+            <text class="element-card-component-title-rate cm2-num-rate-n">{{info.rate}}</text>
             <text class="element-card-component-title-name cm2-h1">{{info.name}}</text>
             <text class="element-card-component-title-score">{{info.score}}评分</text>
         </view>

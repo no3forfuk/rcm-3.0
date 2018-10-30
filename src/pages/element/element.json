@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "ele-header": "/components/commonHeader/commonHeader",
+    "rate": "/components/rate/rate",
+    "rate-header": "/components/userCard/userCard",
+    "subpost-title": "./listTitle/listTitle",
+    "post-item": "/components/postCard/postCard",
+    "add-post-pop": "/components/popup/popup",
+    "add-post-component": "./addPost/addPost"
+  }
+}

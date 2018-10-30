@@ -40,6 +40,7 @@
     width: calc(100% - #{rpx(174 * 2)});
     height: rpx(60);
     color: #161616;
+    text-align: center;
     @include layout(row, center, space-around);
     @include textStyle(16px 25px);
     &-text {

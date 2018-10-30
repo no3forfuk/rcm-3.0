@@ -2,12 +2,13 @@
 
 .hot-rank-card {
   width: 100%;
-  padding-top: rpx(24);
+  padding-bottom: rpx(24);
   background-color: $grayf8;
   &-content {
     width: 100%;
     background-color: $white;
     padding: rpx(28);
+    padding-bottom: rpx(16);
   }
 }
 
@@ -30,5 +31,13 @@
     color: $gray48;
     @include limitTextLine(3);
   }
+}
+
+.hot-rank-subele {
+  padding-left: rpx(28);
+  padding-right: rpx(28);
+  border-top: 1px solid #f0f0f0;
+  background-color: #fff;
+  padding-bottom: rpx(28);
 }
 

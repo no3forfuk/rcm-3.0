@@ -1,0 +1,31 @@
+@import "../../../static/css/mixin.scss";
+
+.list-title {
+  width: 100%;
+  @include layout(row, center, space-between);
+}
+
+.list-title-right {
+  background: rgba(248, 248, 248, 1);
+  border-radius: rpx(8);
+  height: rpx(50);
+  @include layout(row, center, space-between);
+}
+
+.list-title-right-icon {
+  width: rpx(26);
+  height: rpx(26);
+  margin: 0 rpx(16);
+}
+
+.list-title-label {
+  font-size: 16px;
+  line-height: 22px;
+  color: #161616;
+  font-weight: 600;
+}
+
+.list-title-right-text {
+  @include textStyle(14px, 20px);
+  color: $colorDefault;
+}

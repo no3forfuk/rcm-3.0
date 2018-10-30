@@ -1,0 +1,60 @@
+<view class="add-post-page">
+    <view class="add-post-header">
+        <view class="cancel-btn" bindtap="cancel">取消</view>
+        <view class="comfirm-btn" style="color:{{false?'#9b9b9b':'#499DFF'}};">完成</view>
+    </view>
+    <view class="fa-ele-info">
+        <view class="text-s15-l21-c48 limit-1-line">{{element.element_name}}</view>
+        <view class="fa-ele-info-all-rate">
+            <text class="weidu-tag mr-12">{{'维度维度'}}</text>
+            <rate mode="tiny" hasNum="true" rate="8.4"></rate>
+        </view>
+    </view>
+    <view class="add-rate">
+        <text class="add-rate-label">打分</text>
+        <view class="add-rate-star">
+            <block wx:for="{{allStar}}" wx:key="{{index}}">
+                <image src="{{rateValue >= index? '../../../static/images/StarFullTangible@3x.png':'../../../static/images/StarNullTangible@3x.png'}}"
+                       bindtap="addRate"
+                       data-index="{{index}}"
+                       class="add-rate-star-icon"></image>
+            </block>
+        </view>
+    </view>
+    <view class="add-post-content">
+        <textarea type="text"
+                  show-confirm-bar="{{false}}"
+                  placeholder="发表你的评价吧"
+                  placeholder-class="placeholder-class"
+                  adjust-position="{{true}}"
+                  bindfocus="textareaFocus"
+                  bindblur="textareaBlur"
+                  bindinput="inputText"
+                  fixed="{{true}}"
+                  maxlength="-1"
+                  value="{{postContent}}"
+                  style="height:{{textareaHeight}};"
+                  class="add-post-content-textarea">
+        </textarea>
+    </view>
+    <view class="add-post-ctrl" animation="{{ctrlAnimation}}">
+        <image src="../../../static/images/EmojiDisabled@2x.png"
+               bindtap="openSelectEmoji"
+               mode="aspectFit"
+               class="add-post-carl-item"></image>
+        <image src="../../../static/images/HalvingLineDisabled@2x.png"
+               bindtap="insertHr"
+               mode="aspectFit"
+               class="add-post-carl-item"></image>
+        <image src="../../../static/images/FontBoldDisabled@2x.png" mode="aspectFit" class="add-post-carl-item"></image>
+        <image src="../../../static/images/ImageDisabled@2x.png" mode="aspectFit" class="add-post-carl-item"></image>
+        <image src="../../../static/images/LinkDisabled@2x.png" mode="aspectFit" class="add-post-carl-item"></image>
+    </view>
+    <view class="emoji-viewbox" style="height:{{ctrlY}}px;" animation="{{emojiAnimation}}">
+        <scroll-view class="emoji-scroll-view" scroll-y="true">
+            <block wx:for="{{emojis}}" wx:key="{{index}}">
+                <text class="emoji-item" bindtap="selectEmoji" data-item="{{item}}">{{item}}</text>
+            </block>
+        </scroll-view>
+    </view>
+</view>

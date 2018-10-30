@@ -1,0 +1,47 @@
+@import "../../../static/css/mixin.scss";
+
+.sub-ele-item {
+  @include layout(row, center, space-between);
+  padding-top: rpx(16);
+  border-bottom: 1px solid #f0f0f0;
+  &-img {
+    width: rpx(124);
+    height: rpx(86);
+  }
+  &-right {
+    width: rpx(124);
+    height: rpx(86);
+    border-radius: rpx(4);
+    @include layout(row, center, space-around);
+    color: #fff;
+    @include textStyle(17px);
+  }
+}
+
+.sub-ele-item-left {
+  width: calc(100% - #{rpx(140)});
+}
+
+.sub-ele-item-left-name {
+  @include layout(row, center);
+}
+
+.sub-ele-item-left-name-text {
+  margin-left: rpx(8);
+  @include limitTextLine(1);
+}
+
+.sub-ele-item-left-comment {
+  margin-top: 1px;
+  @include layout(row, center);
+}
+
+.sub-ele-item-left-comment-icon {
+  width: rpx(24);
+  height: rpx(24);
+}
+
+.sub-ele-item-left-comment-text {
+  @include limitTextLine(1);
+  width: rpx(518);
+}

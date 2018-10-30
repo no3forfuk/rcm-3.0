@@ -47,6 +47,17 @@ module.exports = {
         })
     },
     //-------------------------------------------------------
+    //获取元素详情
+    getElementDetail({params = {}, success}) {
+        return request({
+            uri: '/home/element/getElementDetails',
+            params: params,
+            method: 'GET',
+            success(res) {
+                success(res)
+            }
+        })
+    },
     //获取热帖
     getHotPost({params = {}, success}) {
         return request({
