@@ -1,0 +1,25 @@
+@import "../../static/css/mixin.scss";
+
+.popup-menu-component {
+  width: 100%;
+  background-color: #fff;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  border-radius: rpx(40) rpx(40) 0 0;
+  overflow: hidden;
+}
+
+.popup-menu-header {
+  width: 100%;
+  height: rpx(74);
+  padding: 0 rpx(48);
+  @include layout(row, center, space-between);
+}
+
+.menu-item {
+  width: 100%;
+  border-top: 1px solid #f0f0f0;
+  height: rpx(130);
+  @include layout(row, center, space-around);
+}

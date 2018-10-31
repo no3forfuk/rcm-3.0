@@ -21,40 +21,80 @@
             </block>
         </view>
     </view>
-    <view class="add-post-content">
-        <textarea type="text"
-                  show-confirm-bar="{{false}}"
-                  placeholder="发表你的评价吧"
-                  placeholder-class="placeholder-class"
-                  adjust-position="{{true}}"
-                  bindfocus="textareaFocus"
-                  bindblur="textareaBlur"
-                  bindinput="inputText"
-                  fixed="{{true}}"
-                  maxlength="-1"
-                  value="{{postContent}}"
-                  style="height:{{textareaHeight}};"
-                  class="add-post-content-textarea">
-        </textarea>
+    <view class="add-post-content" style="height:calc({{popupHeight}}px - 306rpx);">
+        <add-content></add-content>
+        <!--<scroll-view scroll-y="true" style="height:{{scrollViewHeight}};" bindtap="insetTextarea">-->
+            <!--<block wx:for="{{postContent}}" wx:key="{{index}}">-->
+                <!--<textarea placeholder="{{index == 0? '发布你的评价吧':''}}"-->
+                          <!--class="post-text-style"-->
+                          <!--maxlength="-1"-->
+                          <!--catchfocus="textareaFocus"-->
+                          <!--catchblur="textareaBlur"-->
+                          <!--catchinput="textareaInput"-->
+                          <!--data-index="{{index}}"-->
+                          <!--data-item="{{item}}"-->
+                          <!--cursor-spacing="0"-->
+                          <!--value="{{item.value}}"-->
+                          <!--auto-height="{{true}}"-->
+                          <!--show-confirm-bar="{{false}}"-->
+                          <!--wx:if="{{item.type=='text'}}"-->
+                          <!--placeholder-class="placeholder-class">-->
+                <!--</textarea>-->
+                <!--<view class="post-hr-style" wx:if="{{item.type == 'hr'}}">-->
+                    <!--<view class="post-hr-style-hr"></view>-->
+                <!--</view>-->
+                <!--<image class="post-image-style"-->
+                       <!--wx:if="{{item.type == 'image'}}"-->
+                       <!--mode="aspectFit"-->
+                       <!--src="{{item.src}}">-->
+                <!--</image>-->
+                <!--<video src="{{item.src}}" wx:if="{{item.type == 'video'}}"></video>-->
+            <!--</block>-->
+        <!--</scroll-view>-->
     </view>
-    <view class="add-post-ctrl" animation="{{ctrlAnimation}}">
-        <image src="../../../static/images/EmojiDisabled@2x.png"
-               bindtap="openSelectEmoji"
-               mode="aspectFit"
-               class="add-post-carl-item"></image>
-        <image src="../../../static/images/HalvingLineDisabled@2x.png"
-               bindtap="insertHr"
-               mode="aspectFit"
-               class="add-post-carl-item"></image>
-        <image src="../../../static/images/FontBoldDisabled@2x.png" mode="aspectFit" class="add-post-carl-item"></image>
-        <image src="../../../static/images/ImageDisabled@2x.png" mode="aspectFit" class="add-post-carl-item"></image>
-        <image src="../../../static/images/LinkDisabled@2x.png" mode="aspectFit" class="add-post-carl-item"></image>
-    </view>
-    <view class="emoji-viewbox" style="height:{{ctrlY}}px;" animation="{{emojiAnimation}}">
-        <scroll-view class="emoji-scroll-view" scroll-y="true">
-            <block wx:for="{{emojis}}" wx:key="{{index}}">
-                <text class="emoji-item" bindtap="selectEmoji" data-item="{{item}}">{{item}}</text>
-            </block>
-        </scroll-view>
-    </view>
+    <!--<view class="add-post-ctrl" animation="{{ctrlAnimation}}">-->
+        <!--<image src="../../../static/images/EmojiDisabled@2x.png"-->
+               <!--bindtap="openSelectEmoji"-->
+               <!--mode="aspectFit"-->
+               <!--class="add-post-carl-item"></image>-->
+        <!--<image src="../../../static/images/HalvingLineDisabled@2x.png"-->
+               <!--bindtap="insertHr"-->
+               <!--mode="aspectFit"-->
+               <!--class="add-post-carl-item"></image>-->
+        <!--<image src="../../../static/images/FontBoldDisabled@2x.png"-->
+               <!--mode="aspectFit"-->
+               <!--class="add-post-carl-item"></image>-->
+        <!--<image src="../../../static/images/ImageDisabled@2x.png"-->
+               <!--bindtap="selectImages"-->
+               <!--mode="aspectFit"-->
+               <!--class="add-post-carl-item"></image>-->
+        <!--<image src="../../../static/images/LinkDisabled@2x.png" mode="aspectFit" class="add-post-carl-item"></image>-->
+    <!--</view>-->
+    <!--<view class="emoji-viewbox" style="height:{{ctrlY}}px;" animation="{{emojiAnimation}}">-->
+        <!--<scroll-view class="emoji-scroll-view" scroll-y="true">-->
+            <!--<block wx:for="{{emojis}}" wx:key="{{index}}">-->
+                <!--<text class="emoji-item" bindtap="selectEmoji" data-item="{{item}}">{{item}}</text>-->
+            <!--</block>-->
+        <!--</scroll-view>-->
+    <!--</view>-->
+    <!--<view class="select-image-view"-->
+          <!--style="height:{{popupHeight}}px;"-->
+          <!--animation="{{selectImageAnimaticon}}"-->
+          <!--catchtouchmove="true">-->
+        <!--<view></view>-->
+        <!--<view style="width: 100%;" class="select-image-view-body">-->
+            <!--<view class="select-image-header">-->
+                <!--<view class="cancel-btn" catchtap="cancelSelectImage">取消</view>-->
+                <!--<view></view>-->
+            <!--</view>-->
+            <!--<view class="select-image-body">-->
+                <!--<view class="select-media" catchtap="selectIMG">-->
+                    <!--<text>插入图片</text>-->
+                <!--</view>-->
+                <!--<view class="select-media" catchtap="selectVideo">-->
+                    <!--<text>插入视频</text>-->
+                <!--</view>-->
+            <!--</view>-->
+        <!--</view>-->
+    <!--</view>-->
 </view>

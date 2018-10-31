@@ -1,0 +1,4 @@
+<view class="modal-component" catchtouchmove="true" style="height:{{height}}px;" animation="{{animationData}}">
+
+    <slot></slot>
+</view>

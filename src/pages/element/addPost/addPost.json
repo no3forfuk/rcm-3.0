@@ -1,6 +1,8 @@
 {
   "component": true,
   "usingComponents": {
-    "rate": "/components/rate/rate"
+    "rate": "/components/rate/rate",
+    "select-image": "/components/popup/popup",
+    "add-content": "./addContent/addContent"
   }
 }

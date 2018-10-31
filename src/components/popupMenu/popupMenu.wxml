@@ -1,0 +1,11 @@
+<view class="popup-menu-component" animation="{{animationData}}">
+    <view class="popup-menu-header">
+        <text class="text-s15-l21-c333" bindtap="cancel">取消</text>
+        <text class=""></text>
+    </view>
+    <block wx:for="{{menu}}" wx:key="{{index}}">
+        <view class="menu-item">
+            <text class="text-s18-l25-c16">{{item.text}}</text>
+        </view>
+    </block>
+</view>

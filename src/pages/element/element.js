@@ -31,7 +31,7 @@ Page({
     //打开弹窗
     openAddPostPopup() {
         const animation = wx.createAnimation({
-            duration: 500,
+            duration: 350,
             timingFunction: 'ease',
         })
         animation.translateY('-100%').step()
@@ -42,7 +42,7 @@ Page({
     //关闭弹窗
     closeAddPostPopup() {
         const animation = wx.createAnimation({
-            duration: 500,
+            duration: 350,
             timingFunction: 'ease',
         })
         animation.translateY('0').step()

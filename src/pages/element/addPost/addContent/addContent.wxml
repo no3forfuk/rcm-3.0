@@ -1,0 +1,55 @@
+<view class="post-add-content">
+    <scroll-view class="post-content-scroll" scroll-y="{{true}}">
+        <block wx:for="{{postContent}}" wx:key="{{index}}">
+            <!--<textarea placeholder="{{index == 0? '发布你的评价吧':''}}"-->
+            <!--class="post-text-style"-->
+            <!--maxlength="-1"-->
+            <!--catchfocus="textareaFocus"-->
+            <!--catchblur="textareaBlur"-->
+            <!--catchinput="textareaInput"-->
+            <!--data-index="{{index}}"-->
+            <!--data-item="{{item}}"-->
+            <!--cursor-spacing="0"-->
+            <!--value="{{item.value}}"-->
+            <!--auto-height="{{true}}"-->
+            <!--show-confirm-bar="{{false}}"-->
+            <!--wx:if="{{item.type=='text'}}"-->
+            <!--placeholder-class="placeholder-class">-->
+            <!--</textarea>-->
+            <view class="post-hr-style" wx:if="{{item.type == 'hr'}}">
+                <view class="post-hr-style-hr"></view>
+            </view>
+            <image class="post-image-style"
+                   wx:if="{{item.type == 'image'}}"
+                   mode="aspectFit"
+                   src="{{item.src}}">
+            </image>
+            <video src="{{item.src}}" wx:if="{{item.type == 'video'}}"></video>
+        </block>
+    </scroll-view>
+    <view class="add-post-ctrl" animation="{{ctrlAnimation}}">
+        <image src="../../../../static/images/EmojiDisabled@2x.png"
+               bindtap="openSelectEmoji"
+               mode="aspectFit"
+               class="add-post-carl-item"></image>
+        <image src="../../../../static/images/HalvingLineDisabled@2x.png"
+               bindtap="insertHr"
+               mode="aspectFit"
+               class="add-post-carl-item"></image>
+        <image src="../../../../static/images/FontBoldDisabled@2x.png"
+               mode="aspectFit"
+               class="add-post-carl-item"></image>
+        <image src="../../../../static/images/ImageDisabled@2x.png"
+               bindtap="selectImages"
+               mode="aspectFit"
+               class="add-post-carl-item"></image>
+        <image src="../../../../static/images/LinkDisabled@2x.png"
+               mode="aspectFit"
+               class="add-post-carl-item"></image>
+    </view>
+</view>
+<!--<view class="">-->
+<select-media animation="{{modalAnimation}}" class="select-media-style">
+    <select-menu menu="{{selectMediaData}}" bindcloseMenu="closeSelectImgModal"></select-menu>
+</select-media>
+<!--</view>-->
