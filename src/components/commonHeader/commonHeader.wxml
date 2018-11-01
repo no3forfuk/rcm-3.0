@@ -4,16 +4,16 @@
         <view class="common-header-title-menu">
             <view class="common-header-title-menu-back" bindtap="goback">
                 <image class="common-header-title-menu-back-icon"
-                       src="../../static/images/backblack@3x.png"></image>
+                       src="../../static/images/{{theme == 'white'?'back_white@2x.png':'backblack@3x.png'}}"></image>
             </view>
             <view class="spliter"></view>
             <view class="common-header-title-menu-home" bindtap="gohome">
                 <image class="common-header-title-menu-home-icon"
-                       src="../../static/images/HomeBlack@3x.png"></image>
+                       src="../../static/images/{{theme == 'white'?'home_white_icon@2x.png':'HomeBlack@3x.png'}}"></image>
             </view>
         </view>
         <view class="common-header-title-text">
-            <text class="common-header-title-text-text">{{title}}</text>
+            <text class="common-header-title-text-text" style="color:{{titleColor}};">{{title}}</text>
         </view>
     </view>
 </view>

@@ -1,0 +1,6 @@
+<menu-modal visible="{{show}}"
+            bindcloseModal="closeModal">
+    <menu-popup menu="{{menu}}" show="{{show}}"
+                bindcloseMenu="closeModal"
+                bindhandleEvent="menuItemHandle"></menu-popup>
+</menu-modal>

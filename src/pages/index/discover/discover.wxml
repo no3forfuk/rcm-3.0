@@ -6,4 +6,5 @@
         <add-post wx:if="{{item.type==2}}" add-info="{{item}}"></add-post>
         <add-ele wx:if="{{item.type==3}}" add-info="{{item}}"></add-ele>
     </block>
+    <view style="width: 100%;height:82rpx;"></view>
 </scroll-view>

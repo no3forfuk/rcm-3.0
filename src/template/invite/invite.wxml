@@ -1,0 +1,56 @@
+<view class="invite-template {{show?'show-class':''}}" style="height:{{height}}px;">
+    <invite-header bindcancel="cancelInvite"></invite-header>
+    <view class="invite-template-input">
+        <view class="invite-template-input-box">
+            <image class="invite-template-input-box-icon" src="../../static/images/search@2x.png"></image>
+            <input type="text" class="invite-template-input-box-input" placeholder="想邀请谁"></input>
+        </view>
+    </view>
+    <view class="invite-tab">
+        <block wx:for="{{tabData}}" wx:key="{{index}}">
+            <view class="invite-tab-item {{index == current?'active-class':''}}"
+                  data-item="{{item}}"
+                  data-index="{{index}}"
+                  bindtap="changeTabItem">{{item.text}}
+            </view>
+        </block>
+        <view class="invite-tab-mark" style="left:{{markLeft}}px;"></view>
+    </view>
+    <swiper current="{{current}}"
+            bindchange="changeSwiper"
+            class="invite-swiper"
+            style="height:calc({{height}}px - 244rpx);">
+        <block wx:for="{{tabData}}" wx:key="{{index}}">
+            <swiper-item>
+                <scroll-view scroll-y="true"
+                             class="invite-scroll-view"
+                             style="height:calc({{height}}px - 244rpx);">
+                    <block wx:for-item="list"
+                           wx:for-index="idx"
+                           wx:for="{{peopleData[current]}}"
+                           wx:key="{{idx}}">
+                        <view class="invite-item-view">
+                            <view class="invite-item-content">
+                                <invite-card avatar-width="80"
+                                             avatar-height="80"
+                                             user-info="{{list.user}}">
+                                    <view class="invite-item-content-right">
+                                        <view class="invite-item-content-right-info">
+                                            <text class="invite-item-content-right-name limit-1-line text-s14-l17-c333">{{list.user.name}}</text>
+                                            <text class="limit-1-line text-s12-l17-c9b">{{list.user.rank}}榜单 {{list.user.zan}}赞</text>
+                                        </view>
+                                        <view class="{{list.user.isInvited?'invited-class':'uninvited-class'}}"
+                                              data-index="{{idx}}"
+                                              bindtap="invite">
+                                            {{list.user.isInvited?'已邀请':'邀请'}}
+                                        </view>
+                                    </view>
+                                </invite-card>
+                            </view>
+                        </view>
+                    </block>
+                </scroll-view>
+            </swiper-item>
+        </block>
+    </swiper>
+</view>

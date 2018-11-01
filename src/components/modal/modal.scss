@@ -6,5 +6,17 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000;
+  z-index: 500;
+  visibility: hidden;
+  transition: all 0.35s ease-in-out;
+  opacity: 0;
+}
+
+.show-class {
+  visibility: visible;
+  opacity: 1;
+}
+
+.hide-class {
+  visibility: hidden;
 }

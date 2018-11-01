@@ -24,4 +24,5 @@
             <rank-item rank-info="{{item}}"></rank-item>
         </block>
     </view>
+    <view style="width: 100%;height:82rpx;"></view>
 </scroll-view>

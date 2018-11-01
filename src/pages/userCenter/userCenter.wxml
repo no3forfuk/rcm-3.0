@@ -1,0 +1,21 @@
+<view class="user-center-page">
+    <view class="user-header-background">
+        <image src="../../static/images/background_small@2x.png" class="user-header-background-img"></image>
+    </view>
+    <view class="user-header">
+        <user-header title="个人中心" title-color="#fff" theme="white"></user-header>
+        <view class="user-header-info">
+            <user-card avatar-width="112" avatar-height="112" user-info="{{userInfo}}">
+                <view class="user-header-info-right">
+                    <text class="user-header-info-name">{{userInfo.name}}</text>
+                    <text class="user-header-info-sign">{{userInfo.sign}}</text>
+                </view>
+            </user-card>
+        </view>
+    </view>
+    <view class="message-remind">
+        <view class="message-remind-item">
+            
+        </view>
+    </view>
+</view>

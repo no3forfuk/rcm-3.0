@@ -37,7 +37,21 @@ Page({
             ]
         },
         scrollHeight: 0,
-        currentPage: 1
+        currentPage: 1,
+        bottomBarData: [{
+            text: '发榜',
+            icon: 'Edithomepage@2x.png',
+            handle: ''
+        }, {
+            text: '我的',
+            icon: 'Mine@2x.png',
+            handle: 'linkUserCenter'
+        }]
+    },
+    linkUserCenter() {
+        wx.navigateTo({
+            url: '/pages/userCenter/userCenter'
+        })
     },
     //切换tab页
     tabChange(e) {

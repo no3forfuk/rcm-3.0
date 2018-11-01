@@ -1,13 +1,12 @@
 @import "../../static/css/mixin.scss";
 
 .common-header-component {
-  background-color: #fff;
+  background-color: transparent;
 }
 
 .common-header-title {
   height: rpx(88);
   width: 100%;
-  background-color: #fff;
   padding: rpx(8) rpx(14);
   //padding-top: rpx(10);
   @include layout(row);

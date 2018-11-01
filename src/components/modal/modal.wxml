@@ -1,4 +1,6 @@
-<view class="modal-component" catchtouchmove="true" style="height:{{height}}px;" animation="{{animationData}}">
-
+<view class="modal-component {{visible?'show-class':'hide-class'}}"
+      catchtouchmove="true"
+      style="height:{{height}}px;"
+      catchtap="closeModal">
     <slot></slot>
 </view>

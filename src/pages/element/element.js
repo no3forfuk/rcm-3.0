@@ -22,7 +22,55 @@ Page({
             signature: "修改个性签名"
         },
         scrollHeight: 0,
-        addPostPopupHeight: 0
+        addPostPopupHeight: 0,
+        showMoreModal: false,
+        moreModalMenu: [{
+            text: '收藏',
+            handle: 'collect'
+        }, {
+            text: '邀请排名',
+            handle: 'invite'
+        },],
+        showInviteModal: false
+    },
+    //打开更多弹窗
+    openMoreModal() {
+        this.setData({
+            showMoreModal: true
+        })
+    },
+    //关闭更多弹窗
+    closeMoreModal() {
+        this.setData({
+            showMoreModal: false
+        })
+    },
+    //
+    handleMoreItem(e) {
+        this.closeMoreModal()
+        const handle = e.detail.item.handle
+        this[handle]()
+    },
+    //收藏
+    collect() {
+        wx.showModal({
+            title: '',
+            mask: true,
+            content: '收藏成功',
+            showCancel: false
+        })
+    },
+    //打开邀请弹窗
+    invite() {
+        this.setData({
+            showInviteModal: true
+        })
+    },
+    //关闭邀请弹窗
+    closeInviteModal() {
+        this.setData({
+            showInviteModal: false
+        })
     },
     //开始添加post
     addPostStart() {

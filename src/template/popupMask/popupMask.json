@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "menu-modal": "/components/modal/modal",
+    "menu-popup": "/components/popupMenu/popupMenu"
+  }
+}

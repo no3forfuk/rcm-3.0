@@ -1,0 +1,4 @@
+<view class="popup-header-component">
+    <view class="cancel-btn" catchtap="cancel">取消</view>
+    <view class="comfirm-btn" catchtap="comfirm">完成</view>
+</view>

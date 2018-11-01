@@ -1,0 +1,19 @@
+@import "../../static/css/mixin.scss";
+
+.popup-header-component {
+  width: 100%;
+  height: rpx(74);
+  border-bottom: 1px solid #f0f0f0;
+  @include layout(row, center, space-between);
+  padding: rpx(16) rpx(48);
+}
+
+.comfirm-btn {
+  @include textStyle(15px, 21px);
+  color: #499DFF;
+}
+
+.cancel-btn {
+  @include textStyle(15px, 21px);
+  color: #333;
+}

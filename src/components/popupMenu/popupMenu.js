@@ -11,6 +11,10 @@ Component({
         headerTextL: {
             type: String,
             value: ''
+        },
+        show: {
+            type: Boolean,
+            value: false
         }
     },
     data: {},
@@ -21,5 +25,8 @@ Component({
         cancel() {
             this.triggerEvent('closeMenu')
         },
+        tapItem(e) {
+            this.triggerEvent('handleEvent', {item: e.currentTarget.dataset.item})
+        }
     }
 })

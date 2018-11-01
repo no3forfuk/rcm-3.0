@@ -40,7 +40,7 @@
                mode="aspectFit"
                class="add-post-carl-item"></image>
         <image src="../../../../static/images/ImageDisabled@2x.png"
-               bindtap="selectImages"
+               bindtap="openSelectImages"
                mode="aspectFit"
                class="add-post-carl-item"></image>
         <image src="../../../../static/images/LinkDisabled@2x.png"
@@ -48,8 +48,19 @@
                class="add-post-carl-item"></image>
     </view>
 </view>
-<!--<view class="">-->
-<select-media animation="{{modalAnimation}}" class="select-media-style">
-    <select-menu menu="{{selectMediaData}}" bindcloseMenu="closeSelectImgModal"></select-menu>
+<view class="emoji-viewbox {{emojiViewShow?'show-emoji':''}}"
+      style="height:{{keyboardHeight}}px;">
+    <scroll-view class="emoji-scroll-view" scroll-y="true">
+        <block wx:for="{{emojis}}" wx:key="{{index}}">
+            <text class="emoji-item" bindtap="selectEmoji" data-item="{{item}}">{{item}}</text>
+        </block>
+    </scroll-view>
+</view>
+<select-media visible="{{showSelectImgModal}}"
+              bindcloseModal="closeSelectImgModal">
+    <select-menu menu="{{selectMediaData}}"
+                 show="{{showSelectImgModal}}"
+                 bindhandleEvent="menuItemHandle"
+                 bindcloseMenu="closeSelectImgModal"></select-menu>
 </select-media>
-<!--</view>-->
+

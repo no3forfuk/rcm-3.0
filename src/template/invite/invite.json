@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "invite-header": "/components/popupHeader/popupHeader",
+    "invite-card": "/components/userCard/userCard"
+  }
+}

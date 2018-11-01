@@ -8,6 +8,13 @@
   bottom: 0;
   border-radius: rpx(40) rpx(40) 0 0;
   overflow: hidden;
+  transform: translate3d(0, 100%, 0);
+  transition: all 0.35s ease-in-out;
+  z-index: 501;
+}
+
+.slide-up-class {
+  transform: translate3d(0, 0, 0);
 }
 
 .popup-menu-header {

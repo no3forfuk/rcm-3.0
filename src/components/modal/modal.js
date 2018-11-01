@@ -3,7 +3,12 @@ Component({
     /**
      * 组件的属性列表
      */
-    properties: {},
+    properties: {
+        visible: {
+            type: Boolean,
+            value: false
+        },
+    },
     data: {
         height: 0,
     },
@@ -16,5 +21,9 @@ Component({
             }
         })
     },
-    methods: {}
+    methods: {
+        closeModal(){
+            this.triggerEvent('closeModal')
+        }
+    }
 })

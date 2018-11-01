@@ -21,4 +21,14 @@
         </swiper>
     </view>
 </view>
+<view class="bottom-bar">
+    <block wx:for="{{bottomBarData}}" wx:key="{{index}}">
+        <view class="bottom-bar-item" style="width:{{100/bottomBarData.length}}%;" bindtap="{{item.handle}}">
+            <image class="bottom-bar-item-icon" src="../../static/images/{{item.icon}}"></image>
+            <text class="bottom-bar-item-text">{{item.text}}</text>
+        </view>
+        <view class="shuxian" wx:if="{{index < operateData.length-1 || index == 0}}"></view>
+    </block>
+</view>
+
 

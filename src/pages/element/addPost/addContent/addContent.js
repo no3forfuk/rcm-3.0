@@ -14,7 +14,9 @@ Component({
         },],
         keyboardHeight: 336,
         postContent: [],
-        showSelectImgModal: false
+        showSelectImgModal: false,
+        emojis: ['😀', '😁', '😂', '🤣', '😆', '😊', '😋', '😍', '😘', '😗', '😙', '🙂', '🤗', '🤩', '🤔', '🤨', '😐', '😑', '😶', '🙄', '😏', '😣', '😥', '😮', '🤐', '😯', '😪', '😫', '😴', '😌', '😛', '😝', '🤤', '😒', '😓', '😔', '😕', '🙃', '🤑', '😲', '🙁', '😖', '😞', '😟', '😤', '😢', '😭', '😦', '😧', '😨', '😩', '🤯', '😬', '😰', '😱', '😳', '🤪', '😵', '😡', '😠', '🤬', '😷', '🤒', '🤕', '🤢', '🤮', '🤧', '😇', '👈', '👉', '☝', '👆', '🖕', '👇', '✌', '🤞', '🖖', '🤘', '🖐', '✋', '👌', '👍', '👎', '✊', '👊', '🤛', '🤜', '🤚', '👋', '🤟', '🤠', '🤡', '🤥', '🤫', '🤭', '🧐', '🤓', '😈', '👹', '👺', '💀', '👻', '👽', '👾', '🤖', '💩', '😺', '😹', '😻', '😼', '😽', '🙀', '😿', '👶', '👦', '👴', '👵', '👮', '🕵', '💂', '👷', '🤴', '👸', '👳', '🧕', '🧔', '👱', '👨', '👩', '🤵', '👰', '🤰', '🤱', '👼', '🎅', '🤶', '🧙', '🧚', '🧛', '🧜', '🧝', '🧞', '🧟', '🙍', '🙎', '🙅', '🙆', '💁', '🙋', '🙇', '🤦', '🤷', '💆', '💇', '🚶', '🏃', '💃', '🕺', '🧖', '🧘', '🕴', '👫', '💏', '👨', '👩', '💑', '👨', '👩', '👪', '🤳', '💪', '✍', '👏', '👐', '🙌', '🤲', '🙏', '🤝', '💅', '👂', '👃', '👣', '👀', '🧠', '👅', '👄', '💋', '👓', '👔', '👕', '👖', '🧣', '🧤', '🧥', '🧦', '👗', '👘', '👙', '👚', '👛', '👜', '👝', '🎒', '👞', '👟', '👠', '👡', '👢', '👑', '👒', '🎩', '🎓', '🧢', '💄', '💍', '🌂'],
+        emojiViewShow: false
     },
     ready() {
 
@@ -39,6 +41,9 @@ Component({
             this.setData({
                 ctrlAnimation: animation.export()
             })
+            this.setData({
+                emojiViewShow: false
+            })
         },
         insertHr() {
             this.slideDownMenu()
@@ -48,21 +53,58 @@ Component({
         },
         openSelectEmoji() {
             this.slideUpMenu()
-        },
-        selectImages() {
-            var animation = wx.createAnimation({
-                duration: 1000,
-                timingFunction: 'ease-out',
-            })
-            animation.opacity(1).step()
             this.setData({
-                modalAnimation: animation.export()
+                emojiViewShow: true
+            })
+        },
+        openSelectImages() {
+            this.slideDownMenu()
+            this.setData({
+                showSelectImgModal: true
             })
         },
         closeSelectImgModal() {
             this.setData({
                 showSelectImgModal: false
             })
-        }
+        },
+        menuItemHandle(e) {
+            const item = e.detail.item
+            this[item.handle]()
+        },
+        insertImage() {
+            this.closeSelectImgModal()
+            wx.chooseImage({
+                success: res => {
+                    for (let i = 0; i < res.tempFilePaths.length; i++) {
+                        this.setData({
+                            postContent: [...this.data.postContent, {
+                                type: 'image',
+                                src: res.tempFilePaths[i]
+                            }]
+                        })
+                    }
+                },
+                fail: res => {
+                    this.openSelectImages()
+                }
+            });
+        },
+        insertVideo() {
+            this.closeSelectImgModal()
+            wx.chooseVideo({
+                success: res => {
+                    this.setData({
+                        postContent: [...this.data.postContent, {
+                            type: 'video',
+                            src: res.tempFilePath
+                        }]
+                    })
+                },
+                fail: res => {
+                    this.openSelectImages()
+                }
+            })
+        },
     }
 })

@@ -7,6 +7,14 @@ Component({
         title: {
             type: String,
             value: ''
+        },
+        titleColor: {
+            type: String,
+            value: '#161616'
+        },
+        theme:{
+            type: String,
+            value: 'black'
         }
     },
     data: {

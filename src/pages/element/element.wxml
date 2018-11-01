@@ -19,7 +19,9 @@
                     <text class="tag-tips-text" style="text-align: right;">7个讨论</text>
                     <text class="tag-tips-text" style="text-align: right;">4012人评分</text>
                 </view>
-                <image src="../../static/images/More@3x.png" class="element-header-detail-desc-opts-more-icon"></image>
+                <image src="../../static/images/More@3x.png"
+                       catchtap="openMoreModal"
+                       class="element-header-detail-desc-opts-more-icon"></image>
             </view>
         </view>
     </view>
@@ -95,7 +97,13 @@
     </scroll-view>
     <view class="add-post-popup" animation="{{togglePopup}}">
         <add-post-pop catchtouchmove="true" height="{{addPostPopupHeight}}">
-            <add-post-component bindcancelAdd="cancelAddPost" element="{{elementDetails}}" height="{{addPostPopupHeight}}"></add-post-component>
+            <add-post-component bindcancelAdd="cancelAddPost" element="{{elementDetails}}"
+                                height="{{addPostPopupHeight}}"></add-post-component>
         </add-post-pop>
     </view>
 </view>
+<more-modal show="{{showMoreModal}}"
+            menu="{{moreModalMenu}}"
+            bindactiveItem="handleMoreItem"
+            bindcloseModal="closeMoreModal"></more-modal>
+<invite-modal height="{{addPostPopupHeight}}" show="{{showInviteModal}}" bindcancel="closeInviteModal"></invite-modal>

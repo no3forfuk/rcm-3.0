@@ -1,0 +1,134 @@
+@import "../../static/css/mixin.scss";
+
+.invite-template {
+  width: 100%;
+  background-color: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  border-radius: rpx(40) rpx(40) 0 0;
+  transition: all 0.3s ease-in-out;
+  transform: translate3d(0, 100%, 0);
+  opacity: 0;
+}
+
+
+
+.show-class {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.invite-template-input {
+  width: 100%;
+  padding: rpx(28);
+  &-box {
+    width: 100%;
+    height: rpx(64);
+    background: rgba(248, 248, 248, 1);
+    border-radius: rpx(6);
+    padding: rpx(15) rpx(24);
+    @include layout(row, center);
+    &-icon {
+      width: rpx(31);
+      height: rpx(31);
+    }
+    &-input {
+      width: calc(100% - #{rpx(31)});
+      height: 100%;
+      @include textStyle(12px, 17px);
+      color: #9b9b9b;
+      padding-left: rpx(10);
+    }
+  }
+}
+
+.invite-tab {
+  width: 100%;
+  padding: 0 rpx(28);
+  @include layout(row, center);
+  position: relative;
+}
+
+.invite-tab-item {
+  width: rpx(128);
+  margin-right: rpx(40);
+  height: rpx(44);
+  color: #666;
+  @include textStyle(16px, 22px);
+  text-align: center;
+}
+
+.active-class {
+  color: #161616;
+}
+
+.invite-swiper {
+  width: 100%;
+  padding-top: rpx(16);
+}
+
+.invite-tab-mark {
+  width: 32px;
+  height: rpx(4);
+  border-right: rpx(4);
+  background-color: #161616;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  transition: all 0.3s ease-in-out;
+}
+
+.invite-item-view {
+  width: 100%;
+  height: rpx(110);
+  padding: rpx(8) rpx(0) rpx(0) rpx(28);
+}
+
+.invite-item-content {
+  width: 100%;
+  height: 100%;
+  padding-bottom: rpx(20);
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.invite-item-content-right {
+  width: calc(100% - #{rpx(80)});
+  height: 100%;
+  padding-left: rpx(12);
+  padding-right: rpx(28);
+  height: rpx(80);
+  @include layout(row, center, space-between);
+}
+
+.invite-item-content-right-info {
+  @include layout(column, flex-start);
+  width: rpx(460);
+}
+
+.invite-item-content-right-name {
+  margin-bottom: 2px;
+}
+
+.invited-class {
+  width: rpx(120);
+  height: rpx(40);
+  text-align: center;
+  @include textStyle(14px, 20px);
+  color: #9b9b9b;
+  border: 1px solid #9b9b9b;
+  border-radius: rpx(4);
+}
+
+.uninvited-class {
+  width: rpx(120);
+  height: rpx(40);
+  @include textStyle(14px, 20px);
+  text-align: center;
+  color: #499DFF;
+  border: 1px solid #499DFF;
+  border-radius: rpx(4);
+
+}
