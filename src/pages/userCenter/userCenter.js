@@ -27,7 +27,8 @@ Page({
             text: '每日任务',
             icon: 'personalcenter_task@2x.png',
             page: '/pages/myTask/myTask'
-        },]
+        },],
+        statusBarHeight: 0
     },
     linkTargetPage(e) {
         wx.navigateTo({
@@ -45,7 +46,13 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady() {
-
+        const system = wx.getSystemInfo({
+            success: result => {
+                this.setData({
+                    statusBarHeight: result.statusBarHeight
+                })
+            }
+        })
     },
 
     /**

@@ -23,31 +23,29 @@
 }
 
 .short-title {
-  @include textStyle(15px, 21px,600);
+  @include textStyle(15px, 21px, 600);
   color: #333;
 }
 
 .short-rank-item {
   width: 100%;
-  height: rpx(146);
+  height: rpx(111);
   border-bottom: 1px solid #f0f0f0;
-  padding: rpx(24) rpx(28);
-  padding-right: rpx(40);
+  padding: rpx(16) rpx(40) rpx(16) rpx(28);
   background-color: #fff;
   &-top {
-    width: 100%;
-    height: rpx(52);
+    width: calc(100% - #{rpx(80)});
+    height: rpx(80);
+    padding-left: rpx(8);
     @include layout(row, center, space-between);
   }
 }
 
 .short-rank-item-top-name {
-  width: rpx(550);
   height: 100%;
-  padding-left: rpx(16);
-  @include layout(row, center);
-  border: 1px solid #e9e9e9;
-  border-radius: rpx(8);
+  width: rpx(460);
+  @include layout(column, flex-start,space-between);
+  padding: rpx(4);
 }
 
 .rank-card-left-icon {
@@ -63,23 +61,6 @@
   overflow: hidden;
 }
 
-.short-rank-item-b {
-  margin-top: rpx(12);
-  @include layout(row, center);
-}
-
-.short-rank-item-b-icon {
-  width: rpx(24);
-  height: rpx(29);
-}
-
-.short-rank-item-b-text {
-  @include textStyle(12px, 12px);
-  color: #9b9b9b;
-  margin-top: 2px;
-  margin-left: 2px;
-}
-
 .focus-btn {
   height: rpx(40);
   padding: 0 rpx(16);
@@ -88,7 +69,6 @@
   @include layout(row, center, space-between, nowrap);
   border-radius: rpx(4);
   @include textStyle(14px, 20px);
-  margin-left: rpx(38);
   white-space: nowrap;
   &-icon {
     width: rpx(26);

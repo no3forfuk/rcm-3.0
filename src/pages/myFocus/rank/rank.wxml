@@ -1,0 +1,12 @@
+<short-page wx:if="{{rank.length == 0}}" list="{{recommendRank}}"></short-page>
+<scroll-view class="focus-rank-scroll" scroll-y="true" style="height:{{scrollHeight}}px;">
+    <block wx:for="{{rank}}" wx:key="{{index}}">
+        <view class="focus-rank-item">
+            <rank-card info="{{item}}"></rank-card>
+            <view class="focus-rank-item-desc text-s14-l20-c333">
+                <text class="focus-rank-item-desc-text {{item.img?'short-text':''}}">{{item.desc}}</text>
+                <image class="focus-rank-item-img" src="{{item.img}}" wx:if="{{item.img}}"></image>
+            </view>
+        </view>
+    </block>
+</scroll-view>

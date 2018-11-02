@@ -23,31 +23,49 @@
 }
 
 .short-title {
-  @include textStyle(15px, 21px,600);
+  @include textStyle(15px, 21px, 600);
   color: #333;
 }
 
 .short-rank-item {
   width: 100%;
-  height: rpx(146);
+  height: rpx(197);
   border-bottom: 1px solid #f0f0f0;
   padding: rpx(24) rpx(28);
   padding-right: rpx(40);
   background-color: #fff;
   &-top {
     width: 100%;
-    height: rpx(52);
     @include layout(row, center, space-between);
   }
 }
 
 .short-rank-item-top-name {
+  height: rpx(100);
   width: rpx(550);
-  height: 100%;
-  padding-left: rpx(16);
   @include layout(row, center);
-  border: 1px solid #e9e9e9;
-  border-radius: rpx(8);
+}
+
+.short-rank-item-image {
+  width: rpx(100);
+  height: rpx(100);
+}
+
+.short-rank-item-element {
+  width: calc(100% - #{rpx(100)});
+  height: 100%;
+  padding-left: rpx(12);
+  padding-top: rpx(2);
+}
+
+.short-rank-item-element-name {
+  width: 100%;
+  @include limitTextLine(1);
+}
+
+.short-rank-item-element-rate {
+  margin-top: rpx(10);
+  @include layout(row, center);
 }
 
 .rank-card-left-icon {

@@ -1,0 +1,42 @@
+@import "../../../static/css/mixin.scss";
+
+.focus-rank-scroll {
+  background-color: #f8f8f8;
+  width: 100%;
+}
+
+.focus-rank-item {
+  margin-top: rpx(24);
+  padding: rpx(28);
+  background-color: #fff;
+}
+
+.focus-rank-item-desc {
+  width: 100%;
+  padding: rpx(12) rpx(16) rpx(18) rpx(16);
+  background-color: #f8f8f8;
+  height: rpx(80);
+  @include limitTextLine(2);
+  margin-top: rpx(8);
+  @include layout(row, center, space-between);
+}
+
+.focus-rank-item-desc-text {
+  width: 100%;
+  @include limitTextLine(2);
+}
+
+.focus-rank-item-video {
+  width: rpx(104);
+  height: rpx(78);
+}
+
+.short-text {
+  width: rpx(550);
+  @include limitTextLine(2);
+}
+
+.focus-rank-item-img {
+  width: rpx(104);
+  height: rpx(78);
+}

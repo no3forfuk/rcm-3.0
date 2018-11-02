@@ -26,16 +26,6 @@ Page({
         }, {
             key: 'indexRanking'
         }],
-        tabbarData: {
-            show: true,
-            items: [
-                {
-                    text: '个人中心',
-                    imageUrl: '/static/images/user@3x.png',
-                    targetUrl: '/pages/userCenter/userCenter'
-                }
-            ]
-        },
         scrollHeight: 0,
         currentPage: 1,
         bottomBarData: [{

@@ -1,0 +1,27 @@
+<short-top></short-top>
+<view class="short-rank-title">
+    <text class="short-title">你可能感兴趣的排名</text>
+    <view class="short-rank-title-right" bindtap="changeRank">
+        <image src="../../static/images/NextGroup@2x.png"
+               animation="{{rotateAnimation}}"
+               style="transform: rotate({{rotate}}deg);"
+               class="short-rank-title-icon"></image>
+        <text class="short-rank-title-text">换一批</text>
+    </view>
+</view>
+<block wx:for="{{list}}" wx:key="{{index}}">
+    <view class="short-rank-item">
+        <user-card avatar-width="80" avatar-height="80" user-info="{{item.user}}">
+            <view class="short-rank-item-top">
+                <view class="short-rank-item-top-name">
+                    <text class="text-s14-l20-c333">{{item.user.name}}</text>
+                    <text class="text-s12-l17-c9b">12345榜单 546赞</text>
+                </view>
+                <view class="focus-btn">
+                    <image src="../../static/images/add@3x.png" class="focus-btn-icon"></image>
+                    <text>关注</text>
+                </view>
+            </view>
+        </user-card>
+    </view>
+</block>

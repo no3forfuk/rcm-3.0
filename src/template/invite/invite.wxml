@@ -36,7 +36,7 @@
                                              user-info="{{list.user}}">
                                     <view class="invite-item-content-right">
                                         <view class="invite-item-content-right-info">
-                                            <text class="invite-item-content-right-name limit-1-line text-s14-l17-c333">{{list.user.name}}</text>
+                                            <text class="invite-item-content-right-name limit-1-line text-s14-l20-c333">{{list.user.name}}</text>
                                             <text class="limit-1-line text-s12-l17-c9b">{{list.user.rank}}榜单 {{list.user.zan}}赞</text>
                                         </view>
                                         <view class="{{list.user.isInvited?'invited-class':'uninvited-class'}}"

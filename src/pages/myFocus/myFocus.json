@@ -1,4 +1,9 @@
 {
-  "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "common-header": "/components/commonHeader/commonHeader",
+    "tab": "/components/tab/tab",
+    "focus-rank": "./rank/rank",
+    "focus-element": "./element/element",
+    "focus-user": "./user/user"
+  }
 }

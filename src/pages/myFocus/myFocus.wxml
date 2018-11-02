@@ -1,0 +1,19 @@
+<common-header title="我的关注"></common-header>
+<tab tab-item="{{tabData.items}}"
+     font-color="#161616"
+     font-size="16px"
+     bindchange="tabChange"
+     active-color="#499DFF"
+     current="{{tabData.current}}"></tab>
+<swiper current="{{tabData.current}}"
+        style="height:{{scrollHeight}}px;"
+        bindchange="handleSwiperChange"
+        class="index-page-swiper">
+    <block wx:for="{{tabData.items}}" wx:key="{{index}}">
+        <swiper-item>
+            <focus-rank wx:if="{{item.key == tabData.items[0].key}}"></focus-rank>
+            <focus-element wx:if="{{item.key == tabData.items[1].key}}"></focus-element>
+            <focus-user wx:if="{{item.key == tabData.items[2].key}}"></focus-user>
+        </swiper-item>
+    </block>
+</swiper>

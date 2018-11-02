@@ -1,0 +1,44 @@
+@import "../../../static/css/mixin.scss";
+
+.focus-rank-scroll {
+  background-color: #f8f8f8;
+  width: 100%;
+  padding-top: rpx(24);
+}
+.short-rank-item-user{
+  height: 100%;
+  width: 100%;
+  padding-bottom: rpx(26);
+  padding-right: rpx(32);
+  border-bottom: 1px solid #f0f0f0;
+}
+.short-rank-item {
+  width: 100%;
+  height: rpx(134);
+  padding-left:rpx(28);
+  padding-bottom: rpx(28);
+  background-color: #fff;
+  &-top {
+    width: calc(100% - #{rpx(80)});
+    height: rpx(80);
+    padding-left: rpx(8);
+    @include layout(row, center, space-between);
+  }
+}
+
+.short-rank-item-top-name {
+  height: 100%;
+  width: rpx(460);
+  @include layout(column, flex-start, space-between);
+  padding: rpx(4) 0;
+}
+
+.focus-btn {
+  height: rpx(40);
+  border: 1px solid #d1d1d1;
+  color: #9b9b9b;
+  @include textStyle(12px, 17px);
+  width: rpx(118);
+  @include layout(row, center, space-around);
+  border-radius: rpx(4);
+}

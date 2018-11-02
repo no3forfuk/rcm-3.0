@@ -1,0 +1,34 @@
+<short-top></short-top>
+<view class="short-rank-title">
+    <text class="short-title">你可能感兴趣的排名</text>
+    <view class="short-rank-title-right" bindtap="changeRank">
+        <image src="../../static/images/NextGroup@2x.png"
+               animation="{{rotateAnimation}}"
+               style="transform: rotate({{rotate}}deg);"
+               class="short-rank-title-icon"></image>
+        <text class="short-rank-title-text">换一批</text>
+    </view>
+</view>
+<block wx:for="{{list}}" wx:key="{{index}}">
+    <view class="short-rank-item">
+        <view class="short-rank-item-top">
+            <view class="short-rank-item-top-name">
+                <image src="{{item.img}}" class="short-rank-item-image"></image>
+                <view class="short-rank-item-element">
+                    <text class="text-s17-l24-c16 short-rank-item-element-name">{{item.element_name}}</text>
+                    <view class="short-rank-item-element-rate">
+                        <rate mode="large" rate="{{item.rate}}" has-num="{{true}}"></rate>
+                    </view>
+                </view>
+            </view>
+            <view class="focus-btn">
+                <image src="../../static/images/add@3x.png" class="focus-btn-icon"></image>
+                <text>关注</text>
+            </view>
+        </view>
+        <view class="short-rank-item-b">
+            <image src="../../static/images/Hot-1@2x.png" class="short-rank-item-b-icon"></image>
+            <text class="short-rank-item-b-text">1212关注 123排名</text>
+        </view>
+    </view>
+</block>

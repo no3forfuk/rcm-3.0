@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "short-top": "/components/shortTop/shortTop",
+    "rate": "/components/rate/rate"
+  }
+}
