@@ -1,0 +1,6 @@
+<view class="short-top">
+    <image src="../../static/images/{{image}}"
+           mode="aspectFit"
+           class="short-top-image"></image>
+    <text class="short-top-text">{{text}}</text>
+</view>

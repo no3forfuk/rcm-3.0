@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "common-header": "/components/commonHeader/commonHeader",
+    "short-page": "/template/shortRank/shortRank"
+  }
+}

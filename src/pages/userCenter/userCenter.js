@@ -10,9 +10,30 @@ Page({
             name: '未登录',
             avatar: 'http://img2.imgtn.bdimg.com/it/u=1219433764,1891815064&fm=26&gp=0.jpg',
             sign: '点击头像登录'
-        }
+        },
+        userOptions: [{
+            text: '参与的榜单',
+            icon: 'Personalcenter_ranking@2x.png',
+            page: '/pages/partakeRank/partakeRank'
+        }, {
+            text: '我的关注',
+            icon: 'personalcenter_myfocus@2x.png',
+            page: '/pages/myFocus/myFocus'
+        }, {
+            text: '我的收藏',
+            icon: 'personalcenter_mycollect@2x.png',
+            page: '/pages/myCollection/myCollection'
+        }, {
+            text: '每日任务',
+            icon: 'personalcenter_task@2x.png',
+            page: '/pages/myTask/myTask'
+        },]
     },
-
+    linkTargetPage(e) {
+        wx.navigateTo({
+            url: e.currentTarget.dataset.page
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */

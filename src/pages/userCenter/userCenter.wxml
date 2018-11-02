@@ -1,4 +1,4 @@
-<view class="user-center-page">
+<scroll-view class="user-center-page">
     <view class="user-header-background">
         <image src="../../static/images/background_small@2x.png" class="user-header-background-img"></image>
     </view>
@@ -15,7 +15,28 @@
     </view>
     <view class="message-remind">
         <view class="message-remind-item">
-            
+            <image class="message-remind-item-icon" src="../../static/images/Personalcenter_information@2x.png"></image>
+            <view class="message-remind-item-right">
+                <text class="message-remind-item-right-text" style="color:#161616;">消息提醒</text>
+                <image src="../../static/images/Next@3x.png" class="message-remind-item-right-icon"></image>
+            </view>
+        </view>
+        <view class="message-show-view no-login">
+            <text class="no-login-text">-</text>
         </view>
     </view>
-</view>
+    <view class="message-options">
+        <block wx:for="{{userOptions}}" wx:key="{{index}}">
+            <view class="message-remind-item message-options-mt"
+                  data-page="{{item.page}}"
+                  bindtap="linkTargetPage">
+                <image class="message-remind-item-icon"
+                       src="../../static/images/{{item.icon}}"></image>
+                <view class="message-remind-item-right">
+                    <text class="message-remind-item-right-text">{{item.text}}</text>
+                    <image src="../../static/images/Next@3x.png" class="message-remind-item-right-icon"></image>
+                </view>
+            </view>
+        </block>
+    </view>
+</scroll-view>

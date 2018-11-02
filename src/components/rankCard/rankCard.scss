@@ -8,7 +8,7 @@
   border-radius: rpx(8);
   &-left {
     padding-left: rpx(16);
-    @include layout(row);
+    @include layout(row,center);
     flex: 1;
     &-icon {
       width: rpx(28);

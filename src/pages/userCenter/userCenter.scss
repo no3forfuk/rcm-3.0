@@ -3,12 +3,14 @@
 .user-center-page {
   width: 100%;
   height: 100%;
+  @include layout(column, flex-start);
+  position: relative;
 }
 
 .user-header-background {
   width: 100%;
   height: rpx(332);
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   &-img {
@@ -52,9 +54,54 @@
 .message-remind {
   width: 100%;
   height: rpx(262);
-  &-item {
-    border-bottom: 1px solid #f0f0f0;
-    width: 100%;
-    height: rpx(120);
+}
+
+.message-remind-item {
+  background-color: #fff;
+  width: 100%;
+  height: rpx(120);
+  padding: rpx(30) rpx(40);
+  @include layout(row, center);
+  &-icon {
+    width: rpx(60);
+    height: rpx(60);
   }
+  &-right {
+    width: calc(100% - #{rpx(60)});
+    padding-left: rpx(20);
+    @include layout(row, center, space-between);
+    &-icon {
+      width: rpx(20);
+      height: rpx(36);
+    }
+    &-text {
+      @include textStyle(17px, 24px);
+      color: #484848;
+    }
+  }
+}
+
+.message-options {
+  width: 100%;
+  background-color: #f8f8f8;
+  flex: 1;
+}
+
+.message-options-mt {
+  margin-top: rpx(24);
+}
+
+.message-show-view {
+  width: 100%;
+  height: rpx(140);
+  background-color: #fff;
+  border-top: rpx(2) solid #f0f0f0;
+}
+
+.no-login {
+  @include layout(row, center, space-around);
+}
+
+.no-login-text {
+  color: #9b9b9b;
 }

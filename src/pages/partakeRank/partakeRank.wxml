@@ -1,0 +1,9 @@
+<common-header title="参与的榜单"></common-header>
+<scroll-view class="partake-rank-page"
+             scroll-y="true"
+             style="height:{{scrollViewHeight}}px;">
+    <short-page wx:if="{{partakeRankList.length == 0}}" list="{{recommendRank}}"></short-page>
+    <view class="partake-rank-page" wx:if="{{partakeRankList.length != 0}}">
+
+    </view>
+</scroll-view>

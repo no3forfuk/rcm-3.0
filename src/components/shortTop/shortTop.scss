@@ -1,0 +1,17 @@
+@import "../../static/css/mixin.scss";
+.short-top {
+  width: 100%;
+  @include layout(column, center, space-between);
+  height: rpx(184);
+  background-color: #f8f8f8;
+  padding-top: rpx(32);
+  padding-bottom: rpx(48);
+  &-image {
+    width: rpx(60);
+    height: rpx(60);
+  }
+  &-text {
+    @include textStyle(12px, 17px);
+    color: #9b9b9b;
+  }
+}
