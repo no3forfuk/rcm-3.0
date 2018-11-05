@@ -1,1 +1,114 @@
 @import "../../static/css/mixin.scss";
+
+.my-task-header {
+  width: 100%;
+  height: rpx(280);
+  background-color: #2D2F35;
+  position: relative;
+  @include layout(column, center);
+  &-rule {
+    width: rpx(160);
+    height: rpx(44);
+    background: rgba(22, 22, 22, 1);
+    border-radius: 0px 22px 22px 0px;
+    position: absolute;
+    top: rpx(28);
+    left: 0;
+    @include layout(row, center, space-around);
+    @include textStyle(10px, 14px);
+    color: #fff;
+  }
+  &-register {
+    width: rpx(104);
+    background: linear-gradient(90deg, rgba(255, 230, 113, 1) 0%, rgba(255, 201, 42, 1) 100%);
+    height: rpx(40);
+    border-radius: rpx(32);
+    @include layout(row, center, space-around);
+    @include textStyle(14px, 20px);
+    color: #fff;
+    position: absolute;
+    top: rpx(28);
+    right: rpx(48);
+  }
+}
+
+.my-task-header-avatar {
+  width: rpx(152);
+  height: rpx(152);
+  border-radius: 50%;
+  margin-top: rpx(28);
+  //border: rpx(8) solid #D1D1D1;
+  position: relative;
+  background-color: #D1D1D1;
+  @include layout(row, center, space-around);
+  &-img {
+    width: rpx(136);
+    height: rpx(136);
+    border-radius: 50%;
+
+  }
+  &-level {
+    padding: rpx(4) rpx(6);
+    background: linear-gradient(90deg, rgba(255, 230, 113, 1) 0%, rgba(255, 201, 42, 1) 100%);
+    border-radius: rpx(6);
+    font-size: 10px;
+    color: #CD9C13;
+    line-height: 11px;
+    transform: translateY(-#{rpx(8)});
+  }
+}
+
+.my-task-header-level-num {
+  @include textStyle(12px, 12px);
+  color: #fff;
+  margin-top: rpx(36);
+}
+
+.task-list-view {
+  padding-bottom: rpx(28);
+  background-color: #fff;
+}
+
+.task-list-item {
+  width: 100%;
+  border-bottom: 1px solid #f0f0f0;
+  padding: rpx(28) rpx(48);
+  &-header {
+    width: 100%;
+  }
+  &-body {
+    width: 100%;
+    font-size: 12px;
+    text-align: right;
+    line-height: 17px;
+    color: #666;
+  }
+  &-progress {
+    width: 100%;
+    height: rpx(12);
+    border-radius: rpx(12);
+  }
+}
+
+.tip-type-item {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  @include layout(column, center);
+  margin-top: rpx(600);
+  &-text {
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  &-img{
+    width: rpx(160);
+    height: rpx(150);
+    margin-top: rpx(52);
+  }
+  &-close{
+    width: rpx(60);
+    height: rpx(60);
+    margin-top: rpx(46);
+  }
+}

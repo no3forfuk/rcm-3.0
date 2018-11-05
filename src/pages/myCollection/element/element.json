@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "short-page": "/template/shortElement/shortElement",
+    "item-header": "/components/userCard/userCard",
+    "rank-card": "/components/rankCard/rankCard",
+    "ele-card": "/components/elementCard/elementCard"
+  }
+}

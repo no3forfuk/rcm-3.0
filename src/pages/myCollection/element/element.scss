@@ -1,0 +1,24 @@
+@import "../../../static/css/mixin.scss";
+
+.focus-rank-scroll {
+  background-color: #f8f8f8;
+  width: 100%;
+}
+
+.element-item {
+  padding: rpx(28);
+  margin-top: rpx(24);
+  background-color: #fff;
+}
+
+.item-header-right {
+  width: calc(100% - #{rpx(40)});
+  @include layout(row, center, space-between);
+  padding-left: rpx(16);
+}
+
+.item-rank {
+  width: 100%;
+  padding: rpx(18) rpx(8);
+  background-color: #f8f8f8;
+}

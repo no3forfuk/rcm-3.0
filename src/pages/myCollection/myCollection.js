@@ -5,8 +5,40 @@ Page({
     /**
      * 页面的初始数据
      */
-    data: {},
-
+    data: {
+        tabData: {
+            current: 0,
+            items: [{
+                label: '榜单',
+                key: 'rank'
+            }, {
+                label: '排名',
+                key: 'element'
+            }, {
+                label: '帖子',
+                key: 'post'
+            }]
+        },
+        scrollHeight: 0,
+    },
+    tabChange(e) {
+        const detail = e.detail
+        this.setData({
+            tabData: {
+                ...this.data.tabData,
+                current: detail.index
+            }
+        })
+    },
+    handleSwiperChange(e) {
+        const detail = e.detail
+        this.setData({
+            tabData: {
+                ...this.data.tabData,
+                current: detail.current
+            }
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */
@@ -18,7 +50,15 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady() {
-
+        app.tools.setScrollHeight({
+            target: '.index-page-swiper',
+            isComponent: false,
+            success: height => {
+                this.setData({
+                    scrollHeight: height
+                })
+            }
+        })
     },
 
     /**

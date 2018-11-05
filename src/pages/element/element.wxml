@@ -11,7 +11,7 @@
             <tetx class="cm-tips-text">组合/台湾/属性3/属性4/属性5/属性6/属性7/属性8/属性9/属性10</tetx>
             <view class="element-header-detail-desc-opts">
                 <view class="element-header-detail-desc-opts-left">
-                    <view class="element-header-detail-desc-opts-left-focus">
+                    <view class="element-header-detail-desc-opts-left-focus" catchtap="focusElement">
                         <image src="../../static/images/add@3x.png"
                                class="element-header-detail-desc-opts-left-focus-icon"></image>
                         <text>关注</text>

@@ -1,3 +1,13 @@
+<login-modal visible="{{!isLogin}}">
+    <view class="login-modal">
+        <image class="login-modal-logo" src="../../static/images/logo@2x.png"></image>
+        <text class="login-modal-text">关联后可创建榜单，解锁更多玩法</text>
+        <button class="login-modal-loginbtn" open-type="getUserInfo" bindgetuserinfo="getInfo">
+            <image class="login-modal-loginbtn-icon" src="../../static/images/WeChat@2x.png"></image>
+            <text class="login-modal-loginbtn-text">微信登陆</text>
+        </button>
+    </view>
+</login-modal>
 <view class="index-page">
     <index-header></index-header>
     <view class="index-page-tab">
@@ -30,5 +40,6 @@
         <view class="shuxian" wx:if="{{index < operateData.length-1 || index == 0}}"></view>
     </block>
 </view>
+
 
 

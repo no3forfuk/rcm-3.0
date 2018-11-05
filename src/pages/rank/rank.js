@@ -22,7 +22,14 @@ Page({
             key: 'active'
         }]
     },
-
+    focusRank() {
+        wx.showModal({
+            tutle: '',
+            content: '关注成功',
+            mask: true,
+            showCancel: false
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */

@@ -3,7 +3,6 @@ const utils = require('./utils/index')
 App({
     onLaunch(option) {
         this.scene = option.scene
-
     },
     globalData: {
         scene: ''

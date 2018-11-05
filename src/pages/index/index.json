@@ -4,6 +4,7 @@
     "index-header": "/components/searchHeader/searchHeader",
     "index-focus": "./focus/focus",
     "index-discover": "./discover/discover",
-    "index-ranking": "./ranking/ranking"
+    "index-ranking": "./ranking/ranking",
+    "login-modal": "/components/modal/modal"
   }
 }

@@ -36,7 +36,8 @@ Page({
             text: '我的',
             icon: 'Mine@2x.png',
             handle: 'linkUserCenter'
-        }]
+        }],
+        isLogin: false
     },
     linkUserCenter() {
         wx.navigateTo({
@@ -63,17 +64,65 @@ Page({
             }
         })
     },
+    //登陆
+    getInfo(res) {
+        const iv = res.detail.iv;
+        const encryptedData = res.detail.encryptedData
+        wx.login({
+            success: lres => {
+                const code = lres.code
+                let params = {
+                    code,
+                    iv,
+                    encryptedData,
+                }
+                app.request.login({
+                    params: params,
+                    success: ares => {
+                        console.log(ares);
+                        // wx.setStorage({
+                        //     key: 'u_id',
+                        //     data: ares.data.user_id,
+                        //     success: res => {
+                        //         wx.reLaunch({
+                        //             url: '/pages/index/index',
+                        //         })
+                        //     }
+                        // });
+                    }
+                })
+            }
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        wx.getSetting({
+            success: res => {
+                if (res.authSetting['scope.userInfo']) {
+                    wx.getStorage({
+                        key: 'u_id',
+                        success: res => {
+                            this.setData({
+                                isLogin: true
+                            })
+                        }
+                    });
+                } else {
+                    this.setData({
+                        isLogin: false
+                    })
+                }
+            }
+        })
     },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
+
         app.tools.setScrollHeight({
             target: '.index-page-swiper',
             isComponent: false,

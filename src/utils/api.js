@@ -5,7 +5,7 @@ module.exports = {
     //登陆
     login({params = {}, success}) {
         return request({
-            uri: '/xcx/xcxLogin',
+            uri: '/Xcx/Login/login',
             params: params,
             method: 'POST',
             success(res) {

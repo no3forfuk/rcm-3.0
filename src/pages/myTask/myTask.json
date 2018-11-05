@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "common-header": "/components/commonHeader/commonHeader"
+    "common-header": "/components/commonHeader/commonHeader",
+    "tip-modal": "/components/modal/modal"
   }
 }

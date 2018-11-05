@@ -1,1 +1,43 @@
 <common-header title="每日任务"></common-header>
+<scroll-view class="my-task-page" scroll-y="true" style="height:{{scrollViewHeight}}px;">
+    <view class="my-task-header">
+        <view class="my-task-header-rule">
+            <text>每日任务规则</text>
+        </view>
+        <view class="my-task-header-register" bindtap="openModal">
+            <text>签到</text>
+        </view>
+        <view class="my-task-header-avatar"
+              style="background: conic-gradient(rgba(255, 230, 113, 1) 0, rgba(255, 201, 42, 1) {{currentScore/totalScore * 100 }}%, #d1d1d1 {{currentScore/totalScore * 100}}%, #d1d1d1 100%)">
+            <image class="my-task-header-avatar-img"
+                   src="http://img1.imgtn.bdimg.com/it/u=3103563089,152994782&fm=26&gp=0.jpg"></image>
+        </view>
+        <text class="my-task-header-avatar-level">Lv 2</text>
+        <text class="my-task-header-level-num">456/1156</text>
+    </view>
+    <view class="task-list-view">
+        <block wx:for="{{taskList}}" wx:key="{{index}}">
+            <view class="task-list-item">
+                <view class="task-list-item-header">
+                    <text class="text-s17-l24-c48">{{item.name}}</text>
+                    <text class="text-s12-l17-c9b ml-16">经验值+{{item.exp}}</text>
+                </view>
+                <view class="task-list-item-body">
+                    <text>
+                        <text style="color: #FBAE2B;">{{item.current}}/</text>{{item.limit}}
+                    </text>
+                </view>
+                <view class="task-list-item-progress"
+                      style="background: linear-gradient(90deg, rgba(255, 230, 113, 1) 0%, rgba(255, 201, 42, 1) {{item.current/item.limit *100}}%, #d1d1d1 {{item.current/item.limit *100}}%, #d1d1d1 100%);"></view>
+            </view>
+        </block>
+    </view>
+</scroll-view>
+<tip-modal visible="{{modalShow}}">
+    <!--bindcloseModal="closeModal"  点击遮罩关闭弹框-->
+    <view class="tip-type-item">
+        <text class="tip-type-item-text">签到成功<text style="color: #FBAE2B;">+1</text>经验</text>
+        <image src="../../static/images/alertview_increase@2x.png" class="tip-type-item-img"></image>
+        <image src="../../static/images/Close@2x.png" class="tip-type-item-close" bindtap="closeModal"></image>
+    </view>
+</tip-modal>

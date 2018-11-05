@@ -1,1 +1,19 @@
 <common-header title="我的收藏"></common-header>
+<tab tab-item="{{tabData.items}}"
+     font-color="#161616"
+     font-size="16px"
+     bindchange="tabChange"
+     active-color="#499DFF"
+     current="{{tabData.current}}"></tab>
+<swiper current="{{tabData.current}}"
+        style="height:{{scrollHeight}}px;"
+        bindchange="handleSwiperChange"
+        class="index-page-swiper">
+    <block wx:for="{{tabData.items}}" wx:key="{{index}}">
+        <swiper-item>
+            <collect-rank wx:if="{{item.key == tabData.items[0].key}}"></collect-rank>
+            <collect-element wx:if="{{item.key == tabData.items[1].key}}"></collect-element>
+            <collect-post wx:if="{{item.key == tabData.items[2].key}}"></collect-post>
+        </swiper-item>
+    </block>
+</swiper>

@@ -15,7 +15,6 @@
 
 .bottom-bar {
   width: 100%;
-  height: rpx(82);
   border-top: 1px solid #f0f0f0;
   position: fixed;
   bottom: 0;
@@ -43,4 +42,42 @@
   width: rpx(2);
   height: rpx(32);
   background-color: #d8d8d8;
+}
+
+.login-modal {
+  width: rpx(536);
+  padding: rpx(48) rpx(24);
+  background-color: #fff;
+  border-radius: rpx(8);
+  @include layout(column, center);
+  margin: rpx(400) auto;
+  &-logo {
+    width: rpx(188);
+    height: rpx(74);
+  }
+  &-text {
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(209, 209, 209, 1);
+    line-height: 17px;
+    margin-top: rpx(40);
+    margin-top: rpx(34);
+  }
+  &-loginbtn {
+    width: rpx(480);
+    height: rpx(90);
+    background-color: #3BAF34;
+    border-radius: rpx(8);
+    margin-top: rpx(86);
+    padding: 0 rpx(120);
+    @include layout(row, center, space-between);
+    &-icon {
+      width: rpx(64);
+      height: rpx(52);
+    }
+    &-text {
+      @include textStyle(18px, 25px);
+      color: #fff;
+    }
+  }
 }

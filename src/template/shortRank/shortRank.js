@@ -7,6 +7,13 @@ Component({
         list: {
             type: Array,
             value: []
+        },
+        mode: {
+            type: Object,
+            value: {
+                text: '关注',
+                key: 'focus'
+            }
         }
     },
     data: {

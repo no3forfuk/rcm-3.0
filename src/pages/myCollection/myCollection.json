@@ -1,5 +1,9 @@
 {
   "usingComponents": {
-    "common-header": "/components/commonHeader/commonHeader"
+    "common-header": "/components/commonHeader/commonHeader",
+    "tab": "/components/tab/tab",
+    "collect-rank": "./rank/rank",
+    "collect-element": "./element/element",
+    "collect-post": "./post/post"
   }
 }

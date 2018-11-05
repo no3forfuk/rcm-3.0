@@ -8,6 +8,10 @@ Component({
         info: {
             type: Object,
             value: {}
+        },
+        type: {
+            type: String,
+            value: ''
         }
     },
     data: {

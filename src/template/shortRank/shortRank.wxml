@@ -18,7 +18,7 @@
             </view>
             <view class="focus-btn">
                 <image src="../../static/images/add@3x.png" class="focus-btn-icon"></image>
-                <text>关注</text>
+                <text>{{mode.text}}</text>
             </view>
         </view>
         <view class="short-rank-item-b">

@@ -1,0 +1,17 @@
+<short-page wx:if="{{element.length == 0}}" list="{{recommendElement}}" mode="{{recommendType}}"></short-page>
+<scroll-view class="focus-rank-scroll" scroll-y="true" style="height:{{scrollHeight}}px;">
+    <block wx:for="{{element}}" wx:key="{{index}}">
+        <view class="element-item">
+            <item-header avatar-width="40" avatar-height="40" user-info="{{item.user}}">
+                <view class="item-header-right">
+                    <text class="text-s12-l17-c9b">{{item.user.name}}</text>
+                    <text class="text-s12-l17-c9b">09-20 20:00</text>
+                </view>
+            </item-header>
+            <ele-card info="{{item}}" type="collect"></ele-card>
+            <view class="item-rank">
+                <rank-card mode="normal" info="{{item.father}}"></rank-card>
+            </view>
+        </view>
+    </block>
+</scroll-view>

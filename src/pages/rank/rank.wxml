@@ -11,7 +11,7 @@
         </view>
         <view class="rank-pandect-bottom">
             <view class="rank-pandect-bottom-left">
-                <view class="rank-pandect-bottom-left-focus">
+                <view class="rank-pandect-bottom-left-focus" catchtap="focusRank">
                     <image src="../../static/images/add@3x.png" class="rank-pandect-bottom-left-focus-icon"></image>
                     <text>关注</text>
                 </view>

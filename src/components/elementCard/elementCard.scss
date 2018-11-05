@@ -44,5 +44,11 @@
   }
   &-name {
     margin-left: rpx(12);
+    max-width: rpx(374);
   }
+}
+
+.collect-card-item {
+  background-color: #fff;
+  padding: rpx(16) rpx(0);
 }

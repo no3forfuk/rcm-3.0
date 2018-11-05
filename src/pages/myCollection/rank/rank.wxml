@@ -1,0 +1,20 @@
+<short-page wx:if="{{rank.length == 0}}" list="{{recommendRank}}" mode="{{recommendType}}"></short-page>
+<scroll-view class="focus-rank-scroll" scroll-y="true" style="height:{{scrollHeight}}px;">
+    <block wx:for="{{rank}}" wx:key="{{index}}">
+        <view class="focus-rank-item">
+            <item-header avatar-width="40" avatar-height="40" user-info="{{item.user}}">
+                <view class="item-header-right">
+                    <text class="text-s12-l17-c9b">{{item.user.name}}</text>
+                    <text class="text-s12-l17-c9b">09-20 20:00</text>
+                </view>
+            </item-header>
+            <view style="width: 100%;height: 16rpx;background-color: #fff;"></view>
+            <rank-card info="{{item}}" mode="large"></rank-card>
+            <view style="width: 100%;height: 8rpx;background-color: #fff;"></view>
+            <view class="focus-rank-item-desc text-s14-l20-c333">
+                <text class="focus-rank-item-desc-text {{item.img?'short-text':''}}">{{item.desc}}</text>
+                <image class="focus-rank-item-img" src="{{item.img}}" wx:if="{{item.img}}"></image>
+            </view>
+        </view>
+    </block>
+</scroll-view>
