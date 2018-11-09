@@ -1,5 +1,6 @@
 <view class="user-card-component" style="align-items: {{alignItems}}">
     <image src="{{userInfo.avatar}}"
+           catchtap="link2UserDetail"
            mode="aspectFill"
            style="width:{{avatarWidth}}rpx;height: {{avatarHeight}}rpx;border-radius: 50%;"></image>
     <slot></slot>

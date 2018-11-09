@@ -1,4 +1,5 @@
 {
+  "disableScroll": true,
   "usingComponents": {
     "tab": "/components/tab/tab",
     "index-header": "/components/searchHeader/searchHeader",

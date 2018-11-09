@@ -18,11 +18,17 @@ Component({
     },
     data: {
         targetRank: {},
-        targetEle:{},
+        targetEle: {},
         userInfo: {},
     },
     attached() {
 
     },
-    methods: {}
+    methods: {
+        link2UserDetail() {
+            wx.navigateTo({
+                url: `/pages/userDetails/userDetails`
+            })
+        }
+    }
 })

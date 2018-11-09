@@ -1,0 +1,8 @@
+<common-header title="搜索"></common-header>
+<!--<view class="ss">-->
+<!--<view class="ss-item">-->
+<!--<block wx:for="{{items}}" wx:key="{{index}}">-->
+<!--<text class="item {{index == currentIndex % 3 ?'active':''}}"></text>-->
+<!--</block>-->
+<!--</view>-->
+<!--</view>-->

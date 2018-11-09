@@ -14,7 +14,8 @@ Component({
         rateIndex: 0,
         floatIndex: 0,
         intIndex: 0,
-        color: ''
+        color: '',
+        showRatePopup: false
     },
     attached() {
 
@@ -37,6 +38,9 @@ Component({
             wx.navigateTo({
                 url: `/pages/element/element?id=${e.currentTarget.dataset.id}`
             })
-        }
+        },
+        goRate() {
+            this.triggerEvent('openAddRate')
+        },
     }
 })

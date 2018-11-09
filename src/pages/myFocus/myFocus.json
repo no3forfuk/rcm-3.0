@@ -1,4 +1,5 @@
 {
+  "disableScroll": true,
   "usingComponents": {
     "common-header": "/components/commonHeader/commonHeader",
     "tab": "/components/tab/tab",

@@ -15,7 +15,11 @@ Component({
             key: 'hostest'
         }],
         sortMapIndex: 0,
-        rankList: []
+        rankList: [],
+        showMore: false,
+        canIscroll: false,
+        showPullDownView: false,
+        scrollViewTop: 0
     },
     attached() {
 
@@ -56,10 +60,18 @@ Component({
         },
         //切换一级榜单标签
         toggleFirstRank(e) {
+            this.setData({
+                canIscroll: true
+            })
             const dataset = e.currentTarget.dataset
             this.setData({
                 currentFirstRankIndex: dataset.index
             })
+            setTimeout(() => {
+                this.setData({
+                    canIscroll: false
+                })
+            }, 100)
         },
         //切换排序类型
         toggleSortType(e) {
@@ -72,6 +84,24 @@ Component({
                     sortMapIndex: 0
                 })
             }
+        },
+        //展示更多领域
+        showMoreTag() {
+            this.setData({
+                showMore: !this.data.showMore
+            })
+        },
+        //下拉刷新
+        pullDownRefresh() {
+            this.setData({
+                showPullDownView: true,
+                scrollViewTop: -60
+            })
+            setTimeout(() => {
+                this.setData({
+                    showPullDownView: false
+                })
+            }, 2000)
         }
     }
 })

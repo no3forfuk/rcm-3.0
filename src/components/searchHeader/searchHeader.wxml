@@ -1,6 +1,7 @@
-<view class="search-header-components">
+<view class="search-header-components" catchtap="link2SearchPage">
     <view style="width: 100%;height:{{statusBarHeight}}px;"></view>
     <view class="search-box">
-        <text>体验世界的导航</text>
+        <image src="../../static/images/search@2x.png" class="search-icon"></image>
+        <text class="text-s12-l17-c9b ml-12">体验世界的导航</text>
     </view>
 </view>

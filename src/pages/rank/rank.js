@@ -11,6 +11,13 @@ Page({
         pageElementList: [],
         popupElementList: [],
         scrollHeight: 0,
+        moreModalMenu: [{
+            text: '关注',
+            handle: 'focus'
+        }, {
+            text: '邀请排名',
+            handle: 'invite'
+        },],
         bottomTab: [{
             label: '排名',
             key: 'rank'
@@ -20,7 +27,11 @@ Page({
         }, {
             label: '活动',
             key: 'active'
-        }]
+        }],
+        addRatePopupHeight: 0,
+        showAddRate: false,
+        showMoreModal: false,
+        showDetailModal: false
     },
     focusRank() {
         wx.showModal({
@@ -28,6 +39,31 @@ Page({
             content: '关注成功',
             mask: true,
             showCancel: false
+        })
+    },
+    openAddRate() {
+        this.setData({
+            showAddRate: true
+        })
+    },
+    cancelAddRate() {
+        this.setData({
+            showAddRate: false
+        })
+    },
+    toggleAddRate() {
+        this.setData({
+            showAddRate: !this.data.showAddRate
+        })
+    },
+    toggleMoreModal() {
+        this.setData({
+            showMoreModal: !this.data.showMoreModal
+        })
+    },
+    toggleDetailModal() {
+        this.setData({
+            showDetailModal: !this.data.showDetailModal
         })
     },
     /**
@@ -49,6 +85,19 @@ Page({
             success: height => {
                 this.setData({
                     scrollHeight: height
+                })
+            }
+        });
+        wx.getSystemInfo({
+            success: outres => {
+                const query = wx.createSelectorQuery();
+                query.select('#rankHeader').boundingClientRect()
+                query.exec(res => {
+                    if (res[0]) {
+                        this.setData({
+                            addRatePopupHeight: outres.screenHeight - res[0].height - 12
+                        })
+                    }
                 })
             }
         })

@@ -11,4 +11,11 @@
   border-radius: rpx(3);
   margin-top: rpx(8);
   margin-left: rpx(28);
+  @include layout(row, center);
+  padding-left: rpx(41);
+}
+
+.search-icon {
+  width: rpx(31);
+  height: rpx(31);
 }

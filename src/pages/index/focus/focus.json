@@ -1,4 +1,6 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "short-component": "/template/shortUser/shortUser"
+  }
 }

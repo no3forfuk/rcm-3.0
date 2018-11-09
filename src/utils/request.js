@@ -2,8 +2,8 @@
 'use strict'
 const request = function (data) {
     const token = wx.getStorageSync('token') || '';
-    let baseUrl = 'http://test.bantangtv.com'
-    // let baseUrl = 'https://www.rcm.ink/api'
+    // let baseUrl = 'http://test.bantangtv.com'
+    let baseUrl = 'https://www.rcm.ink/api'
     return wx.request({
         url: baseUrl + data.uri,
         data: data.params,

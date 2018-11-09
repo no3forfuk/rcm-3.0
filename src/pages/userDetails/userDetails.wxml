@@ -1,0 +1,15 @@
+<scroll-view class="user-details-page">
+    <view class="user-header-background" style="height:calc({{statusBarHeight}}px + 440rpx);">
+        <image src="../../static/images/background_big@2x.png"
+               class="user-header-background-img"
+               style="height:calc({{statusBarHeight}}px + 440rpx);">
+        </image>
+    </view>
+    <view class="user-header" style="height:calc({{statusBarHeight}}px + 440rpx);">
+        <view style="width: 100%;">
+            <user-header title="个人主页" title-color="#fff" theme="white"></user-header>
+        </view>
+        <image src="http://img2.imgtn.bdimg.com/it/u=1191482052,3815737098&fm=26&gp=0.jpg"
+               class="user-header-img"></image>
+    </view>
+</scroll-view>

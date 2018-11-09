@@ -11,7 +11,7 @@
     <view class="element-card-right" bindtap="link2Element" data-id="{{info.id}}">
         <view class="element-card-right-name">
             <text class="element-card-right-name-text">{{info.element_name}}</text>
-            <text class="{{info.rateStatus == 1? 'rated':'no-rate'}}">{{info.rateStatus == 1? '已评分':'评分'}}</text>
+            <text class="{{info.rateStatus == 1? 'rated':'no-rate'}}" catchtap="goRate">{{info.rateStatus == 1? '已评分':'评分'}}</text>
         </view>
         <ele-rate rate="{{rateIndex}}" mode="large" hasNum="true"></ele-rate>
         <view class="element-card-right-attr">

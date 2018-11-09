@@ -10,7 +10,7 @@
             <rate mode="tiny" hasNum="true" rate="8.4"></rate>
         </view>
     </view>
-    <view class="add-rate">
+    <view class="add-rate" wx:if="{{showRate}}">
         <text class="add-rate-label">打分</text>
         <view class="add-rate-star">
             <block wx:for="{{allStar}}" wx:key="{{index}}">
@@ -21,7 +21,7 @@
             </block>
         </view>
     </view>
-    <view class="add-post-content" style="height:calc({{popupHeight}}px - 306rpx);">
+    <view class="add-post-content">
         <add-content></add-content>
     </view>
 </view>

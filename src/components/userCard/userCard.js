@@ -25,5 +25,11 @@ Component({
     attached() {
 
     },
-    methods: {}
+    methods: {
+        link2UserDetail() {
+            wx.navigateTo({
+                url: `/pages/userDetails/userDetails`
+            })
+        }
+    }
 })

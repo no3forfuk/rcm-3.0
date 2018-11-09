@@ -1,4 +1,4 @@
-<view class="new-ele-card">
+<view class="new-ele-card" catchtap="link2Element">
     <view class="new-ele-card-left-img" wx:if="{{info.img}}">
         <image src="{{info.img}}" class="new-ele-card-left-img"></image>
     </view>

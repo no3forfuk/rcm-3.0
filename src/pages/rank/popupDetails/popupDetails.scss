@@ -1,0 +1,143 @@
+@import "../../../static/css/mixin.scss";
+
+.rank-details-modal {
+  width: 100%;
+  background-color: #fff;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  transition: all 0.35s ease-in-out;
+  transform: translateY(100%);
+  visibility: hidden;
+  z-index: 21;
+  border-radius: rpx(40) rpx(40) 0px 0px;
+  overflow: hidden;
+  padding-bottom: rpx(62);
+  @include layout(column, flex-start, space-between);
+}
+
+.show-details-class {
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.close-btn-view {
+  width: rpx(90);
+  height: rpx(90);
+  @include layout(row, center, space-around);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.close-btn {
+  width: rpx(28);
+  height: rpx(28);
+}
+
+.details-content-text {
+  @include textStyle(15px, 28px);
+  color: #484848;
+  word-spacing: rpx(1);
+  width: 100%;
+}
+
+.details-modal-header {
+  width: 100%;
+  height: rpx(90);
+  border-bottom: rpx(2) solid #f0f0f0;
+  position: relative;
+  @include layout(row, center, space-around);
+}
+
+.details-modal-body {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  @include layout(column, flex-start);
+  padding: rpx(24) rpx(28);
+  &-title {
+    &-text {
+      @include layout(row, center);
+    }
+    height: rpx(48);
+    width: 100%;
+    @include layout(row, center, space-between);
+    &-weidu {
+      padding: rpx(12);
+      background-color: #f8f8f8;
+      @include textStyle(12px, 12px);
+      color: #9b9b9b;
+      border-radius: rpx(6);
+    }
+    &-icon {
+      width: rpx(26);
+      height: rpx(28);
+    }
+  }
+  &-user {
+    height: rpx(60);
+    width: 100%;
+    margin: rpx(30) 0;
+  }
+  &-content {
+    flex: 1;
+    width: 100%;
+    @include layout(column, center);
+  }
+}
+
+.details-content-img {
+  margin-top: rpx(16);
+}
+
+.details-modal-body-title-text-name {
+  font-weight: bold;
+  max-width: rpx(530);
+  @include limitTextLine(1);
+}
+
+.details-modal-footer {
+  padding: 0 rpx(28);
+  height: rpx(24);
+  width: 100%;
+  @include layout(row, center, space-between);
+  @include textStyle(12px, 12px);
+  color: #9b9b9b;
+}
+
+.details-modal-footer-right {
+  @include layout(row, center);
+}
+
+.modal-foote-icon {
+  width: rpx(24);
+  height: rpx(24);
+}
+
+.body-user-right {
+  width: calc(100% - #{rpx(60)});
+  padding-left: rpx(12);
+  @include layout(row, center, space-between);
+}
+
+.focus-user {
+  padding: rpx(12);
+  border-radius: rpx(4);
+  color: #499DFF;
+  font-size: 12px;
+  line-height: 12px;
+  @include layout(row, center);
+  border: 1px solid #499DFF;
+}
+
+.user-name {
+  font-size: 12px;
+  line-height: 12px;
+  color: #9b9b9b;
+}
+
+.focus-user-icon {
+  width: rpx(18);
+  height: rpx(18);
+}

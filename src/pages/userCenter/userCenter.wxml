@@ -1,4 +1,4 @@
-<scroll-view class="user-center-page">
+<scroll-view class="user-center-page" scroll-y="true">
     <view class="user-header-background" style="height:calc({{statusBarHeight}}px + 292rpx);">
         <image src="../../static/images/background_small@2x.png"
                class="user-header-background-img"
@@ -10,7 +10,7 @@
         <view class="user-header-info">
             <user-card avatar-width="112" avatar-height="112" user-info="{{userInfo}}">
                 <view class="user-header-info-right">
-                    <text class="user-header-info-name">{{userInfo.name}}</text>
+                    <text class="user-header-info-name" bindtap="link2UserDetails">{{userInfo.name}}</text>
                     <text class="user-header-info-sign">{{userInfo.sign}}</text>
                 </view>
             </user-card>

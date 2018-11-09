@@ -1,4 +1,4 @@
-<view class="common-header-component">
+<view class="common-header-component {{theme}}-class">
     <view style="width: 100%;height:{{statusBarHeight}}px;"></view>
     <view class="common-header-title">
         <view class="common-header-title-menu">

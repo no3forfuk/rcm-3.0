@@ -1,6 +1,17 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/userCenter/userCenter",
+    "pages/userDetails/userDetails",
+    "pages/post/post",
+    "pages/search/search",
+    "pages/rank/rank",
+    "pages/partakeRank/partakeRank",
+    "pages/myTask/myTask",
+    "pages/myFocus/myFocus",
+    "pages/myCollection/myCollection",
+    "pages/element/element",
+    "pages/addRank/addRank"
   ],
   "window": {
     "backgroundTextStyle": "#000",
@@ -8,7 +19,8 @@
     "navigationBarTextStyle": "#000",
     "backgroundColorTop": "#f8f8f8",
     "backgroundColor": "#f8f8f8",
-    "navigationStyle": "custom"
+    "navigationStyle": "custom",
+    "enablePullDownRefresh": true
   },
   "debug": false
 }

@@ -2,6 +2,9 @@
   "usingComponents": {
     "rank-header": "/components/commonHeader/commonHeader",
     "element-card": "./elementCard/elementCard",
-    "popup-tab":"./popupTab/popupTab"
+    "popup-tab":"./popupTab/popupTab",
+    "add-rate": "../element/addPost/addPost",
+    "more-modal": "/template/popupMask/popupMask",
+    "rank-details":"./popupDetails/popupDetails"
   }
 }

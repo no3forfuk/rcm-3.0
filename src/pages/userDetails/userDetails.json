@@ -1,0 +1,6 @@
+{
+  "disableScroll": true,
+  "usingComponents": {
+    "user-header": "/components/commonHeader/commonHeader"
+  }
+}

@@ -1,6 +1,6 @@
 <short-top></short-top>
 <view class="short-rank-title">
-    <text class="short-title">你可能感兴趣的排名</text>
+    <text class="short-title">你可能感兴趣的人</text>
     <view class="short-rank-title-right" bindtap="changeRank">
         <image src="../../static/images/NextGroup@2x.png"
                animation="{{rotateAnimation}}"

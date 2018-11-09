@@ -3,6 +3,11 @@ const utils = require('./utils/index')
 App({
     onLaunch(option) {
         this.scene = option.scene
+        wx.getSystemInfo({
+            success: res => {
+                this.statusBarHeight = res.statusBarHeight
+            }
+        })
     },
     globalData: {
         scene: ''
@@ -17,5 +22,6 @@ App({
     },
     request: utils.api,
     tools: utils.tools,
-    randomColor: ['#418CE7', '#4ADFD2', '#56DC6F', '#E7D670', '#E7D670']
+    randomColor: ['#418CE7', '#4ADFD2', '#56DC6F', '#E7D670', '#E7D670'],
+    statusBarHeight: 0
 })

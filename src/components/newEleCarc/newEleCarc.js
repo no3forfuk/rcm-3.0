@@ -16,5 +16,11 @@ Component({
     attached() {
 
     },
-    methods: {}
+    methods: {
+        link2Element() {
+            wx.navigateTo({
+                url: `/pages/element/element`
+            })
+        }
+    }
 })

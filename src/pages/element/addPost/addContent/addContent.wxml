@@ -1,21 +1,30 @@
 <view class="post-add-content">
-    <scroll-view class="post-content-scroll" scroll-y="{{true}}">
+    <scroll-view class="post-content-scroll"
+                 scroll-y="{{true}}"
+                 capture-bind:scroll="scrollAddContent"
+                 style="height: calc(100% - 72rpx - {{isKeyboardUp?keyboardHeight:0}}px);"
+                 bindtap="clickScrollView">
         <block wx:for="{{postContent}}" wx:key="{{index}}">
-            <!--<textarea placeholder="{{index == 0? '发布你的评价吧':''}}"-->
-            <!--class="post-text-style"-->
-            <!--maxlength="-1"-->
-            <!--catchfocus="textareaFocus"-->
-            <!--catchblur="textareaBlur"-->
-            <!--catchinput="textareaInput"-->
-            <!--data-index="{{index}}"-->
-            <!--data-item="{{item}}"-->
-            <!--cursor-spacing="0"-->
-            <!--value="{{item.value}}"-->
-            <!--auto-height="{{true}}"-->
-            <!--show-confirm-bar="{{false}}"-->
-            <!--wx:if="{{item.type=='text'}}"-->
-            <!--placeholder-class="placeholder-class">-->
-            <!--</textarea>-->
+            <textarea placeholder="{{index == 0? '发布你的评价吧':''}}"
+                      style="height:calc(100% - 72rpx - {{isKeyboardUp?keyboardHeight:0}}px;"
+                      class="post-text-style {{item.blod?'blod-text':''}}"
+                      maxlength="-1"
+                      catchtap="true"
+                      disabled="{{item.disabled}}"
+                      catchfocus="catchTextareaFocus"
+                      bindblur="catchTextareaBlur"
+                      bindinput="catchTextareaInput"
+                      data-index="{{index}}"
+                      focus="{{item.focus}}"
+                      cursor-spacing="0"
+                      data-item="{{item}}"
+                      adjust-position="{{false}}"
+                      value="{{item.value}}"
+                      auto-height="{{!isKeyboardUp}}"
+                      show-confirm-bar="{{false}}"
+                      wx:if="{{item.type=='text'}}"
+                      placeholder-class="placeholder-class">
+            </textarea>
             <view class="post-hr-style" wx:if="{{item.type == 'hr'}}">
                 <view class="post-hr-style-hr"></view>
             </view>
@@ -29,18 +38,19 @@
     </scroll-view>
     <view class="add-post-ctrl" animation="{{ctrlAnimation}}">
         <image src="../../../../static/images/EmojiDisabled@2x.png"
-               bindtap="openSelectEmoji"
+               catchtap="openSelectEmoji"
                mode="aspectFit"
                class="add-post-carl-item"></image>
         <image src="../../../../static/images/HalvingLineDisabled@2x.png"
-               bindtap="insertHr"
+               catchtap="insertHr"
                mode="aspectFit"
                class="add-post-carl-item"></image>
-        <image src="../../../../static/images/FontBoldDisabled@2x.png"
+        <image src="../../../../static/images/{{openTextBold?'FontBold@2x.png':'FontBoldDisabled@2x.png'}}"
                mode="aspectFit"
+               catchtap="insertTitle"
                class="add-post-carl-item"></image>
         <image src="../../../../static/images/ImageDisabled@2x.png"
-               bindtap="openSelectImages"
+               catchtap="openSelectImages"
                mode="aspectFit"
                class="add-post-carl-item"></image>
         <image src="../../../../static/images/LinkDisabled@2x.png"
@@ -52,7 +62,7 @@
       style="height:{{keyboardHeight}}px;">
     <scroll-view class="emoji-scroll-view" scroll-y="true">
         <block wx:for="{{emojis}}" wx:key="{{index}}">
-            <text class="emoji-item" bindtap="selectEmoji" data-item="{{item}}">{{item}}</text>
+            <text class="emoji-item" catchtap="selectEmoji" data-emoji="{{item}}">{{item}}</text>
         </block>
     </scroll-view>
 </view>

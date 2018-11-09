@@ -14,6 +14,18 @@
   @include layout(row, center, flex-end);
 }
 
+.post-text-style {
+  width: 100%;
+  font-size: 15px;
+  line-height: 23px;
+  word-spacing: 1px;
+  color: #484848;
+}
+
+.blod-text {
+  font-weight: 600;
+}
+
 .add-post-carl-item {
   width: rpx(50);
   height: rpx(52);
@@ -24,7 +36,12 @@
   width: 100%;
   padding: 0 rpx(48);
   padding-top: rpx(10);
-  height: calc(100% - #{rpx(72)});
+  transition: all 0.1s ease-in-out;
+  background-color: #ccc;
+}
+
+.post-content-scroll-box {
+  width: 100%;
 }
 
 .post-hr-style {
@@ -37,6 +54,10 @@
     height: rpx(2);
     background-color: #666;
   }
+}
+
+.post-image-style {
+  margin: 0 auto;
 }
 
 .emoji-viewbox {

@@ -119,10 +119,14 @@
 }
 
 //====文本样式===========================================
-.text-s17-l24-c16 {
-  font-size: 17px;
-  line-height: 24px;
-  color: #161616;
+.fw-600 {
+  font-weight: 600;
+}
+
+.text-s12-l17-c9b {
+  font-size: 12px;
+  line-height: 17px;
+  color: #9b9b9b;
 }
 
 .text-s12-l17-c333 {
@@ -149,6 +153,12 @@
   color: #484848;
 }
 
+.text-s17-l24-c16 {
+  font-size: 17px;
+  line-height: 24px;
+  color: #161616;
+}
+
 .text-s18-l25-c16 {
   font-size: 18px;
   line-height: 25px;
@@ -159,12 +169,6 @@
   font-size: 14px;
   line-height: 20px;
   color: #333;
-}
-
-.text-s12-l17-c9b {
-  font-size: 12px;
-  line-height: 17px;
-  color: #9b9b9b;
 }
 
 //维度标签
@@ -204,9 +208,11 @@
 .ml-12 {
   margin-left: rpx(12);
 }
+
 .ml-16 {
   margin-left: rpx(16);
 }
+
 .mr-12 {
   margin-right: rpx(12);
 }

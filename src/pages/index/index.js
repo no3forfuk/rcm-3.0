@@ -31,13 +31,18 @@ Page({
         bottomBarData: [{
             text: '发榜',
             icon: 'Edithomepage@2x.png',
-            handle: ''
+            handle: 'link2AddRank'
         }, {
             text: '我的',
             icon: 'Mine@2x.png',
             handle: 'linkUserCenter'
         }],
-        isLogin: false
+        isLogin: true
+    },
+    link2AddRank() {
+        wx.navigateTo({
+            url: `/pages/addRank/addRank`
+        })
     },
     linkUserCenter() {
         wx.navigateTo({
@@ -68,6 +73,9 @@ Page({
     getInfo(res) {
         const iv = res.detail.iv;
         const encryptedData = res.detail.encryptedData
+        this.setData({
+            isLogin: true
+        })
         wx.login({
             success: lres => {
                 const code = lres.code
@@ -76,21 +84,19 @@ Page({
                     iv,
                     encryptedData,
                 }
-                app.request.login({
-                    params: params,
-                    success: ares => {
-                        console.log(ares);
-                        // wx.setStorage({
-                        //     key: 'u_id',
-                        //     data: ares.data.user_id,
-                        //     success: res => {
-                        //         wx.reLaunch({
-                        //             url: '/pages/index/index',
-                        //         })
-                        //     }
-                        // });
+                wx.setStorage({
+                    key: 'u_id',
+                    data: 72,
+                    success: res => {
+
                     }
-                })
+                });
+                // app.request.login({
+                //     params: params,
+                //     success: ares => {
+                //
+                //     }
+                // })
             }
         })
     },
@@ -159,7 +165,6 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
-
     },
 
     /**

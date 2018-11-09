@@ -29,5 +29,16 @@ Component({
     ready() {
 
     },
-    methods: {}
+    methods: {
+        link2post() {
+            wx.navigateTo({
+                url: `/pages/post/post`
+            })
+        },
+        link2UserDetail() {
+            wx.navigateTo({
+                url: `/pages/userDetails/userDetails`
+            })
+        }
+    }
 })

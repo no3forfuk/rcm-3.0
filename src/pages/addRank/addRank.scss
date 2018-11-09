@@ -1,0 +1,110 @@
+@import "../../static/css/mixin.scss";
+
+.add-rank-header {
+  border-top: 1px solid #f0f0f0;
+  padding: rpx(10) rpx(28);
+  padding-bottom: 0;
+  background-color: #fff;
+}
+
+.add-rank-header-content {
+  width: 100%;
+  padding-bottom: rpx(18);
+  border-bottom: 1px solid #f0f0f0;
+  @include layout(row, center, space-between);
+}
+
+.search-input {
+  width: rpx(520);
+  height: rpx(52);
+  font-size: 17px;
+  font-weight: bold;
+  line-height: 24px;
+  color: #161616;
+  @include limitTextLine(1);
+}
+
+.input-placeholder-class {
+  color: #d1d1d1;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.picker-title {
+  padding: rpx(8);
+  background-color: #f0f0f0;
+  border-radius: rpx(8);
+  @include layout(row, center);
+}
+
+.picker-title-icon {
+  width: rpx(18);
+  height: rpx(14);
+}
+
+.picker-title-text {
+  font-size: 15px;
+  line-height: 15px;
+  color: #484848;
+  margin-left: rpx(8);
+}
+
+.add-rank-body {
+  width: 100%;
+  background-color: #fff;
+  padding: 0 rpx(28);
+}
+
+.add-attr-title {
+  width: 100%;
+  @include layout(row, center, space-around);
+}
+
+.add-attr-title-content {
+  @include layout(row, center);
+  padding: rpx(20);
+}
+
+.add-attr--title-text {
+  @include textStyle(12px, 17px);
+  color: #d1d1d1;
+}
+
+.add-attr-icon {
+  width: rpx(20);
+  height: rpx(12);
+  transition: all 0.2s ease-in-out;
+  transform: rotate(180deg);
+  margin-left: rpx(8);
+}
+
+.show-attr-icon {
+  transform: rotate(0);
+}
+
+.add-attr-content-view {
+  width: 100%;
+  padding: rpx(10);
+  transition: all 0.3s ease-in-out;
+  @include layout(row, center, flex-start, wrap);
+  transform: translate3d(0, -100%, 0);
+  visibility: hidden;
+  opacity: 0;
+}
+
+.show-attr-content {
+  visibility: visible;
+  transform: translate3d(0, 0, -100px);
+  opacity: 1;
+}
+
+.add-attr-content-item {
+  padding: rpx(6) rpx(12);
+  @include textStyle(12px, 12px);
+  color: #d1d1d1;
+  border-radius: rpx(4);
+  border: rpx(2) solid #f0f0f0;
+  margin-right: rpx(20);
+  margin-bottom: rpx(20);
+}

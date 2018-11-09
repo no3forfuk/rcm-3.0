@@ -1,7 +1,7 @@
 <view class="rank-page">
-    <rank-header title="{{rankData.ranking_name}}"></rank-header>
+    <rank-header title="{{rankData.ranking_name}}" id="rankHeader"></rank-header>
     <view class="rank-pandect">
-        <view class="rank-pandect-top">
+        <view class="rank-pandect-top" catchtap="toggleDetailModal">
             <view class="rank-pandect-top-before">
                 <image class="rank-pandect-top-before-icon" src="../../static/images/rank@3x.png"></image>
                 <text class="rank-pandect-top-before-name">{{rankData.ranking_name}}</text>
@@ -18,7 +18,9 @@
                 <text class="qing-tips-1">7个排名</text>
                 <text class="qing-tips-2">4012人关注</text>
             </view>
-            <image src="../../static/images/More@3x.png" class="rank-pandect-bottom-more-icon"></image>
+            <image src="../../static/images/More@3x.png"
+                   catchtap="toggleMoreModal"
+                   class="rank-pandect-bottom-more-icon"></image>
         </view>
     </view>
     <scroll-view style="height:{{scrollHeight}}px;"
@@ -37,11 +39,13 @@
         <block wx:for="{{elementList}}" wx:key="{{index}}">
             <view class="element-card">
                 <view class="element-card-number">
-                    <text class="element-card-number-text {{index == 0? 'level1':''}} {{index == 1? 'level2':''}} {{index == 2? 'level3':''}}">{{index+1}}</text>
+                    <text class="element-card-number-text {{index == 0? 'level1':''}} {{index == 1? 'level2':''}} {{index == 2? 'level3':''}}">
+                        {{index+1}}
+                    </text>
                 </view>
                 <view class="element-card-right">
                     <view class="element-card-right-body">
-                        <element-card info="{{item}}"></element-card>
+                        <element-card info="{{item}}" bindopenAddRate="toggleAddRate"></element-card>
                     </view>
                     <view style="width: 626rpx;height: 1px;background-color: #f0f0f0;"></view>
                 </view>
@@ -55,3 +59,14 @@
                rank-list="{{popupElementList}}"
                tab-list="{{bottomTab}}"></popup-tab>
 </view>
+<view class="add-rate-popup {{showAddRate?'show-add-rate':''}}" style="height:{{addRatePopupHeight}}px;">
+    <add-rate bindcancelAdd="toggleAddRate" show-rate="true"></add-rate>
+</view>
+<more-modal show="{{showMoreModal}}"
+            menu="{{moreModalMenu}}"
+            bindactiveItem="handleMoreItem"
+            bindcloseModal="toggleMoreModal"></more-modal>
+<rank-details show="{{showDetailModal}}"
+              info="{{rankData}}"
+              height="{{addRatePopupHeight}}"
+              bindcloseModal="toggleDetailModal"></rank-details>

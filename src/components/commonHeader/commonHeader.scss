@@ -1,7 +1,8 @@
 @import "../../static/css/mixin.scss";
 
 .common-header-component {
-  background-color: transparent;
+  background-color: #fff;
+  width: rpx(750);
 }
 
 .common-header-title {
@@ -50,7 +51,9 @@
     }
   }
 }
-
+.white-class{
+  background-color: transparent;
+}
 .spliter {
   width: 1px;
   height: rpx(32);

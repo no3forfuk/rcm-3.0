@@ -1,25 +1,57 @@
 <view class="ranking-header">
-    <view class="ranking-header-left">
-        <block wx:for="{{firstRankTags}}" wx:key="{{index}}">
-            <rank-tag value="{{item.ranking_name}}"
-                      bindclickTag="toggleFirstRank"
-                      data-index="{{index}}"
-                      data-item="{{item}}"
-                      color="{{index == currentFirstRankIndex?true:false}}"
-                      class="ranking-tag-item"></rank-tag>
-        </block>
-    </view>
     <view>
         <rank-switch items="{{sortMap}}"
                      bindswitchChange="toggleSortType"
                      current="{{sortMapIndex}}"></rank-switch>
     </view>
+    <view class="ranking-header-box-left">
+        <scroll-view class="ranking-header-left"
+                     scroll-x="{{canIscroll}}"
+                     scroll-with-animation="true"
+                     scroll-into-view="tagItem{{currentFirstRankIndex}}">
+            <block wx:for="{{firstRankTags}}" wx:key="{{index}}">
+                <rank-tag value="{{item.ranking_name}}"
+                          bindclickTag="toggleFirstRank"
+                          data-index="{{index}}"
+                          data-item="{{item}}"
+                          id="tagItem{{index}}"
+                          color="{{index == currentFirstRankIndex?true:false}}"
+                          class="ranking-tag-item"></rank-tag>
+            </block>
+        </scroll-view>
+        <view class="tag-more-icon-view" catchtap="showMoreTag">
+            <image class="tag-more-icon {{showMore?'tag-active-class':''}}"
+                   src="../../../static/images/list_veidoo_switch_on@2x.png"></image>
+        </view>
+    </view>
+</view>
+<view class="more-tag-rank"
+      style="width: 100%;height: {{showMore?'232rpx':'24rpx'}};background-color: #f8f8f8;">
+    <view class="more-tag-rank-view {{showMore?'tag-view-show':''}}">
+        <view>
+            <text>全部分类</text>
+        </view>
+        <block wx:for="{{firstRankTags}}" wx:key="{{index}}">
+            <rank-tag value="{{item.ranking_name}}"
+                      bindclickTag="toggleFirstRank"
+                      data-index="{{index}}"
+                      data-item="{{item}}"
+                      bgc="#fff"
+                      color="{{index == currentFirstRankIndex?true:false}}"
+                      class="ranking-tag-item"></rank-tag>
+        </block>
+    </view>
+</view>
+<view class="pull-down-view {{showPullDownView?'show-pull-class':''}}">
+
 </view>
 <scroll-view scroll-y="true"
              style="height:{{scrollHeight}}px;"
+             bindscrolltoupper="pullDownRefresh"
+             upper-threshold="-60"
+             scroll-top="{{scrollViewTop}}"
              class="scroll-view-class">
     <view class="ranking-body">
-        <view style="width: 100%;height: 24rpx;background-color: #f8f8f8;"></view>
         <block wx:for="{{rankList}}" wx:key="{{index}}">
             <rank-item rank-info="{{item}}"></rank-item>
         </block>

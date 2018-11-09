@@ -11,20 +11,16 @@ Component({
         height: {
             type: Number,
             value: 0,
-            observer(n, o, c) {
-                this.setData({
-                    popupHeight: n,
-                    scrollViewHeight: `calc(${n}px - 386rpx)`
-                })
-            }
+        },
+        showRate: {
+            type: Boolean,
+            value: false
         }
     },
     data: {
         allStar: [0, 0, 0, 0, 0],
-        popupHeight: 0,
         rateValue: 0,
         postContentHeight: 0,
-        scrollViewHeight: 0,
         postContent: [],
         lastIndex: 0,
         cursor: 0,
@@ -39,7 +35,7 @@ Component({
                     postContentHeight: height
                 })
             }
-        })
+        });
     },
     methods: {
         cancel() {

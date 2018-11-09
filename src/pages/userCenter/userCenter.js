@@ -35,6 +35,11 @@ Page({
             url: e.currentTarget.dataset.page
         })
     },
+    link2UserDetails() {
+        wx.navigateTo({
+            url: `/pages/userDetails/userDetails`
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */

@@ -11,17 +11,22 @@ Component({
 
     },
     ready() {
+        //设置顶部导航栏style
         wx.setNavigationBarColor({
             frontColor: '#000000',
             backgroundColor: '#ffffff'
         })
-        wx.getSystemInfo({
-            success: res => {
-                this.setData({
-                    statusBarHeight: res.statusBarHeight
-                })
-            }
+        //设置状态栏高度
+        this.setData({
+            statusBarHeight: app.statusBarHeight
         })
     },
-    methods: {}
+    methods: {
+        //跳转至搜索页面
+        link2SearchPage() {
+            wx.navigateTo({
+                url: `/pages/search/search`
+            })
+        }
+    }
 })

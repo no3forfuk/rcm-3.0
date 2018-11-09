@@ -1,1 +1,3 @@
-<text class="tag-component {{color?'active-color':''}}" bindtap="handleClick">{{value}}</text>
+<text class="tag-component {{color?'active-color':''}}"
+      style="background-color: {{bgc}};"
+      bindtap="handleClick">{{value}}</text>

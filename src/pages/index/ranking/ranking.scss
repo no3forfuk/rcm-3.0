@@ -5,21 +5,73 @@
   height: rpx(88);
   background-color: #fff;
   border-top: 1px solid #f8f8f8;
-  padding: rpx(16) 0;
+  padding: rpx(22) rpx(28);
   @include layout(row, center, space-between);
-  padding-right: rpx(28);
   &-left {
-    padding-left: rpx(8);
+    width: rpx(396);
+    @include layout(row, center, flex-start, nowrap);
   }
+}
+
+.ranking-header-box-left {
+  @include layout(row, center, space-between);
 }
 
 .scroll-view-class {
   width: 100%;
   height: 100%;
+  background-color: #f8f8f8;
 }
 
-
-
 .ranking-tag-item {
-  margin-right: rpx(20);
+  margin-right: rpx(23);
+  white-space: nowrap;
+}
+
+.tag-more-icon-view {
+  width: rpx(76);
+  height: rpx(54);
+  @include layout(row, center, space-around);
+}
+
+.tag-more-icon {
+  width: rpx(20);
+  height: rpx(12);
+  transition: all 0.3s ease-in-out;
+  transform: rotate(0);
+}
+
+.more-tag-rank {
+  transition: all 0.3s ease-in-out;
+}
+
+.tag-active-class {
+  transform: rotate(180deg);
+}
+
+.more-tag-rank-view {
+  width: 100%;
+  height: 100%;
+  padding: rpx(12) rpx(28);
+  transition: all 0.3s ease-in-out;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.tag-view-show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.pull-down-view {
+  height: rpx(0);
+  width: 100%;
+  background-color: #f8f8f8;
+  visibility: hidden;
+  transition: all 0.35s ease-in-out;
+}
+
+.show-pull-class {
+  height: rpx(112);
+  visibility: visible;
 }

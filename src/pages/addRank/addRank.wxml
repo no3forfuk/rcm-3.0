@@ -1,0 +1,36 @@
+<common-header title="发布新榜单"></common-header>
+<view class="add-rank-header">
+    <view class="add-rank-header-content">
+        <input type="text"
+               class="search-input"
+               placeholder="榜单好玩很重要，名字更重要"
+               placeholder-class="input-placeholder-class"
+               confirm-type="search"
+               adjust-position="{{false}}"
+               focus="{{true}}"></input>
+        <picker>
+            <view class="picker-title">
+                <image class="picker-title-icon" src="../../static/images/list_field_switch_off@2x.png"></image>
+                <text class="picker-title-text">选择领域</text>
+            </view>
+        </picker>
+    </view>
+</view>
+<view class="add-rank-body" style="height:{{addBodyHeight}}px;">
+    <view class="add-attr">
+        <view class="add-attr-title">
+            <view class="add-attr-title-content" catchtap="toggleAttrBox">
+                <text class="add-attr--title-text">给榜单添加维度</text>
+                <image src="../../static/images/list_veidoo_switch_on@2x.png"
+                       class="add-attr-icon {{showAttrBox?'show-attr-icon':''}}"></image>
+            </view>
+        </view>
+        <view class="add-attr-content-view {{showAttrBox?'show-attr-content':''}}"
+              style="height:{{!showAttrBox?'0px':''}};">
+            <block wx:for="{{rankWeidu}}" wx:key="{{index}}">
+                <tetx class="add-attr-content-item">{{item.text}}</tetx>
+            </block>
+        </view>
+        <view> ss</view>
+    </view>
+</view>

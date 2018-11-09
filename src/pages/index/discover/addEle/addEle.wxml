@@ -2,7 +2,7 @@
     <card-title avatar-width="40"
                 avatar-height="40"
                 align-items="center"
-                user-info="{{userInfo}}">
+                user-info="{{userInfo}}" catchtap="link2UserDetail">
         <view class="card-title-right">
             <text class="cm-tips-text cm-ml-16 cm-mr-16">{{userInfo.name}}</text>
             <text class="cm-tips-text">添加了排名</text>

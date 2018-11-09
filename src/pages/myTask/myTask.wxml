@@ -37,7 +37,7 @@
     <!--bindcloseModal="closeModal"  点击遮罩关闭弹框-->
     <view class="tip-type-item">
         <text class="tip-type-item-text">签到成功<text style="color: #FBAE2B;">+1</text>经验</text>
-        <image src="../../static/images/alertview_increase@2x.png" class="tip-type-item-img"></image>
+        <image src="http://p9w69x04q.bkt.clouddn.com/rocket.gif" class="tip-type-item-img"></image>
         <image src="../../static/images/Close@2x.png" class="tip-type-item-close" bindtap="closeModal"></image>
     </view>
 </tip-modal>

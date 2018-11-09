@@ -215,5 +215,9 @@ Component({
             }
         })
     },
-    methods: {}
+    methods: {
+        pullDownRefresh() {
+            console.log('a');
+        }
+    }
 })
