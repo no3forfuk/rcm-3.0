@@ -6,7 +6,7 @@ Component({
     properties: {
         info: {
             type: Object,
-            value: {}
+            value: {},
         },
         mode: {
             type: String,

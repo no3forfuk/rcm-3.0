@@ -4,6 +4,7 @@
     "card-title": "/components/userCard/userCard",
     "title-rate": "/components/rate/rate",
     "target-rank": "/components/rankCard/rankCard",
-    "target-ele": "/components/elementCard/elementCard"
+    "target-ele": "/components/elementCard/elementCard",
+    "info-card": "/components/infoCard/infoCard"
   }
 }

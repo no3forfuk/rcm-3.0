@@ -9,7 +9,7 @@
 
 .user-header-background {
   width: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   &-img {
@@ -21,13 +21,98 @@
 .user-header {
   width: 100%;
   background-color: transparent;
-  @include layout(column, center,space-between);
-  padding-bottom: rpx(116);
+  @include layout(column, center, space-around);
+  padding: rpx(116) 0;
 }
-
 
 .user-header-img {
   width: rpx(136);
   height: rpx(136);
   border-radius: 50%;
 }
+
+.user-details-brief {
+  width: 100%;
+  height: rpx(160);
+  padding: rpx(34) rpx(28);
+  @include layout(row, center, space-between);
+  border-bottom: rpx(2) solid #f0f0f0;
+  background-color: #fff;
+}
+
+.user-details-brief-text {
+  width: rpx(520);
+  height: 100%;
+  @include layout(column, flex-start, space-between);
+  &-name {
+    width: 100%;
+    @include limitTextLine(1);
+    @include textStyle(17px, 17px, 600);
+    color: #161616;
+  }
+  &-sign {
+    width: 100%;
+    @include limitTextLine(1);
+    @include textStyle(15px, 17px);
+    color: #484848;
+  }
+}
+
+.focus-btn {
+  padding: rpx(12);
+  border: 1px solid #499DFF;
+  @include layout(row, center, space-between);
+  border-radius: rpx(4);
+}
+
+.edit-btn {
+  padding: rpx(12);
+  border: 1px solid #499DFF;
+  border-radius: rpx(4);
+  @include textStyle(12px, 12px);
+  @include layout(row, center, space-around);
+  color: #499DFF;
+  word-spacing: 0.3px;
+}
+
+.focus-icon-add {
+  width: rpx(18);
+  height: rpx(18);
+}
+
+.focus-btn-text {
+  @include textStyle(12px, 12px);
+  color: #499DFF;
+  word-spacing: 0.3px;
+  margin-left: rpx(4);
+}
+
+.user-details-social-list {
+  width: rpx(750);
+  @include layout(row, center);
+  flex-wrap: nowrap;
+  height: rpx(130);
+  background-color: #fff;
+  padding-bottom: rpx(36);
+  padding-top: rpx(22);
+}
+
+.social-item {
+  @include layout(column, center, space-between);
+  height: 100%;
+  &-num {
+    @include textStyle(17px, 17px, 600);
+    color: #484848;
+  }
+  &-text {
+    @include textStyle(12px, 12px);
+    color: #d1d1d1;
+  }
+}
+
+.user-details-notice {
+  width: 100%;
+  background-color: #f8f8f8;
+}
+
+

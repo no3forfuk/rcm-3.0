@@ -1,8 +1,37 @@
 <common-header title="搜索"></common-header>
-<!--<view class="ss">-->
-<!--<view class="ss-item">-->
-<!--<block wx:for="{{items}}" wx:key="{{index}}">-->
-<!--<text class="item {{index == currentIndex % 3 ?'active':''}}"></text>-->
-<!--</block>-->
-<!--</view>-->
-<!--</view>-->
+<view class="search-header-view">
+    <view class="input-box">
+        <image src="../../static/images/search@2x.png"
+               class="input-box-icon"></image>
+        <input type="text"
+               placeholder="热门榜单、排名、帖子"
+               focus="{{true}}"
+               confirm-type="serach"
+               adjust-position="{{false}}"
+               class="input-text"></input>
+    </view>
+    <text class="text-title-lv2-single">搜索</text>
+</view>
+<view class="search-body">
+    <view class="search-page-hot">
+        <view class="search-page-hot-title">
+            <text class="grad text-bd">热词</text>
+        </view>
+        <view class="search-page-hot-body">
+            <block wx:for="{{hotWords}}" wx:key="{{index}}">
+                <text class="search-page-hot-item">{{item.text}}</text>
+            </block>
+        </view>
+    </view>
+    <view class="search-page-hot">
+        <view class="search-page-hot-title">
+            <text class="grad text-bd">历史</text>
+            <view class="remove-history-btn">清除记录</view>
+        </view>
+        <view class="search-page-hot-body">
+            <block wx:for="{{hotWords}}" wx:key="{{index}}">
+                <text class="search-page-hot-item">{{item.text}}</text>
+            </block>
+        </view>
+    </view>
+</view>

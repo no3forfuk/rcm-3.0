@@ -2,18 +2,18 @@
 
 .tab-component {
   width: 100%;
-  height: 34px;
   background-color: #fff;
   @include layout(row, center, space-around);
   position: relative;
-  padding: 8px 0 rpx(6) 0;
+  padding: 8px 0 rpx(20) 0;
   &-item {
     color: $black;
     height: 100%;
     @include layout(row, center, space-around);
     &-text {
       height: 100%;
-      @include textStyle(16px, 22px, 400);
+      @include textStyle(17px, 17px, 400);
+      transition: all 0.2s ease-in-out;
     }
   }
 }

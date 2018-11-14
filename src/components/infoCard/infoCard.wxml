@@ -1,0 +1,6 @@
+<view class="info-card">
+    <text class="text-body-multiple limit-3-line {{image || video?'image-class':'text-class'}}">{{text}}</text>
+    <image class="image-img"
+           wx:if="{{!video && image}}"
+           src="{{image}}"></image>
+</view>

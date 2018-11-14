@@ -1,0 +1,7 @@
+{
+  "disableScroll": true,
+  "usingComponents": {
+    "common-header": "/components/commonHeader/commonHeader",
+    "edit-modal": "/components/modal/modal"
+  }
+}

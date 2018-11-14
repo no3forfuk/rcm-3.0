@@ -1,0 +1,93 @@
+@import "../../static/css/mixin.scss";
+
+.edit-item {
+  width: 100%;
+  @include layout(row, center, space-between);
+  background-color: #fff;
+  padding: rpx(28);
+  margin-top: rpx(24);
+}
+
+.edit-item-edit-avatar {
+  padding: rpx(10) rpx(28);
+}
+
+.edit-item-avatar {
+  width: rpx(72);
+  height: rpx(72);
+  position: relative;
+  margin-right: rpx(64);
+  &-img {
+    width: rpx(72);
+    height: rpx(72);
+    border-radius: 50%;
+  }
+  &-icon {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    bottom: 0;
+    width: rpx(32);
+    height: rpx(32);
+    background-color: #ccc;
+  }
+}
+
+.edit-item-name {
+  @include layout(row, center, flex-end);
+}
+
+.edit-icon {
+  width: rpx(34);
+  height: rpx(34);
+  background-color: #ccc;
+}
+
+.edit-item-text {
+  max-width: rpx(320);
+  margin-right: rpx(30);
+}
+
+.edit-info-view {
+  background-color: #fff;
+  border-radius: rpx(8);
+  padding: rpx(28);
+  width: rpx(534);
+  transform: translate3d(#{rpx(108)}, #{rpx(350)}, 0);
+  position: relative;
+  overflow: visible;
+}
+
+.edit-info-textarea {
+  width: rpx(480);
+  height: rpx(100);
+  background-color: #f8f8f8;
+  border-radius: rpx(4);
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.6px;
+  color: #484848;
+}
+
+.comfirm-btn-text {
+  font-size: 18px;
+  line-height: 25px;
+  color: #fff;
+}
+
+.comfirm-btn {
+  padding: rpx(8);
+  @include layout(row, center, space-around);
+  background-color: $colorDefault;
+  border-radius: rpx(8);
+  margin-top: rpx(60);
+}
+
+.close-icon {
+  width: rpx(64);
+  height: rpx(64);
+  position: absolute;
+  bottom: rpx(-120);
+  left: rpx(236);
+  z-index: 1;
+}

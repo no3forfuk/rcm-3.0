@@ -1,23 +1,71 @@
 @import "../../static/css/mixin.scss";
 
-//.ss {
-//  width: 100px;
-//  height: 100px;
-//  @include layout(row, center, space-around);
-//  background-color: #fff;
-//}
-//
-//.item {
-//  width: 20px;
-//  height: 20px;
-//  background-color: #f8f8f8;
-//  border-radius: 50%;
-//}
-//
-//.active {
-//  background-color: #f0f0f0;
-//}
-//
-//.ss-item {
-//  @include layout(row, center);
-//}
+.search-header-view {
+  background-color: #fff;
+  padding: rpx(16) rpx(28);
+  @include layout(row, center, space-between);
+}
+
+.input-box {
+  width: rpx(606);
+  height: rpx(64);
+  @include layout(row, center);
+  background-color: #f8f8f8;
+  border-radius: rpx(6);
+  padding: rpx(16) 0;
+}
+
+.input-box-icon {
+  width: rpx(31);
+  height: rpx(31);
+  margin-left: rpx(28);
+}
+
+.input-text {
+  flex: 1;
+  padding-left: 3px;
+  font-size: 15px;
+  line-height: 15px;
+  color: #9b9b9b;
+}
+
+.search-body {
+  @include layout(column);
+  background-color: #fff;
+}
+
+.search-page-hot-title {
+  @include layout(row, center, space-between);
+  padding: rpx(28);
+}
+
+.search-page-hot-body {
+  padding: rpx(28);
+  @include layout(row, center, flex-start, wrap);
+}
+
+.search-page-hot-item {
+  border-radius: rpx(8);
+  background-color: #f8f8f8;
+  padding: rpx(4) rpx(16);
+  margin-right: rpx(48);
+  margin-bottom: rpx(48);
+  font-size: 15px;
+  line-height: 21px;
+  color: #9b9b9b;
+}
+
+.text-bd {
+  font-weight: 600;
+}
+
+.remove-history-btn {
+  height: rpx(40);
+  width: rpx(120);
+  background-color: #f8f8f8;
+  padding: rpx(4) rpx(16);
+  border-radius: rpx(40);
+  font-size: 12px;
+  line-height: 17px;
+  color: #9b9b9b;
+}

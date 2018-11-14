@@ -3,18 +3,17 @@
                 avatar-height="40"
                 align-items="center"
                 user-info="{{userInfo}}">
-        <view class="card-title-right" catchtap="link2UserDetail">
-            <text class="card-title-username">{{userInfo.name}}</text>
+        <view class="card-title-right">
+            <text class="card-title-username"
+                  catchtap="link2UserDetail">{{userInfo.name}}</text>
             <title-rate mode="tiny" rate="{{postInfo.rate}}" wx:if="{{postInfo.rate}}"></title-rate>
             <text class="cm-tips-text" wx:if="{{!postInfo.rate}}">评论了</text>
         </view>
     </card-title>
     <view class="add-post-content" bindtap="link2post">
-        <text class="limit-3-line cm-text" wx:if="{{!postInfo.img}}">{{postInfo.content}}</text>
-        <view class="add-post-content-imgtext" wx:if="{{postInfo.img}}">
-            <text class="add-post-content-imgtext-text limit-3-line cm-text">{{postInfo.content}}</text>
-            <image class="add-post-content-imgtext-img" src="{{postInfo.img}}"></image>
-        </view>
+        <info-card text="{{postInfo.content}}"
+                  video="{{postInfo.video}}"
+                  image="{{postInfo.img}}"></info-card>
     </view>
     <view class="find-element-card">
         <target-ele info="{{targetEle}}"></target-ele>

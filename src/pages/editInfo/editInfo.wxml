@@ -1,0 +1,46 @@
+<common-header title="编辑个人资料"></common-header>
+<view class="edit-item edit-item-edit-avatar" bindtap="selectImg">
+    <text class="text-title-lv2-single">头像</text>
+    <view class="edit-item-avatar">
+        <image src="{{avatar}}"
+               class="edit-item-avatar-img"></image>
+        <image class="edit-item-avatar-icon"></image>
+    </view>
+</view>
+<view class="edit-item"
+      data-type="name"
+      bindtap="toggleEditModal">
+    <text class="text-title-lv2-single">昵称</text>
+    <view class="edit-item-name">
+        <text class="text-body-single-fb edit-item-text">{{name}}</text>
+        <image src="" class="edit-icon"></image>
+    </view>
+</view>
+<view class="edit-item"
+      data-type="sign"
+      bindtap="toggleEditModal">
+    <text class="text-title-lv2-single">个性签名</text>
+    <view class="edit-item-name">
+        <text class="text-body-single-fb edit-item-text">{{sign}}</text>
+        <image src="" class="edit-icon"></image>
+    </view>
+</view>
+<edit-modal visible="{{showEditModal}}">
+    <view class="edit-info-view" wx:if="{{showEditModal}}">
+        <textarea class="edit-info-textarea"
+                  maxlength="10"
+                  focus="{{true}}"
+                  show-confirm-bar="{{false}}"
+                  adjust-position="{{false}}"
+                  value="{{textareaValue}}"
+                  bindinput="setValue"
+                  placeholder="修改{{editType == 'name'? '昵称':'个性签名'}}"></textarea>
+        <view class="comfirm-btn" bindtap="submitEdit">
+            <text class="comfirm-btn-text">确定</text>
+        </view>
+        <image class="close-icon"
+               bindtap="toggleEditModal"
+               src="../../static/images/Close@2x.png"></image>
+    </view>
+
+</edit-modal>

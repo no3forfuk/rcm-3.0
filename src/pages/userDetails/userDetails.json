@@ -1,6 +1,7 @@
 {
   "disableScroll": true,
   "usingComponents": {
-    "user-header": "/components/commonHeader/commonHeader"
+    "user-header": "/components/commonHeader/commonHeader",
+    "notice-item": "./noticeItem/noticeItem"
   }
 }

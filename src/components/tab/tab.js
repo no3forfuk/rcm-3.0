@@ -15,26 +15,21 @@ Component({
                 this.setData({
                     current: n
                 })
-                this.unscale()
                 this.setCurrentStyle(n)
             }
         },
-        fontColor: {
-            value: '#000',
-            type: String,
-        },
-        bgColor: {
-            value: '#fff',
-            type: String,
-        },
-        fontSize: {
-            value: '16px',
-            type: String,
-        },
-        activeColor: {
-            value: '#499DFF',
-            type: String,
-        }
+        // fontColor: {
+        //     value: '#000',
+        //     type: String,
+        // },
+        // bgColor: {
+        //     value: '#fff',
+        //     type: String,
+        // },
+        // fontSize: {
+        //     value: '16px',
+        //     type: String,
+        // },
     },
     data: {
         current: 0,
@@ -66,7 +61,6 @@ Component({
     },
     methods: {
         ontapitem(e) {
-            this.unscale()
             const dataset = e.currentTarget.dataset
             const index = this.data.current
             if (dataset.index === index) {
@@ -79,26 +73,6 @@ Component({
                 this.triggerEvent('change', dataset)
             }
         },
-        scale() {
-            var animation = wx.createAnimation({
-                duration: 300,
-                timingFunction: 'ease',
-            })
-            animation.scale(1.2).step()
-            this.setData({
-                scale: animation.export()
-            })
-        },
-        unscale() {
-            var animation = wx.createAnimation({
-                duration: 300,
-                timingFunction: 'ease',
-            })
-            animation.scale(1).step()
-            this.setData({
-                unscale: animation.export()
-            })
-        },
         setCurrentStyle(index) {
             if (this.data.tabHeaderArray.length <= 0) {
                 return
@@ -107,7 +81,6 @@ Component({
                 this.setData({
                     markStyle: allItem[crtIndex]
                 })
-                this.scale()
             }
         }
     }

@@ -1,0 +1,19 @@
+@import "../../static/css/mixin.scss";
+
+.info-card {
+  width: 100%;
+  @include layout(row, center, space-between);
+}
+
+.image-class {
+  width: rpx(518);
+}
+
+.text-class {
+  width: 100%;
+}
+
+.image-img {
+  width: rpx(160);
+  height: rpx(127);
+}

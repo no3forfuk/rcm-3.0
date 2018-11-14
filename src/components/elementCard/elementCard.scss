@@ -8,20 +8,16 @@
   @include layout(row, center, space-between);
   &-left {
     width: calc(100% - #{rpx(116)});
-    height: 100%;
     &-attr {
-      @include limitTextLine(1);
-      color: #484848;
-      @include textStyle(12px, 17px);
-      margin-top: rpx(12);
+      margin-top: rpx(23);
     }
   }
   &-right {
     width: rpx(100);
-    height: rpx(105);
+    height: rpx(100);
     &-img {
       width: rpx(100);
-      height: rpx(105);
+      height: rpx(100);
     }
   }
 }
@@ -36,15 +32,27 @@
 .element-card-component-title {
   width: 100%;
   @include layout(row, flex-end);
-  &-score {
-    margin-left: rpx(12);
-    width: rpx(106);
-    @include textStyle(12px, 17px);
-    color: #9b9b9b;
-  }
   &-name {
     margin-left: rpx(12);
     max-width: rpx(374);
+    font-size: 17px;
+    line-height: 24px;
+    font-weight: 600;
+    color: #161616;
+    letter-spacing: 1.2px;
+    @include limitTextLine(1);
+  }
+  &-rate {
+    color: $colorDefault;
+    font-size: 17px;
+    line-height: 24px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+  }
+  &-score {
+    font-size: 12px;
+    line-height: 16px;
+    color: #9b9b9b;
   }
 }
 

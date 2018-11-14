@@ -21,5 +21,11 @@ Component({
     attached() {
 
     },
-    methods: {}
+    methods: {
+        link2Rank() {
+            wx.navigateTo({
+                url: `/pages/rank/rank`
+            })
+        }
+    }
 })

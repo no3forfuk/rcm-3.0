@@ -95,6 +95,7 @@
   font-weight: bold;
   max-width: rpx(530);
   @include limitTextLine(1);
+  height: 100%;
 }
 
 .details-modal-footer {

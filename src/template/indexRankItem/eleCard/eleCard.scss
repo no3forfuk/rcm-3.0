@@ -23,12 +23,11 @@
 }
 
 .sub-ele-item-left-name {
-  @include layout(row, center);
+  @include layout(row, center, space-between);
 }
 
 .sub-ele-item-left-name-text {
-  margin-left: rpx(8);
-  @include limitTextLine(1);
+  width: rpx(500);
 }
 
 .sub-ele-item-left-comment {
@@ -42,6 +41,6 @@
 }
 
 .sub-ele-item-left-comment-text {
-  @include limitTextLine(1);
   width: rpx(518);
+  padding-left: rpx(12);
 }

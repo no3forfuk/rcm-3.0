@@ -1,15 +1,41 @@
-<scroll-view class="user-details-page">
-    <view class="user-header-background" style="height:calc({{statusBarHeight}}px + 440rpx);">
-        <image src="../../static/images/background_big@2x.png"
-               class="user-header-background-img"
-               style="height:calc({{statusBarHeight}}px + 440rpx);">
-        </image>
-    </view>
-    <view class="user-header" style="height:calc({{statusBarHeight}}px + 440rpx);">
-        <view style="width: 100%;">
-            <user-header title="个人主页" title-color="#fff" theme="white"></user-header>
-        </view>
+<view style="width: 100%;">
+    <user-header title="个人主页" title-color="#fff" theme="white"></user-header>
+</view>
+<view class="user-header-background" style="height:calc({{statusBarHeight}}px + 440rpx);">
+    <image src="../../static/images/background_big@2x.png"
+           class="user-header-background-img"
+           style="height:calc({{statusBarHeight}}px + 440rpx);">
+    </image>
+</view>
+<scroll-view class="user-details-page" scroll-y style="height:{{scrollHeight}}px;">
+    <view class="user-header">
         <image src="http://img2.imgtn.bdimg.com/it/u=1191482052,3815737098&fm=26&gp=0.jpg"
                class="user-header-img"></image>
+    </view>
+    <view class="user-details-brief">
+        <view class="user-details-brief-text">
+            <text class="user-details-brief-text-name">哪些歌手的演唱会最值得一看</text>
+            <text class="user-details-brief-text-sign">哪些歌手的演唱会最值得一看</text>
+        </view>
+        <!--<view class="focus-btn">-->
+            <!--<image src="../../static/images/add@3x.png" class="focus-icon-add"></image>-->
+            <!--<text class="focus-btn-text">关注</text>-->
+        <!--</view>-->
+        <view class="edit-btn" bindtap="link2EditInfo">
+            <text>编辑资料</text>
+        </view>
+    </view>
+    <view class="user-details-social-list">
+        <block wx:for="{{socialList}}" wx:key="{{index}}">
+            <view class="social-item" style="width: calc(100% / {{socialList.length}});">
+                <text class="social-item-num">2</text>
+                <text class="social-item-text">{{item.text}}</text>
+            </view>
+        </block>
+    </view>
+    <view class="user-details-notice">
+        <block wx:for="{{noticeList}}" wx:key="{{index}}">
+            <notice-item info="{{item}}"></notice-item>
+        </block>
     </view>
 </scroll-view>

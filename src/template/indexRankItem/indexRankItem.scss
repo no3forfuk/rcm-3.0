@@ -2,7 +2,7 @@
 
 .hot-rank-card {
   width: 100%;
-  padding-bottom: rpx(24);
+  padding-top: rpx(24);
   background-color: $grayf8;
   &-content {
     width: 100%;
@@ -13,25 +13,9 @@
 }
 
 .card-desc {
-  @include textStyle(15px, 21px);
-  color: $gray48;
-  @include limitTextLine(3);
   margin-top: rpx(8);
 }
 
-.card-desc-type-img {
-  width: 100%;
-  padding-top: rpx(8);
-  &-img {
-    width: rpx(160);
-    height: rpx(124);
-  }
-  &-text {
-    @include textStyle(15px, 21px);
-    color: $gray48;
-    @include limitTextLine(3);
-  }
-}
 
 .hot-rank-subele {
   padding-left: rpx(28);

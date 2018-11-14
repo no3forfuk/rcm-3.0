@@ -15,7 +15,7 @@ Component({
                 changeData: [{
                     placing: 5,
                     change: '+2',
-                    name: '周杰伦',
+                    name: '手机上最耐玩最好看的集成类卡牌游戏手机上最耐玩最好看的集成类卡牌游戏手机上最耐玩最好看的集成类卡牌游戏',
                     flag: 1
                 }, {
                     placing: 7,

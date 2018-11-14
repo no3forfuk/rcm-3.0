@@ -2,48 +2,40 @@
 
 .rank-card {
   width: 100%;
-  height: rpx(72);
   @include layout(row, center, space-between);
   border: 1px solid #e9e9e9;
   border-radius: rpx(8);
+  padding: rpx(12) 0;
   &-left {
     padding-left: rpx(16);
-    @include layout(row,center);
+    @include layout(row, center);
     flex: 1;
     &-icon {
-      width: rpx(28);
-      height: rpx(28);
+      width: rpx(26);
+      height: rpx(30);
     }
     &-text {
-      @include textStyle(17px, 24px);
+      width: rpx(472);
       margin-left: rpx(16);
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden;
+      letter-spacing: 0.6px;
     }
   }
   &-right {
-    height: rpx(36);
+    width: rpx(142);
     border-left: 1px solid #f8f8f8;
     padding: 0 rpx(8);
-    @include textStyle(12px, 17px);
-    color: #9B9B9B;
+    @include layout(row, center, space-around);
   }
 }
 
 .large-class-text {
-  @include textStyle(17px, 24px, 600);
-}
-
-.large-class-weidu {
-  @include textStyle(12px, 17px);
+  @include textStyle(17px, 17px, 600);
 }
 
 .normal-class-text {
-  @include textStyle(15px, 21px);
+  @include textStyle(15px, 15px);
   color: #484848;
-}
-
-.normal-class-weidu {
-  @include textStyle(10px, 17px);
 }

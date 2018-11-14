@@ -1,7 +1,7 @@
-<view class="rank-change-components">
+<view class="rank-change-components" bindtap="link2Rank">
     <view class="rank-change-components-left">
         <text class="rank-change-components-left-num {{change}}-style">{{num}}</text>
-        <text class="rank-change-components-left-name">{{text}}</text>
+        <text class="rank-change-components-left-name text-body-single">{{text}}</text>
     </view>
     <view class="rank-change-components-right">
         <text class="rank-change-components-right-sort {{change}}-style" wx:if="{{change =='up'}}">+2↑</text>

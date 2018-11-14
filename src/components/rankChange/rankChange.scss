@@ -2,10 +2,9 @@
 
 .rank-change-components {
   width: rpx(750);
-  height: rpx(54);
-  background-color: #f8f8f8;
-  margin-top: rpx(15);
-  padding: rpx(6) rpx(28);
+  height: rpx(48);
+  margin-top: rpx(14);
+  padding: rpx(0) rpx(28);
   @include layout(row, center, space-between);
   &-left {
     @include layout(row, center);
@@ -14,8 +13,8 @@
       font-weight: 600;
     }
     &-name {
-      font-size: 15px;
-      margin-left: rpx(28);
+      width: rpx(572);
+      margin-left: rpx(24);
     }
   }
   &-right {

@@ -3,8 +3,9 @@
 .rate-components {
   @include layout(row, center);
   &-icon-large {
-    width: rpx(34);
-    height: rpx(33);
+    width: rpx(35);
+    height: rpx(35);
+    margin-right: rpx(6);
   }
   &-num-large {
     @include textStyle(15px, 15px);
@@ -12,8 +13,9 @@
     margin-left: 5px;
   }
   &-icon-tiny {
-    width: rpx(27);
-    height: rpx(25);
+    margin-right: rpx(6);
+    width: rpx(26);
+    height: rpx(26);
   }
   &-num-tiny {
     @include textStyle(15px, 15px);

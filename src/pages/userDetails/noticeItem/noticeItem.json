@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "rank-card": "/components/rankCard/rankCard",
+    "ele-card": "/components/elementCard/elementCard",
+    "rate": "/components/rate/rate"
+  }
+}

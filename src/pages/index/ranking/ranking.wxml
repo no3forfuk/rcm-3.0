@@ -26,7 +26,7 @@
     </view>
 </view>
 <view class="more-tag-rank"
-      style="width: 100%;height: {{showMore?'232rpx':'24rpx'}};background-color: #f8f8f8;">
+      style="width: 100%;height: {{showMore?'232rpx':'0rpx'}};background-color: #f8f8f8;">
     <view class="more-tag-rank-view {{showMore?'tag-view-show':''}}">
         <view>
             <text>全部分类</text>

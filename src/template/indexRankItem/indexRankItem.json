@@ -2,7 +2,7 @@
   "component": true,
   "usingComponents": {
     "card-title": "/components/rankCard/rankCard",
-    "fix-right": "/components/rightFix/rightFix",
-    "element-card": "./eleCard/eleCard"
+    "element-card": "./eleCard/eleCard",
+    "info-card": "/components/infoCard/infoCard"
   }
 }

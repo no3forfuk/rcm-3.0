@@ -188,23 +188,6 @@
   align-items: center;
 }
 
-//限制3行
-.limit-3-line {
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  overflow: hidden;
-}
-
-.limit-1-line {
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  overflow: hidden;
-}
-
 .ml-12 {
   margin-left: rpx(12);
 }
@@ -220,6 +203,12 @@
 .mt-24 {
   margin-top: rpx(24);
 }
+.mt-16{
+  margin-top: rpx(16);
+}
+.mb-16{
+  margin-bottom: rpx(16);
+}
 
 .pd-12 {
   padding: rpx(12);
@@ -230,5 +219,112 @@
   background-color: #fff;
 }
 
+//定稿********************************
+//一级标题单行文本
+.text-title-lv1-single {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  overflow: hidden;
+  font-size: 17px;
+  line-height: 25px;
+  font-weight: 600;
+  color: #161616;
+  letter-spacing: 1.2px;
+}
 
+//一级标题多行文本
+.text-title-lv1-multiple {
+  font-size: 17px;
+  line-height: 25px;
+  font-weight: 600;
+  color: #161616;
+}
 
+//二级标题单行文本
+.text-title-lv2-single {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  overflow: hidden;
+  font-size: 14px;
+  line-height: 16px;
+  color: #333;
+}
+
+//二级标题多行文本
+.text-title-lv2-multiple {
+  font-size: 14px;
+  line-height: 21px;
+  color: #333;
+  letter-spacing: 0.6px;
+}
+
+//正文单行
+.text-body-single {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  overflow: hidden;
+  font-size: 15px;
+  line-height: 21px;
+  color: #484848;
+  letter-spacing: 0.6px;
+}
+
+//正文多行
+.text-body-multiple {
+  font-size: 15px;
+  line-height: 23px;
+  color: #484848;
+  letter-spacing: 0.6px;
+}
+
+//副正文单行
+.text-body-single-fb {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  overflow: hidden;
+  font-size: 12px;
+  line-height: 23px;
+  color: #666;
+  letter-spacing: 0.6px;
+}
+
+//副正文多行
+.text-body-multiple-fb {
+  font-size: 12px;
+  line-height: 18px;
+  color: #666;
+  letter-spacing: 0.6px;
+}
+
+//提示性文字
+.text-tips {
+  font-size: 12px;
+  line-height: 18px;
+  color: #9b9b9b;
+}
+
+//===============================
+//限制3行
+.limit-3-line {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  overflow: hidden;
+}
+
+.limit-2-line {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  overflow: hidden;
+}
