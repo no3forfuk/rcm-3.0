@@ -12,8 +12,8 @@ Page({
         popupElementList: [],
         scrollHeight: 0,
         moreModalMenu: [{
-            text: '关注',
-            handle: 'focus'
+            text: '分享',
+            handle: 'share'
         }, {
             text: '邀请排名',
             handle: 'invite'
@@ -31,28 +31,113 @@ Page({
         addRatePopupHeight: 0,
         showAddRate: false,
         showMoreModal: false,
-        showDetailModal: false
+        showDetailModal: false,
+        showInviteModal: false,
+        activeElement: {}
     },
+    //获取榜单数据
+    getRankDetails() {
+        app.request.getRankDetails({
+            params: {
+                second_id: this.options.id,
+            },
+            success: res => {
+                this.setData({
+                    rankData: res.data.info
+                })
+                this.getRankSubElement()
+            }
+        })
+    },
+    //获取榜单排名列表
+    getRankSubElement() {
+        app.request.getRankSubElement({
+            params: {
+                second_id: this.data.rankData.id,
+                page: 1,
+                limit: 1000
+            },
+            success: res => {
+                this.setData({
+                    elementList: res.data.list
+                })
+            }
+        })
+    },
+    //关注榜单
     focusRank() {
-        wx.showModal({
-            tutle: '',
-            content: '关注成功',
-            mask: true,
-            showCancel: false
+        if (this.data.rankData.is_attention == 1) {
+            //取消关注
+            app.request.cancelFocusRank({
+                params: {
+                    second_id: this.options.id
+                },
+                success: res => {
+                    wx.showToast({
+                        title: res.message,
+                        mask: true,
+                        duration: 1000
+                    })
+                    this.getRankDetails()
+                }
+            })
+        } else {
+            //添加关注
+            app.request.focusRank({
+                params: {
+                    second_id: this.options.id
+                },
+                success: res => {
+                    wx.showToast({
+                        title: res.message,
+                        mask: true,
+                        duration: 1000
+                    })
+                    this.getRankDetails()
+                }
+            })
+        }
+    },
+    //获取维度
+    // getDimension() {
+    //     app.request.getDimension({
+    //         params: {
+    //             first_id: this.data.rankData.domain_id
+    //         },
+    //         success: res => {
+    //             console.log(res);
+    //         }
+    //     })
+    // },
+    //分享榜单
+    share() {
+
+    },
+    //打开邀请
+    invite() {
+        this.setData({
+            showInviteModal: !this.data.showInviteModal
         })
     },
-    openAddRate() {
-        this.setData({
-            showAddRate: true
-        })
+    //点击更多按钮
+    handleMoreItem(e) {
+        this.toggleMoreModal()
+        const handle = e.detail.item.handle
+        this[handle]()
     },
     cancelAddRate() {
         this.setData({
             showAddRate: false
         })
     },
-    toggleAddRate() {
+    toggleAddRate(e) {
+        if (e.detail && e.detail.activeElement) {
+            this.setData({
+                activeElement: e.detail.activeElement
+            })
+        }
         this.setData({
+            activeElement: {},
             showAddRate: !this.data.showAddRate
         })
     },
@@ -107,22 +192,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-        app.request.getRankDetails({
-            params: {
-                level: 2,
-                id: this.options.id,
-                page: 1,
-                solt_name: 'exponent'
-            },
-            success: res => {
-                const arr = res.data.data.data
-                this.setData({
-                    rankData: res.data,
-                    elementList: arr.splice(0, 8),
-                    popupElementList: arr
-                })
-            }
-        })
+        this.getRankDetails();
     },
 
     /**

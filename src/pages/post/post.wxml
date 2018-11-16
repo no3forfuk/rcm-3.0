@@ -3,8 +3,8 @@
     <view class="element-card">
         <view class="element-card-info">
             <view class="element-card-info-name">
-                <text class="element-card-info-name-rate">8.4</text>
-                <text class="element-card-info-name-text">组合/台湾/属性3/属性4/属性5/属性6/属性7/属性组合/台湾/属性3/属性4/属性5/</text>
+                <text class="element-card-info-name-rate">{{elementInfo.dimension[0].score}}</text>
+                <text class="element-card-info-name-text">{{elementInfo.element_name}}</text>
             </view>
             <text class="element-card-info-attr">组合/台湾/属性3/属性4/属性5/属性6/属性7/属性组合/台湾/属性3/属性4/属性5/属性6/属性7/属性</text>
         </view>
@@ -16,13 +16,16 @@
 </view>
 <view class="user-card">
     <user-card avatar-width="60"
-               user-info="{{userInfo}}"
+               user-info="{{postInfo.user}}"
                avatar-height="60">
         <view class="body-user-right">
-            <text class="user-name">啦啦啦德玛西亚</text>
-            <view class="focus-user">
-                <image class="focus-user-icon" src="../../static/images/add@3x.png"></image>
-                <text style="margin-left: 2px">关注</text>
+            <text class="user-name">{{postInfo.user.name}}</text>
+            <view class="focus-user {{postInfo.user.is_attention == 0?'':'foucsed-user-class'}}"
+                  bindtap="focusPeople">
+                <image class="focus-user-icon"
+                       wx:if="{{postInfo.user.is_attention == 0}}"
+                       src="../../static/images/add@3x.png"></image>
+                <text style="margin-left: 2px">{{postInfo.user.is_attention == 0?'':'已'}}关注</text>
             </view>
         </view>
     </user-card>
@@ -34,18 +37,21 @@
     <block wx:for="{{bottomBar}}" wx:key="{{index}}">
         <view class="post-bottom-bar-item" catchtap="{{item.handle}}">
             <view class="post-bottom-bar-item-content">
-                <image src="../../static/images/{{item.iconUrl}}" class="post-bottom-bar-item-img"></image>
+                <image src="../../static/images/{{postInfo[item.status] == 0?item.iconUrl1:item.iconUrl2}}"
+                       class="post-bottom-bar-item-img"></image>
                 <text class="post-bottom-bar-item-text">95k</text>
             </view>
         </view>
     </block>
 </view>
 <comment-modal visible="{{showCommentModal}}" bindcloseModal="comment">
-    <view class="comment-card {{showCommentModal?'show-comment-card':''}}"
+
+</comment-modal>
+<!--<view class="comment-card {{showCommentModal?'show-comment-card':''}}"
           catchtap="true"
           style="bottom:{{keyboardHeight}}px;">
         <view class="comment-card-title">
-            <text>正在回复 </text>
+            <text>正在回复</text>
             <text class="fw-600">我吃西红柿</text>
         </view>
         <input type="text"
@@ -62,5 +68,4 @@
         <view class="submit-view">
             <text catchtap="submitComment">发表</text>
         </view>
-    </view>
-</comment-modal>
+    </view>-->

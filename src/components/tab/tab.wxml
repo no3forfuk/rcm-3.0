@@ -5,8 +5,7 @@
               bindtap="ontapitem"
               data-index="{{index}}"
               data-item="{{item}}">
-            <text class="tab-component-item-text {{index === current?'active-class':''}}"
-                  style="color: {{index === current?activeColor:fontColor}};background-color: {{bgColor}};font-size: {{fontSize}};font-weight:{{index === current?'600':'400'}};">{{item.label}}</text>
+            <text class="tab-component-item-text {{index === current?'active-class':''}}">{{item.label}}</text>
         </view>
     </block>
     <view class="tab-mark"

@@ -13,18 +13,22 @@
   opacity: 0;
 }
 
-
-
 .show-class {
   opacity: 1;
   transform: translate3d(0, 0, 0);
 }
 
+.invite-template-input-search-btn {
+  @include textStyle(14px, 14px);
+  color: #484848;
+}
+
 .invite-template-input {
   width: 100%;
   padding: rpx(28);
+  @include layout(row, center, space-between);
   &-box {
-    width: 100%;
+    width: 85%;
     height: rpx(64);
     background: rgba(248, 248, 248, 1);
     border-radius: rpx(6);
@@ -130,5 +134,4 @@
   color: #499DFF;
   border: 1px solid #499DFF;
   border-radius: rpx(4);
-
 }

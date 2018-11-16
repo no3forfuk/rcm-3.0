@@ -30,3 +30,16 @@
   height: rpx(130);
   @include layout(row, center, space-around);
 }
+
+.share-btn {
+  width: 100%;
+  height: 100%;
+  @include textStyle(18px, 25px);
+  color: #161616;
+  @include layout(row, center, space-around);
+  background-color: #fff;
+}
+
+.share-btn::after {
+  border: 0 none;
+}

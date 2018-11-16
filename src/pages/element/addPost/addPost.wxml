@@ -1,20 +1,33 @@
 <view class="add-post-page">
     <view class="add-post-header">
         <view class="cancel-btn" bindtap="cancel">取消</view>
-        <view class="comfirm-btn" style="color:{{false?'#9b9b9b':'#499DFF'}};">完成</view>
+        <view class="comfirm-btn" style="color:{{false?'#9b9b9b':'#499DFF'}};" catchtap="comfirmRate">完成</view>
     </view>
-    <view class="fa-ele-info">
-        <view class="text-s15-l21-c48 limit-1-line">{{element.element_name}}</view>
-        <view class="fa-ele-info-all-rate">
-            <text class="weidu-tag mr-12">{{'维度维度'}}</text>
-            <rate mode="tiny" hasNum="true" rate="8.4"></rate>
+    <view class="element-card">
+        <view class="element-card-info">
+            <view class="element-card-info-name">
+                <text class="element-card-info-name-rate">{{elementInfo.dimension[0].score}}</text>
+                <text class="element-card-info-name-text">{{elementInfo.element_name}}</text>
+                <text class="element-card-info-name-score">{{elementInfo.score_num}}评分</text>
+            </view>
+            <view class="element-card-info-attr">组合/台湾/属性3/属性4/属性5/属性6/属性7/属性组合/台湾/属性3/属性4/属性5/属性6/属性7/属性</view>
+        </view>
+        <image wx:if="{{elementInfo.img}}"
+               mode="aspectFill"
+               src="{{elementInfo.img}}"
+               class="element-card-img"></image>
+        <view class="element-card-first-name" wx:if="{{!elementInfo.img}}">
+            <text>{{elementInfo.element_name[0]}}</text>
         </view>
     </view>
     <view class="add-rate" wx:if="{{showRate}}">
-        <text class="add-rate-label">打分</text>
+        <view class="add-rate-left">
+            <text class="add-rate-label">打分</text>
+            <text class="weidu-text">{{elementInfo.dimension[0].dimension_name}}</text>
+        </view>
         <view class="add-rate-star">
             <block wx:for="{{allStar}}" wx:key="{{index}}">
-                <image src="{{rateValue >= index? '../../../static/images/StarFullTangible@3x.png':'../../../static/images/StarNullTangible@3x.png'}}"
+                <image src="{{rateValue >= index? '../../../static/images/grade_StarFullTangible@2x.png':'../../../static/images/grade_StarNullTangible@2x.png'}}"
                        bindtap="addRate"
                        data-index="{{index}}"
                        class="add-rate-star-icon"></image>

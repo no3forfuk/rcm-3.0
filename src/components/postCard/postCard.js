@@ -14,6 +14,10 @@ Component({
                     }
                 })
             }
+        },
+        fatherId: {
+            type: Number,
+            value: 0,
         }
     },
     data: {
@@ -30,5 +34,74 @@ Component({
             rate: round + num / 10
         })
     },
-    methods: {}
+    methods: {
+        togglePostZan() {
+            if (this.properties.postInfo.is_praise == 0) {
+                app.request.praisePost({
+                    params: {
+                        post_id: this.properties.postInfo.id
+                    },
+                    success: res => {
+                        this.triggerEvent('refresh')
+                        wx.showToast({
+                            title: res.message,
+                            mask: true,
+                            duration: 1000
+                        })
+                    }
+                })
+            } else {
+                app.request.unPraisePost({
+                    params: {
+                        post_id: this.properties.postInfo.id
+                    },
+                    success: res => {
+                        this.triggerEvent('refresh')
+                        wx.showToast({
+                            title: res.message,
+                            mask: true,
+                            duration: 1000
+                        })
+                    }
+                })
+            }
+
+        },
+        togglePostCollect() {
+            if (this.properties.postInfo.is_collect == 0) {
+                app.request.collectPost({
+                    params: {
+                        post_id: this.properties.postInfo.id
+                    },
+                    success: res => {
+                        this.triggerEvent('refresh')
+                        wx.showToast({
+                            title: res.message,
+                            mask: true,
+                            duration: 1000
+                        })
+                    }
+                })
+            } else {
+                app.request.unCollectPost({
+                    params: {
+                        post_id: this.properties.postInfo.id
+                    },
+                    success: res => {
+                        this.triggerEvent('refresh')
+                        wx.showToast({
+                            title: res.message,
+                            mask: true,
+                            duration: 1000
+                        })
+                    }
+                })
+            }
+        },
+        link2Post() {
+            wx.navigateTo({
+                url: `/pages/post/post?id=${this.properties.postInfo.id}&fatherId=${this.properties.fatherId}`
+            })
+        }
+    }
 })

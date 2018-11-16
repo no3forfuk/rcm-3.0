@@ -6,8 +6,8 @@ const cssmin = require('gulp-clean-css')
 const rename = require('gulp-rename')
 const minify = require('gulp-minify')
 const htmlmin = require('gulp-htmlmin')
-const imageMin = require('gulp-imagemin')
-const pngquant = require('imagemin-pngquant')
+// const imageMin = require('gulp-imagemin')
+// const pngquant = require('imagemin-pngquant')
 const cache = require('gulp-cache');
 gulp.task('compile-css', () => {
     return gulp.src(['../src/**/*.scss', '!../src/**/_*.scss'])
@@ -57,7 +57,7 @@ gulp.task('compile-wxml', () => {
 });
 gulp.task('compile-image', function () {
     gulp.src('../src/static/images/*.*')
-        .pipe(cache(imageMin({progressive: true, use: [pngquant()]})))
+    // .pipe(cache(imageMin({progressive: true, use: [pngquant()]})))
         .pipe(gulp.dest('../dist/static/images/'))
 })
 gulp.task('auto', () => {

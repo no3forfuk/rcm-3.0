@@ -5,18 +5,20 @@
             <view class="rank-pandect-top-before">
                 <image class="rank-pandect-top-before-icon" src="../../static/images/rank@3x.png"></image>
                 <text class="rank-pandect-top-before-name">{{rankData.ranking_name}}</text>
-                <text class="rank-pandect-top-before-weidu">这里是维度</text>
+                <text class="rank-pandect-top-before-weidu">{{rankData.dimension_name}}</text>
             </view>
             <image src="../../static/images/Next@3x.png" class="rank-pandect-top-backicon"></image>
         </view>
         <view class="rank-pandect-bottom">
             <view class="rank-pandect-bottom-left">
-                <view class="rank-pandect-bottom-left-focus" catchtap="focusRank">
-                    <image src="../../static/images/add@3x.png" class="rank-pandect-bottom-left-focus-icon"></image>
-                    <text>关注</text>
+                <view class="rank-pandect-bottom-left-focus {{rankData.is_attention == 1?'unfocus-class':'focused-class'}}" catchtap="focusRank">
+                    <image src="../../static/images/add_veidooorproperty@2x.png"
+                           wx:if="{{rankData.is_attention == 0}}"
+                           class="rank-pandect-bottom-left-focus-icon"></image>
+                    <text>{{rankData.is_attention == 0?'':'已'}}关注</text>
                 </view>
-                <text class="qing-tips-1">7个排名</text>
-                <text class="qing-tips-2">4012人关注</text>
+                <text class="qing-tips-1">{{rankData.element_num}}个排名</text>
+                <text class="qing-tips-2">{{rankData.attention_num}}人关注</text>
             </view>
             <image src="../../static/images/More@3x.png"
                    catchtap="toggleMoreModal"
@@ -25,8 +27,6 @@
     </view>
     <scroll-view style="height:{{scrollHeight}}px;"
                  scroll-y="true"
-                 bindscrolltolower="openBottmTab"
-                 lower-threshold="30"
                  class="rank-scroll-view">
         <view style="height: 24rpx;width: 100%;background-color: #f8f8f8;"></view>
         <view class="scroll-title">
@@ -39,9 +39,7 @@
         <block wx:for="{{elementList}}" wx:key="{{index}}">
             <view class="element-card">
                 <view class="element-card-number">
-                    <text class="element-card-number-text {{index == 0? 'level1':''}} {{index == 1? 'level2':''}} {{index == 2? 'level3':''}}">
-                        {{index+1}}
-                    </text>
+                    <text class="element-card-number-text {{index == 0? 'level1':''}} {{index == 1? 'level2':''}} {{index == 2? 'level3':''}}">{{index+1}}</text>
                 </view>
                 <view class="element-card-right">
                     <view class="element-card-right-body">
@@ -60,7 +58,7 @@
                tab-list="{{bottomTab}}"></popup-tab>
 </view>
 <view class="add-rate-popup {{showAddRate?'show-add-rate':''}}" style="height:{{addRatePopupHeight}}px;">
-    <add-rate bindcancelAdd="toggleAddRate" show-rate="true"></add-rate>
+    <add-rate bindcancelAdd="toggleAddRate" show-rate="true" element="{{activeElement}}"></add-rate>
 </view>
 <more-modal show="{{showMoreModal}}"
             menu="{{moreModalMenu}}"
@@ -68,5 +66,10 @@
             bindcloseModal="toggleMoreModal"></more-modal>
 <rank-details show="{{showDetailModal}}"
               info="{{rankData}}"
+              bindrefresh="getRankDetails"
               height="{{addRatePopupHeight}}"
               bindcloseModal="toggleDetailModal"></rank-details>
+<invite-modal height="{{addRatePopupHeight}}"
+              show="{{showInviteModal}}"
+              father-id="{{rankData.id}}"
+              bindcancel="invite"></invite-modal>

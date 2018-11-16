@@ -17,5 +17,9 @@ Component({
     attached() {
 
     },
-    methods: {}
+    methods: {
+        emitClick() {
+            this.triggerEvent('click')
+        }
+    }
 })

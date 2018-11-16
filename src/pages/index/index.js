@@ -84,19 +84,16 @@ Page({
                     iv,
                     encryptedData,
                 }
-                wx.setStorage({
-                    key: 'u_id',
-                    data: 72,
-                    success: res => {
-
+                app.request.login({
+                    params: params,
+                    success: ares => {
+                        wx.setStorage({
+                            key: 'u_id',
+                            data: ares.data.user_id
+                        })
                     }
-                });
-                // app.request.login({
-                //     params: params,
-                //     success: ares => {
-                //
-                //     }
-                // })
+                })
+
             }
         })
     },

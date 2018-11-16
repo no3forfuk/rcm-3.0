@@ -1,25 +1,29 @@
 <view class="element-page">
     <ele-header title="{{elementDetails.element_name}}" id="eleHeader"></ele-header>
     <view class="element-header-detail">
-        <image src="{{elementDetails.img}}" wx:if="{{elementDetails.img}}" class="element-header-detail-img"></image>
+        <image src="{{elementDetails.img}}"
+               wx:if="{{elementDetails.img}}"
+               mode="aspectFill"
+               class="element-header-detail-img"></image>
         <view class="element-header-detail-img-name" wx:if="{{!elementDetails.img}}"
               style="background-color: {{color}};">
             <text class="word-img">{{elementDetails.element_name[0]}}</text>
         </view>
         <view class="element-header-detail-desc">
             <text class="cm2-h1 limit-1-line">{{elementDetails.element_name}}</text>
-            <tetx class="cm-tips-text">组合/台湾/属性3/属性4/属性5/属性6/属性7/属性8/属性9/属性10</tetx>
+            <tetx class="cm-tips-text limit-3-line">组合/台湾/属性/属性10</tetx>
             <view class="element-header-detail-desc-opts">
                 <view class="element-header-detail-desc-opts-left">
-                    <view class="element-header-detail-desc-opts-left-focus" catchtap="focusElement">
-                        <image src="../../static/images/add@3x.png"
-                               class="element-header-detail-desc-opts-left-focus-icon"></image>
-                        <text>关注</text>
+                    <view class="element-header-detail-desc-opts-left-focus {{elementDetails.is_attention == 0?'':'focused-element-class'}}" catchtap="focusElement">
+                        <view>
+                            <image src="../../static/images/add_veidooorproperty@2x.png"
+                                   wx:if="{{elementDetails.is_attention == 0}}"
+                                   class="element-header-detail-desc-opts-left-focus-icon"></image>
+                            <text>{{elementDetails.is_attention == 0?'':'已'}}关注</text>
+                        </view>
                     </view>
-                    <text class="tag-tips-text" style="text-align: right;">7个讨论</text>
-                    <text class="tag-tips-text" style="text-align: right;">4012人评分</text>
                 </view>
-                <image src="../../static/images/More@3x.png"
+                <image src="../../static/images/ranking_more@2x.png"
                        catchtap="openMoreModal"
                        class="element-header-detail-desc-opts-more-icon"></image>
             </view>
@@ -91,7 +95,7 @@
                            handle="addPostStart"
                            bindtap="addPostStart"></subpost-title>
             <block wx:for="{{subPostList}}" wx:key="{{index}}">
-                <post-item post-info="{{item}}"></post-item>
+                <post-item post-info="{{item}}" father-id="{{elementDetails.id}}" bindrefresh="getElementSubPost"></post-item>
             </block>
         </view>
     </scroll-view>
@@ -106,4 +110,3 @@
             menu="{{moreModalMenu}}"
             bindactiveItem="handleMoreItem"
             bindcloseModal="closeMoreModal"></more-modal>
-<invite-modal height="{{addPostPopupHeight}}" show="{{showInviteModal}}" bindcancel="closeInviteModal"></invite-modal>

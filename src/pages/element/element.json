@@ -8,7 +8,6 @@
     "post-item": "/components/postCard/postCard",
     "add-post-pop": "/components/popup/popup",
     "add-post-component": "./addPost/addPost",
-    "more-modal": "/template/popupMask/popupMask",
-    "invite-modal": "/template/invite/invite"
+    "more-modal": "/template/popupMask/popupMask"
   }
 }

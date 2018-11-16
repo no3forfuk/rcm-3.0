@@ -17,18 +17,49 @@ Component({
             value: {}
         }
     },
-    data: {
-        userInfo: {
-            avatar: 'http://img0.imgtn.bdimg.com/it/u=3028361118,4241907784&fm=26&gp=0.jpg',
-            name: '神烦菩萨'
-        }
-    },
+    data: {},
     attached() {
 
     },
     methods: {
         closeModal() {
             this.triggerEvent('closeModal')
+        },
+        focusUser(e) {
+            if (this.properties.info.user.is_attention == 0) {
+                app.request.focusUser({
+                    params: {
+                        from_uid: wx.getStorageSync('u_id'),
+                        to_uid: e.currentTarget.dataset.toid
+                    },
+                    success: res => {
+                        wx.showModal({
+                            title: '',
+                            content: res.message,
+                            showCancel: false,
+                            mask: true
+                        })
+                        this.triggerEvent('refresh')
+                    }
+                })
+            } else {
+                app.request.cancelFocusUser({
+                    params: {
+                        from_uid: wx.getStorageSync('u_id'),
+                        to_uid: e.currentTarget.dataset.toid
+                    },
+                    success: res => {
+                        wx.showModal({
+                            title: '',
+                            content: res.message,
+                            showCancel: false,
+                            mask: true
+                        })
+                        this.triggerEvent('refresh')
+                    }
+                })
+            }
+
         }
     }
 })

@@ -1,4 +1,4 @@
-<view class="icon-text">
+<view class="icon-text" catchtap="emitClick">
     <image class="icon-text-icon" src="{{iconUrl}}"></image>
     <view class="icon-text-text">{{text}}</view>
 </view>

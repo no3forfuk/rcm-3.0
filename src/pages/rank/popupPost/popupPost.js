@@ -16,13 +16,7 @@ Component({
 
     },
     ready() {
-        app.request.getHotPost({
-            success: res => {
-                this.setData({
-                    postList: res.data.data
-                })
-            }
-        })
+
     },
     methods: {}
 })

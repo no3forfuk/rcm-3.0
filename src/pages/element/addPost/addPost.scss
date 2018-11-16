@@ -25,13 +25,6 @@
   color: #333;
 }
 
-.fa-ele-info {
-  width: 100%;
-  height: rpx(116);
-  padding: rpx(16) rpx(48);
-  border-bottom: 1px solid #f0f0f0;
-}
-
 .fa-ele-info-all-rate {
   @include layout(row, center);
   margin-top: rpx(8);
@@ -46,7 +39,6 @@
 
 .add-rate-label {
   @include textStyle(12px, 17px);
-  margin-left: rpx(48);
   color: #d1d1d1;
 }
 
@@ -117,9 +109,11 @@
   @include layout(column, flex-start, space-between);
   transform: translateY(100%);
 }
-.select-image-view-body{
+
+.select-image-view-body {
   background-color: #fff;
 }
+
 .post-image-style {
 
 }
@@ -168,4 +162,83 @@
   width: 100%;
   height: 100%;
   padding: rpx(0) rpx(8);
+}
+
+.element-card {
+  width: 100%;
+  height: rpx(116);
+  padding: rpx(16) rpx(28);
+  border-bottom: 1px solid #f0f0f0;
+  @include layout(row, center, space-between);
+  &-img {
+    width: rpx(80);
+    height: rpx(70);
+  }
+  &-info {
+    width: rpx(598);
+    height: rpx(86);
+    padding: rpx(8) 0;
+    padding-right: rpx(16);
+  }
+}
+
+.element-card-info-name-score {
+  @include textStyle(12px, 17px);
+  word-spacing: rpx(1);
+  margin-left: rpx(10);
+  color: #484848;
+}
+
+.element-card-info-attr {
+  @include textStyle(12px, 17px);
+  color: #666;
+  word-spacing: rpx(1);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.element-card-info-name {
+  @include layout(row, center);
+  width: 100%;
+}
+
+.element-card-info-name-rate {
+  color: #499DFF;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.element-card-info-name-text {
+  width: rpx(428);
+  @include textStyle(15px, 17px, 600);
+  letter-spacing: 1.2px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-left: rpx(16);
+  color: #161616;
+}
+
+.element-card-first-name {
+  width: rpx(80);
+  height: rpx(70);
+  color: #fff;
+  background-color: $colorDefault;
+  border-radius: rpx(8);
+  @include layout(row, center, space-around);
+  @include textStyle(15px, 15px, 600);
+}
+
+.weidu-text {
+  background-color: #f8f8f8;
+  border-radius: rpx(6);
+  padding: rpx(12);
+  @include textStyle(12px, 12px);
+  color: #9b9b9b;
+}
+
+.add-rate-left {
+  height: 100%;
+  @include layout(column, center, space-between);
+  padding: rpx(16) rpx(28);
 }

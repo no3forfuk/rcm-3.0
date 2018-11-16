@@ -11,7 +11,9 @@
     "pages/myFocus/myFocus",
     "pages/myCollection/myCollection",
     "pages/element/element",
-    "pages/addRank/addRank"
+    "pages/addRank/addRank",
+    "pages/editInfo/editInfo",
+    "pages/addElement/addElement"
   ],
   "window": {
     "backgroundTextStyle": "#000",

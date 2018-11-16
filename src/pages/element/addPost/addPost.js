@@ -6,7 +6,14 @@ Component({
     properties: {
         element: {
             type: Object,
-            value: {}
+            value: {},
+            observer(n) {
+                if ('id' in n) {
+                    this.setData({
+                        elementInfo: n
+                    })
+                }
+            }
         },
         height: {
             type: Number,
@@ -24,6 +31,7 @@ Component({
         postContent: [],
         lastIndex: 0,
         cursor: 0,
+        elementInfo: {}
     },
     ready() {
         app.tools.setScrollHeight({
@@ -60,6 +68,20 @@ Component({
                     type: 'text',
                     value: ''
                 }]
+            })
+        },
+        // addRatePost
+        comfirmRate() {
+            // todo 判断是否打过分
+            app.request.addRatePost({
+                params: {
+                    score: (this.data.rateValue + 1) * 2,
+                    element_id: this.data.elementInfo.id,
+                    dimension_id: this.data.elementInfo.dimension[0].dimension_id
+                },
+                success: res => {
+                    console.log(res);
+                }
             })
         },
     }

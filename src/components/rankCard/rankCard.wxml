@@ -1,7 +1,7 @@
-<view class="rank-card" bindtap="linkToRank" data-id="{{info.id}}">
+<view class="rank-card" bindtap="linkToRank" data-id="{{info.second_id}}">
     <view class="rank-card-left">
         <image class="rank-card-left-icon" src="../../static/images/rank@3x.png"></image>
-        <text class="rank-card-left-text  {{mode}}-class-text">{{info.title}}</text>
+        <text class="rank-card-left-text  {{mode}}-class-text">{{info.ranking_name}}</text>
     </view>
     <view class="rank-card-right">
         <text class="text-tips">{{info.dimension || '没有维度'}}</text>

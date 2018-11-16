@@ -1,15 +1,18 @@
 /*Created By Jsir on 2018/9/19*/
 'use strict'
 const request = function (data) {
-    const token = wx.getStorageSync('token') || '';
-    // let baseUrl = 'http://test.bantangtv.com'
-    let baseUrl = 'https://www.rcm.ink/api'
+    // const token = wx.getStorageSync('token') || '';
+    let baseUrl = 'http://test.bantangtv.com'
+    // let baseUrl = 'https://www.rcm.ink/api'
     return wx.request({
         url: baseUrl + data.uri,
-        data: data.params,
-        method: data.method,
+        data: {
+            user_id: wx.getStorageSync('u_id'),
+            ...data.params
+        },
+        method: 'POST',
         header: {
-            Authorization: 'Bearer ' + token
+            'Content-Type': 'application/x-www-form-urlencoded'
         },
         dataType: 'json',
         success(res) {

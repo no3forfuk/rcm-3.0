@@ -14,27 +14,28 @@
             <view class="details-modal-body-title">
                 <view class="details-modal-body-title-text">
                     <image src="../../../static/images/rank@3x.png" class="details-modal-body-title-icon"></image>
-                    <text class="text-s17-l24-c16 ml-12 details-modal-body-title-text-name">{{info.ranking_name +
-                        info.ranking_name}}
+                    <text class="details-modal-body-title-text-name">{{info.ranking_name}}
                     </text>
                 </view>
                 <text class="details-modal-body-title-weidu">最值得看</text>
             </view>
             <view class="details-modal-body-user">
                 <user-card avatar-width="60"
-                           user-info="{{userInfo}}"
+                           user-info="{{info.user}}"
                            avatar-height="60">
                     <view class="body-user-right">
-                        <text class="user-name">{{userInfo.name}}</text>
-                        <view class="focus-user">
-                            <image class="focus-user-icon" src="../../../static/images/add@3x.png"></image>
-                            <text style="margin-left: 2px">关注</text>
+                        <text class="user-name">{{info.user.name}}</text>
+                        <view class="focus-user {{info.user.is_attention == 0?'':'focused-user-class'}}" catchtap="focusUser" data-toid="{{info.user.id}}">
+                            <image class="focus-user-icon"
+                                   wx:if="{{info.user.is_attention == 0}}"
+                                   src="../../../static/images/add@3x.png"></image>
+                            <text style="margin-left: 2px">{{info.user.is_attention == 0?'':'已'}}关注</text>
                         </view>
                     </view>
                 </user-card>
             </view>
             <scroll-view scroll-y="true" class="details-modal-body-content">
-                <text class="details-content-text">世上歌手千千万万，每年演唱会多到根本没法下手！周末闲下来超想去看一场演唱会发个朋友圈但又没有特别喜欢的明星怎么办？！有选择困难症？fine，广大群众已经替你选出最值得看的一些演唱会，再也不用担心值不回票啦</text>
+                <text class="details-content-text">{{info.ranking_desc}}</text>
                 <image src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3324624577,2954212223&fm=26&gp=0.jpg"
                        class="details-content-img"></image>
             </scroll-view>

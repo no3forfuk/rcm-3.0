@@ -1,6 +1,6 @@
 <view class="hot-rank-card">
     <view class="hot-rank-card-content">
-        <card-title info="{{titleData}}" mode="large"></card-title>
+        <card-title info="{{rankInfo}}" mode="large"></card-title>
         <view class="card-desc" bindtap="link2Rank" data-id="{{rankInfo.id}}">
             <info-card text="{{rankInfo.ranking_desc? rankInfo.ranking_desc:'这里没有榜单描述世上歌手千千万万，每年演唱会多到根本没法下手！周末闲会多到根本没会多到根本没会多到根本没会多到根本没下来超想去看一场演唱会发个朋友圈但又没有特别喜欢的明星怎么办？！有选择困难症'}}" image="{{rankInfo.img}}" video="{{rankInfo.video}}"></info-card>
         </view>

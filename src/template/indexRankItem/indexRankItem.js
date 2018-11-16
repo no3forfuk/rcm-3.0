@@ -8,14 +8,7 @@ Component({
             type: Object,
             value: {},
             observer(n, o, c) {
-                this.setData({
-                    titleData: {
-                        title: n.ranking_name,
-                        dimension: '',
-                        id: n.id,
-                    },
-                    subElement: n.data.splice(0, 3)
-                })
+
             }
         }
     },

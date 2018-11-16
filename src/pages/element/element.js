@@ -25,13 +25,13 @@ Page({
         addPostPopupHeight: 0,
         showMoreModal: false,
         moreModalMenu: [{
-            text: '收藏',
-            handle: 'collect'
+            text: '分享',
+            handle: 'share'
         }, {
-            text: '邀请排名',
-            handle: 'invite'
+            text: '取消',
+            handle: 'closeMoreModal'
         },],
-        showInviteModal: false
+        subPostList: []
     },
     //打开更多弹窗
     openMoreModal() {
@@ -51,26 +51,9 @@ Page({
         const handle = e.detail.item.handle
         this[handle]()
     },
-    //收藏
-    collect() {
-        wx.showModal({
-            title: '',
-            mask: true,
-            content: '收藏成功',
-            showCancel: false
-        })
-    },
-    //打开邀请弹窗
-    invite() {
-        this.setData({
-            showInviteModal: true
-        })
-    },
-    //关闭邀请弹窗
-    closeInviteModal() {
-        this.setData({
-            showInviteModal: false
-        })
+    //分享
+    share() {
+
     },
     //开始添加post
     addPostStart() {
@@ -102,13 +85,66 @@ Page({
     cancelAddPost() {
         this.closeAddPostPopup()
     },
-    //关注排名
+    //获取元素详情
+    getElementDetail() {
+        app.request.getElementDetail({
+            params: {
+                element_id: this.options.id
+            },
+            success: res => {
+                this.setData({
+                    elementDetails: res.data.info
+                })
+            }
+        })
+    },
+    //关注元素
     focusElement() {
-        wx.showModal({
-            tutle: '',
-            content: '关注成功',
-            mask: true,
-            showCancel: false
+        if (this.data.elementDetails.is_attention == 0) {
+            app.request.focusElement({
+                params: {
+                    element_id: this.data.elementDetails.id
+                },
+                success: res => {
+                    wx.showToast({
+                        title: res.message,
+                        mask: true,
+                        duration: 1000
+                    })
+                    this.getElementDetail()
+                }
+            })
+        } else {
+            app.request.unFocusElement({
+                params: {
+                    element_id: this.data.elementDetails.id
+                },
+                success: res => {
+                    wx.showToast({
+                        title: res.message,
+                        mask: true,
+                        duration: 1000
+                    })
+                    this.getElementDetail()
+                }
+            })
+
+        }
+
+    },
+    //获取排名下的帖子
+    getElementSubPost() {
+        app.request.getElementSubPost({
+            params: {
+                element_id: this.options.id,
+                limit: 20,
+                page: 1
+            },
+            success: res => {
+                this.setData({
+                    subPostList: res.data.list
+                })
+            }
         })
     },
     /**
@@ -150,19 +186,8 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-        app.request.getElementDetail({
-            params: {
-                id: this.options.id,
-                page: 1,
-                solt_name: 'created_at'
-            },
-            success: res => {
-                this.setData({
-                    elementDetails: res.data,
-                    subPostList: res.data.data.data
-                })
-            }
-        })
+        this.getElementDetail();
+        this.getElementSubPost()
     },
 
     /**

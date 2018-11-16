@@ -72,7 +72,7 @@
     }
     &-icon {
       width: rpx(26);
-      height: rpx(28);
+      height: rpx(34);
     }
   }
   &-user {
@@ -93,9 +93,12 @@
 
 .details-modal-body-title-text-name {
   font-weight: bold;
-  max-width: rpx(530);
+  max-width: rpx(472);
   @include limitTextLine(1);
+  @include textStyle(17px, 48px, 600);
+  color: #161616;
   height: 100%;
+  margin-left: rpx(12);
 }
 
 .details-modal-footer {
@@ -128,7 +131,7 @@
   color: #499DFF;
   font-size: 12px;
   line-height: 12px;
-  @include layout(row, center);
+  @include layout(row, center, space-between);
   border: 1px solid #499DFF;
 }
 
@@ -141,4 +144,9 @@
 .focus-user-icon {
   width: rpx(18);
   height: rpx(18);
+}
+
+.focused-user-class {
+  border: 1px solid #9b9b9b;
+  color: #9b9b9b;
 }

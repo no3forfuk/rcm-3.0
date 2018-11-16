@@ -5,7 +5,10 @@
     </view>
     <block wx:for="{{menu}}" wx:key="{{index}}">
         <view class="menu-item" catchtap="tapItem" data-item="{{item}}">
-            <text class="text-s18-l25-c16">{{item.text}}</text>
+            <button open-type="share" wx:if="{{item.text == '分享'}}" class="share-btn">
+                <text style="color:#161616;">{{item.text}}</text>
+            </button>
+            <text class="text-s18-l25-c16" wx:if="{{item.text !== '分享'}}">{{item.text}}</text>
         </view>
     </block>
 </view>

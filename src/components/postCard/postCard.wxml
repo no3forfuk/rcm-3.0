@@ -1,11 +1,11 @@
 <view class="post-card-component">
     <post-header avatar-width="60"
                  avatar-height="60"
-                 user-info="{{userInfo}}">
+                 user-info="{{postInfo.user}}">
         <view class="post-header-right" style="width: calc(100% - 60rpx);">
             <view class="post-header-right-before">
                 <view class="post-header-right-before-top">
-                    <text class="cm-tips-text cm-mr-16">{{postInfo.create_user}}</text>
+                    <text class="cm-tips-text cm-mr-16">{{postInfo.user.name}}</text>
                     <text class="cm-tips-text ">{{postInfo.created_at}}</text>
                 </view>
                 <post-rate mode="tiny" rate="{{rate}}"></post-rate>
@@ -13,12 +13,19 @@
             <text class="cm-tag">{{postInfo.element_name}}</text>
         </view>
     </post-header>
-    <view class="post-card-component-content">
+    <view class="post-card-component-content"
+          bindtap="link2Post"
+          wx:if="{{postInfo.post_content}}">
         <text class="cm-text post-card-component-content-text">{{postInfo.post_content}}</text>
     </view>
     <view class="post-card-component-opts">
-        <icon-text text="18k" icon-url="../../static/images/weizan@2x.png"></icon-text>
-        <icon-text text="18k" icon-url="../../static/images/Collect1@2x.png"></icon-text>
-        <icon-text text="18k" icon-url="../../static/images/CommentPost@2x.png"></icon-text>
+        <icon-text text="{{postInfo.praise_num}}"
+                   bindclick="togglePostZan"
+                   icon-url="../../static/images/{{postInfo.is_praise == 0?'weizan@2x.png':'yizan@2x.png'}}"></icon-text>
+        <icon-text text="{{postInfo.collect_num}}"
+                   bindclick="togglePostCollect"
+                   icon-url="../../static/images/{{postInfo.is_collect == 0?'Collect1@2x.png':'Colletbig2@2x.png'}}"></icon-text>
+        <icon-text text="{{postInfo.comment_num}}"
+                   icon-url="../../static/images/CommentPost@2x.png"></icon-text>
     </view>
 </view>

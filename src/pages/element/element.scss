@@ -14,18 +14,20 @@
   margin-top: rpx(24);
   @include layout(row, center, space-between);
   &-img {
-    width: rpx(176);
-    height: rpx(176);
+    width: rpx(240);
+    height: rpx(229);
+    border-radius: rpx(6);
   }
   &-img-name {
-    width: rpx(176);
-    height: rpx(176);
+    width: rpx(240);
+    height: rpx(229);
     border-radius: rpx(4);
     @include layout(row, center, space-around);
   }
   &-desc {
-    width: rpx(506);
-    @include layout(column, flex-start);
+    width: rpx(426);
+    height: rpx(229);
+    @include layout(column, flex-start, space-between);
     &-opts {
       margin-top: rpx(18);
       width: 100%;
@@ -33,16 +35,16 @@
       &-left {
         @include layout(row, center);
         &-focus {
-          padding: 0 rpx(16);
-          border: 1px solid $colorDefault;
-          color: $colorDefault;
-          @include layout(row, center);
-          border-radius: rpx(4);
+          width: rpx(110);
+          height: rpx(48);
+          @include layout(row, center, space-around);
+          background-color: $colorDefault;
+          border-radius: rpx(48);
+          color: #fff;
           @include textStyle(14px, 20px);
           &-icon {
-            width: rpx(26);
-            height: rpx(26);
-            margin-right: rpx(6);
+            width: rpx(18);
+            height: rpx(18);
           }
         }
       }
@@ -153,4 +155,9 @@
 .add-post-popup {
   width: 100%;
   transform: translateY(0);
+}
+.focused-element-class{
+  background-color: #fff;
+  color: #484848;
+  border: 1px solid #f0f0f0;
 }

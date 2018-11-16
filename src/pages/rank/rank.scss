@@ -48,17 +48,17 @@
     &-left {
       @include layout(row, center);
       &-focus {
-        padding: 0 rpx(16);
+        width: rpx(110);
+        height: rpx(48);
         border: 1px solid $colorDefault;
-        color: $colorDefault;
-        @include layout(row, center);
-        border-radius: rpx(4);
+        padding: 0 rpx(20);
+        @include layout(row, center, space-around);
+        border-radius: rpx(48);
         @include textStyle(14px, 20px);
         margin-left: rpx(38);
         &-icon {
-          width: rpx(26);
-          height: rpx(26);
-          margin-right: rpx(6);
+          width: rpx(18);
+          height: rpx(18);
         }
       }
     }
@@ -137,13 +137,13 @@
 .qing-tips-1 {
   color: $gray9b;
   @include textStyle(12px, 17px);
-  margin-left: rpx(88);
+  margin-left: rpx(24);
 }
 
 .qing-tips-2 {
   color: $gray9b;
   @include textStyle(12px, 17px);
-  margin-left: rpx(22);
+  margin-left: rpx(24);
 }
 
 .add-rate-popup {
@@ -161,4 +161,20 @@
 .show-add-rate {
   visibility: visible;
   transform: translateY(0);
+}
+
+.focused-class {
+  @include textStyle(12px, 12px);
+  white-space: nowrap;
+  color: #fff;
+  background-color: $colorDefault;
+}
+
+.unfocus-class {
+  @include textStyle(12px, 12px);
+  white-space: nowrap;
+  background-color: #fff;
+  color: #9b9b9b;
+  border: 1px solid #9b9b9b;
+  padding: 0;
 }

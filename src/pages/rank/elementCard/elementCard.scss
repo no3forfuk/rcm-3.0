@@ -12,7 +12,6 @@
     &-name {
       @include textStyle(17px, 24px, 600);
       @include layout(row, center, space-between);
-      color: #161616;
       &-text {
         width: rpx(300);
         @include limitTextLine(1);
@@ -22,10 +21,13 @@
       width: 100%;
       @include textStyle(12px, 17px);
       color: #9b9b9b;
+      height: rpx(72);
+      @include layout(column, flex-start, space-around);
       margin-top: rpx(8);
       &-text {
         width: 100%;
         @include limitTextLine(2);
+        letter-spacing: 0.6px;
       }
     }
   }

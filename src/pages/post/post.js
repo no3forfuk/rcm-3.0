@@ -9,19 +9,21 @@ Page({
         elementInfo: {
             img: 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3671205051,3612742836&fm=26&gp=0.jpg'
         },
-        userInfo: {
-            avatar: 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3671205051,3612742836&fm=26&gp=0.jpg'
-        },
+        postInfo: {},
         scrollViewHeight: 0,
         bottomBar: [{
             handle: 'zan',
-            iconUrl: 'weizan@2x.png'
+            iconUrl1: 'yizan1@2x.png',
+            status: 'is_praise',
+            iconUrl2: 'yizan@2x.png'
         }, {
             handle: 'collect',
-            iconUrl: 'Collect1@2x.png'
+            iconUrl1: 'Collect1@2x.png',
+            status: 'is_collect',
+            iconUrl2: 'Colletbig2@2x.png'
         }, {
             handle: 'comment',
-            iconUrl: 'CommentPost@2x.png'
+            iconUrl2: 'CommentPost@2x.png'
         },],
         showCommentModal: false,
         keyboardHeight: 0,
@@ -53,20 +55,66 @@ Page({
         })
     },
     zan() {
-        wx.showModal({
-            title: '',
-            content: '点赞成功',
-            mask: true,
-            showCancel: false
-        })
+        if (this.data.postInfo.is_praise == 0) {
+            app.request.praisePost({
+                params: {
+                    post_id: this.data.postInfo.id
+                },
+                success: res => {
+                    this.getPostDetails()
+                    wx.showToast({
+                        title: res.message,
+                        mask: true,
+                        duration: 1000
+                    })
+                }
+            })
+        } else {
+            app.request.unPraisePost({
+                params: {
+                    post_id: this.data.postInfo.id
+                },
+                success: res => {
+                    this.getPostDetails()
+                    wx.showToast({
+                        title: res.message,
+                        mask: true,
+                        duration: 1000
+                    })
+                }
+            })
+        }
     },
     collect() {
-        wx.showModal({
-            title: '',
-            content: '收藏成功',
-            mask: true,
-            showCancel: false
-        })
+        if (this.data.postInfo.is_collect == 0) {
+            app.request.collectPost({
+                params: {
+                    post_id: this.data.postInfo.id
+                },
+                success: res => {
+                    this.getPostDetails()
+                    wx.showToast({
+                        title: res.message,
+                        mask: true,
+                        duration: 1000
+                    })
+                }
+            })
+        } else {
+            app.request.unCollectPost({
+                params: {
+                    post_id: this.data.postInfo.id
+                },
+                success: res => {
+                    this.getPostDetails()
+                    wx.showToast({
+                        title: res.message,
+                        mask: true,
+                        duration: 1000
+                    })
+                }
+            })
+        }
     },
     comment() {
         this.setData({
@@ -91,11 +139,72 @@ Page({
     submitComment() {
         this.comment()
     },
+    //获取帖子详情
+    getPostDetails() {
+        app.request.getPostDetails({
+            params: {
+                post_id: this.options.id
+            },
+            success: res => {
+                this.setData({
+                    postInfo: res.data.info
+                })
+            }
+        })
+    },
+    //获取父元素详情
+    getElementDetail() {
+        app.request.getElementDetail({
+            params: {
+                element_id: this.options.fatherId
+            },
+            success: res => {
+                this.setData({
+                    elementInfo: res.data.info
+                })
+            }
+        })
+    },
+    //关注用户
+    focusPeople() {
+        if (this.data.postInfo.user.is_attention == 0) {
+            app.request.focusUser({
+                params: {
+                    from_uid: wx.getStorageSync('u_id'),
+                    to_uid: this.data.postInfo.user.id
+                },
+                success: res => {
+                    this.getPostDetails()
+                    wx.showToast({
+                        title: res.message,
+                        mask: true,
+                        duration: 1000
+                    })
+                }
+            })
+        } else {
+            app.request.cancelFocusUser({
+                params: {
+                    from_uid: wx.getStorageSync('u_id'),
+                    to_uid: this.data.postInfo.user.id
+                },
+                success: res => {
+                    this.getPostDetails()
+                    wx.showToast({
+                        title: res.message,
+                        mask: true,
+                        duration: 1000
+                    })
+                }
+            })
+        }
+    },
     /**
      * 生命周期函数--监听页面显示
      */
     onShow() {
-
+        this.getPostDetails()
+        this.getElementDetail()
     },
 
     /**

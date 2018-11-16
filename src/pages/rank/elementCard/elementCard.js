@@ -40,7 +40,11 @@ Component({
             })
         },
         goRate() {
-            this.triggerEvent('openAddRate')
+            if (this.properties.info.dimension[0] && this.properties.info.dimension[0].is_score == 0) {
+                this.triggerEvent('openAddRate', {activeElement: this.properties.info})
+            } else {
+                return
+            }
         },
     }
 })

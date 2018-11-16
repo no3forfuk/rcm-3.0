@@ -15,7 +15,10 @@ Component({
             key: 'hostest'
         }],
         sortMapIndex: 0,
-        rankList: [],
+        rankList: [{
+            ranking_name: '世上歌手千千万万，每年演唱会多到根本没法下手！周末闲下来超想去看一场演唱会发个朋友圈但又没有特别喜欢的明星怎么办？！有选择困难症',
+            second_id: 1
+        }],
         showMore: false,
         canIscroll: false,
         showPullDownView: false,
@@ -38,26 +41,12 @@ Component({
         app.request.getFirstRankList({
             success: res => {
                 this.setData({
-                    firstRankTags: res.data.data
+                    firstRankTags: res.data
                 })
             }
         });
-        this.getHotRank();
     },
     methods: {
-        //获取热榜
-        getHotRank() {
-            app.request.getIndexHotRank({
-                params: {
-                    page: 1
-                },
-                success: res => {
-                    this.setData({
-                        rankList: res.data.data
-                    })
-                }
-            })
-        },
         //切换一级榜单标签
         toggleFirstRank(e) {
             this.setData({
