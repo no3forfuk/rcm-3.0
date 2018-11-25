@@ -13,7 +13,10 @@
     "pages/element/element",
     "pages/addRank/addRank",
     "pages/editInfo/editInfo",
-    "pages/addElement/addElement"
+    "pages/addElement/addElement",
+    "pages/newRank/newRank",
+    "pages/myRank/myRank",
+    "pages/myFans/myFans"
   ],
   "window": {
     "backgroundTextStyle": "#000",

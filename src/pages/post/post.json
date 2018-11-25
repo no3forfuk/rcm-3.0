@@ -3,6 +3,7 @@
   "usingComponents": {
     "common-header": "/components/commonHeader/commonHeader",
     "user-card": "/components/userCard/userCard",
-    "comment-modal": "/components/modal/modal"
+    "comment-modal": "/components/modal/modal",
+    "comment-list": "/template/postComment/postComment"
   }
 }

@@ -15,17 +15,13 @@ Component({
             key: 'hostest'
         }],
         sortMapIndex: 0,
-        rankList: [{
-            ranking_name: '世上歌手千千万万，每年演唱会多到根本没法下手！周末闲下来超想去看一场演唱会发个朋友圈但又没有特别喜欢的明星怎么办？！有选择困难症',
-            second_id: 1
-        }],
+        rankList: [],
         showMore: false,
         canIscroll: false,
         showPullDownView: false,
-        scrollViewTop: 0
-    },
-    attached() {
-
+        scrollViewTop: 0,
+        sortType: 1,
+        currentFirstRank: {}
     },
     ready() {
         app.tools.setScrollHeight({
@@ -41,16 +37,37 @@ Component({
         app.request.getFirstRankList({
             success: res => {
                 this.setData({
-                    firstRankTags: res.data
+                    firstRankTags: res.data,
+                    currentFirstRank: res.data[0]
                 })
+                this.getIndexRank()
             }
         });
     },
     methods: {
+        onScrollView(e) {
+            this.triggerEvent('hideBottom', {info: e.detail, height: this.data.scrollHeight})
+        },
+        getIndexRank() {
+            app.request.getIndexRank({
+                params: {
+                    page: 1,
+                    limit: 100,
+                    type: this.data.sortType,
+                    first_id: this.data.currentFirstRank.id
+                },
+                success: res => {
+                    this.setData({
+                        rankList: res.data.list
+                    })
+                }
+            })
+        },
         //切换一级榜单标签
         toggleFirstRank(e) {
             this.setData({
-                canIscroll: true
+                canIscroll: true,
+                currentFirstRank: e.currentTarget.dataset.item
             })
             const dataset = e.currentTarget.dataset
             this.setData({
@@ -61,18 +78,22 @@ Component({
                     canIscroll: false
                 })
             }, 100)
+            this.getIndexRank()
         },
         //切换排序类型
         toggleSortType(e) {
             if (this.data.sortMapIndex == 0) {
                 this.setData({
-                    sortMapIndex: 1
+                    sortMapIndex: 1,
+                    sortType: 1,
                 })
             } else if (this.data.sortMapIndex == 1) {
                 this.setData({
-                    sortMapIndex: 0
+                    sortMapIndex: 0,
+                    sortType: 2,
                 })
             }
+            this.getIndexRank()
         },
         //展示更多领域
         showMoreTag() {

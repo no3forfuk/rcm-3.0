@@ -1,20 +1,21 @@
 <view class="element-page">
     <ele-header title="{{elementDetails.element_name}}" id="eleHeader"></ele-header>
-    <view class="element-header-detail">
+    <view class="element-header-detail {{smallHeader?'small-header':''}}">
         <image src="{{elementDetails.img}}"
                wx:if="{{elementDetails.img}}"
                mode="aspectFill"
-               class="element-header-detail-img"></image>
-        <view class="element-header-detail-img-name" wx:if="{{!elementDetails.img}}"
+               class="element-header-detail-img {{smallHeader?'small-header-img':''}}"></image>
+        <view class="element-header-detail-img-name {{smallHeader?'small-header-img-name':''}}" wx:if="{{!elementDetails.img}}"
               style="background-color: {{color}};">
             <text class="word-img">{{elementDetails.element_name[0]}}</text>
         </view>
-        <view class="element-header-detail-desc">
-            <text class="cm2-h1 limit-1-line">{{elementDetails.element_name}}</text>
-            <tetx class="cm-tips-text limit-3-line">组合/台湾/属性/属性10</tetx>
-            <view class="element-header-detail-desc-opts">
+        <view class="element-header-detail-desc {{smallHeader?'small-header-desc':''}}">
+            <text class="cm2-h1 limit-1-line element-header-detail-desc-name">{{elementDetails.element_name}}</text>
+            <tetx class="cm-tips-text limit-3-line"><block wx:for="{{elementDetails.attribute}}" wx:key="{{index}}"><text>{{item.attribute_details}}</text>/</block></tetx>
+            <view class="element-header-detail-desc-opts" wx:if="{{!smallHeader}}">
                 <view class="element-header-detail-desc-opts-left">
-                    <view class="element-header-detail-desc-opts-left-focus {{elementDetails.is_attention == 0?'':'focused-element-class'}}" catchtap="focusElement">
+                    <view class="element-header-detail-desc-opts-left-focus {{elementDetails.is_attention == 0?'':'focused-element-class'}}"
+                          catchtap="focusElement">
                         <view>
                             <image src="../../static/images/add_veidooorproperty@2x.png"
                                    wx:if="{{elementDetails.is_attention == 0}}"
@@ -29,14 +30,16 @@
             </view>
         </view>
     </view>
-    <scroll-view scroll-y="true" style="height:{{scrollHeight}}px;" class="element-page-scroll">
+    <scroll-view scroll-y="true" style="height:{{smallHeader?scrollHeight + 159:scrollHeight}}px;"
+                 bindscroll="elementPaageScroll"
+                 class="element-page-scroll">
         <view class="element-body-detail">
             <view class="element-body-detail-rate">
-                <text class="element-body-detail-rate-weidu cm2-num-rate-l">最值得看</text>
+                <text class="element-body-detail-rate-weidu cm2-num-rate-l">{{elementDetails.dimension[currentWeiduIndex].dimension_name}}</text>
                 <view class="element-body-detail-rate-star">
                     <view class="element-body-detail-rate-star-left">
-                        <text class="cm2-num-rate-l">8.4</text>
-                        <rate mode="tiny" rate="8.4"></rate>
+                        <text class="cm2-num-rate-l">{{elementDetails.dimension[currentWeiduIndex].score}}</text>
+                        <rate mode="tiny" rate="{{elementDetails.dimension[0].score}}"></rate>
                     </view>
                     <view class="element-body-detail-rate-star-right">
                         <view class="star-right-label">
@@ -61,23 +64,23 @@
                     </view>
                 </view>
                 <view class="element-body-detail-rate-fs">
-                    <view class="rate-fs-item cm-tips-text">43k评分</view>
-                    <view class="rate-fs-item cm-tips-text">43k人关注</view>
+                    <view class="rate-fs-item cm-tips-text">{{elementDetails.dimension[currentWeiduIndex].score_num}}评分</view>
+                    <!--<view class="rate-fs-item cm-tips-text">43k人关注</view>-->
                 </view>
             </view>
-            <view class="element-body-detail-rate-post">
-                <view class="element-body-detail-label">最值得看</view>
+            <view class="element-body-detail-rate-post" wx:if="{{elementDetails.dimension[currentWeiduIndex].is_score == 1}}">
+                <view class="element-body-detail-label">{{elementDetails.dimension[currentWeiduIndex].dimension_name}}</view>
                 <view class="rate-user">
                     <rate-header avatar-width="60"
                                  avatar-height="60"
-                                 user-info="{{userInfo}}">
+                                 user-info="{{selfInfo}}">
                         <view class="rate-user-right">
                             <view>
                                 <view class="flex-row">
                                     <text class="text-s12-l17-c333 mr-12">我已评价</text>
-                                    <rate mode="tiny" rate="8.4"></rate>
+                                    <rate mode="tiny" rate="{{elementDetails.dimension[currentWeiduIndex].post.score}}"></rate>
                                 </view>
-                                <view class="time-text-style">09-28 14:00</view>
+                                <view class="time-text-style">{{elementDetails.dimension[currentWeiduIndex].post.created_at}}</view>
                             </view>
                             <image src="../../static/images/edit@2x.png" class="rate-user-right-icon"></image>
                         </view>
@@ -95,11 +98,14 @@
                            handle="addPostStart"
                            bindtap="addPostStart"></subpost-title>
             <block wx:for="{{subPostList}}" wx:key="{{index}}">
-                <post-item post-info="{{item}}" father-id="{{elementDetails.id}}" bindrefresh="getElementSubPost"></post-item>
+                <post-item post-info="{{item}}"
+                           father-id="{{elementDetails.id}}"
+                           bindopenComment="openPostComment"
+                           bindrefresh="getElementSubPost"></post-item>
             </block>
         </view>
     </scroll-view>
-    <view class="add-post-popup" animation="{{togglePopup}}">
+    <view class="add-post-popup {{showAddPost?'show-add-post':''}}">
         <add-post-pop catchtouchmove="true" height="{{addPostPopupHeight}}">
             <add-post-component bindcancelAdd="cancelAddPost" element="{{elementDetails}}"
                                 height="{{addPostPopupHeight}}"></add-post-component>

@@ -1,1 +1,20 @@
-a
+<view class="add-post-find-item">
+    <card-title avatar-width="40"
+                avatar-height="40"
+                align-items="center"
+                user-info="{{info.user}}">
+        <view class="card-title-right">
+            <text class="card-title-username"
+                  catchtap="link2UserDetail">{{info.user.name}}</text>
+            <title-rate mode="tiny" rate="{{postInfo.rate}}" wx:if="{{}}"></title-rate>
+        </view>
+    </card-title>
+    <view class="add-post-content" bindtap="link2post">
+        <info-card text="{{info.post_content}}"
+                   video="{{info.video}}"
+                   image="{{info.img}}"></info-card>
+    </view>
+    <view class="find-element-card">
+        <target-ele info="{{info.element}}"></target-ele>
+    </view>
+</view>

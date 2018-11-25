@@ -6,12 +6,18 @@
                placeholder="榜单好玩很重要，名字更重要"
                placeholder-class="input-placeholder-class"
                confirm-type="search"
+               value="{{rankName}}"
+               bindinput="setRankname"
                adjust-position="{{false}}"
                focus="{{true}}"></input>
-        <picker>
+        <picker mode="selector"
+                range="{{firstRankTags}}"
+                range-key="ranking_name"
+                bindchange="selectFirstRank"
+                value="{{selectIndex}}">
             <view class="picker-title">
                 <image class="picker-title-icon" src="../../static/images/list_field_switch_off@2x.png"></image>
-                <text class="picker-title-text">选择领域</text>
+                <text class="picker-title-text picker">{{firstRankTags[selectIndex].ranking_name}}</text>
             </view>
         </picker>
     </view>
@@ -26,11 +32,69 @@
             </view>
         </view>
         <view class="add-attr-content-view {{showAttrBox?'show-attr-content':''}}"
-              style="height:{{!showAttrBox?'0px':''}};">
+              style="height:{{!showAttrBox?'0px':'auto'}};">
             <block wx:for="{{rankWeidu}}" wx:key="{{index}}">
-                <tetx class="add-attr-content-item">{{item.text}}</tetx>
+                <text class="add-attr-content-item {{currentWeiduIndex == index?'active-weidu':''}}"
+                      bindtap="setCurrentWeiduIndex"
+                      data-index="{{index}}">{{item.dimension_name}}</text>
             </block>
+            <text class="add-attr-content-item" bindtap="addWeidu">新增</text>
         </view>
-        <view> ss</view>
+    </view>
+    <view class="add-content">
+        <textarea maxlength="-1"
+                  class="add-content-textarea"
+                  wx:if="{{showTextarea}}"
+                  bindfocus="textareaFocus"
+                  bindinput="textareaInput"
+                  bindblur="textareaBlur"
+                  value="{{newRankItem.value}}"
+                  focus="{{showTextarea}}"
+                  show-confirm-bar="{{false}}"></textarea>
+        <scroll-view class="add-content-scroll" scroll-y bindtap="insetText">
+            <text class="add-content-palceholde" wx:if="{{rankDesc.length == '0'}}">对这个榜单简单的描述一下吧</text>
+            <block wx:for="{{rankDesc}}" wx:key="{{index}}">
+                <view class="desc-text-style"
+                      wx:if="{{item.type=='text' && !showTextarea}}"
+                      data-index="{{index}}"
+                      data-item="{{item}}"
+                      catchtap="editItem">{{item.value}}
+                </view>
+                <image class="post-image-style"
+                       wx:if="{{item.type == 'image' && !showTextarea}}"
+                       mode="aspectFit"
+                       src="{{item.src}}">
+                </image>
+            </block>
+        </scroll-view>
+    </view>
+    <view class="add-footer">
+        <view class="add-footer-btn" bindtap="submitAdd">
+            <text class="add-footer-btn-text">立即发布</text>
+        </view>
     </view>
 </view>
+<view class="add-post-ctrl {{showTextarea?'show-ctrl':''}}" style="transform: translateY({{-keyboardHeight}}px)">
+    <image src="../../static/images/ImageDisabled@2x.png"
+           catchtap="openSelectImages"
+           mode="aspectFit"
+           class="add-post-carl-item"></image>
+</view>
+<edit-modal visible="{{showEditModal}}">
+    <view class="edit-info-view" wx:if="{{showEditModal}}">
+        <textarea class="edit-info-textarea"
+                  maxlength="5"
+                  focus="{{true}}"
+                  show-confirm-bar="{{false}}"
+                  adjust-position="{{false}}"
+                  value="{{textareaValue}}"
+                  bindinput="setValue"
+                  placeholder="添加新的维度，最多不超过5个字"></textarea>
+        <view class="comfirm-btn" bindtap="submitAddWeidu">
+            <text class="comfirm-btn-text">确定</text>
+        </view>
+        <image class="close-icon"
+               bindtap="toggleEditModal"
+               src="../../static/images/Close@2x.png"></image>
+    </view>
+</edit-modal>

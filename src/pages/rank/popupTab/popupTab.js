@@ -15,6 +15,10 @@ Component({
         rankList: {
             type: Array,
             value: []
+        },
+        postList: {
+            type: Array,
+            value: []
         }
     },
     data: {
@@ -40,7 +44,6 @@ Component({
                 this.setMarkerStyle()
             }
         })
-        this.deleteItem()
     },
     methods: {
         //切换swiper
@@ -59,7 +62,6 @@ Component({
             this.setMarkerStyle()
         },
         slideUp() {
-            this.addItem();
             const height = this.properties.height - 41
             let animation = wx.createAnimation({
                 duration: 500,
@@ -83,7 +85,6 @@ Component({
             }
         },
         slideDown() {
-            this.deleteItem();
             this.setData({
                 tabCurrentIndex: 0
             })
@@ -102,25 +103,8 @@ Component({
                 markerLeft: this.data.tabHeaderArray[this.data.tabCurrentIndex].left
             })
         },
-        addItem() {
-            let animation = wx.createAnimation({
-                duration: 500,
-                timingFunction: 'ease',
-            })
-            animation.translateX(0).step()
-            this.setData({
-                marginAnimation: animation.export()
-            })
-        },
-        deleteItem() {
-            let animation = wx.createAnimation({
-                duration: 500,
-                timingFunction: 'ease',
-            })
-            animation.translateX('-90px').step()
-            this.setData({
-                marginAnimation: animation.export()
-            })
-        },
+        getRankSubpost(){
+            this.triggerEvent('refreshSubpost')
+        }
     }
 })

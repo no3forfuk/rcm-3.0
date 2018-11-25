@@ -1,5 +1,6 @@
 <scroll-view class="discover-page"
              style="height:{{scrollHeight}}px;"
+             bindscroll="onScrollView"
              scroll-y="true">
     <block wx:for="{{finderList}}" wx:key="{{index}}">
         <rank-change wx:if="{{item.type==1}}" change-item="{{item}}"></rank-change>

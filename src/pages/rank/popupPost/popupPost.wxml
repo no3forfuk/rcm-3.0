@@ -1,6 +1,5 @@
 <scroll-view class="popup-post" style="height:{{height}}px;" scroll-y="true">
-    <text class="cm2-sm-title">热门评论</text>
     <block wx:for="{{postList}}" wx:key="{{index}}">
-        <post-card post-info="{{item}}"></post-card>
+        <post-card post-info="{{item}}" bindrefresh="refresh"></post-card>
     </block>
 </scroll-view>

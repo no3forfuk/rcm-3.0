@@ -4,13 +4,13 @@
         <view class="element-card-info">
             <view class="element-card-info-name">
                 <text class="element-card-info-name-rate">{{elementInfo.dimension[0].score}}</text>
-                <text class="element-card-info-name-text">{{elementInfo.element_name}}</text>
+                <text class="element-card-info-name-text">{{postInfo.element_name}}</text>
             </view>
             <text class="element-card-info-attr">组合/台湾/属性3/属性4/属性5/属性6/属性7/属性组合/台湾/属性3/属性4/属性5/属性6/属性7/属性</text>
         </view>
-        <image wx:if="{{elementInfo.img}}"
+        <image wx:if="{{postInfo.element.img}}"
                mode="aspectFill"
-               src="{{elementInfo.img}}"
+               src="{{postInfo.element.img}}"
                class="element-card-img"></image>
     </view>
 </view>
@@ -30,42 +30,26 @@
         </view>
     </user-card>
 </view>
-<scroll-view class="scroll-view" style="height: {{scrollViewHeight}}px;">
-
+<scroll-view class="scroll-view" scroll-y style="height: {{scrollViewHeight}}px;">
+    <comment-list post-info="{{postInfo}}"
+                  bindcloseInput="closeInput"
+                  show-input="{{showInput}}"
+                  reply-all="{{replyAll}}"
+                  bindnoreplyall="noReplyAll"></comment-list>
 </scroll-view>
 <view class="post-bottom-bar" style="padding-bottom: {{statusHeight == 20?4:statusHeight}}px;">
-    <block wx:for="{{bottomBar}}" wx:key="{{index}}">
-        <view class="post-bottom-bar-item" catchtap="{{item.handle}}">
-            <view class="post-bottom-bar-item-content">
-                <image src="../../static/images/{{postInfo[item.status] == 0?item.iconUrl1:item.iconUrl2}}"
-                       class="post-bottom-bar-item-img"></image>
-                <text class="post-bottom-bar-item-text">95k</text>
+    <view class="post-bottom-bar-item-left">
+        <block wx:for="{{bottomBar}}" wx:key="{{index}}">
+            <view class="post-bottom-bar-item" catchtap="{{item.handle}}">
+                <view class="post-bottom-bar-item-content">
+                    <image src="../../static/images/{{postInfo[item.status] == 0?item.iconUrl1:item.iconUrl2}}"
+                           class="post-bottom-bar-item-img"></image>
+                    <text class="post-bottom-bar-item-text">95k</text>
+                </view>
             </view>
-        </view>
-    </block>
+        </block>
+    </view>
+    <view class="comment-input-view">
+        <view class="comment-input-view-input" bindtap="toggleInput"><text>发表你的评价吧</text></view>
+    </view>
 </view>
-<comment-modal visible="{{showCommentModal}}" bindcloseModal="comment">
-
-</comment-modal>
-<!--<view class="comment-card {{showCommentModal?'show-comment-card':''}}"
-          catchtap="true"
-          style="bottom:{{keyboardHeight}}px;">
-        <view class="comment-card-title">
-            <text>正在回复</text>
-            <text class="fw-600">我吃西红柿</text>
-        </view>
-        <input type="text"
-               placeholder="发表你的评论吧"
-               placeholder-class="place-holder-class"
-               class="comment-card-input"
-               value="{{commentContent}}"
-               adjust-position="{{false}}"
-               bindfocus="inputFocus"
-               bindblur="inputBlur"
-               focus="{{showCommentModal}}"
-               confirm-type="send"
-               bindinput="setCommentValue"></input>
-        <view class="submit-view">
-            <text catchtap="submitComment">发表</text>
-        </view>
-    </view>-->

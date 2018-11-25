@@ -1,0 +1,113 @@
+@import "../../static/css/mixin.scss";
+
+.new-rank-page {
+  width: 100%;
+  height: 100%;
+  @include layout(column, center, space-between);
+}
+
+.page-body {
+  flex: 1;
+  width: 100%;
+  background-color: #fff;
+}
+
+.page-footer {
+  width: 100%;
+  height: rpx(82);
+  border-top: 1px solid #f0f0f0;
+  @include layout(row, center, space-around);
+  background-color: #fff;
+}
+
+.edit-icon {
+  width: rpx(40);
+  height: rpx(36);
+}
+
+.edit-text {
+  @include textStyle(14px, 20px);
+  color: #9b9b9b;
+}
+
+.body-user-right {
+  width: calc(100% - #{rpx(60)});
+  padding-left: rpx(12);
+  @include layout(row, center, space-between);
+}
+
+.user-name {
+  font-size: 12px;
+  line-height: 12px;
+  color: #9b9b9b;
+}
+
+.details-modal-body-title-text-name {
+  font-weight: bold;
+  max-width: rpx(472);
+  @include limitTextLine(1);
+  @include textStyle(17px, 48px, 600);
+  color: #161616;
+  height: 100%;
+  margin-left: rpx(12);
+  flex: 1;
+}
+
+.details-modal-body {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  @include layout(column, flex-start);
+  padding: rpx(24) rpx(28);
+  background-color: #fff;
+  &-title {
+    &-text {
+      @include layout(row, center);
+    }
+    height: rpx(48);
+    width: 100%;
+    @include layout(row, center, space-between);
+    &-weidu {
+      padding: rpx(12);
+      background-color: #f8f8f8;
+      @include textStyle(12px, 12px);
+      color: #9b9b9b;
+      border-radius: rpx(6);
+    }
+    &-icon {
+      width: rpx(26);
+      height: rpx(34);
+    }
+  }
+  &-user {
+    height: rpx(60);
+    width: 100%;
+    margin: rpx(30) 0;
+  }
+  &-content {
+    flex: 1;
+    width: 100%;
+    @include layout(column, center);
+  }
+}
+
+.ranking-details {
+
+}
+
+.page-footer-content {
+  @include layout(row, center);
+}
+
+.details-text {
+  font-size: 15px;
+  line-height: 23px;
+  color: #484848;
+  margin-bottom: rpx(16);
+}
+
+.details-img {
+  max-width: rpx(690);
+  border-radius: rpx(4);
+  margin-bottom: rpx(16);
+}

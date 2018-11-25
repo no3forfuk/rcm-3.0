@@ -14,7 +14,7 @@ Component({
         },
         info: {
             type: Object,
-            value: {}
+            value: {},
         }
     },
     data: {},

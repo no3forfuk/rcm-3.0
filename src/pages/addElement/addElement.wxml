@@ -1,1 +1,99 @@
 <common-header title="发布新排名"></common-header>
+<view class="add-ele-page" style="height: {{pageHeight}}px;">
+    <view class="add-name">
+        <input type="text"
+               focus="{{true}}"
+               placeholder="排名名称"
+               class="add-name-input"
+               bindblur="setElementName"
+               value="{{elementName}}"
+               placeholder-class="placeholder-class"></input>
+    </view>
+    <view class="add-attr" bindtap="toggleAddAttrModal">
+        <view class="add-attr-text placeholder-class">{{attrString}}</view>
+        <image class="add-attr-icon" src="../../static/images/Next@3x.png"></image>
+    </view>
+    <view class="add-desc-content">
+         <textarea maxlength="-1"
+                   class="add-content-textarea"
+                   wx:if="{{showTextarea}}"
+                   bindfocus="textareaFocus"
+                   bindinput="textareaInput"
+                   bindblur="textareaBlur"
+                   value="{{newRankItem.value}}"
+                   focus="{{showTextarea}}"
+                   show-confirm-bar="{{false}}"></textarea>
+        <scroll-view scroll-y class="add-desc" bindtap="insetText">
+            <text class="add-content-palceholde" wx:if="{{elementDesc.length == '0'}}">介绍一下这个新成员吧</text>
+            <block wx:for="{{elementDesc}}" wx:key="{{index}}">
+                <view class="desc-text-style"
+                      wx:if="{{item.type=='text' && !showTextarea}}"
+                      data-index="{{index}}"
+                      data-item="{{item}}"
+                      catchtap="editItem">{{item.value}}
+                </view>
+                <image class="post-image-style"
+                       wx:if="{{item.type == 'image' && !showTextarea}}"
+                       mode="aspectFit"
+                       src="{{item.src}}">
+                </image>
+            </block>
+        </scroll-view>
+    </view>
+    <view class="add-footer">
+        <view class="add-footer-btn" bindtap="submitAdd">
+            <text class="add-footer-btn-text">立即发布</text>
+        </view>
+    </view>
+</view>
+<view class="add-post-ctrl {{showTextarea?'show-ctrl':''}}" style="transform: translateY({{-keyboardHeight}}px)">
+    <image src="../../static/images/ImageDisabled@2x.png"
+           catchtap="openSelectImages"
+           mode="aspectFit"
+           class="add-post-carl-item"></image>
+</view>
+<modal visible="{{showAddAttr}}" bindcloseModal="toggleAddAttrModal">
+    <view class="add-attr-popup {{showAddAttr?'show-attr-popup':''}}"
+          catchtap="true"
+          style="height:{{pageHeight - 12}}px;">
+        <view class="attr-popup-header">
+            <view class="cacel-btn" catchtap="cacel">取消</view>
+            <view class="confirm-btn" catchtap="confirm">完成</view>
+        </view>
+        <scroll-view class="attr-popup-body" scroll-y>
+            <view class="attr-popup-form">
+                <block wx:for="{{attrList}}" wx:key="{{index}}">
+                    <view class="attr-popup-form-item">
+                        <view class="form-item-label">{{item.attribute_name}}</view>
+                        <view class="form-item-value">
+                            <input type="text"
+                                   bindblur="inputBlur"
+                                   data-index="{{index}}"
+                                   data-item="{{item}}"
+                                   class="form-item-value-input"></input>
+                        </view>
+                    </view>
+                </block>
+                <block wx:for="{{newAttrList}}" wx:key="{{index}}">
+                    <view class="attr-popup-form-item-new" wx:if="{{showNewAttr}}">
+                        <view class="form-item-label">
+                            <input type="text"
+                                   bindblur="newAttrLabel"
+                                   data-index="{{index}}"
+                                   class="form-item-label-input"></input>
+                        </view>
+                        <view class="form-item-value">
+                            <input type="text"
+                                   bindblur="newAttrValue"
+                                   data-index="{{index}}"
+                                   class="form-item-value-input"></input>
+                        </view>
+                    </view>
+                </block>
+            </view>
+            <view class="attr-popup-add">
+                <text class="attr-popup-add-text" catchtap="addNewAttr">新增</text>
+            </view>
+        </scroll-view>
+    </view>
+</modal>

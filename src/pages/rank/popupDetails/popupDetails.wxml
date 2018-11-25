@@ -17,9 +17,9 @@
                     <text class="details-modal-body-title-text-name">{{info.ranking_name}}
                     </text>
                 </view>
-                <text class="details-modal-body-title-weidu">最值得看</text>
+                <text class="details-modal-body-title-weidu">{{info.dimension_name || '暂无维度'}}</text>
             </view>
-            <view class="details-modal-body-user">
+            <view class="details-modal-body-user" wx:if="{{info.user}}">
                 <user-card avatar-width="60"
                            user-info="{{info.user}}"
                            avatar-height="60">
@@ -36,15 +36,16 @@
             </view>
             <scroll-view scroll-y="true" class="details-modal-body-content">
                 <text class="details-content-text">{{info.ranking_desc}}</text>
-                <image src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3324624577,2954212223&fm=26&gp=0.jpg"
+                <image src="{{info.img}}"
+                       wx:if="{{info.img}}"
                        class="details-content-img"></image>
             </scroll-view>
         </view>
         <view class="details-modal-footer">
-            <text>发布时间 09-20 14:00</text>
+            <text>发布时间 {{info.created_at}}</text>
             <view class="details-modal-footer-right">
                 <image src="../../../static/images/detail_field@2x.png" class="modal-foote-icon"></image>
-                <text>生活休闲</text>
+                <text>{{info.first_name}}</text>
             </view>
         </view>
     </view>

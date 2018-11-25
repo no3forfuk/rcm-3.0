@@ -10,16 +10,21 @@ Page({
             current: 0,
             items: [{
                 label: '榜单',
-                key: 'rank'
+                key: 'rank',
+                focusType: 1
             }, {
                 label: '排名',
-                key: 'element'
+                key: 'element',
+                focusType: 2
             }, {
                 label: '用户',
-                key: 'user'
+                key: 'user',
+                focusType: 3
             }]
         },
         scrollHeight: 0,
+        focusType: 1,
+        focusList: []
     },
     tabChange(e) {
         const detail = e.detail
@@ -36,6 +41,23 @@ Page({
             tabData: {
                 ...this.data.tabData,
                 current: detail.current
+            },
+            focusType: this.data.tabData.items[detail.current].focusType
+        })
+        this.getUserFocusList()
+    },
+    //获取用户关注列表
+    getUserFocusList() {
+        app.request.getUserFocusList({
+            params: {
+                type: this.data.focusType,
+                to_uid: this.options.id,
+                from_uid: wx.getStorageSync('u_id')
+            },
+            success: res => {
+                this.setData({
+                    focusList: res.data.list
+                })
             }
         })
     },
@@ -65,7 +87,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-
+        this.getUserFocusList()
     },
 
     /**

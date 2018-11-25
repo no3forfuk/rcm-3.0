@@ -23,6 +23,14 @@
   z-index: 1;
   background-color: #fff;
   @include layout(row, center, space-around, nowrap);
+  transition: all 0.3s ease-in-out;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.hide-bottom-bar {
+  visibility: hidden;
+  transform: translateY(100%);
 }
 
 .bottom-bar-item {

@@ -1,23 +1,25 @@
-<view class="user-notice-item" wx:if="{{info.type == 1}}">
+<view class="user-notice-item" wx:if="{{info.dynamic_type == 1}}">
     <view class="notice-item-title mb-16">
         <text class="text-tips">创建榜单</text>
-        <text class="text-tips">09-28 14:00</text>
+        <text class="text-tips">{{info.created_at}}</text>
     </view>
-    <rank-card></rank-card>
+    <rank-card info="{{info.second}}" mode="large"></rank-card>
     <view class="mt-16 notice-item-desc">
-        <text class="text-title-lv2-multiple {{info.img?'has-img-class':''}} limit-2-line">世上歌手千千万万，每年演唱会多到根本没法下手！周末闲下来超想去看一场演唱会发个朋友世上歌手千千万万，每年演唱会多到根本没法下手！周末闲下来超想去看一场演唱会发个朋友
-        </text>
-        <image src="{{info.img}}"
-               wx:if="{{info.img}}"
-               class="notice-item-desc-img"></image>
+        <block wx:for="{{secondRankDesc}}" wx:key="{{index}}">
+            <text class="text-title-lv2-multiple {{item.type == 'text'?'has-img-class':''}} limit-2-line"
+                  wx:if="{{item.type == 'text' && item.value.length > 0}}">{{item.value}}</text>
+            <image src="{{item.src}}"
+                   wx:if="{{item.type == 'image'}}"
+                   class="notice-item-desc-img"></image>
+        </block>
     </view>
 </view>
-<view class="user-notice-item" wx:if="{{info.type == 2}}">
+<view class="user-notice-item" wx:if="{{info.dynamic_type == 14}}">
     <view class="notice-item-title mb-16">
         <text class="text-tips">关注榜单</text>
-        <text class="text-tips">09-28 14:00</text>
+        <text class="text-tips">{{info.created_at}}</text>
     </view>
-    <rank-card mode="large" info="{{fatherRank}}"></rank-card>
+    <rank-card mode="large" info="{{info.second}}"></rank-card>
     <view class="mt-16 notice-item-desc">
         <text class="text-title-lv2-multiple {{info.img?'has-img-class':''}} limit-2-line">世上歌手千千万万，每年演唱会多到根本没法下手！周末闲下来超想去看一场演唱会发个朋友世上歌手千千万万，每年演唱会多到根本没法下手！周末闲下来超想去看一场演唱会发个朋友
         </text>
@@ -26,15 +28,15 @@
                class="notice-item-desc-img"></image>
     </view>
 </view>
-<view class="user-notice-item" wx:if="{{info.type == 3}}">
+<view class="user-notice-item" wx:if="{{info.dynamic_type == 15}}">
     <view class="notice-item-title mb-16">
         <text class="text-tips">关注排名</text>
         <text class="text-tips">09-28 14:00</text>
     </view>
-    <ele-card info="{{info}}" type="collect"></ele-card>
+    <ele-card info="{{info.element}}" type="collect"></ele-card>
     <rank-card info="{{fatherRank}}"></rank-card>
 </view>
-<view class="user-notice-item" wx:if="{{info.type == 4}}">
+<view class="user-notice-item" wx:if="{{info.dynamic_type == 4}}">
     <view class="notice-item-title mb-16">
         <text class="text-tips" wx:if="{{!info.newRate}}">讨论</text>
         <rate wx:if="{{info.newRate}}" rate="{{info.newRate}}"></rate>

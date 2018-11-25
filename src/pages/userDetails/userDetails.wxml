@@ -9,26 +9,28 @@
 </view>
 <scroll-view class="user-details-page" scroll-y style="height:{{scrollHeight}}px;">
     <view class="user-header">
-        <image src="http://img2.imgtn.bdimg.com/it/u=1191482052,3815737098&fm=26&gp=0.jpg"
+        <image src="{{userInfo.avatar}}"
                class="user-header-img"></image>
     </view>
     <view class="user-details-brief">
         <view class="user-details-brief-text">
-            <text class="user-details-brief-text-name">哪些歌手的演唱会最值得一看</text>
-            <text class="user-details-brief-text-sign">哪些歌手的演唱会最值得一看</text>
+            <text class="user-details-brief-text-name">{{userInfo.name}}</text>
+            <text class="user-details-brief-text-sign">{{userInfo.signature}}</text>
         </view>
-        <!--<view class="focus-btn">-->
-            <!--<image src="../../static/images/add@3x.png" class="focus-icon-add"></image>-->
-            <!--<text class="focus-btn-text">关注</text>-->
-        <!--</view>-->
-        <view class="edit-btn" bindtap="link2EditInfo">
+        <view class="focus-btn" wx:if="{{userInfo.id != selfId}}">
+            <image src="../../static/images/add@3x.png" class="focus-icon-add"></image>
+            <text class="focus-btn-text">关注</text>
+        </view>
+        <view class="edit-btn" bindtap="link2EditInfo" wx:if="{{userInfo.id == selfId}}">
             <text>编辑资料</text>
         </view>
     </view>
     <view class="user-details-social-list">
         <block wx:for="{{socialList}}" wx:key="{{index}}">
-            <view class="social-item" style="width: calc(100% / {{socialList.length}});">
-                <text class="social-item-num">2</text>
+            <view class="social-item" style="width: calc(100% / {{socialList.length}});"
+                  bindtap="goUserItemPage"
+                  data-router="{{item.router}}">
+                <text class="social-item-num">{{userInfo[item.key]}}</text>
                 <text class="social-item-text">{{item.text}}</text>
             </view>
         </block>

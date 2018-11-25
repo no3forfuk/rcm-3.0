@@ -6,7 +6,9 @@ Page({
      * 页面的初始数据
      */
     data: {
-        hotWords: [{text: '深圳宝安区公寓'}, {text: '深圳宝安区公寓'}, {text: '深圳宝安区公寓'}]
+        hotWords: [],
+        userWords: [],
+        keywords: ''
     },
 
     /**
@@ -22,12 +24,25 @@ Page({
     onReady() {
 
     },
+    getHotKeyWords() {
+        app.request.getHotKeyWords({
+            params: {},
+            success: res => {
+                this.setData({
+                    hotWords: res.data.list,
+                    userWords: res.data.user
+                })
+            }
+        })
+    },
+    submitSearch() {
 
+    },
     /**
      * 生命周期函数--监听页面显示
      */
     onShow() {
-
+        this.getHotKeyWords()
     },
 
     /**

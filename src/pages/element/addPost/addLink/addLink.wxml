@@ -1,0 +1,40 @@
+<view class="add-link-header">
+    <view class="cancel" bindtap="cancel">取消</view>
+    <view class="comfirm" bindtap="cancel">完成</view>
+</view>
+<view class="add-link-search-box">
+    <view class="inner-search-input">
+        <image src="../../../../static/images/search@2x.png" class="search-icon"></image>
+        <input type="text"
+               placeholder="想添加的榜单和排名"
+               placeholder-class="placeholder-class"
+               class="search-input"
+               confirm-type="search"></input>
+    </view>
+</view>
+<view class="hot-search">
+    <view class="hot-search-header">
+        <block wx:for="{{searchItem}}" wx:key="{{index}}">
+            <text class="search-title-item"
+                  bindtap="ontapitem"
+                  data-index="{{index}}"
+                  data-item="{{item}}">{{item.text}}</text>
+        </block>
+        <view class="tab-mark"
+              style="width:64rpx;transform: translateX(calc({{markStyle.left}}px + {{markStyle.width/2}}px - 32rpx));"></view>
+    </view>
+    <swiper current="{{current}}"
+            bindchange="handleSwiperChange"
+            class="index-page-swiper">
+        <swiper-item>
+            <scroll-view class="scroll-view-swiper">
+
+            </scroll-view>
+        </swiper-item>
+        <swiper-item>
+            <scroll-view class="scroll-view-swiper">
+
+            </scroll-view>
+        </swiper-item>
+    </swiper>
+</view>

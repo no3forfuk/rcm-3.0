@@ -4,7 +4,7 @@
         <view class="focus-rank-item">
             <rank-card info="{{item}}"></rank-card>
             <view class="focus-rank-item-desc text-s14-l20-c333">
-                <text class="focus-rank-item-desc-text {{item.img?'short-text':''}}">{{item.desc}}</text>
+                <text class="focus-rank-item-desc-text {{item.img?'short-text':''}}">{{item.ranking_desc}}</text>
                 <image class="focus-rank-item-img" src="{{item.img}}" wx:if="{{item.img}}"></image>
             </view>
         </view>

@@ -216,6 +216,9 @@ Component({
         })
     },
     methods: {
+        onScrollView(e){
+            this.triggerEvent('hideBottom', {info: e.detail, height: this.data.scrollHeight})
+        },
         pullDownRefresh() {
             console.log('a');
         }

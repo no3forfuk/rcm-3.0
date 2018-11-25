@@ -8,8 +8,8 @@ Page({
     data: {
         rankData: {},
         elementList: [],
-        pageElementList: [],
         popupElementList: [],
+        popupPostList: [],
         scrollHeight: 0,
         moreModalMenu: [{
             text: '分享',
@@ -20,13 +20,16 @@ Page({
         },],
         bottomTab: [{
             label: '排名',
-            key: 'rank'
+            key: 'rank',
+            num: 0
         }, {
             label: '帖子',
-            key: 'post'
+            key: 'post',
+            num: 0
         }, {
             label: '活动',
-            key: 'active'
+            key: 'active',
+            num: 0
         }],
         addRatePopupHeight: 0,
         showAddRate: false,
@@ -43,9 +46,23 @@ Page({
             },
             success: res => {
                 this.setData({
-                    rankData: res.data.info
+                    rankData: res.data.info,
+                    bottomTab: [{
+                        label: '排名',
+                        key: 'rank',
+                        num: res.data.info.element_num
+                    }, {
+                        label: '帖子',
+                        key: 'post',
+                        num: res.data.info.post_num
+                    }, {
+                        label: '活动',
+                        key: 'active',
+                        num: 0
+                    }]
                 })
                 this.getRankSubElement()
+                this.getRankSubpost()
             }
         })
     },
@@ -59,7 +76,23 @@ Page({
             },
             success: res => {
                 this.setData({
-                    elementList: res.data.list
+                    elementList: res.data.list.slice(0, 5),
+                    popupElementList: res.data.list
+                })
+            }
+        })
+    },
+    //获取榜单帖子
+    getRankSubpost() {
+        app.request.getRankSubpost({
+            params: {
+                second_id: this.data.rankData.id,
+                page: 1,
+                limit: 1000
+            },
+            success: res => {
+                this.setData({
+                    popupPostList: res.data.list
                 })
             }
         })
@@ -130,7 +163,13 @@ Page({
             showAddRate: false
         })
     },
+    link2AddElement(e) {
+        wx.navigateTo({
+            url: `/pages/addElement/addElement?id=${this.data.rankData.first_id}&rankId=${this.data.rankData.id}`
+        })
+    },
     toggleAddRate(e) {
+        // console.log(e.detail.activeElement);
         if (e.detail && e.detail.activeElement) {
             this.setData({
                 activeElement: e.detail.activeElement

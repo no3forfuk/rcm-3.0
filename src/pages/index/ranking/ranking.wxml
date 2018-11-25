@@ -31,15 +31,17 @@
         <view>
             <text>全部分类</text>
         </view>
-        <block wx:for="{{firstRankTags}}" wx:key="{{index}}">
-            <rank-tag value="{{item.ranking_name}}"
-                      bindclickTag="toggleFirstRank"
-                      data-index="{{index}}"
-                      data-item="{{item}}"
-                      bgc="#fff"
-                      color="{{index == currentFirstRankIndex?true:false}}"
-                      class="ranking-tag-item"></rank-tag>
-        </block>
+        <view class="rank-tag-box">
+            <block wx:for="{{firstRankTags}}" wx:key="{{index}}">
+                <rank-tag value="{{item.ranking_name}}"
+                          bindclickTag="toggleFirstRank"
+                          data-index="{{index}}"
+                          data-item="{{item}}"
+                          bgc="#fff"
+                          color="{{index == currentFirstRankIndex?true:false}}"
+                          class="ranking-tag-item"></rank-tag>
+            </block>
+        </view>
     </view>
 </view>
 <view class="pull-down-view {{showPullDownView?'show-pull-class':''}}">
@@ -50,6 +52,7 @@
              bindscrolltoupper="pullDownRefresh"
              upper-threshold="-60"
              scroll-top="{{scrollViewTop}}"
+             bindscroll="onScrollView"
              class="scroll-view-class">
     <view class="ranking-body">
         <block wx:for="{{rankList}}" wx:key="{{index}}">

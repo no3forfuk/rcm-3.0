@@ -108,3 +108,132 @@
   margin-right: rpx(20);
   margin-bottom: rpx(20);
 }
+
+.add-content {
+  width: 100%;
+  height: rpx(560);
+  border: 1px solid #f0f0f0;
+  padding: rpx(20) rpx(6);
+  position: relative;
+}
+
+.add-content-textarea {
+  width: 100%;
+  background-color: #fff;
+  padding: rpx(20) rpx(6);
+  height: rpx(200);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 500;
+  font-size: 15px;
+  line-height: 28px;
+  color: #484848;
+}
+
+.edit-info-view {
+  background-color: #fff;
+  border-radius: rpx(8);
+  padding: rpx(28);
+  width: rpx(534);
+  transform: translate3d(#{rpx(108)}, #{rpx(350)}, 0);
+  position: relative;
+  overflow: visible;
+}
+
+.edit-info-textarea {
+  width: rpx(480);
+  height: rpx(100);
+  background-color: #f8f8f8;
+  border-radius: rpx(4);
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.6px;
+  color: #484848;
+}
+
+.comfirm-btn-text {
+  font-size: 18px;
+  line-height: 25px;
+  color: #fff;
+}
+
+.comfirm-btn {
+  padding: rpx(8);
+  @include layout(row, center, space-around);
+  background-color: $colorDefault;
+  border-radius: rpx(8);
+  margin-top: rpx(60);
+}
+
+.active-weidu {
+  color: #499DFF;
+  border: 1px solid #499DFF;
+}
+
+.close-icon {
+  width: rpx(64);
+  height: rpx(64);
+  position: absolute;
+  bottom: rpx(-120);
+  left: rpx(236);
+  z-index: 1;
+}
+
+.add-post-ctrl {
+  width: 100%;
+  height: rpx(72);
+  background-color: #fff;
+  padding: rpx(10) rpx(40);
+  @include layout(row, center, flex-end);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+  transform: translateY(0);
+}
+
+.show-ctrl {
+  visibility: visible;
+  opacity: 1;
+}
+
+.add-post-carl-item {
+  width: rpx(50);
+  height: rpx(52);
+  margin-left: rpx(48);
+}
+
+.desc-text-style {
+  font-size: 15px;
+  line-height: 28px;
+  color: #484848;
+  width: 100%;
+}
+
+.add-content-scroll {
+  width: 100%;
+  height: 100%;
+}
+
+.add-content-palceholde {
+  color: #d1d1d1;
+  font-size: 15px;
+}
+
+.add-footer {
+  @include layout(row, center, space-around);
+}
+
+.add-footer-btn {
+  @include layout(row, center, space-around);
+  width: rpx(398);
+  height: rpx(88);
+  border-radius: rpx(44);
+  background-color: $colorDefault;
+  margin-top: rpx(120);
+  color: #fff;
+  font-size: 18px;
+}

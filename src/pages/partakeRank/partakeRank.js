@@ -32,12 +32,29 @@ Page({
             }
         })
     },
+    //获取用户动态
+    getUserDynamic() {
+        app.request.getUserDynamic({
+            params: {
+                from_uid: wx.getStorageSync('u_id'),
+                to_uid: this.options.id,
+                page: 1,
+                limit: 100
+            },
+            success: res => {
+                this.setData({
+                    partakeRankList:res.data.list
+                })
+                console.log(res);
+            }
+        })
+    },
 
     /**
      * 生命周期函数--监听页面显示
      */
     onShow() {
-
+        this.getUserDynamic()
     },
 
     /**

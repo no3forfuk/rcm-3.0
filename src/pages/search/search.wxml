@@ -10,7 +10,7 @@
                adjust-position="{{false}}"
                class="input-text"></input>
     </view>
-    <text class="text-title-lv2-single">搜索</text>
+    <text class="text-title-lv2-single" bindtap="submitSearch">搜索</text>
 </view>
 <view class="search-body">
     <view class="search-page-hot">
@@ -19,7 +19,7 @@
         </view>
         <view class="search-page-hot-body">
             <block wx:for="{{hotWords}}" wx:key="{{index}}">
-                <text class="search-page-hot-item">{{item.text}}</text>
+                <text class="search-page-hot-item">{{item.search_key}}</text>
             </block>
         </view>
     </view>
@@ -29,8 +29,8 @@
             <view class="remove-history-btn">清除记录</view>
         </view>
         <view class="search-page-hot-body">
-            <block wx:for="{{hotWords}}" wx:key="{{index}}">
-                <text class="search-page-hot-item">{{item.text}}</text>
+            <block wx:for="{{userWords}}" wx:key="{{index}}">
+                <text class="search-page-hot-item">{{item.search_key}}</text>
             </block>
         </view>
     </view>

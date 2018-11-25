@@ -1,18 +1,6 @@
 <short-page wx:if="{{element.length == 0}}" list="{{recommendElement}}"></short-page>
 <scroll-view class="focus-rank-scroll" scroll-y="true" style="height:{{scrollHeight}}px;">
     <block wx:for="{{element}}" wx:key="{{index}}">
-        <view class="element-card">
-            <view class="element-card-number">
-                <text class="element-card-number-text {{index == 0? 'level1':''}} {{index == 1? 'level2':''}} {{index == 2? 'level3':''}}">
-                    {{index+1}}
-                </text>
-            </view>
-            <view class="element-card-right">
-                <view class="element-card-right-body">
-                    <element-card info="{{item}}"></element-card>
-                </view>
-                <view style="width: 626rpx;height: 1px;background-color: #f0f0f0;"></view>
-            </view>
-        </view>
+        <element-card info="{{item}}"></element-card>
     </block>
 </scroll-view>

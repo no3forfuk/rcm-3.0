@@ -37,7 +37,31 @@ Page({
             icon: 'Mine@2x.png',
             handle: 'linkUserCenter'
         }],
-        isLogin: true
+        isLogin: true,
+        showBottomBar: true
+    },
+    hideBottom(e) {
+        const info = e.detail.info
+        if (e.detail.info.deltaY < 0) {
+            if (info.scrollHeight - info.scrollTop - e.detail.height < 50) {
+                this.setData({
+                    showBottomBar: true
+                })
+            } else {
+                this.setData({
+                    showBottomBar: false
+                })
+            }
+        } else {
+            this.setData({
+                showBottomBar: true
+            })
+        }
+        if(info.scrollTop < 50){
+            this.setData({
+                showBottomBar: true
+            })
+        }
     },
     link2AddRank() {
         wx.navigateTo({

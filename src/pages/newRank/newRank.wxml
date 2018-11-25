@@ -1,0 +1,36 @@
+<common-header title="我创建的榜单"></common-header>
+<view class="new-rank-page" style="height: {{pageHeight}}px;">
+    <scroll-view scroll-y  class="details-modal-body">
+        <view class="details-modal-body-title">
+            <view class="details-modal-body-title-text">
+                <image src="../../static/images/rank@3x.png" class="details-modal-body-title-icon"></image>
+                <text class="details-modal-body-title-text-name">{{info.ranking_name}}</text>
+            </view>
+            <text class="details-modal-body-title-weidu">{{info.dimension_name || '暂无维度'}}</text>
+        </view>
+        <view class="details-modal-body-user">
+            <user-card avatar-width="60"
+                       user-info="{{info.user}}"
+                       avatar-height="60">
+                <view class="body-user-right">
+                    <text class="user-name">{{info.user.name}}</text>
+                </view>
+            </user-card>
+        </view>
+        <view class="ranking-details">
+            <block wx:for="{{rankingDetails}}" wx:key="{{index}}">
+                <view wx:if="{{item.type == 'text'}}" class="details-text">{{item.value}}</view>
+                <image wx:if="{{item.type == 'image'}}"
+                       mode="widthFix"
+                       src="{{item.src}}"
+                       class="details-img"></image>
+            </block>
+        </view>
+    </scroll-view>
+    <view class="page-footer">
+        <view class="page-footer-content">
+            <image class="edit-icon" src="../../static/images/edit@2x.png"></image>
+            <text class="edit-text">修改编辑</text>
+        </view>
+    </view>
+</view>

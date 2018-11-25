@@ -13,6 +13,10 @@
   }
 }
 
+.rank-tag-box {
+  @include layout(row, center, flex-start, wrap);
+}
+
 .ranking-header-box-left {
   @include layout(row, center, space-between);
 }

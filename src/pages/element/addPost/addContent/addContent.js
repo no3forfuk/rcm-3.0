@@ -13,227 +13,220 @@ Component({
             handle: 'insertVideo'
         },],
         keyboardHeight: 336,
-        postContent: [{
-            type: 'text', value: ''
-        }],
+        postContent: [],
         showSelectImgModal: false,
         emojis: ['😀', '😁', '😂', '🤣', '😆', '😊', '😋', '😍', '😘', '😗', '😙', '🙂', '🤗', '🤩', '🤔', '🤨', '😐', '😑', '😶', '🙄', '😏', '😣', '😥', '😮', '🤐', '😯', '😪', '😫', '😴', '😌', '😛', '😝', '🤤', '😒', '😓', '😔', '😕', '🙃', '🤑', '😲', '🙁', '😖', '😞', '😟', '😤', '😢', '😭', '😦', '😧', '😨', '😩', '🤯', '😬', '😰', '😱', '😳', '🤪', '😵', '😡', '😠', '🤬', '😷', '🤒', '🤕', '🤢', '🤮', '🤧', '😇', '👈', '👉', '☝', '👆', '🖕', '👇', '✌', '🤞', '🖖', '🤘', '🖐', '✋', '👌', '👍', '👎', '✊', '👊', '🤛', '🤜', '🤚', '👋', '🤟', '🤠', '🤡', '🤥', '🤫', '🤭', '🧐', '🤓', '😈', '👹', '👺', '💀', '👻', '👽', '👾', '🤖', '💩', '😺', '😹', '😻', '😼', '😽', '🙀', '😿', '👶', '👦', '👴', '👵', '👮', '🕵', '💂', '👷', '🤴', '👸', '👳', '🧕', '🧔', '👱', '👨', '👩', '🤵', '👰', '🤰', '🤱', '👼', '🎅', '🤶', '🧙', '🧚', '🧛', '🧜', '🧝', '🧞', '🧟', '🙍', '🙎', '🙅', '🙆', '💁', '🙋', '🙇', '🤦', '🤷', '💆', '💇', '🚶', '🏃', '💃', '🕺', '🧖', '🧘', '🕴', '👫', '💏', '👨', '👩', '💑', '👨', '👩', '👪', '🤳', '💪', '✍', '👏', '👐', '🙌', '🤲', '🙏', '🤝', '💅', '👂', '👃', '👣', '👀', '🧠', '👅', '👄', '💋', '👓', '👔', '👕', '👖', '🧣', '🧤', '🧥', '🧦', '👗', '👘', '👙', '👚', '👛', '👜', '👝', '🎒', '👞', '👟', '👠', '👡', '👢', '👑', '👒', '🎩', '🎓', '🧢', '💄', '💍', '🌂'],
+        currentIdIndex: 0,
         emojiViewShow: false,
-        currentText: 0,
-        isKeyboardUp: false,
         cursorPosition: 0,
         openTextBold: false,
+        showTextarea: false,
+        textarea: {
+            value: '',
+            type: 'text',
+        },
+        isEdit: false,
+        editIndex: 0,
+        showTextareaFocus: false,
+        showAddLink: false
     },
     ready() {
 
 
     },
     methods: {
-        //点击scrollView可视区域
-        clickScrollView() {
-            //1.当输入框弹起时，收起输入框
-            if (this.data.isKeyboardUp) {
-                this.slideDownMenu()
-            } else {
-                this.insertText()
-            }
-            //2.当输入框未弹起时，弹起输入框
-            //2-1 最后一个输入框获取焦点 如果没有最后一个输入框 则新建一个输入框并获取焦点
-            //2-2 使获取焦点的输入框进入可视区域
-            //3.当点击可视区域内已有的输入框时 当前被点击的输入框获取焦点
-            //3-1 使获取焦点的输入框进入可视区域
-            //4.当点击可视区域其他组件时，捕获事件 禁止触发点击scrollView事件
-            //
-        },
-        //弹起底部 菜单
-        slideUpMenu() {
-            var animation = wx.createAnimation({
-                duration: 100,
-                timingFunction: 'ease-out',
-            })
-            animation.translateY(-this.data.keyboardHeight).step()
+        addLink() {
             this.setData({
-                ctrlAnimation: animation.export()
-            })
-            this.setData({
-                isKeyboardUp: true
+                showAddLink: true
             })
         },
-        //收起底部 菜单
-        slideDownMenu() {
-            var animation = wx.createAnimation({
-                duration: 100,
-                timingFunction: 'ease-out',
-            })
-            animation.translateY(0).step()
+        closeAddLink() {
             this.setData({
-                ctrlAnimation: animation.export()
-            })
-            this.setData({
-                emojiViewShow: false,
-                isKeyboardUp: false
+                showAddLink: false
             })
         },
         insertText() {
-            const len = this.data.postContent.length
-            const postContent = this.data.postContent
-            if (len > 0) {
-                let item = this.data.postContent[len - 1];
-                if (item.type == 'text') {
-                    item.focus = true
-                    postContent[len - 1] = item
+            if (this.data.emojiViewShow) {
+                this.setData({
+                    emojiViewShow: false
+                })
+            }
+            this.setData({
+                showTextarea: !this.data.showTextarea,
+                showTextareaFocus: !this.data.showTextareaFocus,
+            })
+        },
+        textareaFocus(e) {
+            this.setData({
+                keyboardHeight: e.detail.height
+            })
+            if (this.data.isEdit) return
+            if (this.data.postContent.length == 0) {
+                this.setData({
+                    textarea: {
+                        type: 'text',
+                        value: '',
+                        blod: this.data.openTextBold
+                    }
+                })
+            } else {
+                let lastItem = this.data.postContent[this.data.postContent.length - 1]
+                const postContent = this.data.postContent
+                if (lastItem.type == 'text') {
+                    this.setData({
+                        textarea: lastItem
+                    })
+                    postContent.pop()
                     this.setData({
                         postContent: postContent
                     })
                 } else {
                     this.setData({
-                        postContent: [...this.data.postContent, {type: 'text', value: '', focus: true}]
+                        textarea: {
+                            type: 'text',
+                            value: '',
+                            blod: this.data.openTextBold
+                        }
                     })
                 }
-            } else {
-                this.setData({
-                    postContent: [...this.data.postContent, {type: 'text', value: '', focus: true}]
-                })
             }
         },
-        //插入Hr
-        insertHr() {
-            this.slideDownMenu()
-            const postContent = this.data.postContent
-            for (let i = 0; i < postContent.length; i++) {
-                if (postContent[i].type == 'text') {
-                    postContent[i].focus = false
+        textareaInput(e) {
+            if (this.data.openTextBold) {
+                this.setData({
+                    textarea: {
+                        type: 'text',
+                        value: e.detail.value,
+                        blod: true
+                    }
+                })
+            } else {
+                this.setData({
+                    textarea: {
+                        type: 'text',
+                        value: e.detail.value,
+                        blod: false
+                    }
+                })
+            }
+
+        },
+        textareaBlur(e) {
+            if (this.data.isEdit) {
+                const postContent = this.data.postContent
+                postContent[this.data.editIndex] = this.data.textarea
+                this.setData({
+                    postContent: postContent
+                })
+            } else {
+                const obj = this.data.textarea
+                if (obj.value.length == 0) {
+                    return
+                } else {
+                    obj.value = e.detail.value
+                    obj.type = 'text'
+                    obj.blod = this.data.openTextBold
+                    this.setData({
+                        postContent: [...this.data.postContent, obj]
+                    })
                 }
             }
             this.setData({
-                postContent: [...postContent, {type: 'hr', value: ''}]
+                showTextarea: false,
+                showTextareaFocus: false,
+                cursorPosition: e.detail.cursor
             })
+
+        },
+        editItem(e) {
+            this.setData({
+                showTextarea: true,
+                showTextareaFocus: true,
+                textarea: e.currentTarget.dataset.item,
+                openTextBold: e.currentTarget.dataset.item.blod,
+                isEdit: true,
+                editIndex: e.currentTarget.dataset.index,
+            })
+        },
+        insertTitle() {
+            this.setData({
+                openTextBold: !this.data.openTextBold
+            })
+            setTimeout(() => {
+                this.setData({
+                    showTextarea: true,
+                    showTextareaFocus: true,
+                })
+            }, 300)
         },
         //打开Emoji选择框
         openSelectEmoji() {
-            if (this.data.emojiViewShow) {
-                this.setData({
-                    emojiViewShow: false
-                })
-                this.slideDownMenu()
-            } else {
-                if (this.data.isKeyboardUp) {
+            setTimeout(() => {
+                if (this.data.emojiViewShow) {
                     this.setData({
-                        emojiViewShow: true
+                        emojiViewShow: false,
+                        showTextarea: true,
+                        showTextareaFocus: true
                     })
                 } else {
                     this.setData({
-                        emojiViewShow: true
+                        emojiViewShow: true,
+                        showTextarea: true,
+                        showTextareaFocus: false
                     })
-                    this.slideUpMenu()
                 }
-            }
+            }, 300)
         },
         //选择emoji
         selectEmoji(e) {
-            //1.选择激活的输入框
-            const index = this.data.currentText
-            let postContent = this.data.postContent
-            let text = postContent[index].value
+            let textarea = this.data.textarea
+            let text = textarea.value
             const emoji = e.currentTarget.dataset.emoji
             text = text.slice(0, this.data.cursorPosition) + emoji + text.slice(this.data.cursorPosition)
             const emojiLength = emoji.length
             this.setData({
                 cursorPosition: this.data.cursorPosition + emojiLength
             })
-            postContent[index].value = text
+            textarea.value = text
             this.setData({
-                postContent: postContent
+                textarea: textarea
             })
         },
+        //插入Hr
+        insertHr() {
+            setTimeout(() => {
+                const postContent = this.data.postContent
+                postContent.push({
+                    type: 'hr',
+                    value: ''
+                })
+                this.setData({
+                    postContent: postContent
+                })
+                this.setData({
+                    showTextarea: false,
+                    showTextareaFocus: false,
+                    showSelectImgModal: false,
+                    emojiViewShow: false
+                })
+            }, 300)
+
+        },
+        menuItemHandle(e) {
+            const item = e.detail.item
+            this[item.handle]()
+        },
         openSelectImages() {
-            this.slideDownMenu()
             this.setData({
-                showSelectImgModal: true
+                showSelectImgModal: true,
+                showTextarea: false,
+                showTextareaFocus: false,
             })
         },
         closeSelectImgModal() {
             this.setData({
                 showSelectImgModal: false
             })
-        },
-        menuItemHandle(e) {
-            const item = e.detail.item
-            this[item.handle]()
-        },
-        catchTextareaInput(e) {
-            const index = e.currentTarget.dataset.index
-            const postContent = this.data.postContent
-            postContent[index].value = e.detail.value
-            this.setData({
-                postContent: postContent
-            })
-        },
-        //输入框聚焦之后
-        catchTextareaFocus(e) {
-            //0.设置当前输入框聚焦
-            let item = e.currentTarget.dataset.item
-            item.focus = true
-            const postContent = this.data.postContent
-            postContent[e.currentTarget.dataset.index] = item
-            //1.设置底部菜单弹起高度
-            this.setData({
-                keyboardHeight: e.detail.height || 336
-            })
-            //2.弹起底部菜单
-            this.slideUpMenu()
-            //3.记录当前激活的输入框
-            this.setData({
-                postContent: postContent,
-                emojiViewShow: false
-            })
-            if (e.currentTarget.dataset.item.blod) {
-                this.setData({
-                    openTextBold: true
-                })
-            } else {
-                this.setData({
-                    openTextBold: false
-                })
-            }
-        },
-        //输入框丢失之后
-        catchTextareaBlur(e) {
-            //1.当前输入框的focus值为false
-            const postContent = this.data.postContent
-            const item = e.currentTarget.dataset.item
-            if (item.value.length == 0 && !this.data.emojiViewShow) {
-                postContent.splice(e.currentTarget.dataset.index, 1)
-                //2.收起底部菜单
-                this.slideDownMenu();
-            } else {
-                item.focus = false
-                postContent[e.currentTarget.dataset.index] = item
-            }
-            this.setData({
-                postContent: postContent
-            })
-            //3.记录光标位置
-            this.setData({
-                cursorPosition: e.detail.cursor,
-                currentText: e.currentTarget.dataset.index,
-            })
-        },
-        //插入标题
-        insertTitle() {
-            this.setData({
-                openTextBold: !this.data.openTextBold
-            })
-            if (this.data.openTextBold) {
-                this.setData({
-                    postContent: [...this.data.postContent, {type: 'text', value: '', focus: true, blod: true}]
-                })
-            } else {
-                this.setData({
-                    postContent: [...this.data.postContent, {type: 'text', value: '', focus: true, blod: false}]
-                })
-            }
-
         },
         //插入图片
         insertImage() {
@@ -271,8 +264,5 @@ Component({
                 }
             })
         },
-        scrollAddContent() {
-
-        }
     }
 })

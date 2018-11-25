@@ -1,0 +1,7 @@
+{
+  "disableScroll": true,
+  "usingComponents": {
+    "common-header": "/components/commonHeader/commonHeader",
+    "user-card": "/components/userCard/userCard"
+  }
+}

@@ -3,9 +3,9 @@
       data-id="{{info.id}}">
     <view class="element-card-component-left">
         <view class="element-card-component-title">
-            <text class="element-card-component-title-rate">{{info.rate}}</text>
-            <text class="element-card-component-title-name">{{info.name}}</text>
-            <text class="element-card-component-title-score">{{info.score}}评分</text>
+            <text class="element-card-component-title-rate">{{info.dimension[0].score}}</text>
+            <text class="element-card-component-title-name">{{info.element_name}}</text>
+            <text class="element-card-component-title-score">{{info.score_num}}评分</text>
         </view>
         <text class="element-card-component-left-attr text-body-single">{{info.attr}}</text>
     </view>
@@ -13,6 +13,6 @@
         <image src="{{info.img}}" class="element-card-component-right-img"></image>
     </view>
     <view class="element-card-component-noimg" wx:if="{{!info.img}}" style="background-color: {{color}};">
-        <text class="word-img">{{info.name[0]}}</text>
+        <text class="word-img">{{info.element_name[0]}}</text>
     </view>
 </view>

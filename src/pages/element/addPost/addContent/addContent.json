@@ -2,6 +2,7 @@
   "component": true,
   "usingComponents": {
     "select-media": "/components/modal/modal",
-    "select-menu": "/components/popupMenu/popupMenu"
+    "select-menu": "/components/popupMenu/popupMenu",
+    "add-link": "../addLink/addLink"
   }
 }

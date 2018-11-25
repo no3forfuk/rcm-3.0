@@ -54,6 +54,9 @@ Component({
                 rateValue: e.currentTarget.dataset.index
             })
         },
+        textareaFocus(e){
+
+        },
         textareaInput(e) {
             const [content, item, index] = [this.data.postContent, e.currentTarget.dataset.item, e.currentTarget.dataset.index]
             item.value = e.detail.value
@@ -72,13 +75,24 @@ Component({
         },
         // addRatePost
         comfirmRate() {
-            // todo 判断是否打过分
-            app.request.addRatePost({
-                params: {
+            //  判断是否打过分
+            let params = {}
+            if (this.data.showRate) {
+                params = {
                     score: (this.data.rateValue + 1) * 2,
                     element_id: this.data.elementInfo.id,
-                    dimension_id: this.data.elementInfo.dimension[0].dimension_id
-                },
+                    dimension_id: this.data.elementInfo.dimension[0] ? this.data.elementInfo.dimension[0].dimension_id : 1,
+                    post_content: JSON.stringify(this.data.postContent)
+                }
+            } else {
+                params = {
+                    element_id: this.data.elementInfo.id,
+                    post_content: JSON.stringify(this.data.postContent)
+                }
+
+            }
+            app.request.addRatePost({
+                params: params,
                 success: res => {
                     console.log(res);
                 }

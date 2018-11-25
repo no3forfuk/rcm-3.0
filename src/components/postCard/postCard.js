@@ -102,6 +102,12 @@ Component({
             wx.navigateTo({
                 url: `/pages/post/post?id=${this.properties.postInfo.id}&fatherId=${this.properties.fatherId}`
             })
+        },
+        togglePostComment(e) {
+            // this.triggerEvent('openComment', {item: e.currentTarget.dataset.item})
+            wx.navigateTo({
+                url: `/pages/post/post?id=${e.currentTarget.dataset.item.id}`
+            })
         }
     }
 })

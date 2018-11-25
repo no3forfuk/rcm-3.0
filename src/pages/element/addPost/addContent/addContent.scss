@@ -4,14 +4,40 @@
   width: 100%;
   height: 100%;
   @include layout(column, flex-start, space-between);
+  position: relative;
+}
+
+.textarea-class {
+  width: 100%;
+  height: 100px;
+  background-color: #fff;
+  padding: rpx(10) rpx(48);
+  font-size: 15px;
+  line-height: 23px;
+  letter-spacing: 1px;
+  color: #484848;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 503;
 }
 
 .add-post-ctrl {
   width: 100%;
   height: rpx(72);
-  background-color: rgba(237, 237, 237, 1);
+  background-color: rgba(255, 255, 255, 1);
   padding: rpx(10) rpx(40);
   @include layout(row, center, flex-end);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: all 0.3s ease-in-out;
+  transform: translateY(0);
+}
+
+.add-content-palceholde {
+  color: #d1d1d1;
+  font-size: 15px;
 }
 
 .post-text-style {
@@ -37,7 +63,6 @@
   padding: 0 rpx(48);
   padding-top: rpx(10);
   transition: all 0.1s ease-in-out;
-  background-color: #ccc;
 }
 
 .post-content-scroll-box {
@@ -84,4 +109,23 @@
 .emoji-item {
   padding: rpx(2) rpx(6);
   font-size: 30px;
+}
+
+.add-link-view {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+  transform: translateY(100%);
+  z-index: 600;
+  border-radius: rpx(40) rpx(40) 0 0;
+  background-color: #fff;
+  height: 100%;
+}
+
+.show-add-link {
+  transform: translateY(0);
+  visibility: visible;
 }

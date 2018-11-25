@@ -1,0 +1,11 @@
+<common-header title="我的榜单"></common-header>
+<scroll-view class="my-rank-page" scroll-y style="height:{{scrollHeight}}px;">
+    <block wx:for="{{rankList}}" wx:key="{{index}}">
+        <view class="rank-item" bindtap="link2NewRank" data-id="{{item.id}}">
+            <view  capture-catch:tap="link2NewRank" data-id="{{item.id}}">
+                <rank-card mode="large" info="{{item}}"></rank-card>
+            </view>
+            <view class="rank-item-time">{{item.created_at}}</view>
+        </view>
+    </block>
+</scroll-view>

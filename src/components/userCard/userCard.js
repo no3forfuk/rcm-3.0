@@ -28,7 +28,7 @@ Component({
     methods: {
         link2UserDetail() {
             wx.navigateTo({
-                url: `/pages/userDetails/userDetails`
+                url: `/pages/userDetails/userDetails?id=${this.properties.userInfo.id}`
             })
         }
     }

@@ -21,13 +21,12 @@ Page({
             iconUrl1: 'Collect1@2x.png',
             status: 'is_collect',
             iconUrl2: 'Colletbig2@2x.png'
-        }, {
-            handle: 'comment',
-            iconUrl2: 'CommentPost@2x.png'
-        },],
+        }],
         showCommentModal: false,
         keyboardHeight: 0,
-        commentContent: ''
+        commentContent: '',
+        showInput: false,
+        replyAll: true
     },
 
     /**
@@ -36,7 +35,22 @@ Page({
     onLoad(options) {
 
     },
-
+    closeInput() {
+        this.setData({
+            showInput: false
+        })
+    },
+    toggleInput() {
+        this.setData({
+            replyAll: true,
+            showInput: true
+        })
+    },
+    noReplyAll() {
+        this.setData({
+            replyAll: false,
+        })
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
@@ -149,6 +163,7 @@ Page({
                 this.setData({
                     postInfo: res.data.info
                 })
+                this.getElementDetail()
             }
         })
     },
@@ -156,7 +171,7 @@ Page({
     getElementDetail() {
         app.request.getElementDetail({
             params: {
-                element_id: this.options.fatherId
+                element_id: this.data.postInfo.element_id
             },
             success: res => {
                 this.setData({
@@ -204,7 +219,7 @@ Page({
      */
     onShow() {
         this.getPostDetails()
-        this.getElementDetail()
+
     },
 
     /**

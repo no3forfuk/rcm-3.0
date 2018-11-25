@@ -1,13 +1,13 @@
 <short-page wx:if="{{userList.length == 0}}" list="{{recommendUser}}"></short-page>
 <scroll-view class="focus-rank-scroll" scroll-y="true" style="height:{{scrollHeight}}px;">
-    <block wx:for="{{userList}}" wx:key="{{index}}">
+    <block wx:for="{{user}}" wx:key="{{index}}">
         <view class="short-rank-item">
             <view class="short-rank-item-user">
-                <user-card avatar-width="80" avatar-height="80" user-info="{{item.user}}">
+                <user-card avatar-width="80" avatar-height="80" user-info="{{item}}">
                     <view class="short-rank-item-top">
                         <view class="short-rank-item-top-name">
-                            <text class="text-s14-l20-c333">{{item.user.name}}</text>
-                            <text class="text-12s-17l-666c limit-1-line">{{item.user.sign}}</text>
+                            <text class="text-s14-l20-c333">{{item.name}}</text>
+                            <text class="text-12s-17l-666c limit-1-line">{{item.signature}}</text>
                         </view>
                         <view class="focus-btn">
                             <text>关注</text>

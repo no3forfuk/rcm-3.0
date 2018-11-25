@@ -10,7 +10,7 @@
                 <text class="element-card-info-name-text">{{elementInfo.element_name}}</text>
                 <text class="element-card-info-name-score">{{elementInfo.score_num}}评分</text>
             </view>
-            <view class="element-card-info-attr">组合/台湾/属性3/属性4/属性5/属性6/属性7/属性组合/台湾/属性3/属性4/属性5/属性6/属性7/属性</view>
+            <view class="element-card-info-attr"><block wx:for="{{elementInfo.attribute}}" wx:key="{{index}}"><text>{{item.attribute_details}}</text>/</block></view>
         </view>
         <image wx:if="{{elementInfo.img}}"
                mode="aspectFill"

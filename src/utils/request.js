@@ -11,7 +11,7 @@ const request = function (data) {
             ...data.params
         },
         method: 'POST',
-        header: {
+        header: data.header || {
             'Content-Type': 'application/x-www-form-urlencoded'
         },
         dataType: 'json',

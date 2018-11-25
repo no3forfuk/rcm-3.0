@@ -11,7 +11,7 @@ Component({
             id: 289,
             user: {
                 name: '我吃西红柿',
-                avatar:'http://img5.imgtn.bdimg.com/it/u=1102621953,697047014&fm=26&gp=0.jpg'
+                avatar: 'http://img5.imgtn.bdimg.com/it/u=1102621953,697047014&fm=26&gp=0.jpg'
             }
         }, {
             title: '我是我是榜单我是榜单我是榜单我是榜单我是榜单我是榜单榜单',
@@ -21,7 +21,7 @@ Component({
             id: 289,
             user: {
                 name: '我不吃西红柿',
-                avatar:'http://img4.imgtn.bdimg.com/it/u=950521073,3746355669&fm=26&gp=0.jpg'
+                avatar: 'http://img4.imgtn.bdimg.com/it/u=950521073,3746355669&fm=26&gp=0.jpg'
             }
         }],
         recommendRank: [],
@@ -45,6 +45,9 @@ Component({
                 })
             }
         })
+
     },
-    methods: {}
+    methods: {
+
+    }
 })

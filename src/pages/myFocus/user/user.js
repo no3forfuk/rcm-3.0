@@ -3,15 +3,13 @@ Component({
     /**
      * 组件的属性列表
      */
-    properties: {},
+    properties: {
+        user: {
+            type: Array,
+            value: []
+        }
+    },
     data: {
-        userList: [{
-            user: {
-                avatar: 'http://img0.imgtn.bdimg.com/it/u=463928895,3324661629&fm=26&gp=0.jpg',
-                name: '哈哈哈',
-                sign:'哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈'
-            }
-        }],
         recommendUser: [],
         scrollHeight: 0
     },

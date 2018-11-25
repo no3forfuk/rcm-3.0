@@ -10,8 +10,14 @@
         <view class="user-header-info">
             <user-card avatar-width="112" avatar-height="112" user-info="{{userInfo}}">
                 <view class="user-header-info-right">
-                    <text class="user-header-info-name" bindtap="link2UserDetails">{{userInfo.name}}</text>
-                    <text class="user-header-info-sign">{{userInfo.sign}}</text>
+                    <view class="user-header-info-name-view">
+                        <text class="user-header-info-name" bindtap="link2UserDetails">{{userInfo.name}}</text>
+                        <view bindtap="link2UserDetails">
+                            <text class="user-header-go-next">个人主页</text>
+                            <image src="../../static/images/back_white@2x.png" class="user-header-info-name-icon"></image>
+                        </view>
+                    </view>
+                    <text class="user-header-info-sign">{{userInfo.fan}} 关注我的人  {{userInfo.user_attention_num}} 关注的人</text>
                 </view>
             </user-card>
         </view>

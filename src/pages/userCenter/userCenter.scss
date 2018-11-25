@@ -7,6 +7,18 @@
   position: relative;
 }
 
+.user-header-info-name-view {
+  width: 100%;
+  padding-right: rpx(28);
+  @include layout(row, center, space-between);
+}
+
+.user-header-info-name-icon {
+  width: rpx(12);
+  height: rpx(20);
+  transform: rotate(180deg);
+}
+
 .user-header-background {
   width: 100%;
   height: rpx(332);
@@ -48,6 +60,11 @@
 .user-header-info-sign {
   @include textStyle(15px, 21px, 400);
   color: #fff;
+}
+.user-header-go-next{
+  @include textStyle(14px, 21px, 400);
+  color: #fff;
+  margin-right: rpx(16);
 }
 
 .message-remind {

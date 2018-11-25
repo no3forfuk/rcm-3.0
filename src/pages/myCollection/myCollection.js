@@ -20,6 +20,7 @@ Page({
             }]
         },
         scrollHeight: 0,
+        collectList: []
     },
     tabChange(e) {
         const detail = e.detail
@@ -36,6 +37,20 @@ Page({
             tabData: {
                 ...this.data.tabData,
                 current: detail.current
+            }
+        })
+    },
+    //获取用户收藏列表
+    getUserCollectList() {
+        app.request.getUserCollectList({
+            params: {
+                from_uid: wx.getStorageSync('u_id'),
+                to_uid: this.options.id
+            },
+            success: res => {
+                this.setData({
+                    collectList: res.data.list
+                })
             }
         })
     },
@@ -65,7 +80,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-
+        this.getUserCollectList()
     },
 
     /**

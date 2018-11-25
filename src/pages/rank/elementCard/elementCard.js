@@ -40,11 +40,12 @@ Component({
             })
         },
         goRate() {
-            if (this.properties.info.dimension[0] && this.properties.info.dimension[0].is_score == 0) {
-                this.triggerEvent('openAddRate', {activeElement: this.properties.info})
-            } else {
-                return
-            }
+            this.triggerEvent('openAddRate', {activeElement: this.properties.info})
+            // if (this.properties.info.dimension[0] && this.properties.info.dimension[0].is_score == 0) {
+            //
+            // } else {
+            //     return
+            // }
         },
     }
 })

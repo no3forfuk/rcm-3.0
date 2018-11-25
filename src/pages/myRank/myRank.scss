@@ -1,0 +1,17 @@
+@import "../../static/css/mixin.scss";
+
+.my-rank-page {
+  background-color: #f8f8f8;
+  width: 100%;
+}
+
+.rank-item {
+  width: 100%;
+  padding: rpx(28);
+  margin-top: rpx(24);
+  background-color: #fff;
+}
+.rank-item-time{
+  @include textStyle(12px,17px);
+  color: #9b9b9b;
+}

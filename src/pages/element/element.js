@@ -10,20 +10,12 @@ Page({
         elementDetails: {},
         starModal: [[0, 0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0], [0, 0], [0]],
         color: app.randomColor[colorIndex],
-        userInfo: {
-            attention: 1,
-            avatar: "http://p8rk87lub.bkt.clouddn.com/user/you.jpg",
-            collect: 3,
-            fan: 0,
-            id: 51,
-            name: "名字不能改",
-            ranking_id: 1,
-            ranking_name: "生活休闲",
-            signature: "修改个性签名"
-        },
+        selfInfo: {},
         scrollHeight: 0,
         addPostPopupHeight: 0,
         showMoreModal: false,
+        showCommentModal: false,
+        showAddPost: false,
         moreModalMenu: [{
             text: '分享',
             handle: 'share'
@@ -31,7 +23,47 @@ Page({
             text: '取消',
             handle: 'closeMoreModal'
         },],
-        subPostList: []
+        subPostList: [],
+        currentPost: {},
+        smallHeader: false,
+        currentWeiduIndex: 0
+    },
+    elementPaageScroll(e) {
+        if (e.detail.scrollTop > 50) {
+            this.setData({
+                smallHeader: true
+            })
+        } else {
+            this.setData({
+                smallHeader: false
+            })
+        }
+    },
+    getUserInfo() {
+        app.request.getSelfInfo({
+            params: {
+                to_uid: wx.getStorageSync('u_id'),
+                from_uid: wx.getStorageSync('u_id')
+            },
+            success: res => {
+                this.setData({
+                    selfInfo: res.data.info
+                })
+            }
+        })
+    },
+    //打开某个post的评论
+    openPostComment(e) {
+        this.setData({
+            currentPost: e.detail.item
+        })
+        this.toggleCommentModal()
+    },
+    //打开/关闭评论
+    toggleCommentModal() {
+        this.setData({
+            showCommentModal: !this.data.showCommentModal
+        })
     },
     //打开更多弹窗
     openMoreModal() {
@@ -61,24 +93,14 @@ Page({
     },
     //打开弹窗
     openAddPostPopup() {
-        const animation = wx.createAnimation({
-            duration: 350,
-            timingFunction: 'ease',
-        })
-        animation.translateY('-100%').step()
         this.setData({
-            togglePopup: animation.export()
+            showAddPost: true
         })
     },
     //关闭弹窗
     closeAddPostPopup() {
-        const animation = wx.createAnimation({
-            duration: 350,
-            timingFunction: 'ease',
-        })
-        animation.translateY('0').step()
         this.setData({
-            togglePopup: animation.export()
+            showAddPost: false
         })
     },
     //取消发送POST
@@ -187,7 +209,8 @@ Page({
      */
     onShow() {
         this.getElementDetail();
-        this.getElementSubPost()
+        this.getElementSubPost();
+        this.getUserInfo()
     },
 
     /**

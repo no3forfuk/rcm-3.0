@@ -2,6 +2,6 @@
   "component": true,
   "usingComponents": {
     "short-page": "/template/shortElement/shortElement",
-    "element-card":"../../rank/elementCard/elementCard"
+    "element-card":"/components/elementCard/elementCard"
   }
 }

@@ -12,6 +12,7 @@
     &-name {
       @include textStyle(17px, 24px, 600);
       @include layout(row, center, space-between);
+      margin-bottom: rpx(10);
       &-text {
         width: rpx(300);
         @include limitTextLine(1);

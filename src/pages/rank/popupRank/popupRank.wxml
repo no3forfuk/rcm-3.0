@@ -2,7 +2,7 @@
     <block wx:for="{{elementList}}" wx:key="{{index}}">
         <view class="element-card">
             <view class="element-card-number">
-                <text class="element-card-number-text {{index == 0? 'level1':''}} {{index == 1? 'level2':''}} {{index == 2? 'level3':''}}">{{index+9}}</text>
+                <text class="element-card-number-text {{index == 0? 'level1':''}} {{index == 1? 'level2':''}} {{index == 2? 'level3':''}}">{{index+1}}</text>
             </view>
             <view class="element-card-right">
                 <view class="element-card-right-body">

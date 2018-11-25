@@ -1,0 +1,88 @@
+@import "../../../../static/css/mixin.scss";
+
+.add-link-header {
+  width: 100%;
+  height: rpx(74);
+  border-bottom: 1px solid #F0F0F0;
+  @include layout(row, center, space-between);
+  padding: 0 rpx(48);
+}
+
+.cancel {
+  font-size: 15px;
+  line-height: 15px;
+  color: #333;
+}
+
+.comfirm {
+  font-size: 15px;
+  line-height: 15px;
+  color: $colorDefault;
+}
+
+.add-link-search-box {
+  padding: rpx(28);
+}
+
+.search-input {
+  font-size: 15px;
+  color: #484848;
+  width: calc(100% - #{rpx(31)});
+  padding-left: rpx(16);
+  background-color: #f8f8f8;
+}
+
+.inner-search-input {
+  width: rpx(694);
+  height: rpx(64);
+  background-color: #f8f8f8;
+  padding: rpx(12) rpx(24) rpx(20) rpx(24);
+  @include layout(row, center);
+}
+
+.search-icon {
+  width: rpx(31);
+  height: rpx(31);
+}
+
+.placeholder-class {
+  font-size: 12px;
+  color: #9b9b9b;
+}
+
+.hot-search {
+  width: 100%;
+  height: calc(100% - #{rpx(194)});
+}
+
+.hot-search-header {
+  width: 100%;
+  height: rpx(50);
+  padding-bottom: rpx(4);
+  border-bottom: 1px solid #F0F0F0;
+  @include layout(row, center);
+  position: relative;
+}
+
+.search-title-item {
+  padding: 0 rpx(28);
+  font-size: 16px;
+  color: #666;
+}
+.tab-mark {
+  height: 2px;
+  border-radius: 2px;
+  background-color: #161616;
+  position: absolute;
+  bottom: 0px;
+  left: rpx(0);
+  transition: all 0.3s;
+}
+.index-page-swiper{
+  width: 100%;
+  height: calc(100% - #{rpx(50)});
+}
+.scroll-view-swiper{
+  width: 100%;
+  height: 100%;
+}

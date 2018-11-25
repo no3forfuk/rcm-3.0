@@ -234,6 +234,180 @@ module.exports = {
             }
         })
     },
+    //获取帖子评论
+    getComment({params = {}, success}) {
+        return request({
+            uri: '/Xcx/Post/getPostComment',
+            params: params,
+            success(res) {
+                success(res)
+            }
+        })
+    },
+    //回复帖子或评论
+    reply({params = {}, success}) {
+        return request({
+            uri: '/Xcx/Comment/addComment',
+            params: params,
+            success(res) {
+                success(res)
+            }
+        })
+    },
+    //获取个人信息
+    getSelfInfo({params = {}, success}) {
+        return request({
+            uri: '/Xcx/User/userInfo',
+            params: params,
+            success(res) {
+                success(res)
+            }
+        })
+    },
+    //获取用户动态
+    getUserDynamic({params = {}, success}) {
+        return request({
+            uri: '/Xcx/User/getMyDynamic',
+            params: params,
+            success(res) {
+                success(res)
+            }
+        })
+    },
+    //获取用户收藏列表
+    getUserCollectList({params = {}, success}) {
+        return request({
+            uri: '/Xcx/User/collectList',
+            params: params,
+            success(res) {
+                success(res)
+            }
+        })
+    },
+    //签到 Xcx/User/userSignIn register
+    //获取首页榜单
+    getIndexRank({params = {}, success}) {
+        return request({
+            uri: '/Xcx/Index/getHotRanking',
+            params: params,
+            success(res) {
+                success(res)
+            }
+        })
+    },
+    //获取榜单下所有帖子
+    getRankSubpost({params = {}, success}) {
+        return request({
+            uri: '/Xcx/Second/getSecondPost',
+            params: params,
+            success(res) {
+                success(res)
+            }
+        })
+    },
+    //添加榜单
+    addNewRank({params = {}, success}) {
+        return request({
+            uri: '/Xcx/Second/addSecond',
+            params: params,
+            success(res) {
+                success(res)
+            }
+        })
+    },
+    //点赞评论
+    praiseComment({params = {}, success}) {
+        return request({
+            uri: '/Xcx/Comment/praise',
+            params: params,
+            success(res) {
+                success(res)
+            }
+        })
+    },
+    //取消点赞评论 Xcx/Comment/praise
+    unPraiseComment({params = {}, success}) {
+        return request({
+            uri: '/Xcx/Comment/unpraise',
+            params: params,
+            success(res) {
+                success(res)
+            }
+        })
+    },
+    //获取元素属性
+    getRankAttr({params = {}, success}) {
+        return request({
+            uri: '/Xcx/First/getFirstAttribute',
+            params: params,
+            success(res) {
+                success(res)
+            }
+        })
+    },
+    //添加维度
+    addWeidu({params = {}, success}) {
+        return request({
+            uri: '/Xcx/First/addFirstDimension',
+            params: params,
+            success(res) {
+                success(res)
+            }
+        })
+    },
+    //获取创建的榜单列表
+    getBuildRankList({params = {}, success}) {
+        return request({
+            uri: '/Xcx/User/getCreateRanking',
+            params: params,
+            success(res) {
+                success(res)
+            }
+        })
+    },
+    //获取首页动态
+    getIndexDynamic({params = {}, success}) {
+        return request({
+            uri: '/Xcx/Index/getAttentionDynamic',
+            params: params,
+            success(res) {
+                success(res)
+            }
+        })
+    },
+    //添加排名
+    addNewElement({params = {}, success}) {
+        return request({
+            uri: '/Xcx/Element/addElement',
+            header: {
+                'Content-Type': 'application/json; charset=utf-8'
+            },
+            params: params,
+            success(res) {
+                success(res)
+            }
+        })
+    },
+    //
+    //获取热门搜索词
+    getHotKeyWords({params = {}, success}) {
+        return request({
+            uri: '/Xcx/Search/getSearcHothKey',
+            params: params,
+            success(res) {
+                success(res)
+            }
+        })
+    },
+    searchByWord({params = {}, success}) {
+        return request({
+            uri: '/Xcx/Search/search',
+            params: params,
+            success(res) {
+                success(res)
+            }
+        })
+    },
     //-------------------------------------------------------
 
     //获取热帖
@@ -247,28 +421,8 @@ module.exports = {
             }
         })
     },
-    //获取个人信息
-    getSelfInfo({params = {}, success}) {
-        return request({
-            uri: '/home/user/userInfo',
-            params: params,
-            method: 'POST',
-            success(res) {
-                success(res)
-            }
-        })
-    },
-    //获取热门搜索词
-    getHotKeyWords({params = {}, success}) {
-        return request({
-            uri: '/home/search/hotSearchKey',
-            params: params,
-            method: 'GET',
-            success(res) {
-                success(res)
-            }
-        })
-    },
+
+
     //获取热门榜单 getHotRank
     getHotRank({params = {}, success}) {
         return request({

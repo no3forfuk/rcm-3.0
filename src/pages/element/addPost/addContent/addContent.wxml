@@ -1,42 +1,45 @@
 <view class="post-add-content">
+    <textarea class="textarea-class {{openTextBold?'blod-text':''}}"
+              wx:if="{{showTextarea}}"
+              bindinput="textareaInput"
+              bindfocus="textareaFocus"
+              bindblur="textareaBlur"
+              value="{{textarea.value}}"
+              show-confirm-bar="{{false}}"
+              maxlength="-1"
+              focus="{{showTextareaFocus}}"></textarea>
     <scroll-view class="post-content-scroll"
                  scroll-y="{{true}}"
-                 capture-bind:scroll="scrollAddContent"
-                 style="height: calc(100% - 72rpx - {{isKeyboardUp?keyboardHeight:0}}px);"
-                 bindtap="clickScrollView">
+                 catchtap="insertText"
+                 scroll-into-view="postItem-{{currentIdIndex}}"
+                 style="height: calc(100% - 72rpx - {{showTextarea?keyboardHeight:0}}px);">
+        <text class="add-content-palceholde" wx:if="{{postContent.length == '0'}}">对这个榜单简单的描述一下吧</text>
         <block wx:for="{{postContent}}" wx:key="{{index}}">
-            <textarea placeholder="{{index == 0? '发布你的评价吧':''}}"
-                      style="height:calc(100% - 72rpx - {{isKeyboardUp?keyboardHeight:0}}px;"
-                      class="post-text-style {{item.blod?'blod-text':''}}"
-                      maxlength="-1"
-                      catchtap="true"
-                      disabled="{{item.disabled}}"
-                      catchfocus="catchTextareaFocus"
-                      bindblur="catchTextareaBlur"
-                      bindinput="catchTextareaInput"
-                      data-index="{{index}}"
-                      focus="{{item.focus}}"
-                      cursor-spacing="0"
-                      data-item="{{item}}"
-                      adjust-position="{{false}}"
-                      value="{{item.value}}"
-                      auto-height="{{!isKeyboardUp}}"
-                      show-confirm-bar="{{false}}"
-                      wx:if="{{item.type=='text'}}"
-                      placeholder-class="placeholder-class">
-            </textarea>
-            <view class="post-hr-style" wx:if="{{item.type == 'hr'}}">
+            <view class="post-text-style {{item.blod?'blod-text':''}}"
+                  id="postItem-{{index}}"
+                  catchtap="editItem"
+                  data-index="{{index}}"
+                  data-item="{{item}}"
+                  wx:if="{{item.type=='text' && !showTextarea}}">{{item.value}}
+            </view>
+            <view class="post-hr-style" id="postItem-{{index}}"
+                  catchtap="true"
+                  wx:if="{{item.type == 'hr' && !showTextarea}}">
                 <view class="post-hr-style-hr"></view>
             </view>
             <image class="post-image-style"
-                   wx:if="{{item.type == 'image'}}"
+                   wx:if="{{item.type == 'image' && !showTextarea}}"
                    mode="aspectFit"
+                   catchtap="true"
+                   id="postItem-{{index}}"
                    src="{{item.src}}">
             </image>
-            <video src="{{item.src}}" wx:if="{{item.type == 'video'}}"></video>
+            <video src="{{item.src}}"
+                   id="postItem-{{index}}"
+                   wx:if="{{item.type == 'video' && !showTextarea}}"></video>
         </block>
     </scroll-view>
-    <view class="add-post-ctrl" animation="{{ctrlAnimation}}">
+    <view class="add-post-ctrl " style="transform: translateY({{showTextarea?-keyboardHeight:'0'}}px)">
         <image src="../../../../static/images/EmojiDisabled@2x.png"
                catchtap="openSelectEmoji"
                mode="aspectFit"
@@ -55,11 +58,12 @@
                class="add-post-carl-item"></image>
         <image src="../../../../static/images/LinkDisabled@2x.png"
                mode="aspectFit"
+               catchtap="addLink"
                class="add-post-carl-item"></image>
     </view>
 </view>
 <view class="emoji-viewbox {{emojiViewShow?'show-emoji':''}}"
-      style="height:{{keyboardHeight}}px;">
+      style="height:{{emojiViewShow?keyboardHeight:'0'}}px;">
     <scroll-view class="emoji-scroll-view" scroll-y="true">
         <block wx:for="{{emojis}}" wx:key="{{index}}">
             <text class="emoji-item" catchtap="selectEmoji" data-emoji="{{item}}">{{item}}</text>
@@ -73,4 +77,7 @@
                  bindhandleEvent="menuItemHandle"
                  bindcloseMenu="closeSelectImgModal"></select-menu>
 </select-media>
+<view class="add-link-view {{showAddLink?'show-add-link':''}}">
+    <add-link bindcloseAddLink="closeAddLink"></add-link>
+</view>
 

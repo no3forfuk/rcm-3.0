@@ -1,6 +1,7 @@
 {
   "disableScroll": true,
   "usingComponents": {
-    "common-header": "/components/commonHeader/commonHeader"
+    "common-header": "/components/commonHeader/commonHeader",
+    "modal": "/components/modal/modal"
   }
 }

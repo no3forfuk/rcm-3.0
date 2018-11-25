@@ -6,11 +6,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        userInfo: {
-            name: '未登录',
-            avatar: 'http://img2.imgtn.bdimg.com/it/u=1219433764,1891815064&fm=26&gp=0.jpg',
-            sign: '点击头像登录'
-        },
+        userInfo: {},
         userOptions: [{
             text: '参与的榜单',
             icon: 'Personalcenter_ranking@2x.png',
@@ -32,12 +28,26 @@ Page({
     },
     linkTargetPage(e) {
         wx.navigateTo({
-            url: e.currentTarget.dataset.page
+            url: `${e.currentTarget.dataset.page}?id=${wx.getStorageSync('u_id')}`
         })
     },
     link2UserDetails() {
         wx.navigateTo({
-            url: `/pages/userDetails/userDetails`
+            url: `/pages/userDetails/userDetails?id=${wx.getStorageSync('u_id')}`
+        })
+    },
+    //获取用户详情
+    getUserInfo() {
+        app.request.getSelfInfo({
+            params: {
+                to_uid: wx.getStorageSync('u_id'),
+                from_uid: wx.getStorageSync('u_id')
+            },
+            success: res => {
+                this.setData({
+                    userInfo: res.data.info
+                })
+            }
         })
     },
     /**
@@ -64,7 +74,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-
+        this.getUserInfo()
     },
 
     /**

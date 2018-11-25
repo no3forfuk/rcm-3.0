@@ -1,1 +1,38 @@
 @import "../../../static/css/mixin.scss";
+.add-post-find-item {
+  margin-top: rpx(24);
+  background-color: #fff;
+  width: rpx(750);
+  padding: rpx(28);
+}
+
+.card-title-right {
+  @include layout(row, center);
+}
+
+.card-title-username {
+  @include textStyle(12px, 17px);
+  color: #9b9b9b;
+  margin: 0 rpx(16);
+}
+
+.find-element-card {
+  width: 100%;
+  padding: rpx(16) 0;
+}
+
+.add-post-content {
+  padding: rpx(18) 0;
+  width: 100%;
+  &-imgtext {
+    width: 100%;
+    @include layout(row, center, space-between);
+    &-img {
+      width: rpx(160);
+      height: rpx(122);
+    }
+    &-text {
+      width: calc(100% - #{rpx(176)});
+    }
+  }
+}

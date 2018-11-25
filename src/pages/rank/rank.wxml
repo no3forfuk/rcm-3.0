@@ -5,7 +5,7 @@
             <view class="rank-pandect-top-before">
                 <image class="rank-pandect-top-before-icon" src="../../static/images/rank@3x.png"></image>
                 <text class="rank-pandect-top-before-name">{{rankData.ranking_name}}</text>
-                <text class="rank-pandect-top-before-weidu">{{rankData.dimension_name}}</text>
+                <text class="rank-pandect-top-before-weidu">{{rankData.dimension_name || '暂无维度'}}</text>
             </view>
             <image src="../../static/images/Next@3x.png" class="rank-pandect-top-backicon"></image>
         </view>
@@ -31,7 +31,7 @@
         <view style="height: 24rpx;width: 100%;background-color: #f8f8f8;"></view>
         <view class="scroll-title">
             <text class="scroll-title-label grad">排名</text>
-            <view class="scroll-title-add-btn">
+            <view class="scroll-title-add-btn" bindtap="link2AddElement">
                 <image class="scroll-title-add-btn-icon" src="../../static/images/add@3x.png"></image>
                 <text>添加新的排名</text>
             </view>
@@ -54,6 +54,8 @@
     <popup-tab height="{{scrollHeight}}"
                id="bottomTab"
                catchtouchmove="true"
+               bindrefreshSubpost="getRankSubpost"
+               post-list="{{popupPostList}}"
                rank-list="{{popupElementList}}"
                tab-list="{{bottomTab}}"></popup-tab>
 </view>

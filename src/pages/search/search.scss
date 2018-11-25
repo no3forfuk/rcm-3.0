@@ -32,11 +32,15 @@
 .search-body {
   @include layout(column);
   background-color: #fff;
+  width: 100%;
 }
-
+.search-page-hot{
+  width: 100%;
+}
 .search-page-hot-title {
   @include layout(row, center, space-between);
   padding: rpx(28);
+  width: 100%;
 }
 
 .search-page-hot-body {
@@ -61,7 +65,6 @@
 
 .remove-history-btn {
   height: rpx(40);
-  width: rpx(120);
   background-color: #f8f8f8;
   padding: rpx(4) rpx(16);
   border-radius: rpx(40);

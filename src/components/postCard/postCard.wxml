@@ -10,7 +10,7 @@
                 </view>
                 <post-rate mode="tiny" rate="{{rate}}"></post-rate>
             </view>
-            <text class="cm-tag">{{postInfo.element_name}}</text>
+            <!--<text class="cm-tag">{{postInfo.element_name}}</text>-->
         </view>
     </post-header>
     <view class="post-card-component-content"
@@ -26,6 +26,8 @@
                    bindclick="togglePostCollect"
                    icon-url="../../static/images/{{postInfo.is_collect == 0?'Collect1@2x.png':'Colletbig2@2x.png'}}"></icon-text>
         <icon-text text="{{postInfo.comment_num}}"
+                   bindclick="togglePostComment"
+                   data-item="{{postInfo}}"
                    icon-url="../../static/images/CommentPost@2x.png"></icon-text>
     </view>
 </view>

@@ -24,14 +24,14 @@
             <block wx:for="{{swiperData}}" wx:key="{{index}}">
                 <swiper-item>
                     <index-focus wx:if="{{item.key === 'indexFocus'}}"></index-focus>
-                    <index-discover wx:if="{{item.key === 'indexDiscover'}}"></index-discover>
-                    <index-ranking wx:if="{{item.key === 'indexRanking'}}"></index-ranking>
+                    <index-discover wx:if="{{item.key === 'indexDiscover'}}" bindhideBottom="hideBottom"></index-discover>
+                    <index-ranking wx:if="{{item.key === 'indexRanking'}}" bindhideBottom="hideBottom"></index-ranking>
                 </swiper-item>
             </block>
         </swiper>
     </view>
 </view>
-<view class="bottom-bar">
+<view class="bottom-bar {{showBottomBar?'':'hide-bottom-bar'}}">
     <block wx:for="{{bottomBarData}}" wx:key="{{index}}">
         <view class="bottom-bar-item" style="width:{{100/bottomBarData.length}}%;" bindtap="{{item.handle}}">
             <image class="bottom-bar-item-icon" src="../../static/images/{{item.icon}}"></image>

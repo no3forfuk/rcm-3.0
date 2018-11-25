@@ -99,6 +99,26 @@
   border-top: 1px solid #f0f0f0;
   transform: translateY(-100%);
   @include layout(row, center, space-between);
+  background-color: #fff;
+}
+
+.comment-input-view {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-right: rpx(16);
+}
+
+.comment-input-view-input {
+  width: rpx(290);
+  height: rpx(56);
+  background-color: #f0f0f0;
+  border-radius: rpx(8);
+  @include textStyle(14px,14px);
+  color: #9b9b9b;
+  @include layout(row,center,space-around);
 }
 
 .post-bottom-bar-item {
@@ -107,6 +127,11 @@
   @include textStyle(12px, 17px);
   color: #666;
   @include layout(row, center, space-around);
+}
+
+.post-bottom-bar-item-left {
+  width: 50%;
+  @include layout(row, center, space-between);
 }
 
 .post-bottom-bar-item-content {

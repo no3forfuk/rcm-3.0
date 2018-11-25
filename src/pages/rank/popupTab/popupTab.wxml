@@ -6,11 +6,12 @@
           bindtouchstart="touchStart"
           bindtouchend="touchEnd">
         <view class="top-tab-handle"></view>
-        <view class="top-tab-item-box" animation="{{marginAnimation}}" style="transform: translateX({{marginLeft}}px);">
+        <view class="top-tab-item-box">
             <block wx:for="{{tabList}}" wx:key="{{index}}">
                 <view class="top-tab-item"
                       data-index="{{index}}"
                       bindtap="toggleTab">
+                    <text class="tab-dot" wx:if="{{item.num != '0'}}">{{item.num}}</text>
                     <text class="top-tab-item-text">{{item.label}}</text>
                 </view>
             </block>
@@ -22,8 +23,13 @@
                 bindchange="handleSwiperChange"
                 class="popup-tab-body-swiper">
             <swiper-item wx:for="{{tabList}}" wx:key="{{index}}">
-                <pop-rank wx:if="{{item.key == 'rank'}}" element-list="{{rankList}}" height="{{height-41}}"></pop-rank>
-                <pop-post wx:if="{{item.key == 'post'}}" height="{{height-41}}"></pop-post>
+                <pop-rank wx:if="{{item.key == 'rank'}}"
+                          element-list="{{rankList}}"
+                          height="{{height-41}}"></pop-rank>
+                <pop-post wx:if="{{item.key == 'post'}}"
+                          bindrefreshPost="getRankSubpost"
+                          post-list="{{postList}}"
+                          height="{{height-41}}"></pop-post>
                 <pop-active wx:if="{{item.key == 'active'}}"></pop-active>
             </swiper-item>
         </swiper>

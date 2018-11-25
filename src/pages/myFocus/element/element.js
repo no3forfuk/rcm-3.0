@@ -3,9 +3,13 @@ Component({
     /**
      * 组件的属性列表
      */
-    properties: {},
+    properties: {
+        element: {
+            type: Array,
+            value: []
+        }
+    },
     data: {
-        element: [{}],
         recommendElement: [],
         scrollHeight: 0
     },
@@ -23,20 +27,20 @@ Component({
                 })
             }
         });
-        app.request.getRankDetails({
-            params: {
-                level: 2,
-                id: 289,
-                page: 1,
-                solt_name: 'exponent'
-            },
-            success: res => {
-                this.setData({
-                    rankData: res.data,
-                    element: res.data.data.data,
-                })
-            }
-        })
+        // app.request.getRankDetails({
+        //     params: {
+        //         level: 2,
+        //         id: 289,
+        //         page: 1,
+        //         solt_name: 'exponent'
+        //     },
+        //     success: res => {
+        //         this.setData({
+        //             rankData: res.data,
+        //             element: res.data.data.data,
+        //         })
+        //     }
+        // })
     },
     methods: {}
 })

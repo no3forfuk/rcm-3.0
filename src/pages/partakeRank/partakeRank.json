@@ -2,6 +2,7 @@
   "disableScroll": true,
   "usingComponents": {
     "common-header": "/components/commonHeader/commonHeader",
-    "short-page": "/template/shortRank/shortRank"
+    "short-page": "/template/shortRank/shortRank",
+    "partake-rank": "../userDetails/noticeItem/noticeItem"
   }
 }

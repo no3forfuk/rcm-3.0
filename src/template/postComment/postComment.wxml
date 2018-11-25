@@ -1,0 +1,108 @@
+<view class="post-comment"
+      catchtap="true">
+    <view class="post-comment-body">
+        <view class="post-comment-body-detail-title">全部 {{commentList.length}} 条评论</view>
+        <view class="post-comment-body-detail">
+            <block wx:for="{{commentList}}" wx:key="{{index}}">
+                <view class="post-comment-body-detail-body">
+                    <view class="reply-header">
+                        <post-header avatar-width="60"
+                                     avatar-height="60"
+                                     user-info="{{item.from_user}}">
+                            <view class="post-header-right" style="width: calc(100% - 60rpx);">
+                                <view class="post-header-right-before">
+                                    <view class="post-header-right-before-top">
+                                        <text class="cm-tips-text cm-mr-16">{{item.from_user.name}}</text>
+                                        <image class="arrow-icon"
+                                               src="../../static/images/rank_point_triangle@2x.png"></image>
+                                        <text class="cm-tips-text ">{{item.to_user.name}}</text>
+                                    </view>
+                                    <text class="cm-tips-text">{{item.created_at}}</text>
+                                </view>
+                            </view>
+                        </post-header>
+                    </view>
+                    <view class="reply-body">
+                        {{item.content}}
+                    </view>
+                    <view class="reply-footer">
+                        <icon-text text="{{item.praise_num}}"
+                                   bindclick="togglePostZan"
+                                   data-id="{{item.id}}"
+                                   data-item="{{item}}"
+                                   icon-url="../../static/images/{{item.is_praise == 0?'weizan@2x.png':'yizan@2x.png'}}"></icon-text>
+                        <icon-text text=""
+                                   bindclick="replyComment"
+                                   data-item="{{item}}"
+                                   icon-url="../../static/images/CommentPost@2x.png"></icon-text>
+                    </view>
+                    <block wx:for="{{item.child}}"
+                           wx:key="{{idx}}"
+                           wx:for-item="list"
+                           wx:for-index="idx">
+                        <view class="sub-reply" wx:if="{{item.child}}">
+                            <view class="reply-header">
+                                <post-header avatar-width="60"
+                                             avatar-height="60"
+                                             user-info="{{list.from_user}}">
+                                    <view class="post-header-right" style="width: calc(100% - 60rpx);">
+                                        <view class="post-header-right-before">
+                                            <view class="post-header-right-before-top">
+                                                <text class="cm-tips-text cm-mr-16">{{list.from_user.name}}</text>
+                                                <image class="arrow-icon"
+                                                       src="../../static/images/rank_point_triangle@2x.png"></image>
+                                                <text class="cm-tips-text ">{{list.to_user.name}}</text>
+                                            </view>
+                                            <text class="cm-tips-text ">{{list.created_at}}</text>
+                                        </view>
+                                    </view>
+                                </post-header>
+                            </view>
+                            <view class="reply-body">
+                                {{list.content}}
+                            </view>
+                            <view class="reply-footer-final">
+                                <icon-text text="{{list.praise_num}}"
+                                           bindclick="togglePostZan"
+                                           data-item="{{list}}"
+                                           data-id="{{list.id}}"
+                                           icon-url="../../static/images/{{list.is_praise == 0?'weizan@2x.png':'yizan@2x.png'}}"></icon-text>
+                                <icon-text text=""
+                                           bindclick="replyComment"
+                                           data-item="{{list}}"
+                                           icon-url="../../static/images/CommentPost@2x.png"></icon-text>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+            </block>
+        </view>
+    </view>
+</view>
+<!--<view class="comment-modal {{showInput?'show-input-class':''}}"-->
+<!--catchtap="toggleCommentInput">-->
+<modal visible="{{showInput}}" bindcloseModal="toggleCommentInput">
+    <view class="comment-card {{showInput?'show-comment-card':''}}"
+          catchtap="true"
+          style="bottom:{{keyboardHeight}}px;">
+        <view class="comment-card-title">
+            <text>{{replyAll? '正在评论 ':'正在回复 '}}</text>
+            <text class="fw-600">{{replyAll?'':currentComment.from_user.name}}</text>
+        </view>
+        <input type="text"
+               placeholder="发表你的评论吧"
+               placeholder-class="place-holder-class"
+               class="comment-card-input"
+               value="{{commentContent}}"
+               adjust-position="{{false}}"
+               bindfocus="inputFocus"
+               bindblur="inputBlur"
+               focus="{{showInput}}"
+               confirm-type="send"
+               bindinput="setCommentValue"></input>
+        <view class="submit-view">
+            <text catchtap="submitComment" style="color:{{commentContent.length>0?'#499DFF':'#9CCAFF'}};">发表</text>
+        </view>
+    </view>
+</modal>
+<!--</view>-->

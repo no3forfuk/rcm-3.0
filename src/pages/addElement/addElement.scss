@@ -1,1 +1,218 @@
 @import "../../static/css/mixin.scss";
+
+.add-ele-page {
+  width: 100%;
+  background-color: #fff;
+}
+
+.add-name {
+  width: 100%;
+  padding: rpx(28);
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+  height: rpx(104);
+}
+
+.add-name-input {
+  @include textStyle(15px, 15px);
+  color: #484848;
+  height: 100%;
+  width: 100%;
+}
+
+.placeholder-class {
+  @include textStyle(15px, 15px);
+  color: #d1d1d1;
+}
+
+.add-attr {
+  width: 100%;
+  padding: rpx(36) rpx(28);
+  border-bottom: 1px solid #f0f0f0;
+  @include layout(row, center, space-between);
+}
+
+.add-attr-icon {
+  width: rpx(13);
+  height: rpx(23);
+}
+
+.desc-text-style {
+  font-size: 15px;
+  line-height: 28px;
+  color: #484848;
+  width: 100%;
+}
+
+.add-desc-content {
+  width: 100%;
+  padding: rpx(40) rpx(28);
+  position: relative;
+}
+
+.add-desc {
+  width: rpx(694);
+  height: rpx(600);
+}
+
+.add-content-textarea {
+  width: 100%;
+  background-color: #fff;
+  padding: rpx(20) rpx(6);
+  height: rpx(200);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 500;
+  font-size: 15px;
+  line-height: 28px;
+  color: #484848;
+}
+
+.add-post-ctrl {
+  width: 100%;
+  height: rpx(72);
+  background-color: #fff;
+  padding: rpx(10) rpx(40);
+  @include layout(row, center, flex-end);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+  transform: translateY(0);
+}
+.show-ctrl {
+  visibility: visible;
+  opacity: 1;
+}
+.add-post-carl-item {
+  width: rpx(50);
+  height: rpx(52);
+  margin-left: rpx(48);
+}
+.add-content-palceholde {
+  color: #d1d1d1;
+  font-size: 15px;
+}
+
+.add-attr-popup {
+  border-radius: rpx(40) rpx(40) 0px 0px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  transition: all 0.3s ease-in-out;
+  transform: translateY(100%);
+  visibility: hidden;
+  z-index: 503;
+  background-color: #fff;
+}
+
+.show-attr-popup {
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.attr-popup-header {
+  width: 100%;
+  height: rpx(74);
+  padding: 0 rpx(48);
+  @include layout(row, center, space-between);
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.attr-popup-body {
+  width: 100%;
+  height: calc(100% - #{rpx(74)});
+}
+
+.attr-popup-form {
+  padding: rpx(40) rpx(28);
+}
+
+.attr-popup-form-item {
+  width: 100%;
+  @include layout(row, center, space-between);
+  margin-bottom: rpx(60);
+}
+
+.form-item-label {
+  width: rpx(124);
+  height: rpx(64);
+  @include textStyle(15px, 15px);
+  color: #484848;
+  text-align: right;
+  padding: 0 rpx(8);
+  line-height: rpx(64);
+}
+
+.form-item-value {
+  width: rpx(540);
+  height: rpx(64);
+  background-color: #f8f8f8;
+  padding: 0 rpx(8);
+  border-radius: rpx(4);
+  color: #484848;
+  @include layout(row, center, space-around);
+}
+
+.form-item-value-input {
+  color: #484848;
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+}
+
+.attr-popup-add {
+  width: 100%;
+  @include layout(row, center, space-around);
+
+}
+
+.attr-popup-form-item-new {
+  margin-bottom: rpx(60);
+  @include layout(row, center, space-between);
+}
+
+.form-item-label-input {
+  width: 100%;
+  height: 100%;
+  background-color: #f8f8f8;
+
+}
+
+.attr-popup-add-text {
+  font-size: 14px;
+  line-height: 14px;
+  padding: rpx(12);
+  border: 1px solid #F0F0F0;
+  border-radius: rpx(4);
+  color: #d1d1d1;
+}
+
+.cacel-btn {
+  color: #333;
+  @include textStyle(15px, 15px);
+}
+
+.confirm-btn {
+  color: #499DFF;
+  @include textStyle(15px, 15px);
+}
+
+.add-footer {
+  @include layout(row, center, space-around);
+}
+
+.add-footer-btn {
+  @include layout(row, center, space-around);
+  width: rpx(398);
+  height: rpx(88);
+  border-radius: rpx(44);
+  background-color: $colorDefault;
+  margin-top: rpx(120);
+  color: #fff;
+  font-size: 18px;
+}

@@ -7,16 +7,22 @@ Component({
         height: {
             type: Number,
             value: 0
+        },
+        postList: {
+            type: Array,
+            value: []
         }
     },
-    data: {
-        postList: []
-    },
+    data: {},
     attached() {
 
     },
     ready() {
 
     },
-    methods: {}
+    methods: {
+        refresh(){
+            this.triggerEvent('refreshPost')
+        }
+    }
 })
