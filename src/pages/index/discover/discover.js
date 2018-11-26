@@ -213,14 +213,25 @@ Component({
                     scrollHeight: height
                 })
             }
-        })
+        });
+        this.getIndexFind()
     },
     methods: {
-        onScrollView(e){
+        onScrollView(e) {
             this.triggerEvent('hideBottom', {info: e.detail, height: this.data.scrollHeight})
         },
         pullDownRefresh() {
             console.log('a');
+        },
+        getIndexFind() {
+            app.request.getIndexFind({
+                params: {
+                    limit: 100
+                },
+                success: res => {
+                    console.log(res);
+                }
+            })
         }
     }
 })

@@ -6,7 +6,10 @@
         <input type="text"
                placeholder="热门榜单、排名、帖子"
                focus="{{true}}"
+               value="{{keywords}}"
+               bindinput="setkeywords"
                confirm-type="serach"
+               bindconfirm="submitSearch"
                adjust-position="{{false}}"
                class="input-text"></input>
     </view>
@@ -19,7 +22,9 @@
         </view>
         <view class="search-page-hot-body">
             <block wx:for="{{hotWords}}" wx:key="{{index}}">
-                <text class="search-page-hot-item">{{item.search_key}}</text>
+                <text class="search-page-hot-item"
+                      data-key="{{item.search_key}}"
+                      bindtap="searchByHotWords">{{item.search_key}}</text>
             </block>
         </view>
     </view>

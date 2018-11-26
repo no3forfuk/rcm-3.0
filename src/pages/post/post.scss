@@ -116,9 +116,9 @@
   height: rpx(56);
   background-color: #f0f0f0;
   border-radius: rpx(8);
-  @include textStyle(14px,14px);
+  @include textStyle(14px, 14px);
   color: #9b9b9b;
-  @include layout(row,center,space-around);
+  @include layout(row, center, space-around);
 }
 
 .post-bottom-bar-item {
@@ -192,5 +192,23 @@
   @include layout(row, center, flex-end);
   font-size: 15px;
   line-height: 15px;
+}
+
+.post-text {
+  font-size: 15px;
+  line-height: 28px;
+  letter-spacing: 1px;
+  color: #484848;
+  padding: rpx(16) rpx(28);
+}
+
+.add-time {
+  padding: rpx(28);
+  color: #989898;
+  font-size: 12px;
+}
+
+.post-image {
+  padding: rpx(16);
 }
 

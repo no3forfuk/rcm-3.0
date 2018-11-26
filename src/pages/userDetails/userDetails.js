@@ -24,50 +24,7 @@ Page({
             key: 'collect_num',
             router: 'myCollection'
         }],
-        noticeList: [{
-            img: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1143952968,2791847100&fm=26&gp=0.jpg',
-            type: 1
-            //    创建榜单
-        }, {
-            type: 1
-        }, {
-            img: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1143952968,2791847100&fm=26&gp=0.jpg',
-            type: 2
-            //关注榜单
-        }, {
-            type: 2
-        }, {
-            img: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1143952968,2791847100&fm=26&gp=0.jpg',
-            type: 3,
-            rate: 7.8,
-            score: 1234,
-            name: '世上歌手千千万万，每年演唱会多到根本没法下手！周末闲下来超想去看一场演唱会发个朋友',
-            attr: '世上歌手千千万万，每年演唱会多到根本没法下手！周末闲下来超想去看一场演唱会发个朋友'
-            //关注排名
-        }, {
-            img: '',
-            type: 3,
-            rate: 7.8,
-            score: 1234,
-            name: '世上歌手千千万万，每年演唱会多到根本没法下手！周末闲下来超想去看一场演唱会发个朋友',
-            attr: '世上歌手千千万万，每年演唱会多到根本没法下手！周末闲下来超想去看一场演唱会发个朋友'
-        }, {
-            img: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1143952968,2791847100&fm=26&gp=0.jpg',
-            type: 4,
-            rate: 7.8,
-            score: 1234,
-            name: '世上歌手千千万万，每年演唱会多到根本没法下手！周末闲下来超想去看一场演唱会发个朋友',
-            attr: '世上歌手千千万万，每年演唱会多到根本没法下手！周末闲下来超想去看一场演唱会发个朋友'
-            //关注排名
-        }, {
-            img: '',
-            type: 4,
-            rate: 7.8,
-            score: 1234,
-            newRate: 7.8,
-            name: '世上歌手千千万万，每年演唱会多到根本没法下手！周末闲下来超想去看一场演唱会发个朋友',
-            attr: '世上歌手千千万万，每年演唱会多到根本没法下手！周末闲下来超想去看一场演唱会发个朋友'
-        },],
+        noticeList: [],
         scrollHeight: 0,
         userInfo: {},
         selfId: 0
@@ -120,7 +77,9 @@ Page({
                 limit: 100
             },
             success: res => {
-
+                this.setData({
+                    noticeList: res.data.list.reverse()
+                })
             }
         })
     },
@@ -138,7 +97,40 @@ Page({
             }
         })
     },
+    focusPeople(e) {
+        if (this.data.userInfo.is_attention == 0) {
+            app.request.focusUser({
+                params: {
+                    from_uid: wx.getStorageSync('u_id'),
+                    to_uid: this.options.id,
+                },
+                success: res => {
+                    wx.showToast({
+                        title: '关注成功',
+                        mask: true,
+                        duration: 1000
+                    })
+                    this.getUserInfo()
+                }
+            })
+        } else {
+            app.request.cancelFocusUser({
+                params: {
+                    from_uid: wx.getStorageSync('u_id'),
+                    to_uid: this.options.id,
+                },
+                success: res => {
+                    wx.showToast({
+                        title: '取消关注成功',
+                        mask: true,
+                        duration: 1000
+                    })
+                    this.getUserInfo()
+                }
+            })
+        }
 
+    },
     /**
      * 生命周期函数--监听页面显示
      */

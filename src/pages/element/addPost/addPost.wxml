@@ -35,6 +35,6 @@
         </view>
     </view>
     <view class="add-post-content">
-        <add-content></add-content>
+        <add-content id="addContent"></add-content>
     </view>
 </view>

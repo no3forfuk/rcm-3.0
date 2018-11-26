@@ -17,9 +17,13 @@
             <text class="user-details-brief-text-name">{{userInfo.name}}</text>
             <text class="user-details-brief-text-sign">{{userInfo.signature}}</text>
         </view>
-        <view class="focus-btn" wx:if="{{userInfo.id != selfId}}">
-            <image src="../../static/images/add@3x.png" class="focus-icon-add"></image>
-            <text class="focus-btn-text">关注</text>
+        <view class="focus-btn {{userInfo.is_attention == 0?'':'focused-btn'}}" wx:if="{{userInfo.id != selfId}}"
+              data-id="{{userInfo.id}}"
+              bindtap="focusPeople">
+            <image src="../../static/images/add@3x.png"
+                   wx:if="{{userInfo.is_attention == 0}}"
+                   class="focus-icon-add"></image>
+            <text class="focus-btn-text {{userInfo.is_attention == 0?'':'focused-text'}}">{{userInfo.is_attention == 0?'':'已'}}关注</text>
         </view>
         <view class="edit-btn" bindtap="link2EditInfo" wx:if="{{userInfo.id == selfId}}">
             <text>编辑资料</text>

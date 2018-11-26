@@ -35,7 +35,33 @@ Page({
             }
         })
     },
+    setkeywords(e) {
+        this.setData({
+            keywords: e.detail.value
+        })
+    },
+    searchByHotWords(e) {
+        this.setData({
+            keywords: e.currentTarget.dataset.key
+        })
+        this.submitSearch()
+    },
     submitSearch() {
+        if (this.data.keywords.length == 0) {
+            return
+        } else {
+            app.request.searchByWord({
+                params: {
+                    type: '1|2|3',
+                    search: this.data.keywords,
+                    page: 1,
+                    limit: 100
+                },
+                success: res => {
+                    console.log(res);
+                }
+            })
+        }
 
     },
     /**

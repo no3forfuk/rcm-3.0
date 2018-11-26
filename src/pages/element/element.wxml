@@ -107,7 +107,8 @@
     </scroll-view>
     <view class="add-post-popup {{showAddPost?'show-add-post':''}}">
         <add-post-pop catchtouchmove="true" height="{{addPostPopupHeight}}">
-            <add-post-component bindcancelAdd="cancelAddPost" element="{{elementDetails}}"
+            <add-post-component bindcancelAdd="cancelAddPost"
+                                element="{{elementDetails}}"
                                 height="{{addPostPopupHeight}}"></add-post-component>
         </add-post-pop>
     </view>

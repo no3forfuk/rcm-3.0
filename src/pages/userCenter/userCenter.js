@@ -24,7 +24,8 @@ Page({
             icon: 'personalcenter_task@2x.png',
             page: '/pages/myTask/myTask'
         },],
-        statusBarHeight: 0
+        statusBarHeight: 0,
+        noticeList: []
     },
     linkTargetPage(e) {
         wx.navigateTo({
@@ -46,6 +47,16 @@ Page({
             success: res => {
                 this.setData({
                     userInfo: res.data.info
+                })
+            }
+        })
+    },
+    getMyNotice() {
+        app.request.getMyNotice({
+            params: {},
+            success: res => {
+                this.setData({
+                    noticeList: res.data.list
                 })
             }
         })
@@ -74,7 +85,8 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-        this.getUserInfo()
+        this.getUserInfo();
+        this.getMyNotice()
     },
 
     /**

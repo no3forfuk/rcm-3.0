@@ -3,14 +3,14 @@
     <view class="element-card">
         <view class="element-card-info">
             <view class="element-card-info-name">
-                <text class="element-card-info-name-rate">{{elementInfo.dimension[0].score}}</text>
-                <text class="element-card-info-name-text">{{postInfo.element_name}}</text>
+                <text class="element-card-info-name-rate" wx:if="{{elementInfo.dimension[0].score}}">{{elementInfo.dimension[0].score}}</text>
+                <text class="element-card-info-name-text">{{elementInfo.element_name}}</text>
             </view>
-            <text class="element-card-info-attr">组合/台湾/属性3/属性4/属性5/属性6/属性7/属性组合/台湾/属性3/属性4/属性5/属性6/属性7/属性</text>
+            <text class="element-card-info-attr"><block wx:for="{{elementInfo.attribute}}" wx:key="{{index}}"><text>{{item.attribute_details}}</text>/</block></text>
         </view>
-        <image wx:if="{{postInfo.element.img}}"
+        <image wx:if="{{elementImage}}"
                mode="aspectFill"
-               src="{{postInfo.element.img}}"
+               src="{{elementImage}}"
                class="element-card-img"></image>
     </view>
 </view>
@@ -21,16 +21,23 @@
         <view class="body-user-right">
             <text class="user-name">{{postInfo.user.name}}</text>
             <view class="focus-user {{postInfo.user.is_attention == 0?'':'foucsed-user-class'}}"
+                  wx:if="{{postInfo.user.id != selfId}}"
                   bindtap="focusPeople">
                 <image class="focus-user-icon"
                        wx:if="{{postInfo.user.is_attention == 0}}"
                        src="../../static/images/add@3x.png"></image>
-                <text style="margin-left: 2px">{{postInfo.user.is_attention == 0?'':'已'}}关注</text>
+                <text style="margin-left: 2px" >{{postInfo.user.is_attention == 0?'':'已'}}关注</text>
             </view>
         </view>
     </user-card>
 </view>
 <scroll-view class="scroll-view" scroll-y style="height: {{scrollViewHeight}}px;">
+    <block wx:for="{{postContent}}" wx:key="{{index}}">
+        <view wx:if="{{item.type == 'text'}}" class="post-text">{{item.value}}</view>
+        <image src="{{item.src}}" wx:if="{{item.type == 'image'}}" class="post-image"></image>
+        <video src="{{item.src}}" wx:if="{{item.type == 'video'}}" class="post-image"></video>
+    </block>
+    <view class="add-time">发布时间 {{postInfo.created_at}}</view>
     <comment-list post-info="{{postInfo}}"
                   bindcloseInput="closeInput"
                   show-input="{{showInput}}"
@@ -50,6 +57,8 @@
         </block>
     </view>
     <view class="comment-input-view">
-        <view class="comment-input-view-input" bindtap="toggleInput"><text>发表你的评价吧</text></view>
+        <view class="comment-input-view-input" bindtap="toggleInput">
+            <text>发表你的评价吧</text>
+        </view>
     </view>
 </view>

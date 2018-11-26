@@ -408,42 +408,26 @@ module.exports = {
             }
         })
     },
+    //首页发现
+    getIndexFind({params = {}, success}) {
+        return request({
+            uri: '/Xcx/Index/findDynamic',
+            params: params,
+            success(res) {
+                success(res)
+            }
+        })
+    },
+    //获取我的消息
+    getMyNotice({params = {}, success}) {
+        return request({
+            uri: '/Xcx/User/getMyNotice',
+            params: params,
+            success(res) {
+                success(res)
+            }
+        })
+    },
     //-------------------------------------------------------
-
-    //获取热帖
-    getHotPost({params = {}, success}) {
-        return request({
-            uri: '/home/index/hotPost',
-            params: params,
-            method: 'GET',
-            success(res) {
-                success(res)
-            }
-        })
-    },
-
-
-    //获取热门榜单 getHotRank
-    getHotRank({params = {}, success}) {
-        return request({
-            uri: '/home/index/hotRanking',
-            params: params,
-            method: 'GET',
-            success(res) {
-                success(res)
-            }
-        })
-    },
-    //关键字搜索
-    searchByKeyWords({params = {}, success}) {
-        return request({
-            uri: '/home/search/search',
-            params: params,
-            method: 'POST',
-            success(res) {
-                success(res)
-            }
-        })
-    },
 
 }

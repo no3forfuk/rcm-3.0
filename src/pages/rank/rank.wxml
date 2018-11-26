@@ -60,7 +60,7 @@
                tab-list="{{bottomTab}}"></popup-tab>
 </view>
 <view class="add-rate-popup {{showAddRate?'show-add-rate':''}}" style="height:{{addRatePopupHeight}}px;">
-    <add-rate bindcancelAdd="toggleAddRate" show-rate="true" element="{{activeElement}}"></add-rate>
+    <add-rate bindcancelAdd="toggleAddRate" show-rate="true" weidu="{{rankData.dimension_id}}" element="{{activeElement}}"></add-rate>
 </view>
 <more-modal show="{{showMoreModal}}"
             menu="{{moreModalMenu}}"

@@ -26,7 +26,10 @@ Page({
         keyboardHeight: 0,
         commentContent: '',
         showInput: false,
-        replyAll: true
+        replyAll: true,
+        elementImage: '',
+        postContent: [],
+        selfId: 0
     },
 
     /**
@@ -161,22 +164,34 @@ Page({
             },
             success: res => {
                 this.setData({
-                    postInfo: res.data.info
+                    postInfo: res.data.info,
+                    postContent: JSON.parse(res.data.info.post_content)
                 })
-                this.getElementDetail()
+                this.getElementDetail(res.data.info.element.id)
             }
         })
     },
     //获取父元素详情
-    getElementDetail() {
+    getElementDetail(id) {
         app.request.getElementDetail({
             params: {
-                element_id: this.data.postInfo.element_id
+                element_id: id
             },
             success: res => {
                 this.setData({
                     elementInfo: res.data.info
                 })
+                const arr = JSON.parse(res.data.info.element_details)
+                if (arr) {
+                    for (let i = 0; i < arr.length; i++) {
+                        if (arr[i].type == 'image') {
+                            this.setData({
+                                elementImage: arr[i].src
+                            })
+                        }
+                    }
+                }
+
             }
         })
     },
@@ -219,7 +234,9 @@ Page({
      */
     onShow() {
         this.getPostDetails()
-
+        this.setData({
+            selfId: wx.getStorageSync('u_id')
+        })
     },
 
     /**

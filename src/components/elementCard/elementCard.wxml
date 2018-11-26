@@ -3,11 +3,11 @@
       data-id="{{info.id}}">
     <view class="element-card-component-left">
         <view class="element-card-component-title">
-            <text class="element-card-component-title-rate">{{info.dimension[0].score}}</text>
-            <text class="element-card-component-title-name">{{info.element_name}}</text>
-            <text class="element-card-component-title-score">{{info.score_num}}评分</text>
+            <text class="element-card-component-title-rate" wx:if="{{rate}}">{{rate}}</text>
+            <text class="element-card-component-title-name {{rate?'ml-12':''}}">{{info.element_name}}</text>
+            <text class="element-card-component-title-score" wx:if="{{info.score_num}}">{{info.score_num}}评分</text>
         </view>
-        <text class="element-card-component-left-attr text-body-single">{{info.attr}}</text>
+        <text class="element-card-component-left-attr text-body-single"><block wx:for="{{info.attribute}}" wx:key="{{index}}"><text>{{item.attribute_details}}</text>/</block></text>
     </view>
     <view class="element-card-component-right" wx:if="{{info.img}}">
         <image src="{{info.img}}" class="element-card-component-right-img"></image>

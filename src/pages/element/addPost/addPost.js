@@ -22,12 +22,15 @@ Component({
         showRate: {
             type: Boolean,
             value: false
+        },
+        weidu: {
+            type: Number,
+            value: 0
         }
     },
     data: {
         allStar: [0, 0, 0, 0, 0],
         rateValue: 0,
-        postContentHeight: 0,
         postContent: [],
         lastIndex: 0,
         cursor: 0,
@@ -54,40 +57,22 @@ Component({
                 rateValue: e.currentTarget.dataset.index
             })
         },
-        textareaFocus(e){
-
-        },
-        textareaInput(e) {
-            const [content, item, index] = [this.data.postContent, e.currentTarget.dataset.item, e.currentTarget.dataset.index]
-            item.value = e.detail.value
-            content[index] = item
-            this.setData({
-                postContent: content
-            })
-        },
-        insetTextarea() {
-            this.setData({
-                postContent: [...this.data.postContent, {
-                    type: 'text',
-                    value: ''
-                }]
-            })
-        },
         // addRatePost
         comfirmRate() {
             //  判断是否打过分
+            const content = this.selectComponent('#addContent').data.postContent
             let params = {}
             if (this.data.showRate) {
                 params = {
                     score: (this.data.rateValue + 1) * 2,
                     element_id: this.data.elementInfo.id,
-                    dimension_id: this.data.elementInfo.dimension[0] ? this.data.elementInfo.dimension[0].dimension_id : 1,
-                    post_content: JSON.stringify(this.data.postContent)
+                    dimension_id: this.properties.weidu,
+                    post_content: JSON.stringify(content)
                 }
             } else {
                 params = {
                     element_id: this.data.elementInfo.id,
-                    post_content: JSON.stringify(this.data.postContent)
+                    post_content: JSON.stringify(content)
                 }
 
             }

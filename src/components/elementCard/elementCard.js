@@ -1,5 +1,4 @@
 const app = getApp()
-const colorIndex = parseInt(Math.random() * 5)
 Component({
     /**
      * 组件的属性列表
@@ -7,15 +6,25 @@ Component({
     properties: {
         info: {
             type: Object,
-            value: {}
+            value: {},
+            observer(n, o, c) {
+                const colorIndex = parseInt(Math.random() * 5)
+                this.setData({
+                    color: app.randomColor[colorIndex]
+                })
+            }
         },
         type: {
             type: String,
             value: ''
+        },
+        rate: {
+            type: Number,
+            value: 0
         }
     },
     data: {
-        color: app.randomColor[colorIndex]
+        color: '#499DFF'
     },
     attached() {
 
