@@ -12,7 +12,7 @@
         <view class="rank-pandect-bottom">
             <view class="rank-pandect-bottom-left">
                 <view class="rank-pandect-bottom-left-focus {{rankData.is_attention == 1?'unfocus-class':'focused-class'}}" catchtap="focusRank">
-                    <image src="../../static/images/add_veidooorproperty@2x.png"
+                    <image src="../../static/images/add_white@2x.png"
                            wx:if="{{rankData.is_attention == 0}}"
                            class="rank-pandect-bottom-left-focus-icon"></image>
                     <text>{{rankData.is_attention == 0?'':'已'}}关注</text>

@@ -1,3 +1,6 @@
 <scroll-view class="index-focus-component" scroll-y="true">
     <short-component wx:if="{{dynamicList.length == 0}}"></short-component>
+    <block wx:for="{{dynamicList}}" wx:key="{{index}}">
+        <focus-item info="{{item}}"></focus-item>
+    </block>
 </scroll-view>

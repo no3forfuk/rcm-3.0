@@ -1,5 +1,5 @@
 <short-page wx:if="{{rank.length == 0}}" list="{{recommendRank}}"></short-page>
-<scroll-view class="focus-rank-scroll" scroll-y="true" style="height:{{scrollHeight}}px;">
+<scroll-view class="focus-rank-scroll" scroll-y="true">
     <block wx:for="{{rank}}" wx:key="{{index}}">
         <view class="focus-rank-item">
             <rank-card info="{{item}}"></rank-card>

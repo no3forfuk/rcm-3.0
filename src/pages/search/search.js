@@ -8,7 +8,11 @@ Page({
     data: {
         hotWords: [],
         userWords: [],
-        keywords: ''
+        keywords: '',
+        searchResult: false,
+        rankResult: [],
+        elementResult: [],
+        postResult: []
     },
 
     /**
@@ -23,6 +27,16 @@ Page({
      */
     onReady() {
 
+    },
+    removeHistory() {
+        app.request.removeHistory({
+            params: {},
+            success: res => {
+                this.setData({
+                    userWords: []
+                })
+            }
+        })
     },
     getHotKeyWords() {
         app.request.getHotKeyWords({
@@ -47,6 +61,7 @@ Page({
         this.submitSearch()
     },
     submitSearch() {
+
         if (this.data.keywords.length == 0) {
             return
         } else {
@@ -58,7 +73,16 @@ Page({
                     limit: 100
                 },
                 success: res => {
-                    console.log(res);
+                    if (res.status_code == 1) {
+                        this.setData({
+                            searchResult: true
+                        })
+                        this.setData({
+                            rankResult: res.data.data.second || [],
+                            elementResult: res.data.data.element || [],
+                            postResult: res.data.data.post || []
+                        })
+                    }
                 }
             })
         }

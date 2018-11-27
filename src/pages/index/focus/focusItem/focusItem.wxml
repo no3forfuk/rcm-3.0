@@ -33,11 +33,21 @@
     <rank-card info="{{info.second}}"></rank-card>
 </view>
 <view class="user-notice-item" wx:if="{{info.dynamic_type == 15}}">
-    <view class="notice-item-title mb-16">
-        <text class="text-tips">关注排名</text>
-        <text class="text-tips">{{info.created_at}}</text>
+    <user-card avatar-width="40"
+               avatar-height="40"
+               user-info="{{info.from_user}}">
+        <view class="notice-item-title">
+            <view class="notice-item-title-name">
+                <text class="text-tips notice-item-title-name-text">{{info.from_user.name}}</text>
+                <text class="text-tips">关注了排名</text>
+            </view>
+            <text class="text-tips">{{info.created_at}}</text>
+        </view>
+    </user-card>
+    <view class="element-view">
+        <ele-card info="{{info.element}}"></ele-card>
     </view>
-    <ele-card info="{{info.element}}"></ele-card>
+    <rank-card info="{{info.second}}" wx:if="{{info.second}}"></rank-card>
 </view>
 <view class="user-notice-item" wx:if="{{info.dynamic_type == 13}}">
     <view class="notice-item-title mb-16" bindtap="link2Post">
@@ -68,10 +78,14 @@
     <ele-card info="{{info.post.element}}"></ele-card>
 </view>
 <view class="user-notice-item" wx:if="{{info.dynamic_type == 17}}">
-    <view class="notice-item-title mb-16">
-        <text class="text-tips">赞同</text>
-        <text class="text-tips">{{info.created_at}}</text>
-    </view>
+    <user-card avatar-width="40"
+               avatar-height="40"
+               user-info="{{info.from_user}}">
+        <view class="notice-item-title">
+            <text class="text-tips notice-item-title-name-text">赞同了</text>
+            <text class="text-tips">{{info.created_at}}</text>
+        </view>
+    </user-card>
     <rate wx:if="{{info.post.score}}" rate="{{info.post.score}}" wx:if="{{info.post.score}}"></rate>
     <view class="mt-16 mb-16 notice-item-post-desc" bindtap="link2Post">
         <text class="text-title-lv2-multiple {{postImage?'post-has-img-class':''}} limit-2-line">{{postText}}</text>
@@ -80,4 +94,31 @@
                class="notice-item-desc-img"></image>
     </view>
     <ele-card info="{{info.post.element}}"></ele-card>
+</view>
+<view class="user-notice-item" wx:if="{{info.dynamic_type == 16}}">
+    <user-card avatar-width="40"
+               avatar-height="40"
+               user-info="{{info.from_user}}">
+        <view class="notice-item-title">
+            <view class="notice-item-title-name">
+                <text class="text-tips notice-item-title-name-text">{{info.from_user.name}}</text>
+                <text class="text-tips">关注了</text>
+            </view>
+            <text class="text-tips">{{info.created_at}}</text>
+        </view>
+    </user-card>
+    <view class="element-view-user">
+        <user-card avatar-width="60"
+                   avatar-height="60"
+                   circel="{{false}}"
+                   user-info="{{info.to_user}}">
+            <view class="notice-item-title-user">
+                <text class="text-tips">{{info.to_user.name}}</text>
+                <view class="notice-item-title-user-info">
+                    <text class="text-tips mr-12">{{info.to_user.fan_num}}关注</text>
+                    <text class="text-tips">{{info.to_user.post_praise_num}}赞</text>
+                </view>
+            </view>
+        </user-card>
+    </view>
 </view>

@@ -2,7 +2,8 @@
     <view class="hot-rank-card-content">
         <card-title info="{{rankInfo}}" mode="large"></card-title>
         <view class="card-desc" bindtap="link2Rank" data-id="{{rankInfo.id}}">
-            <info-card text="{{rankInfo.ranking_desc}}" image="{{rankInfo.img}}" video="{{rankInfo.video}}"></info-card>
+            <info-card text="{{rankInfo.ranking_details?rankInfo.displayDesc:rankInfo.ranking_desc}}" image="{{rankInfo.img?rankInfo.img:''}}"
+                       video="{{rankInfo.video}}"></info-card>
         </view>
     </view>
     <view class="hot-rank-subele" wx:if="{{rankInfo.element && rankInfo.element.length > 0}}">

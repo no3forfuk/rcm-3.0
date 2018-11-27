@@ -77,9 +77,12 @@ Page({
                 limit: 100
             },
             success: res => {
-                this.setData({
-                    noticeList: res.data.list.reverse()
-                })
+                if (res.status_code == 1) {
+                    this.setData({
+                        noticeList: res.data.list.reverse()
+                    })
+                }
+
             }
         })
     },
@@ -91,9 +94,12 @@ Page({
                 from_uid: wx.getStorageSync('u_id')
             },
             success: res => {
-                this.setData({
-                    userInfo: res.data.info
-                })
+                if (res.status_code == 1) {
+                    this.setData({
+                        userInfo: res.data.info
+                    })
+                }
+
             }
         })
     },
@@ -105,12 +111,15 @@ Page({
                     to_uid: this.options.id,
                 },
                 success: res => {
-                    wx.showToast({
-                        title: '关注成功',
-                        mask: true,
-                        duration: 1000
-                    })
-                    this.getUserInfo()
+
+                    if (res.status_code == 1) {
+                        wx.showToast({
+                            title: '关注成功',
+                            mask: true,
+                            duration: 1000
+                        })
+                        this.getUserInfo()
+                    }
                 }
             })
         } else {
@@ -120,12 +129,15 @@ Page({
                     to_uid: this.options.id,
                 },
                 success: res => {
-                    wx.showToast({
-                        title: '取消关注成功',
-                        mask: true,
-                        duration: 1000
-                    })
-                    this.getUserInfo()
+                    if (res.status_code == 1) {
+                        wx.showToast({
+                            title: '取消关注成功',
+                            mask: true,
+                            duration: 1000
+                        })
+                        this.getUserInfo()
+                    }
+
                 }
             })
         }

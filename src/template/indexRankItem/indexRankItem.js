@@ -8,7 +8,13 @@ Component({
             type: Object,
             value: {},
             observer(n, o, c) {
+                if ('id' in n) {
+                    if (n.ranking_details) {
 
+                    } else if (n.ranking_desc) {
+                        n.displayDesc = n.ranking_desc
+                    }
+                }
             }
         }
     },

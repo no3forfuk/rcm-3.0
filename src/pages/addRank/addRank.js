@@ -94,6 +94,14 @@ Page({
         })
     },
     submitAdd() {
+        // for (let i = 0; i < this.data.rankDesc.length; i++) {
+        //     if (this.data.rankDesc[i].type == 'image') {
+        //         app.qiniuSDK.upload(this.data.rankDesc[i].src, complete => {
+        //             console.log(complete);
+        //         })
+        //     }
+        // }
+        // // app.qiniuSDK.upload(path, complete => {})
         app.request.addNewRank({
             params: {
                 first_id: this.data.firstRankTags[this.data.selectIndex].id,

@@ -21,6 +21,10 @@ Component({
         rate: {
             type: Number,
             value: 0
+        },
+        bgc: {
+            type: String,
+            value: '#f8f8f8'
         }
     },
     data: {

@@ -36,6 +36,9 @@ Page({
         })
     },
     handleSwiperChange(e) {
+        this.setData({
+            focusList: []
+        })
         const detail = e.detail
         this.setData({
             tabData: {

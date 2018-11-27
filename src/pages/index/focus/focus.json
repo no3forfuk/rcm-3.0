@@ -1,6 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "short-component": "/template/shortUser/shortUser"
+    "short-component": "/template/shortUser/shortUser",
+    "focus-item": "./focusItem/focusItem"
   }
 }

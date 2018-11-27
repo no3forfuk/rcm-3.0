@@ -19,6 +19,10 @@ Component({
         alignItems: {
             type: String,
             value: 'center'
+        },
+        circel: {
+            type: Boolean,
+            value: true
         }
     },
     data: {},

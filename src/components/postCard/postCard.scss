@@ -27,3 +27,14 @@
   @include layout(row, center, flex-end);
   margin-top: rpx(22);
 }
+
+.post-card-component-content-img {
+  width: 28%;
+  height: rpx(150);
+  margin: rpx(16);
+  box-shadow: 1px 1px 1px 1px rgba(200, 200, 200, 0.5);
+}
+
+.post-image-buffer {
+  width: 100%;
+}

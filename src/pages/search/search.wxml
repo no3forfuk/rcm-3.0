@@ -15,7 +15,12 @@
     </view>
     <text class="text-title-lv2-single" bindtap="submitSearch">搜索</text>
 </view>
-<view class="search-body">
+<search-result wx:if="{{searchResult}}"
+               rank="{{rankResult}}"
+               element="{{elementResult}}"
+               keywords="{{keywords}}"
+               post="{{postResult}}"></search-result>
+<view class="search-body" wx:if="{{!searchResult}}">
     <view class="search-page-hot">
         <view class="search-page-hot-title">
             <text class="grad text-bd">热词</text>
@@ -28,14 +33,16 @@
             </block>
         </view>
     </view>
-    <view class="search-page-hot">
+    <view class="search-page-hot" wx:if="{{userWords.length > 0}}">
         <view class="search-page-hot-title">
             <text class="grad text-bd">历史</text>
-            <view class="remove-history-btn">清除记录</view>
+            <view class="remove-history-btn" bindtap="removeHistory">清除记录</view>
         </view>
         <view class="search-page-hot-body">
             <block wx:for="{{userWords}}" wx:key="{{index}}">
-                <text class="search-page-hot-item">{{item.search_key}}</text>
+                <text class="search-page-hot-item"
+                      data-key="{{item.search_key}}"
+                      bindtap="searchByHotWords">{{item.search_key}}</text>
             </block>
         </view>
     </view>

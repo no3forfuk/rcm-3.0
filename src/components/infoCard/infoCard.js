@@ -12,10 +12,19 @@ Component({
         },
         text: {
             type: String,
-            value: ''
+            value: '',
+            observer(n, o, c) {
+                if (n.length > 0) {
+                    this.setData({
+                        text: n
+                    })
+                }
+            }
         }
     },
-    data: {},
+    data: {
+        text: ''
+    },
     attached() {
 
     },

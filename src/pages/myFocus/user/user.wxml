@@ -1,5 +1,5 @@
 <short-page wx:if="{{userList.length == 0}}" list="{{recommendUser}}"></short-page>
-<scroll-view class="focus-rank-scroll" scroll-y="true" style="height:{{scrollHeight}}px;">
+<scroll-view class="focus-rank-scroll" scroll-y="true">
     <block wx:for="{{user}}" wx:key="{{index}}">
         <view class="short-rank-item">
             <view class="short-rank-item-user">
@@ -7,9 +7,9 @@
                     <view class="short-rank-item-top">
                         <view class="short-rank-item-top-name">
                             <text class="text-s14-l20-c333">{{item.name}}</text>
-                            <text class="text-12s-17l-666c limit-1-line">{{item.signature}}</text>
+                            <text class="text-12s-17l-666c limit-1-line">{{item.signature || '主人很懒，什么都没留下'}}</text>
                         </view>
-                        <view class="focus-btn">
+                        <view class="focus-btn" wx:if="{{selfId != item.id}}">
                             <text>已关注</text>
                         </view>
                     </view>

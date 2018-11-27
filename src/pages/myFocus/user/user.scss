@@ -4,6 +4,7 @@
   background-color: #f8f8f8;
   width: 100%;
   padding-top: rpx(24);
+  height: 100%;
 }
 .short-rank-item-user{
   height: 100%;
@@ -15,8 +16,9 @@
 .short-rank-item {
   width: 100%;
   height: rpx(134);
+  padding-top: rpx(28);
   padding-left:rpx(28);
-  padding-bottom: rpx(28);
+  //padding-bottom: rpx(28);
   background-color: #fff;
   &-top {
     width: calc(100% - #{rpx(80)});

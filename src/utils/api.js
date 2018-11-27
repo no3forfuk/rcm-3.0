@@ -428,6 +428,26 @@ module.exports = {
             }
         })
     },
+    //清楚浏览记录
+    removeHistory({params = {}, success}) {
+        return request({
+            uri: '/Xcx/Search/delUserHistory',
+            params: params,
+            success(res) {
+                success(res)
+            }
+        })
+    },
+    //7niutoken
+    get7niuToken({params = {}, success}) {
+        return request({
+            uri: '/Xcx/Qiniu/getUploadToken',
+            params: params,
+            success(res) {
+                success(res)
+            }
+        })
+    }
     //-------------------------------------------------------
 
 }

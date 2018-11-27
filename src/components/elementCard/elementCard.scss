@@ -33,7 +33,7 @@
   width: 100%;
   @include layout(row, flex-end);
   &-name {
-    max-width: rpx(374);
+    //max-width: rpx(374);
     font-size: 17px;
     line-height: 24px;
     font-weight: 600;

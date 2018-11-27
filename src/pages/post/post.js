@@ -29,7 +29,10 @@ Page({
         replyAll: true,
         elementImage: '',
         postContent: [],
-        selfId: 0
+        selfId: 0,
+        contentText: '',
+        commentShow: false,
+        commentNum: 0
     },
 
     /**
@@ -163,11 +166,22 @@ Page({
                 post_id: this.options.id
             },
             success: res => {
-                this.setData({
-                    postInfo: res.data.info,
-                    postContent: JSON.parse(res.data.info.post_content)
-                })
-                this.getElementDetail(res.data.info.element.id)
+                if (res.status_code == 1) {
+
+                    if (res.data.info.type == 1) {
+                        this.setData({
+                            contentText: res.data.info.post_content,
+                            postInfo: res.data.info,
+                        })
+                    }
+                    if (res.data.info.type == 3) {
+                        this.setData({
+                            postInfo: res.data.info,
+                            postContent: JSON.parse(res.data.info.post_content),
+                        })
+                    }
+                    this.getElementDetail(res.data.info.element.id)
+                }
             }
         })
     },
@@ -236,6 +250,12 @@ Page({
         this.getPostDetails()
         this.setData({
             selfId: wx.getStorageSync('u_id')
+        })
+    },
+    showComment(e) {
+        this.setData({
+            commentShow: true,
+            commentNum: e.detail.count
         })
     },
 

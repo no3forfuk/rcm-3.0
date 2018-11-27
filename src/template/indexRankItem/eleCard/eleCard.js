@@ -6,7 +6,10 @@ Component({
     properties: {
         eleInfo: {
             type: Object,
-            value: {}
+            value: {},
+            observer(n, o, c) {
+
+            }
         }
     },
     data: {

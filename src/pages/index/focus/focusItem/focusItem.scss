@@ -1,0 +1,66 @@
+@import "../../../../static/css/mixin.scss";
+
+.user-notice-item {
+  padding: rpx(28);
+  width: 100%;
+  background-color: #fff;
+  margin-top: rpx(24);
+}
+
+.notice-item-title {
+  width: calc(100% - #{rpx(40)});
+  @include layout(row, center, space-between);
+}
+
+.notice-item-desc {
+  width: 100%;
+  background-color: #f8f8f8;
+  padding: rpx(12) rpx(16);
+  @include layout(row, center, space-between);
+}
+
+.notice-item-desc-img {
+  width: rpx(104);
+  height: rpx(80);
+}
+
+.has-img-class {
+  width: rpx(550);
+}
+
+.notice-item-post-desc {
+  width: 100%;
+  @include layout(row, center, space-between);
+}
+
+.post-has-img-class {
+  width: rpx(574);
+}
+
+.notice-item-title-name {
+  @include layout(row, center);
+}
+
+.notice-item-title-name-text {
+  margin: 0 rpx(16);
+}
+
+.element-view {
+  padding: rpx(16) 0;
+}
+
+.notice-item-title-user {
+  width: calc(100% - #{rpx(60)});
+  @include layout(row, center, space-between);
+  padding-left: rpx(16);
+}
+
+.notice-item-title-user-info {
+  @include layout(row, center, flex-end);
+}
+
+.element-view-user {
+  padding: rpx(22);
+  border-top: 1px solid #F0F0F0;
+  margin-top: rpx(30);
+}

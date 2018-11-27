@@ -11,22 +11,21 @@ Component({
     },
     data: {
         recommendUser: [],
-        scrollHeight: 0
+        scrollHeight: 0,
+        selfId: 0
     },
     attached() {
 
     },
     ready() {
-        app.tools.setScrollHeight({
-            target: '.focus-rank-scroll',
-            isComponent: true,
-            component: this,
-            success: height => {
+        wx.getStorage({
+            key: 'u_id',
+            success: res => {
                 this.setData({
-                    scrollHeight: height
+                    selfId: res.data
                 })
             }
-        })
+        });
     },
     methods: {}
 })

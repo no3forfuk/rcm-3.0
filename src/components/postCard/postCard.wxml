@@ -8,7 +8,7 @@
                     <text class="cm-tips-text cm-mr-16">{{postInfo.user.name}}</text>
                     <text class="cm-tips-text ">{{postInfo.created_at}}</text>
                 </view>
-                <post-rate mode="tiny" rate="{{rate}}"></post-rate>
+                <post-rate mode="tiny" rate="{{postInfo.rate}}" wx:if="{{postInfo.rate}}"></post-rate>
             </view>
             <!--<text class="cm-tag">{{postInfo.element_name}}</text>-->
         </view>
@@ -16,7 +16,14 @@
     <view class="post-card-component-content"
           bindtap="link2Post"
           wx:if="{{postInfo.post_content}}">
-        <text class="cm-text post-card-component-content-text">{{postInfo.post_content}}</text>
+        <text class="cm-text post-card-component-content-text" wx:if="{{contentText.length > 0}}">{{contentText}}</text>
+        <image src="{{contentImage[0]}}" mode="aspectFit" class="post-card-component-content-img"
+               wx:if="{{contentText.length == 0 && contentImage.length == 1}}"></image>
+        <view class="post-image-buffer" wx:if="{{contentImage.length > 1}}">
+            <block wx:for="{{contentImage}}" wx:key="{{index}}">
+                <image mode="aspectFit" class="post-card-component-content-img" src="{{item}}"></image>
+            </block>
+        </view>
     </view>
     <view class="post-card-component-opts">
         <icon-text text="{{postInfo.praise_num}}"

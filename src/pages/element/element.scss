@@ -29,6 +29,7 @@
   &-desc {
     width: rpx(426);
     height: rpx(229);
+    padding: rpx(16) 0;
     @include layout(column, flex-start, space-between);
     transition: all 0.2s ease-in-out;
     &-opts {

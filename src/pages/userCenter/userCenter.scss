@@ -61,7 +61,8 @@
   @include textStyle(15px, 21px, 400);
   color: #fff;
 }
-.user-header-go-next{
+
+.user-header-go-next {
   @include textStyle(14px, 21px, 400);
   color: #fff;
   margin-right: rpx(16);
@@ -112,6 +113,24 @@
   height: rpx(140);
   background-color: #fff;
   border-top: rpx(2) solid #f0f0f0;
+}
+
+.message-show-view-info {
+  width: 100%;
+  height: 100%;
+  padding: rpx(36) rpx(20) rpx(36) rpx(50);
+  @include layout(row, center, space-between);
+}
+
+.message-show-icon {
+  width: rpx(40);
+  height: rpx(36);
+}
+
+.message-show-content {
+  width: calc(100% - #{rpx(40)});
+  height: 100%;
+  padding-left: rpx(46);
 }
 
 .no-login {

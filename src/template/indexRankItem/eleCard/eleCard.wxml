@@ -1,12 +1,11 @@
 <view class="sub-ele-item" bindtap="link2Element" data-id="{{eleInfo.id}}">
     <view class="sub-ele-item-left">
         <view class="sub-ele-item-left-name">
-            <text class="cm2-num-rate-s">8.6</text>
+            <text class="cm2-num-rate-s" wx:if="{{eleInfo.dimension.length > 0 && eleInfo.dimension[0].score}}">{{eleInfo.dimension[0].score}}</text>
             <tetx class="text-body-single ml-12 sub-ele-item-left-name-text">{{eleInfo.element_name}}</tetx>
         </view>
         <view class="sub-ele-item-left-comment">
-            <image class="sub-ele-item-left-comment-icon" src="../../../static/images/Comment@2x.png"></image>
-            <text class="text-body-single-fb sub-ele-item-left-comment-text">{{eleInfo.element_name + eleInfo.element_name +eleInfo.element_name}}</text>
+            <text class="text-body-single-fb sub-ele-item-left-comment-text"><block wx:for="{{eleInfo.attribute}}" wx:key="{{index}}"><text>{{item.attribute_details}}</text>/</block></text>
         </view>
     </view>
     <image src="{{eleInfo.img}}" class="sub-ele-item-img" wx:if="{{eleInfo.img}}"></image>

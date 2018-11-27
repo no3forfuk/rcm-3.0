@@ -26,7 +26,7 @@ Component({
                 },
                 success: res => {
                     this.setData({
-                        dynamicList: res.data.list
+                        dynamicList: res.data.list.reverse()
                     })
                 }
             })

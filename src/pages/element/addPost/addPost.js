@@ -79,7 +79,12 @@ Component({
             app.request.addRatePost({
                 params: params,
                 success: res => {
-                    console.log(res);
+                    if (res.status_code == 1) {
+                        this.triggerEvent('cancelAdd')
+                        wx.navigateTo({
+                            url: `/pages/post/post?id=${res.data.id}`
+                        })
+                    }
                 }
             })
         },

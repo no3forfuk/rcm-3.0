@@ -32,17 +32,24 @@
     </user-card>
 </view>
 <scroll-view class="scroll-view" scroll-y style="height: {{scrollViewHeight}}px;">
-    <block wx:for="{{postContent}}" wx:key="{{index}}">
-        <view wx:if="{{item.type == 'text'}}" class="post-text">{{item.value}}</view>
-        <image src="{{item.src}}" wx:if="{{item.type == 'image'}}" class="post-image"></image>
-        <video src="{{item.src}}" wx:if="{{item.type == 'video'}}" class="post-image"></video>
-    </block>
+    <view class="" wx:if="{{postInfo.type == 3}}">
+        <block wx:for="{{postContent}}" wx:key="{{index}}">
+            <view wx:if="{{item.type == 'text'}}" class="post-text">{{item.value}}</view>
+            <image src="{{item.src}}" wx:if="{{item.type == 'image'}}" class="post-image"></image>
+            <video src="{{item.src}}" wx:if="{{item.type == 'video'}}" class="post-image"></video>
+        </block>
+    </view>
+    <view class=""  wx:if="{{postInfo.type == 1}}">
+        <view class="post-text">{{contentText}}</view>
+    </view>
     <view class="add-time">发布时间 {{postInfo.created_at}}</view>
     <comment-list post-info="{{postInfo}}"
                   bindcloseInput="closeInput"
+                  bindshowComment="showComment"
                   show-input="{{showInput}}"
                   reply-all="{{replyAll}}"
                   bindnoreplyall="noReplyAll"></comment-list>
+    <view style="width: 100%;height: {{statusHeight == 20?'82':'100'}}rpx;background-color: #fff;"></view>
 </scroll-view>
 <view class="post-bottom-bar" style="padding-bottom: {{statusHeight == 20?4:statusHeight}}px;">
     <view class="post-bottom-bar-item-left">

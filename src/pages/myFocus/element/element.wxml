@@ -1,6 +1,7 @@
 <short-page wx:if="{{element.length == 0}}" list="{{recommendElement}}"></short-page>
-<scroll-view class="focus-rank-scroll" scroll-y="true" style="height:{{scrollHeight}}px;">
+<scroll-view class="focus-rank-scroll" scroll-y="true">
     <block wx:for="{{element}}" wx:key="{{index}}">
-        <element-card info="{{item}}"></element-card>
+        <element-card info="{{item}}" bgc="#fff"></element-card>
+        <view class="border-bottom"></view>
     </block>
 </scroll-view>

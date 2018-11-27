@@ -26,7 +26,8 @@ Page({
         subPostList: [],
         currentPost: {},
         smallHeader: false,
-        currentWeiduIndex: 0
+        currentWeiduIndex: 0,
+        descText: ''
     },
     elementPaageScroll(e) {
         if (e.detail.scrollTop > 50) {
@@ -114,9 +115,26 @@ Page({
                 element_id: this.options.id
             },
             success: res => {
-                this.setData({
-                    elementDetails: res.data.info
-                })
+                if (res.status_code == 1) {
+                    this.setData({
+                        elementDetails: res.data.info
+                    })
+                    if (this.data.elementDetails.element_details) {
+                        let str = this.data.elementDetails.element_details
+                        const arr = JSON.parse(str)
+                        for (let i = 0; i < arr.length; i++) {
+                            if (arr[i].type == 'text') {
+                                this.setData({
+                                    descText: this.data.descText + arr[i].value
+                                })
+                            }
+                        }
+                    } else {
+                        this.setData({
+                            descText: this.data.elementDetails.element_desc || '暂无详情'
+                        })
+                    }
+                }
             }
         })
     },
@@ -159,7 +177,7 @@ Page({
         app.request.getElementSubPost({
             params: {
                 element_id: this.options.id,
-                limit: 20,
+                limit: 100,
                 page: 1
             },
             success: res => {

@@ -44,12 +44,18 @@ Component({
                 params: {
                     post_id: this.properties.postInfo.id,
                     page: 1,
-                    limit: 10
+                    limit: 100
                 },
                 success: res => {
-                    this.setData({
-                        commentList: res.data.list
-                    })
+                    if (res.status_code == 1 && res.data.list) {
+                        this.setData({
+                            commentList: res.data.list || 0
+                        })
+                    } else {
+                        this.setData({
+                            commentList: []
+                        })
+                    }
                 }
             })
         },
@@ -106,6 +112,7 @@ Component({
             this.triggerEvent('noreplyall')
             this.setData({
                 comment_type: 4,
+                commentContent: '',
                 currentComment: e.currentTarget.dataset.item
             })
             this.toggleCommentInput()

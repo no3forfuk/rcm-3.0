@@ -17,16 +17,7 @@ Component({
 
     },
     ready() {
-        app.tools.setScrollHeight({
-            target: '.focus-rank-scroll',
-            isComponent: true,
-            component: this,
-            success: height => {
-                this.setData({
-                    scrollHeight: height
-                })
-            }
-        })
+
     },
     methods: {}
 })

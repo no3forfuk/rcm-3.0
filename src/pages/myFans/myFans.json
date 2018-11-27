@@ -1,4 +1,8 @@
 {
   "disableScroll": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "common-header": "/components/commonHeader/commonHeader",
+    "short-page": "/template/shortUser/shortUser",
+    "user-card": "/components/userCard/userCard"
+  }
 }

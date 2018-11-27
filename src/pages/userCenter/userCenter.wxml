@@ -17,7 +17,7 @@
                             <image src="../../static/images/back_white@2x.png" class="user-header-info-name-icon"></image>
                         </view>
                     </view>
-                    <text class="user-header-info-sign">{{userInfo.fan}} 关注我的人  {{userInfo.user_attention_num}} 关注的人</text>
+                    <text class="user-header-info-sign">{{userInfo.fan}} 关注我的人  {{userInfo.user_attention_num}} 我关注的人</text>
                 </view>
             </user-card>
         </view>
@@ -32,6 +32,12 @@
         </view>
         <view class="message-show-view no-login">
             <text class="no-login-text text-s12-l17-c9b" wx:if="{{noticeList.length == 0}}">暂无消息</text>
+            <view class="message-show-view-info" wx:if="{{noticeList.length > 0}}">
+                <image class="message-show-icon" src="../../static/images/personalcenter_messagepreview@2x.png"></image>
+                <view class="message-show-content">
+
+                </view>
+            </view>
         </view>
     </view>
     <view class="message-options">

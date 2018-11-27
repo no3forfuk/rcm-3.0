@@ -17,7 +17,7 @@
                     <view class="element-header-detail-desc-opts-left-focus {{elementDetails.is_attention == 0?'':'focused-element-class'}}"
                           catchtap="focusElement">
                         <view>
-                            <image src="../../static/images/add_veidooorproperty@2x.png"
+                            <image src="../../static/images/add_white@2x.png"
                                    wx:if="{{elementDetails.is_attention == 0}}"
                                    class="element-header-detail-desc-opts-left-focus-icon"></image>
                             <text>{{elementDetails.is_attention == 0?'':'已'}}关注</text>
@@ -89,7 +89,7 @@
             </view>
             <view class="element-body-detail-detail mt-24 pd-12 bgc-f">
                 <view class="element-body-detail-label ">详情</view>
-                <view class="text-s15-l21-c333 limit-3-line">{{elementDetails.element_desc}}</view>
+                <view class="text-s15-l21-c333 limit-3-line">{{descText}}</view>
             </view>
         </view>
         <view class="sub-post">

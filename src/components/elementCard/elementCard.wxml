@@ -1,5 +1,6 @@
 <view class="element-card-component {{type}}-card-item"
       bindtap="link2Element"
+      style="background-color: {{bgc}};"
       data-id="{{info.id}}">
     <view class="element-card-component-left">
         <view class="element-card-component-title">

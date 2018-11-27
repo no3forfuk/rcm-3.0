@@ -1,0 +1,76 @@
+<view class="search-header">
+    <tab tab-item="{{tabData.items}}"
+         font-color="#161616"
+         font-size="16px"
+         bindchange="tabChange"
+         active-color="#499DFF"
+         current="{{tabData.current}}"></tab>
+</view>
+<swiper current="{{tabData.current}}"
+        style="height:{{scrollHeight}}px;"
+        bindchange="handleSwiperChange"
+        class="index-page-swiper">
+    <swiper-item>
+        <scroll-view class="scroll-view-class" scroll-y>
+            <view class="short-rank-result" wx:if="{{rankList.length == 0}}">没有搜到相关的榜单</view>
+            <block wx:for="{{rankList}}" wx:key="{{index}}">
+                <view class="rank-item">
+                    <view class="rank-item-name" bindtap="link2Rank" data-id="{{item.id}}">
+                        <image src="../../../static/images/rank@3x.png" class="rank-item-name-icon"></image>
+                        <rich-text nodes="{{item.nameNodes}}" class="rich-text-rank"></rich-text>
+                    </view>
+                </view>
+            </block>
+        </scroll-view>
+    </swiper-item>
+    <swiper-item>
+        <scroll-view class="scroll-view-class" scroll-y>
+            <view class="short-rank-result" wx:if="{{elementList.length == 0}}">没有搜到相关的排名</view>
+            <block wx:for="{{elementList}}" wx:key="{{index}}">
+                <view class="element-item" bindtap="link2element" data-id="{{item.id}}">
+                    <view class="element-item-content">
+                        <view class="element-item-content-top">
+                            <text wx:if="{{item.score}}">{{item.score}}</text>
+                            <rich-text nodes="{{item.nameNodes}}" class="rich-text-element"></rich-text>
+                            <text wx:if="{{item.score_num}}">{{item.score_num}}评分</text>
+                        </view>
+                        <view class="element-item-content-bottom" wx:if="{{item.attribute}}">
+                            <block wx:for="{{item.attribute}}" wx:key="{{idx}}" wx:for-item="list" wx:for-index="idx"><text>{{list.attribute_details}}</text>/</block>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </scroll-view>
+    </swiper-item>
+    <swiper-item>
+        <scroll-view class="scroll-view-class" scroll-y>
+            <view class="short-rank-result" wx:if="{{postList.length == 0}}">没有搜到相关的帖子</view>
+            <block wx:for="{{postList}}" wx:key="{{index}}">
+                <view class="post-items">
+                    <view class="post-items-content">
+                        <view class="element-item-content-post" bindtap="link2element" data-id="{{item.element.id}}">
+                            <view class="element-item-content-top">
+                                <text wx:if="{{item.element.score}}">{{item.element.score}}</text>
+                                <text class="rich-text-element">{{item.element.element_name}}</text>
+                            </view>
+                            <view class="element-item-content-bottom" wx:if="{{item.element.attribute.length > 0}}">
+                                <block wx:for="{{item.element.attribute}}" wx:key="{{idx}}" wx:for-item="list" wx:for-index="idx"><text>{{list.attribute_details}}</text>/</block>
+                            </view>
+                        </view>
+                        <rich-text class="post-item-content"
+                                   bindtap="link2Post"
+                                   data-id="{{item.id}}"
+                                   nodes="{{item.contentNode}}"></rich-text>
+                        <view class="post-user">
+                            <post-user avatar-width="40" avatar-height="40" user-info="{{item.user}}">
+                                <view class="post-user-right">
+                                    <text class="user-name">{{item.user.name}}</text>
+                                </view>
+                            </post-user>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </scroll-view>
+    </swiper-item>
+</swiper>
