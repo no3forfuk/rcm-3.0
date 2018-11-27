@@ -36,10 +36,12 @@ Component({
         })
         app.request.getFirstRankList({
             success: res => {
-                this.setData({
-                    firstRankTags: res.data,
-                    currentFirstRank: res.data[0]
-                })
+                if(res.status_code == 1 && res.data){
+                    this.setData({
+                        firstRankTags: res.data,
+                        currentFirstRank: res.data[0]
+                    })
+                }
                 this.getIndexRank()
             }
         });
@@ -57,9 +59,12 @@ Component({
                     first_id: this.data.currentFirstRank.id
                 },
                 success: res => {
-                    this.setData({
-                        rankList: res.data.list
-                    })
+                    if(res.status_code == 1 && res.data.list){
+                        this.setData({
+                            rankList: res.data.list
+                        })
+                    }
+
                 }
             })
         },

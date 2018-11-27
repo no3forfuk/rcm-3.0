@@ -25,9 +25,12 @@ Component({
                     limit: 100
                 },
                 success: res => {
-                    this.setData({
-                        dynamicList: res.data.list.reverse()
-                    })
+                    if(res.status_code == 1 && res.data.list){
+                        this.setData({
+                            dynamicList: res.data.list.reverse()
+                        })
+                    }
+
                 }
             })
         },

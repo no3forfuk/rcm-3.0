@@ -1,0 +1,13 @@
+<common-header title="我的消息"></common-header>
+<scroll-view scroll-y class="notice-page" style="height:{{scrollHeight}}px;">
+    <block wx:for="{{noticeItem}}" wx:key="{{index}}">
+        <view class="notice-item">
+            <view class="notice-item-left">
+                <image src="../../static/images/{{item.icon}}" class="notice-item-left-icon"></image>
+            </view>
+            <view class="notice-item-right">
+
+            </view>
+        </view>
+    </block>
+</scroll-view>

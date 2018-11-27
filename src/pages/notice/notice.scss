@@ -1,0 +1,32 @@
+@import "../../static/css/mixin.scss";
+
+.notice-page {
+  width: 100%;
+  background-color: #fff;
+  border-top: 1px solid #f0f0f0;
+}
+
+.notice-item {
+  width: 100%;
+  padding-left: rpx(28);
+  @include layout(row, center, space-between);
+}
+
+.notice-item-left {
+  width: rpx(80);
+  height: rpx(80);
+  position: relative;
+}
+
+.notice-item-left-icon {
+  width: rpx(80);
+  height: rpx(80);
+  border-radius: 50%;
+}
+
+.notice-item-right {
+  width: calc(100% - #{rpx(108)});
+  height: rpx(138);
+  border-bottom: 1px solid #f0f0f0;
+  padding-right: rpx(28);
+}

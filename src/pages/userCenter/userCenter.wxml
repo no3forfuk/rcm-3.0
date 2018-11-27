@@ -23,7 +23,7 @@
         </view>
     </view>
     <view class="message-remind">
-        <view class="message-remind-item">
+        <view class="message-remind-item" bindtap="link2notice">
             <image class="message-remind-item-icon" src="../../static/images/Personalcenter_information@2x.png"></image>
             <view class="message-remind-item-right">
                 <text class="message-remind-item-right-text" style="color:#161616;">消息提醒</text>
