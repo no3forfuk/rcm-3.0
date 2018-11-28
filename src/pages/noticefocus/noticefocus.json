@@ -1,0 +1,6 @@
+{
+  "disableScroll": true,
+  "usingComponents": {
+    "common-header": "/components/commonHeader/commonHeader"
+  }
+}

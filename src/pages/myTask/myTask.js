@@ -50,7 +50,8 @@ Page({
             exp: 5,
             limit: 100,
             current: 34
-        }]
+        }],
+        userInfo: {}
     },
     openModal() {
         this.setData({
@@ -83,12 +84,56 @@ Page({
             }
         })
     },
-
+    getUserTask() {
+        app.request.getUserTask({
+            params: {},
+            success: res => {
+                if (res.status_code == 1 && res.list) {
+                    this.setData({
+                        taskList: res.list
+                    })
+                }
+            }
+        })
+    },
+    //获取用户详情
+    getUserInfo() {
+        app.request.getSelfInfo({
+            params: {
+                to_uid: wx.getStorageSync('u_id'),
+                from_uid: wx.getStorageSync('u_id')
+            },
+            success: res => {
+                this.setData({
+                    userInfo: res.data.info
+                })
+            }
+        })
+    },
+    userSignIn() {
+        app.request.userSignIn({
+            params: {},
+            success: res => {
+                if (res.status_code == 1) {
+                    this.openModal()
+                    this.getUserTask()
+                }
+                if (res.status_code == 0) {
+                    wx.showToast({
+                        title: res.message,
+                        mask: true,
+                        duration: 1000
+                    })
+                }
+            }
+        })
+    },
     /**
      * 生命周期函数--监听页面显示
      */
     onShow() {
-
+        this.getUserTask()
+        this.getUserInfo()
     },
 
     /**

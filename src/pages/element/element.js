@@ -27,7 +27,9 @@ Page({
         currentPost: {},
         smallHeader: false,
         currentWeiduIndex: 0,
-        descText: ''
+        descText: '',
+        isShowRate: false,
+        isEdiitRate: false
     },
     elementPaageScroll(e) {
         if (e.detail.scrollTop > 50) {
@@ -39,6 +41,13 @@ Page({
                 smallHeader: false
             })
         }
+    },
+    editRate() {
+        this.setData({
+            isShowRate: true,
+            isEdiitRate: true,
+            showAddPost: true
+        })
     },
     getUserInfo() {
         app.request.getSelfInfo({
@@ -106,6 +115,10 @@ Page({
     },
     //取消发送POST
     cancelAddPost() {
+        this.setData({
+            isShowRate: false,
+            isEdiitRate: false,
+        })
         this.closeAddPostPopup()
     },
     //获取元素详情

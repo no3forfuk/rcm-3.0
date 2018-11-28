@@ -12,13 +12,22 @@
     </view>
 </view>
 <view class="user-notice-item" wx:if="{{info.dynamic_type == 14}}">
-    <view class="notice-item-title mb-16">
-        <text class="text-tips">关注榜单</text>
-        <text class="text-tips">{{info.created_at}}</text>
+    <user-card avatar-width="40"
+               avatar-height="40"
+               user-info="{{info.from_user}}">
+        <view class="notice-item-title">
+            <view class="notice-item-title-name">
+                <text class="text-tips notice-item-title-name-text">{{info.from_user.name}}</text>
+                <text class="text-tips">关注了榜单</text>
+            </view>
+            <text class="text-tips">{{info.created_at}}</text>
+        </view>
+    </user-card>
+    <view class="element-view">
+        <rank-card mode="large" info="{{info.second}}"></rank-card>
     </view>
-    <rank-card mode="large" info="{{info.second}}"></rank-card>
     <view class="mt-16 notice-item-desc" wx:if="{{rankDescText || rankImageSrc}}">
-        <text class="text-title-lv2-multiple {rankImageSrc?'has-img-class':''}} limit-2-line">{{rankDescText}}</text>
+        <text class="text-title-lv2-multiple {{rankImageSrc?'has-img-class':''}} limit-2-line">{{rankDescText}}</text>
         <image src="{{rankImageSrc}}"
                wx:if="{{rankImageSrc}}"
                class="notice-item-desc-img"></image>
@@ -29,8 +38,10 @@
         <text class="text-tips">添加排名</text>
         <text class="text-tips">{{info.created_at}}</text>
     </view>
-    <ele-card info="{{info.element}}" type="collect"></ele-card>
-    <rank-card info="{{info.second}}"></rank-card>
+    <ele-card info="{{info.element}}"></ele-card>
+    <view class="element-view">
+        <rank-card info="{{info.second}}"></rank-card>
+    </view>
 </view>
 <view class="user-notice-item" wx:if="{{info.dynamic_type == 15}}">
     <user-card avatar-width="40"

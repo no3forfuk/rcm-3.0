@@ -40,6 +40,7 @@ App({
         }
     },
     request: utils.api,
+    qiniuPre: 'http://qiniu.bantangtv.com/',
     qiniuSDK: qiniuSDK,
     tools: utils.tools,
     randomColor: ['#418CE7', '#4ADFD2', '#56DC6F', '#E7D670', '#E7D670'],

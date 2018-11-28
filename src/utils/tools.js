@@ -31,6 +31,50 @@ function setScrollHeight(data = {
     })
 }
 
+function formatPostContent(e, type) {
+    let reg = /<[^>]+>|&[a-z]*;/g
+    if (type == 1) {
+        if (reg.test(e)) {
+            let textArr = e.split(reg)
+            return {
+                text: textArr.join('')
+            }
+        } else {
+            return {
+                text: e
+            }
+        }
+    } else if (type == 2) {
+        return {
+            text: ''
+        }
+    } else if (type == 3) {
+        if (reg.test(e)) {
+            let textArr = e.split(reg)
+            return {
+                text: textArr.join('')
+            }
+        } else {
+            let textArr = JSON.parse(e)
+            let obj = {
+                text: '',
+                img: []
+            }
+            for (let i = 0; i < textArr.length; i++) {
+                if (textArr[i].type == 'text') {
+                    obj.text = obj.text + textArr[i].value
+                }
+                if (textArr[i].type == 'image') {
+                    obj.img = [...obj.img, textArr[i].value]
+                }
+            }
+            return obj
+        }
+    }
+
+}
+
 module.exports = {
-    setScrollHeight
+    setScrollHeight,
+    formatPostContent
 }

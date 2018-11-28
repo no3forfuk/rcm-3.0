@@ -82,7 +82,9 @@
                                 </view>
                                 <view class="time-text-style">{{elementDetails.dimension[currentWeiduIndex].post.created_at}}</view>
                             </view>
-                            <image src="../../static/images/edit@2x.png" class="rate-user-right-icon"></image>
+                            <image src="../../static/images/edit@2x.png"
+                                   bindtap="editRate"
+                                   class="rate-user-right-icon"></image>
                         </view>
                     </rate-header>
                 </view>
@@ -109,6 +111,8 @@
         <add-post-pop catchtouchmove="true" height="{{addPostPopupHeight}}">
             <add-post-component bindcancelAdd="cancelAddPost"
                                 element="{{elementDetails}}"
+                                show-rate="{{isShowRate}}"
+                                edit-rate="{{isEdiitRate}}"
                                 height="{{addPostPopupHeight}}"></add-post-component>
         </add-post-pop>
     </view>

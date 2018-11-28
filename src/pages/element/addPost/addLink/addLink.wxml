@@ -27,13 +27,27 @@
             bindchange="handleSwiperChange"
             class="index-page-swiper">
         <swiper-item>
-            <scroll-view class="scroll-view-swiper">
-
+            <scroll-view class="scroll-view-swiper" scroll-y>
+                <block wx:for="{{hotRankList}}" wx:key="{{index}}">
+                    <view class="hot-rank-item">
+                        <view class="hot-rank-item-left">
+                            <rank-card info="{{item}}"></rank-card>
+                        </view>
+                        <view class="hot-rank-item-add {{index == addRankObj[index]?'yitianjia':''}}" bindtap="addRank" data-index="{{index}}">{{index == addRankObj[index]?'已':''}}添加</view>
+                    </view>
+                </block>
             </scroll-view>
         </swiper-item>
         <swiper-item>
-            <scroll-view class="scroll-view-swiper">
-
+            <scroll-view class="scroll-view-swiper" scroll-y>
+                <block wx:for="{{hotElementList}}" wx:key="{{index}}">
+                    <view class="hot-rank-item">
+                        <view class="hot-ele-item-left">
+                            <ele-card info="{{item}}"></ele-card>
+                        </view>
+                        <view class="hot-rank-item-add {{index == addElementObj[index]?'yitianjia':''}}" bindtap="addele" data-index="{{index}}">{{index == addElementObj[index]?'已':''}}添加</view>
+                    </view>
+                </block>
             </scroll-view>
         </swiper-item>
     </swiper>

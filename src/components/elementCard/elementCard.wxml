@@ -5,7 +5,7 @@
     <view class="element-card-component-left">
         <view class="element-card-component-title">
             <text class="element-card-component-title-rate" wx:if="{{rate}}">{{rate}}</text>
-            <text class="element-card-component-title-name {{rate?'ml-12':''}}">{{info.element_name}}</text>
+            <view class="element-card-component-title-name {{rate?'ml-12':''}}">{{info.element_name}}</view>
             <text class="element-card-component-title-score" wx:if="{{info.score_num}}">{{info.score_num}}评分</text>
         </view>
         <text class="element-card-component-left-attr text-body-single"><block wx:for="{{info.attribute}}" wx:key="{{index}}"><text>{{item.attribute_details}}</text>/</block></text>

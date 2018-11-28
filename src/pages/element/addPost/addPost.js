@@ -26,6 +26,10 @@ Component({
         weidu: {
             type: Number,
             value: 0
+        },
+        editRate:{
+            type: Boolean,
+            value: false
         }
     },
     data: {

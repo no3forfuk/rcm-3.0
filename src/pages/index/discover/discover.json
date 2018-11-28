@@ -1,8 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "rank-change": "./rankChange/rankChange",
-    "add-post": "./addPost/addPost",
-    "add-ele": "./addEle/addEle"
+    "focus-item": "../focus/focusItem/focusItem"
   }
 }

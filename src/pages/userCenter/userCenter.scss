@@ -120,6 +120,17 @@
   height: 100%;
   padding: rpx(36) rpx(20) rpx(36) rpx(50);
   @include layout(row, center, space-between);
+  position: relative;
+}
+
+.message-dot {
+  width: rpx(8);
+  height: rpx(8);
+  border-radius: 50%;
+  background-color: #E9001D;
+  position: absolute;
+  top: rpx(38);
+  left: rpx(92);
 }
 
 .message-show-icon {
@@ -139,4 +150,15 @@
 
 .no-login-text {
   color: #9b9b9b;
+}
+
+.message-show-content-title {
+
+}
+
+.message-show-content-value {
+  font-size: 15px;
+  line-height: 21px;
+  color: #484848;
+  @include limitTextLine(1);
 }

@@ -1,0 +1,4 @@
+<common-header title="回复与评论"></common-header>
+<scroll-view scroll-y class="notice-item-page" style="height:{{scrollHeight}}px;">
+
+</scroll-view>

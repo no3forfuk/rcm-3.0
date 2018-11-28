@@ -69,6 +69,7 @@
   font-size: 16px;
   color: #666;
 }
+
 .tab-mark {
   height: 2px;
   border-radius: 2px;
@@ -78,11 +79,41 @@
   left: rpx(0);
   transition: all 0.3s;
 }
-.index-page-swiper{
+
+.index-page-swiper {
   width: 100%;
   height: calc(100% - #{rpx(50)});
 }
-.scroll-view-swiper{
+
+.scroll-view-swiper {
   width: 100%;
   height: 100%;
+}
+
+.hot-rank-item {
+  padding: rpx(28);
+  width: 100%;
+  @include layout(row, center, space-between);
+}
+
+.hot-rank-item-add {
+  width: rpx(120);
+  height: rpx(48);
+  border-radius: rpx(4);
+  border: rpx(2) solid $colorDefault;
+  color: $colorDefault;
+  font-size: 15px;
+  text-align: center;
+  line-height: rpx(48);
+}
+
+.hot-rank-item-left {
+  width: rpx(558);
+}
+.hot-ele-item-left{
+  width: rpx(558);
+}
+.yitianjia {
+  border: rpx(2) solid #9b9b9b;
+  color: #9b9b9b;
 }

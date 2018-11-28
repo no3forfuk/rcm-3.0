@@ -8,6 +8,10 @@ Component({
             type: Object,
             value: {},
             observer(n, o, c) {
+                this.setData({
+                    contentText: '',
+                    contentImage: []
+                })
                 if ('id' in n) {
                     if (n.type == 1) {
                         let reg = /<[^>]+>|&[a-z]*;/g;

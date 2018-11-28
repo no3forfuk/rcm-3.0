@@ -33,9 +33,11 @@
         <view class="message-show-view no-login">
             <text class="no-login-text text-s12-l17-c9b" wx:if="{{noticeList.length == 0}}">暂无消息</text>
             <view class="message-show-view-info" wx:if="{{noticeList.length > 0}}">
+                <view class="message-dot" wx:if="{{showDot}}"></view>
                 <image class="message-show-icon" src="../../static/images/personalcenter_messagepreview@2x.png"></image>
                 <view class="message-show-content">
-
+                    <view class="message-show-content-title text-tips">{{noticeObj.title}}</view>
+                    <view class="message-show-content-value">{{noticeObj.value}}</view>
                 </view>
             </view>
         </view>

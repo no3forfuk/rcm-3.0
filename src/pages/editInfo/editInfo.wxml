@@ -2,9 +2,9 @@
 <view class="edit-item edit-item-edit-avatar" bindtap="selectImg">
     <text class="text-title-lv2-single">头像</text>
     <view class="edit-item-avatar">
-        <image src="{{avatar}}"
+        <image src="{{userInfo.avatar}}"
                class="edit-item-avatar-img"></image>
-        <image class="edit-item-avatar-icon"></image>
+        <image class="edit-item-avatar-icon" src="../../static/images/personalcenter_sph.png"></image>
     </view>
 </view>
 <view class="edit-item"
@@ -12,8 +12,8 @@
       bindtap="toggleEditModal">
     <text class="text-title-lv2-single">昵称</text>
     <view class="edit-item-name">
-        <text class="text-body-single-fb edit-item-text">{{name}}</text>
-        <image src="" class="edit-icon"></image>
+        <text class="text-body-single-fb edit-item-text">{{userInfo.name}}</text>
+        <image src="../../static/images/personalcenter_set_edit.png" class="edit-icon"></image>
     </view>
 </view>
 <view class="edit-item"
@@ -21,8 +21,8 @@
       bindtap="toggleEditModal">
     <text class="text-title-lv2-single">个性签名</text>
     <view class="edit-item-name">
-        <text class="text-body-single-fb edit-item-text">{{sign}}</text>
-        <image src="" class="edit-icon"></image>
+        <text class="text-body-single-fb edit-item-text">{{userInfo.signature}}</text>
+        <image src="../../static/images/personalcenter_set_edit.png" class="edit-icon"></image>
     </view>
 </view>
 <edit-modal visible="{{showEditModal}}">

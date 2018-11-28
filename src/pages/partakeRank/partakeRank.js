@@ -8,7 +8,7 @@ Page({
     data: {
         scrollViewHeight: 0,
         partakeRankList: [],
-        recommendRank: [{ranking_name:'生命周期函数--监听页面初次渲染完成生命周期函数--监听页面初次渲染完成'}]
+        recommendRank: [{ranking_name: '生命周期函数--监听页面初次渲染完成生命周期函数--监听页面初次渲染完成'}]
     },
 
     /**
@@ -42,10 +42,11 @@ Page({
                 limit: 100
             },
             success: res => {
-                this.setData({
-                    partakeRankList:res.data.list
-                })
-                console.log(res);
+                if (res.status_code == 1) {
+                    this.setData({
+                        partakeRankList: res.data.list.reverse()
+                    })
+                }
             }
         })
     },

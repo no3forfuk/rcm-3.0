@@ -16,7 +16,12 @@
     "pages/addElement/addElement",
     "pages/newRank/newRank",
     "pages/myRank/myRank",
-    "pages/myFans/myFans"
+    "pages/myFans/myFans",
+    "pages/noticecollect/noticecollect",
+    "pages/noticecomment/noticecomment",
+    "pages/noticefocus/noticefocus",
+    "pages/noticeinvite/noticeinvite",
+    "pages/noticezan/noticezan"
   ],
   "window": {
     "backgroundTextStyle": "#000",

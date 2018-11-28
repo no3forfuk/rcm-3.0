@@ -6,19 +6,43 @@ Page({
      * 页面的初始数据
      */
     data: {
-        avatar: 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3621103112,910630873&fm=26&gp=0.jpg',
+        userInfo: {},
         showEditModal: false,
         editType: '',
         name: '',
         sign: '',
         textareaValue: ''
     },
+    //获取用户详情
+    getUserInfo() {
+        app.request.getSelfInfo({
+            params: {
+                to_uid: wx.getStorageSync('u_id'),
+                from_uid: wx.getStorageSync('u_id')
+            },
+            success: res => {
+                this.setData({
+                    userInfo: res.data.info
+                })
+            }
+        })
+    },
     selectImg() {
         wx.chooseImage({
             count: 1,
             success: res => {
-                this.setData({
-                    avatar: res.tempFilePaths[0]
+                // editUserInfo this.getUserInfo()
+                console.log(res);
+                app.qiniuSDK.upload(res.tempFiles[0].path, complete => {
+                    app.request.editUserInfo({
+                        params: {
+                            avatar: app.qiniuPre + complete.key,
+                            avatar_key: complete.key
+                        },
+                        success: res => {
+                            this.getUserInfo()
+                        }
+                    })
                 })
             }
         })
@@ -40,12 +64,22 @@ Page({
     },
     submitEdit() {
         if (this.data.editType == 'name') {
-            this.setData({
-                name: this.data.textareaValue
+            app.request.editUserInfo({
+                params: {
+                    name: this.data.textareaValue
+                },
+                success: res => {
+                    this.getUserInfo()
+                }
             })
         } else {
-            this.setData({
-                sign: this.data.textareaValue
+            app.request.editUserInfo({
+                params: {
+                    signature: this.data.textareaValue
+                },
+                success: res => {
+                    this.getUserInfo()
+                }
             })
         }
         this.setData({
@@ -71,7 +105,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-
+        this.getUserInfo()
     },
 
     /**

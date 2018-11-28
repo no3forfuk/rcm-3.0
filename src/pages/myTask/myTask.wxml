@@ -4,31 +4,31 @@
         <view class="my-task-header-rule">
             <text>每日任务规则</text>
         </view>
-        <view class="my-task-header-register" bindtap="openModal">
+        <view class="my-task-header-register" bindtap="userSignIn">
             <text>签到</text>
         </view>
         <view class="my-task-header-avatar"
               style="background: conic-gradient(rgba(255, 230, 113, 1) 0, rgba(255, 201, 42, 1) {{currentScore/totalScore * 100 }}%, #d1d1d1 {{currentScore/totalScore * 100}}%, #d1d1d1 100%)">
             <image class="my-task-header-avatar-img"
-                   src="http://img1.imgtn.bdimg.com/it/u=3103563089,152994782&fm=26&gp=0.jpg"></image>
+                   src="{{userInfo.avatar}}"></image>
         </view>
-        <text class="my-task-header-avatar-level">Lv 2</text>
-        <text class="my-task-header-level-num">456/1156</text>
+        <text class="my-task-header-avatar-level">Lv {{userInfo.level}}</text>
+        <text class="my-task-header-level-num">{{userInfo.empiric}}/{{userInfo.next_empiric}}</text>
     </view>
     <view class="task-list-view">
         <block wx:for="{{taskList}}" wx:key="{{index}}">
             <view class="task-list-item">
                 <view class="task-list-item-header">
-                    <text class="text-s17-l24-c48">{{item.name}}</text>
-                    <text class="text-s12-l17-c9b ml-16">经验值+{{item.exp}}</text>
+                    <text class="text-s17-l24-c48">{{item.task_name}}</text>
+                    <text class="text-s12-l17-c9b ml-16">经验值+{{item.get_empiric}}</text>
                 </view>
                 <view class="task-list-item-body">
                     <text>
-                        <text style="color: #FBAE2B;">{{item.current}}/</text>{{item.limit}}
+                        <text style="color: #FBAE2B;">{{item.schedule}}/</text>{{item.day_limit}}
                     </text>
                 </view>
                 <view class="task-list-item-progress"
-                      style="background: linear-gradient(90deg, rgba(255, 230, 113, 1) 0%, rgba(255, 201, 42, 1) {{item.current/item.limit *100}}%, #d1d1d1 {{item.current/item.limit *100}}%, #d1d1d1 100%);"></view>
+                      style="background: linear-gradient(90deg, rgba(255, 230, 113, 1) 0%, rgba(255, 201, 42, 1) {{item.schedule/item.day_limit *100}}%, #d1d1d1 {{item.schedule/item.day_limit *100}}%, #d1d1d1 100%);"></view>
             </view>
         </block>
     </view>

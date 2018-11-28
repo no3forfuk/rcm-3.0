@@ -285,6 +285,15 @@ module.exports = {
         })
     },
     //签到 Xcx/User/userSignIn register
+    userSignIn({params = {}, success}) {
+        return request({
+            uri: '/Xcx/User/userSignIn',
+            params: params,
+            success(res) {
+                success(res)
+            }
+        })
+    },
     //获取首页榜单
     getIndexRank({params = {}, success}) {
         return request({
@@ -442,6 +451,46 @@ module.exports = {
     get7niuToken({params = {}, success}) {
         return request({
             uri: '/Xcx/Qiniu/getUploadToken',
+            params: params,
+            success(res) {
+                success(res)
+            }
+        })
+    },
+    //获取任务
+    getUserTask({params = {}, success}) {
+        return request({
+            uri: '/Xcx/User/userTask',
+            params: params,
+            success(res) {
+                success(res)
+            }
+        })
+    },
+    //获取热门的榜单
+    getHotsRanking({params = {}, success}) {
+        return request({
+            uri: '/Xcx/Second/popularRanking',
+            params: params,
+            success(res) {
+                success(res)
+            }
+        })
+    },
+    //获取热门的paiming
+    getHotsElement({params = {}, success}) {
+        return request({
+            uri: '/Xcx/Element/popularElement',
+            params: params,
+            success(res) {
+                success(res)
+            }
+        })
+    },
+    //修改用户资料
+    editUserInfo({params = {}, success}) {
+        return request({
+            uri: '/Xcx/User/editUser',
             params: params,
             success(res) {
                 success(res)

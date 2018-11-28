@@ -1,0 +1,4 @@
+<common-header title="我的榜单"></common-header>
+<scroll-view scroll-y class="notice-item-page" style="height:{{scrollHeight}}px;">
+
+</scroll-view>

@@ -9,7 +9,14 @@ Component({
             left: 0
         },
         tabHeaderArray: [],
-        current: 0
+        current: 0,
+        hotRankList: [],
+        hotElementList: [],
+        addRankList: [],
+        addRankObj: {},
+        addElementList: [],
+        addElementObj: {},
+        outLinkList: []
     },
     attached() {
 
@@ -30,8 +37,32 @@ Component({
                 }
             })
         })();
+        this.getHotsRanking()
+        this.getHotsElement()
     },
     methods: {
+        addRank(e) {
+            if (e.currentTarget.dataset.index in this.data.addRankObj) {
+                return
+            } else {
+                let obj = {}
+                obj[e.currentTarget.dataset.index] = e.currentTarget.dataset.index
+                this.setData({
+                    addRankObj: {...this.data.addRankObj, ...obj}
+                })
+            }
+        },
+        addele(e) {
+            if (e.currentTarget.dataset.index in this.data.addElementObj) {
+                return
+            } else {
+                let obj = {}
+                obj[e.currentTarget.dataset.index] = e.currentTarget.dataset.index
+                this.setData({
+                    addElementObj: {...this.data.addElementObj, ...obj}
+                })
+            }
+        },
         cancel() {
             this.triggerEvent('closeAddLink')
         },
@@ -57,12 +88,42 @@ Component({
                 })
             }
         },
-        handleSwiperChange(e){
+        handleSwiperChange(e) {
             const detail = e.detail
             this.setData({
                 current: detail.current
             })
             this.setCurrentStyle(detail.current)
+        },
+        getHotsRanking() {
+            app.request.getHotsRanking({
+                params: {
+                    page: 1,
+                    limit: 1000
+                },
+                success: res => {
+                    if (res.status_code == 1) {
+                        this.setData({
+                            hotRankList: res.data.list
+                        })
+                    }
+                }
+            })
+        },
+        getHotsElement() {
+            app.request.getHotsElement({
+                params: {
+                    page: 1,
+                    limit: 1000
+                },
+                success: res => {
+                    if (res.status_code == 1) {
+                        this.setData({
+                            hotElementList: res.data.list
+                        })
+                    }
+                }
+            })
         }
     }
 })

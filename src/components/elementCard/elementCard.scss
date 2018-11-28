@@ -32,14 +32,15 @@
 .element-card-component-title {
   width: 100%;
   @include layout(row, flex-end);
+  word-break: break-all;
   &-name {
-    //max-width: rpx(374);
     font-size: 17px;
-    line-height: 24px;
+    line-height: 20px;
     font-weight: 600;
     color: #161616;
     letter-spacing: 1.2px;
-    @include limitTextLine(1);
+    width: rpx(374);
+    @include limitTextLine(2);
   }
   &-rate {
     color: $colorDefault;

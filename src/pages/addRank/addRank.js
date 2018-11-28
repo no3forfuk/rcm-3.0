@@ -94,27 +94,32 @@ Page({
         })
     },
     submitAdd() {
-        // for (let i = 0; i < this.data.rankDesc.length; i++) {
-        //     if (this.data.rankDesc[i].type == 'image') {
-        //         app.qiniuSDK.upload(this.data.rankDesc[i].src, complete => {
-        //             console.log(complete);
-        //         })
-        //     }
-        // }
-        // // app.qiniuSDK.upload(path, complete => {})
-        app.request.addNewRank({
-            params: {
-                first_id: this.data.firstRankTags[this.data.selectIndex].id,
-                dimension_id: this.data.rankWeidu[this.data.currentWeiduIndex].id,
-                ranking_name: this.data.rankName,
-                ranking_details: JSON.stringify(this.data.rankDesc)
-            },
-            success: res => {
-                wx.redirectTo({
-                    url: `/pages/newRank/newRank?id=${res.data.id}`
+        let rankDesc = this.data.rankDesc
+        for (let i = 0; i < rankDesc.length; i++) {
+            if (rankDesc[i].type == 'image') {
+                app.qiniuSDK.upload(rankDesc[i].path, complete => {
+                    rankDesc[i].src = app.qiniuPre + complete.key
+                    this.setData({
+                        rankDesc: rankDesc
+                    })
+                    if (rankDesc.length == i - 1) {
+                        app.request.addNewRank({
+                            params: {
+                                first_id: this.data.firstRankTags[this.data.selectIndex].id,
+                                dimension_id: this.data.rankWeidu[this.data.currentWeiduIndex].id,
+                                ranking_name: this.data.rankName,
+                                ranking_details: JSON.stringify(this.data.rankDesc)
+                            },
+                            success: res => {
+                                wx.redirectTo({
+                                    url: `/pages/newRank/newRank?id=${res.data.id}`
+                                })
+                            }
+                        })
+                    }
                 })
             }
-        })
+        }
     },
     textareaFocus(e) {
         this.setData({
@@ -196,7 +201,8 @@ Page({
                     this.setData({
                         rankDesc: [...this.data.rankDesc, {
                             type: 'image',
-                            src: res.tempFilePaths[i]
+                            src: res.tempFilePaths[i],
+                            path: res.tempFiles[i].path
                         }]
                     })
                 }

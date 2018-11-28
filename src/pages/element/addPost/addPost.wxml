@@ -34,7 +34,7 @@
             </block>
         </view>
     </view>
-    <view class="add-post-content">
+    <view class="add-post-content" wx:if="{{!editRate}}">
         <add-content id="addContent"></add-content>
     </view>
 </view>

@@ -29,4 +29,24 @@
   height: rpx(138);
   border-bottom: 1px solid #f0f0f0;
   padding-right: rpx(28);
+  padding-top: rpx(28);
+  padding-bottom: rpx(30);
+  @include layout(column, flex-start, space-between);
+}
+
+.notice-item-right-content {
+  font-size: 15px;
+  line-height: 21px;
+  color: #484848;
+  @include limitTextLine(1);
+}
+
+.notice-dot {
+  width: rpx(8);
+  height: rpx(8);
+  border-radius: 50%;
+  background-color: #E9001D;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
